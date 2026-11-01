@@ -98,6 +98,31 @@
 
     </LinearLayout>
 
+    <!-- Offered when a place saved for the visual check is within 50 m (MapActivity
+         .updateVisualCheckOffer); while the check runs it becomes its Stop button. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/visual_check_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="56dp"
+            android:visibility="gone" />
+
+        <!-- Shown only while the visual check runs. -->
+        <Button
+            android:id="@+id/visual_check_camera_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="56dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
     <com.wikiponder.touchmap.classes.ui.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"

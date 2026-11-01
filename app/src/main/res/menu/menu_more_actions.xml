@@ -5,6 +5,9 @@
         android:id="@+id/menu_download_map"
         android:title="@string/menu_download_map" />
     <item
+        android:id="@+id/menu_visual_places"
+        android:title="@string/visual_places_title" />
+    <item
         android:id="@+id/menu_settings"
         android:title="@string/action_settings" />
     <item

@@ -50,6 +50,20 @@ public final class EdgeToEdgeActionBar {
 		});
 	}
 
+	/**
+	 * Keeps {@code view}'s bottom edge above the navigation bar under forced edge-to-edge, for
+	 * screens with a control pinned to the bottom (RecordVisualPlaceActivity's Record button sat
+	 * under the gesture bar on a Galaxy S21, API 35, and taps on it went to the system).
+	 */
+	public static void padBottomForNavigationBar(View view) {
+		int basePadding = view.getPaddingBottom();
+		ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
+			int bottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+			v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), basePadding + bottom);
+			return insets;
+		});
+	}
+
 	/** Reads the theme's actual resolved ActionBar height rather than assuming the 56dp default. */
 	private static int actionBarHeightPx(AppCompatActivity activity) {
 		TypedValue value = new TypedValue();

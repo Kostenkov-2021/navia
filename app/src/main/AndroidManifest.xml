@@ -6,6 +6,10 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Visual place check (ManageVisualPlacesActivity / VisualCheckController): only while a
+         screen of the app is open, never from a service. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- ACCESS_BACKGROUND_LOCATION is deliberately NOT declared. Nothing in the app ever requests it
@@ -71,6 +75,18 @@
             android:name="com.wikiponder.touchmap.AboutActivity"
             android:exported="false"
             android:label="@string/about_title" />
+        <activity
+            android:name="com.wikiponder.touchmap.ManageVisualPlacesActivity"
+            android:exported="false"
+            android:label="@string/visual_places_title" />
+        <activity
+            android:name="com.wikiponder.touchmap.EditVisualPlaceActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wikiponder.touchmap.RecordVisualPlaceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="@string/record_visual_place_title" />
         <activity
             android:name="com.wikiponder.touchmap.DownloadMapActivity"
             android:exported="false"

@@ -85,6 +85,20 @@ android {
             }
         }
     }
+    // -PtestRelease runs androidTest against the release build, for devices that carry a
+    // release-signed install: a debug install fails there with a signature mismatch, and
+    // uninstalling first would wipe the user's maps and edits.
+    if (project.hasProperty("testRelease")) {
+        testBuildType = "release"
+        // The test runner expects the app to provide the libraries both APKs share, which R8
+        // would otherwise strip from the app.
+        buildTypes.getByName("release").apply {
+            proguardFile("proguard-test-release.pro")
+            isShrinkResources = false
+            // Lets `adb shell run-as` read the app's private files (e.g. saved place photos).
+            isDebuggable = true
+        }
+    }
     compileOptions {
         //sourceCompatibility = JavaVersion.VERSION_1_8
         //targetCompatibility = JavaVersion.VERSION_1_8
@@ -163,6 +177,13 @@ dependencies {
     implementation("androidx.annotation:annotation:1.9.1")
     implementation(libs.androidx.activity)
     implementation(libs.constraintlayout)
+
+    // Visual place recognition (experimental, classes/vpr): MegaLoc place descriptors run with ONNX
+    // Runtime (model exported by tools/vpr/export_megaloc.py), camera frames from CameraX.
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.30.0")
+    implementation("androidx.camera:camera-camera2:1.5.3")
+    implementation("androidx.camera:camera-lifecycle:1.5.3")
+    implementation("androidx.camera:camera-view:1.5.3")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

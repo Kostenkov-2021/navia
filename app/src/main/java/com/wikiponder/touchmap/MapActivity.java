@@ -42,6 +42,9 @@ import com.wikiponder.touchmap.classes.ui.ImportProgressDialog;
 import com.wikiponder.touchmap.classes.ui.NodeAddingDialogBox;
 import com.wikiponder.touchmap.classes.ui.NodeEditDialogBox;
 import com.wikiponder.touchmap.classes.ui.SharePromptDialog;
+import com.wikiponder.touchmap.classes.vpr.VisualCheckController;
+import com.wikiponder.touchmap.classes.vpr.VisualPlacesDb;
+import com.wikiponder.touchmap.classes.vpr.VprModel;
 import com.wikiponder.touchmap.databinding.ActivityMapBinding;
 
 import java.util.ArrayList;
@@ -53,7 +56,7 @@ import java.util.Set;
 
 public class MapActivity extends BaseActivity
 		implements AngleListener, UserLocationListener, SharedPreferences.OnSharedPreferenceChangeListener,
-		ImportState.Listener {
+		ImportState.Listener, VisualCheckController.Listener {
 	
 	private static final String TAG = "MapActivity";
 	
@@ -136,6 +139,18 @@ public class MapActivity extends BaseActivity
 				}
 			});
 	private boolean permissionsRequested;
+
+	// Visual place check (experimental): the offer button appears when a place saved under
+	// More > Place photos is within VisualCheckController.RADIUS_M; see updateVisualCheckOffer.
+	private VisualCheckController visualCheck;
+	private static final long VISUAL_OFFER_CHECK_MS = 10_000;
+	private long lastVisualOfferCheck;
+	private String visualOfferPlace;
+	private final ActivityResultLauncher<String> cameraPermissionLauncher =
+			registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
+				if (granted) startVisualCheck();
+				else Toast.makeText(this, R.string.camera_permission_required, Toast.LENGTH_LONG).show();
+			});
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +163,14 @@ public class MapActivity extends BaseActivity
 		getOnBackPressedDispatcher().addCallback(this, modeBackCallback);
 
 		setupButtons();
+		visualCheck = new VisualCheckController(this, this);
+		binding.visualCheckButton.setOnClickListener(v -> toggleVisualCheck());
+		binding.visualCheckCameraButton.setOnClickListener(v -> {
+			visualCheck.setFrontCamera(!visualCheck.isFrontCamera());
+			MyApplication.getAudioClient(this).speak(getString(
+					visualCheck.isFrontCamera() ? R.string.front_camera_on : R.string.back_camera_on));
+			updateVisualCheckButton();
+		});
 		this.permissionsRequested = false;
 		// Baseline so the first onStart() doesn't mistake "no import has ever run" for "one just
 		// finished" — only later increases past this starting point should trigger a reload.
@@ -286,6 +309,7 @@ public class MapActivity extends BaseActivity
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		visualCheck.shutdown();
 		// The pending force-close Runnable (see onImportCancelConfirmed) captures this Activity —
 		// drop it so a cancel confirmed just before leaving this screen can't fire its callback
 		// (dialog dismiss + Toast) against an already-destroyed Activity later.
@@ -456,6 +480,10 @@ public class MapActivity extends BaseActivity
 	@Override
 	protected void onPause() {
 		super.onPause();
+		if (visualCheck.isRunning()) {
+			visualCheck.stop();
+			updateVisualCheckButton();
+		}
 		MyApplication.getAngleManager(this).removeListener(this);
 		AccessibilityManager am = (AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE);
 		if (am != null) {
@@ -502,7 +530,69 @@ public class MapActivity extends BaseActivity
 			binding.mapView.setUserLocation(location);
 			binding.infoButton.setContentDescription(getString(R.string.info_button_text, (int) location.getAccuracy(), location.getSpeed() * 3.6));
 			maybeShowStartupDownloadPrompt(location);
+			visualCheck.setLocation(location);
+			updateVisualCheckOffer(location);
 		}
+	}
+
+	/** Every VISUAL_OFFER_CHECK_MS: is a place saved for the visual check within its radius? If so
+	 * the button at the top offers the check (announced once when it appears). */
+	private void updateVisualCheckOffer(Location location) {
+		long now = android.os.SystemClock.elapsedRealtime();
+		if (now - lastVisualOfferCheck < VISUAL_OFFER_CHECK_MS) return;
+		lastVisualOfferCheck = now;
+		new Thread(() -> {
+			List<VisualPlacesDb.Place> near = VisualPlacesDb.get(this)
+					.placesNear(location.getLatitude(), location.getLongitude(), VisualCheckController.RADIUS_M);
+			String name = near.isEmpty() || !VprModel.isAvailable(this) ? null : near.get(0).name;
+			runOnUiThread(() -> {
+				if (isFinishing() || isDestroyed()) return;
+				boolean appeared = name != null && !name.equals(visualOfferPlace);
+				visualOfferPlace = name;
+				updateVisualCheckButton();
+				if (appeared && !visualCheck.isRunning()) {
+					binding.visualCheckButton.announceForAccessibility(binding.visualCheckButton.getText());
+				}
+			});
+		}).start();
+	}
+
+	private void updateVisualCheckButton() {
+		binding.visualCheckCameraButton.setVisibility(visualCheck.isRunning() ? View.VISIBLE : View.GONE);
+		binding.visualCheckCameraButton.setText(visualCheck.isFrontCamera()
+				? R.string.action_use_back_camera : R.string.action_use_front_camera);
+		if (visualCheck.isRunning()) {
+			binding.visualCheckButton.setText(R.string.action_stop_visual_check);
+			binding.visualCheckButton.setVisibility(View.VISIBLE);
+		} else if (visualOfferPlace != null) {
+			binding.visualCheckButton.setText(getString(R.string.action_start_visual_check, visualOfferPlace));
+			binding.visualCheckButton.setVisibility(View.VISIBLE);
+		} else {
+			binding.visualCheckButton.setVisibility(View.GONE);
+		}
+	}
+
+	private void toggleVisualCheck() {
+		if (visualCheck.isRunning()) {
+			visualCheck.stop();
+			MyApplication.getAudioClient(this).speak(getString(R.string.visual_check_stopped));
+			updateVisualCheckButton();
+		} else if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+			startVisualCheck();
+		} else {
+			cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
+		}
+	}
+
+	private void startVisualCheck() {
+		visualCheck.start();
+		updateVisualCheckButton();
+	}
+
+	@Override
+	public void onVisualCheckStopped(String reason) {
+		MyApplication.getAudioClient(this).speak(reason);
+		updateVisualCheckButton();
 	}
 
 	/** Checked once per app launch, off the very first GPS fix that arrives — not on every location
@@ -705,6 +795,9 @@ public class MapActivity extends BaseActivity
 			int id = item.getItemId();
 			if (id == R.id.menu_download_map) {
 				openDownloadMapActivity();
+				return true;
+			} else if (id == R.id.menu_visual_places) {
+				startActivity(new Intent(MapActivity.this, ManageVisualPlacesActivity.class));
 				return true;
 			} else if (id == R.id.menu_settings) {
 				openSettings();
