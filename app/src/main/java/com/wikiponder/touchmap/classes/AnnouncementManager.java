@@ -40,6 +40,10 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	private String lastMapMessage = "";
 	private long lastMapMessageTime = 0;
 	private boolean isPaused;
+	/** Set while the visual place check runs (VisualCheckController): the automatic, location- and
+	 * aiming-driven announcements stay quiet so they don't talk over its guidance. Separate from
+	 * isPaused, which window focus and activity starts keep resetting. Touching the map still speaks. */
+	private volatile boolean automaticSuppressed;
 	private int lastAnnouncedAimingClock;
 	private float screenWidthMeters;
 	
@@ -92,7 +96,7 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	
 	public void announceNearestElement(Location userLocation, List<NearestElement> nearestElements, Double bearing) {
 		Log.d(TAG, userLocation.toString());
-		if (isPaused || nearestElements == null || nearestElements.isEmpty()) {
+		if (isPaused || automaticSuppressed || nearestElements == null || nearestElements.isEmpty()) {
 			return;
 		}
 		
@@ -290,7 +294,7 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	}
 	
 	public void announceNearestPoint(NearestElement ne, boolean reportBearing, boolean attention) {
-		if (isPaused || isTouching)
+		if (isPaused || automaticSuppressed || isTouching)
 			return;
 		
 		audioClient.stopSpeaking();
@@ -328,9 +332,13 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	public void resume() {
 		isPaused = false;
 	}
+
+	public void setAutomaticSuppressed(boolean suppressed) {
+		automaticSuppressed = suppressed;
+	}
 	
 	public void announceAiming(MapElement element, double distance, double bearing) {
-		if (isPaused || isTouching || element == null)
+		if (isPaused || automaticSuppressed || isTouching || element == null)
 			return;
 		
 		int aimingClock = Utils.bearingToClockDirection(bearing);
