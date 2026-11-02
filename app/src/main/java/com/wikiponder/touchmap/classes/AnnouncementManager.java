@@ -236,6 +236,18 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	}
 	
 	
+	/** {@code count} distinct buzzes, scaled by the vibration-intensity setting. */
+	public void vibratePulses(int count) {
+		long[] timings = new long[count * 2];
+		int[] amplitudes = new int[count * 2];
+		for (int i = 0; i < count; i++) {
+			timings[2 * i] = i == 0 ? 0 : 150;
+			timings[2 * i + 1] = 120;
+			amplitudes[2 * i + 1] = 255;
+		}
+		vibrate(timings, amplitudes);
+	}
+
 	private void vibrate(int ms) {
 		long[] timings = new long[] {0, ms};
 		int[] amplitudes = new int[] {0, 255};

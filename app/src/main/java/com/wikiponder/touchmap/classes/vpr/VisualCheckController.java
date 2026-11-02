@@ -54,7 +54,10 @@ public class VisualCheckController {
 	/** The same match is not announced again within this time. */
 	private static final long REPEAT_MS = 10_000;
 	/** A turn smaller than this counts as facing the place. */
-	private static final float ALIGNED_DEG = 8;
+	private static final float ALIGNED_DEG = 10;
+	/** An image-measured turn smaller than this vibrates twice, a larger one once (aligned:
+	 * three times). Compass estimates never vibrate. */
+	private static final float NEAR_DEG = 30;
 	/** Without a match, the compass hint is given only for turns larger than this, ... */
 	private static final float HINT_MIN_DEG = 30;
 	/** ... and at most this often. */
@@ -252,6 +255,11 @@ public class VisualCheckController {
 				Log.d(TAG, "best " + best.name + " " + bestSim + " turn " + turn + (fromImage ? " image" : " compass"));
 				int pct = Math.round(bestSim * 100);
 				boolean fresh = best.id != lastAnnouncedPlace || now - lastAnnouncedAt > REPEAT_MS;
+				if (fromImage) {
+					float abs = Math.abs(turn);
+					MyApplication.getAnnouncementManager(activity)
+							.vibratePulses(abs < ALIGNED_DEG ? 3 : abs < NEAR_DEG ? 2 : 1);
+				}
 				if (Float.isNaN(turn) || Math.abs(turn) < ALIGNED_DEG) {
 					if (fresh || !wasAligned) {
 						audio.speak(activity.getString(R.string.visual_check_match, best.name, pct));

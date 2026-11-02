@@ -19,7 +19,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
@@ -61,8 +60,6 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 	private VoiceInputEditText nameInput;
 	private TextView statusText;
 	private Button recordButton;
-	private Button switchCameraButton;
-	private boolean frontCamera;
 	private ProcessCameraProvider cameraProvider;
 	private PreviewView preview;
 
@@ -110,17 +107,6 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 		recordButton = findViewById(R.id.record_button);
 		preview = findViewById(R.id.preview);
 		recordButton.setOnClickListener(v -> startRecording());
-		switchCameraButton = findViewById(R.id.switch_camera_button);
-		frontCamera = VprFrames.useFrontCamera(this);
-		updateSwitchCameraButton();
-		switchCameraButton.setOnClickListener(v -> {
-			frontCamera = !frontCamera;
-			VprFrames.setUseFrontCamera(this, frontCamera);
-			updateSwitchCameraButton();
-			bindCamera();
-			MyApplication.getAudioClient(this).speak(getString(
-					frontCamera ? R.string.front_camera_on : R.string.back_camera_on));
-		});
 		if (placeId >= 0) {
 			nameInput.setVisibility(View.GONE);
 			statusText.setText(R.string.record_visual_recording_instructions);
@@ -181,22 +167,11 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 		}
 	}
 
-	private void updateSwitchCameraButton() {
-		switchCameraButton.setText(frontCamera ? R.string.action_use_back_camera : R.string.action_use_front_camera);
-	}
-
 	private void startCamera() {
 		ListenableFuture<ProcessCameraProvider> future = ProcessCameraProvider.getInstance(this);
 		future.addListener(() -> {
 			try {
 				cameraProvider = future.get();
-				boolean hasFront = cameraProvider.hasCamera(CameraSelector.DEFAULT_FRONT_CAMERA);
-				boolean hasBack = cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA);
-				switchCameraButton.setVisibility(hasFront && hasBack ? View.VISIBLE : View.GONE);
-				if (frontCamera ? !hasFront : !hasBack) {
-					frontCamera = !frontCamera;
-					updateSwitchCameraButton();
-				}
 				bindCamera();
 			} catch (Exception e) {
 				Log.e(TAG, "camera", e);
@@ -225,9 +200,8 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 					image.close();
 				}
 			});
-			orientation.setFrontCamera(frontCamera);
 			provider.unbindAll();
-			provider.bindToLifecycle(this, VprFrames.selector(frontCamera), previewUseCase, analysis);
+			provider.bindToLifecycle(this, VprFrames.selector(false), previewUseCase, analysis);
 		} catch (Exception e) {
 			Log.e(TAG, "camera", e);
 			Toast.makeText(this, R.string.camera_unavailable, Toast.LENGTH_LONG).show();
@@ -253,7 +227,6 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 			}
 		}
 		recordButton.setEnabled(false);
-		switchCameraButton.setEnabled(false);
 		nameInput.setEnabled(false);
 		statusText.setText(R.string.record_visual_place_recording);
 		recordStart = SystemClock.elapsedRealtime();
@@ -291,7 +264,6 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 		recording = false;
 		handler.removeCallbacksAndMessages(null);
 		recordButton.setEnabled(true);
-		switchCameraButton.setEnabled(true);
 		nameInput.setEnabled(true);
 		statusText.setText(placeId >= 0 ? R.string.record_visual_recording_instructions
 				: R.string.record_visual_place_instructions);
@@ -304,7 +276,6 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 		Location location = bestLocation;
 		List<Bitmap> frames = new ArrayList<>();
 		List<Float> headings = new ArrayList<>();
-		boolean front = frontCamera;
 		synchronized (bestFrames) {
 			for (int i = 0; i < SECONDS; i++) {
 				if (bestFrames[i] != null) {
@@ -322,7 +293,7 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 				if (model == null) throw new IllegalStateException("model missing");
 				List<VisualPlacesDb.Frame> stored = new ArrayList<>();
 				for (int i = 0; i < frames.size(); i++) {
-					stored.add(new VisualPlacesDb.Frame(frames.get(i), model.embed(frames.get(i)), headings.get(i), front));
+					stored.add(new VisualPlacesDb.Frame(frames.get(i), model.embed(frames.get(i)), headings.get(i), false));
 				}
 				if (placeId >= 0) VisualPlacesDb.get(this).addRecording(placeId, location, stored);
 				else VisualPlacesDb.get(this).insertPlace(name, location, stored);
@@ -344,7 +315,6 @@ public class RecordVisualPlaceActivity extends AppCompatActivity implements User
 				} else {
 					statusText.setText(R.string.visual_place_save_failed);
 					recordButton.setEnabled(true);
-					switchCameraButton.setEnabled(true);
 					nameInput.setEnabled(true);
 				}
 			});

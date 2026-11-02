@@ -29,15 +29,6 @@
         android:importantForAccessibility="no" />
 
     <Button
-        android:id="@+id/switch_camera_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:minHeight="56dp"
-        android:text="@string/action_use_front_camera"
-        android:visibility="gone" />
-
-    <Button
         android:id="@+id/record_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

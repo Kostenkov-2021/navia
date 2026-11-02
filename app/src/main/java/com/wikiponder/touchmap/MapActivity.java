@@ -101,6 +101,16 @@ public class MapActivity extends BaseActivity
 	// Registered *after* BaseActivity's own back callback (super.onCreate() runs first), so the
 	// dispatcher tries this one first — falling through to the base double-back-to-exit behavior only
 	// while this stays disabled.
+	// Back while the visual check runs stops it (like its Stop button) instead of leaving the screen.
+	// Registered after modeBackCallback, so it is tried first; enabled only while the check runs
+	// (see updateVisualCheckButton).
+	private final OnBackPressedCallback visualCheckBackCallback = new OnBackPressedCallback(false) {
+		@Override
+		public void handleOnBackPressed() {
+			if (visualCheck.isRunning()) toggleVisualCheck();
+			else setEnabled(false);
+		}
+	};
 	private final OnBackPressedCallback modeBackCallback = new OnBackPressedCallback(false) {
 		@Override
 		public void handleOnBackPressed() {
@@ -161,6 +171,7 @@ public class MapActivity extends BaseActivity
 		binding.mapView.setOnUpdateListener(MyApplication.getAnnouncementManager(this));
 		MyApplication.getAnnouncementManager(this).setDownloadOfferListener(this::showDownloadAreaAction);
 		getOnBackPressedDispatcher().addCallback(this, modeBackCallback);
+		getOnBackPressedDispatcher().addCallback(this, visualCheckBackCallback);
 
 		setupButtons();
 		visualCheck = new VisualCheckController(this, this);
@@ -558,6 +569,7 @@ public class MapActivity extends BaseActivity
 	}
 
 	private void updateVisualCheckButton() {
+		visualCheckBackCallback.setEnabled(visualCheck.isRunning());
 		binding.visualCheckCameraButton.setVisibility(visualCheck.isRunning() ? View.VISIBLE : View.GONE);
 		binding.visualCheckCameraButton.setText(visualCheck.isFrontCamera()
 				? R.string.action_use_back_camera : R.string.action_use_front_camera);
