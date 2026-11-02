@@ -39,3 +39,9 @@
 # crashed with ClassNotFoundException on opening those screens; 1.1.7 only kept the names as a side
 # effect of R8 resource shrinking reading the XML. Keep them explicitly.
 -keepnames class * extends androidx.preference.PreferenceFragmentCompat
+
+# ONNX Runtime's native code creates its Java objects (NodeInfo, TensorInfo, OnnxTensor, ...) and
+# calls their constructors through JNI by name, which R8 can't see. Without this the release build
+# aborted (NoSuchMethodError in OrtSession.getInputInfo) as soon as the place recognition model
+# loaded, while debug builds worked.
+-keep class ai.onnxruntime.** { *; }
