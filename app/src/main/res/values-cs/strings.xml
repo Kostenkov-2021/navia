@@ -508,9 +508,7 @@
     <string name="content_description_delete_visual_place">Smazat %1$s</string>
     <string name="visual_place_delete_confirm">Smazat fotky místa %1$s?</string>
     <string name="visual_model_missing">Model rozpoznávání obrazu není v tomto telefonu nainstalován.</string>
-    <string name="visual_model_intro">Rozpoznávání míst pomocí AI vám umožní natočit místa, kam často chodíte, například vchodové dveře nebo vstup do obchodu. Až se vrátíte do vzdálenosti 50 metrů, obrazovka mapy nabídne spuštění rozpoznávání: namiřte kameru dopředu a telefon vám řekne, kdy místo vidí a kterým směrem se otočit, abyste k němu stáli čelem.
-
-K tomu je potřeba model rozpoznávání obrazu, který se stáhne jen jednou (%1$s). Doporučujeme Wi-Fi. Vaše fotky i rozpoznávání zůstávají ve vašem telefonu.</string>
+    <string name="visual_model_intro">Rozpoznávání míst pomocí AI vám umožní natočit místa, kam často chodíte, například vchodové dveře nebo vstup do obchodu. Až se vrátíte do vzdálenosti 50 metrů, obrazovka mapy nabídne spuštění rozpoznávání: namiřte kameru dopředu a telefon vám řekne, kdy místo vidí a kterým směrem se otočit, abyste k němu stáli čelem.\n\nK tomu je potřeba model rozpoznávání obrazu, který se stáhne jen jednou (%1$s). Doporučujeme Wi-Fi. Vaše fotky i rozpoznávání zůstávají ve vašem telefonu.</string>
     <string name="action_download_visual_model">Stáhnout</string>
     <string name="visual_model_downloading">Stahování modelu rozpoznávání obrazu: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

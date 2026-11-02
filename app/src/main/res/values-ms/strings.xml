@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Padam %1$s</string>
     <string name="visual_place_delete_confirm">Padam foto %1$s?</string>
     <string name="visual_model_missing">Model pengecaman imej tidak dipasang pada telefon ini.</string>
-    <string name="visual_model_intro">Pengecaman tempat dengan AI membolehkan anda merakam tempat yang kerap anda kunjungi, seperti pintu depan rumah atau pintu masuk kedai. Apabila anda kembali dalam lingkungan 50 meter, skrin peta akan menawarkan untuk memulakan pengecaman: halakan kamera ke hadapan dan telefon akan memberitahu apabila ia melihat tempat itu dan ke arah mana anda perlu berpusing untuk menghadapnya.
-
-Ini memerlukan model pengecaman imej yang dimuat turun sekali sahaja (%1$s). Wi-Fi disyorkan. Foto anda dan pengecaman kekal pada telefon anda.</string>
+    <string name="visual_model_intro">Pengecaman tempat dengan AI membolehkan anda merakam tempat yang kerap anda kunjungi, seperti pintu depan rumah atau pintu masuk kedai. Apabila anda kembali dalam lingkungan 50 meter, skrin peta akan menawarkan untuk memulakan pengecaman: halakan kamera ke hadapan dan telefon akan memberitahu apabila ia melihat tempat itu dan ke arah mana anda perlu berpusing untuk menghadapnya.\n\nIni memerlukan model pengecaman imej yang dimuat turun sekali sahaja (%1$s). Wi-Fi disyorkan. Foto anda dan pengecaman kekal pada telefon anda.</string>
     <string name="action_download_visual_model">Muat turun</string>
     <string name="visual_model_downloading">Memuat turun model pengecaman imej: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

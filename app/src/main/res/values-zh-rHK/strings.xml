@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">刪除 %1$s</string>
     <string name="visual_place_delete_confirm">要刪除 %1$s 的相片嗎？</string>
     <string name="visual_model_missing">此手機未安裝影像識別模型。</string>
-    <string name="visual_model_intro">AI 地點識別讓你拍攝經常去的地方，例如家門口或商店入口。當你回到 50 米範圍內時，地圖畫面會提示開始識別：將相機對準前方，手機會在看到該地點時告訴你，並告訴你要向哪邊轉才能正對它。
-
-此功能需要一個只需下載一次的影像識別模型（%1$s）。建議使用 Wi-Fi。你的相片和識別過程都只在你的手機上。</string>
+    <string name="visual_model_intro">AI 地點識別讓你拍攝經常去的地方，例如家門口或商店入口。當你回到 50 米範圍內時，地圖畫面會提示開始識別：將相機對準前方，手機會在看到該地點時告訴你，並告訴你要向哪邊轉才能正對它。\n\n此功能需要一個只需下載一次的影像識別模型（%1$s）。建議使用 Wi-Fi。你的相片和識別過程都只在你的手機上。</string>
     <string name="action_download_visual_model">下載</string>
     <string name="visual_model_downloading">正在下載影像識別模型：%1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

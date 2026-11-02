@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Xóa %1$s</string>
     <string name="visual_place_delete_confirm">Xóa ảnh của %1$s?</string>
     <string name="visual_model_missing">Mô hình nhận dạng hình ảnh chưa được cài trên điện thoại này.</string>
-    <string name="visual_model_intro">Nhận dạng địa điểm bằng AI cho phép bạn quay video những nơi bạn thường đến, như cửa nhà hoặc lối vào một cửa hàng. Khi bạn quay lại trong phạm vi 50 mét, màn hình bản đồ sẽ đề xuất bắt đầu nhận dạng: hướng camera về phía trước và điện thoại sẽ cho bạn biết khi nó nhìn thấy địa điểm và cần xoay về phía nào để đối diện với nó.
-
-Tính năng này cần một mô hình nhận dạng hình ảnh, chỉ tải xuống một lần (%1$s). Nên dùng Wi-Fi. Ảnh của bạn và quá trình nhận dạng đều ở trên điện thoại của bạn.</string>
+    <string name="visual_model_intro">Nhận dạng địa điểm bằng AI cho phép bạn quay video những nơi bạn thường đến, như cửa nhà hoặc lối vào một cửa hàng. Khi bạn quay lại trong phạm vi 50 mét, màn hình bản đồ sẽ đề xuất bắt đầu nhận dạng: hướng camera về phía trước và điện thoại sẽ cho bạn biết khi nó nhìn thấy địa điểm và cần xoay về phía nào để đối diện với nó.\n\nTính năng này cần một mô hình nhận dạng hình ảnh, chỉ tải xuống một lần (%1$s). Nên dùng Wi-Fi. Ảnh của bạn và quá trình nhận dạng đều ở trên điện thoại của bạn.</string>
     <string name="action_download_visual_model">Tải xuống</string>
     <string name="visual_model_downloading">Đang tải mô hình nhận dạng hình ảnh: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

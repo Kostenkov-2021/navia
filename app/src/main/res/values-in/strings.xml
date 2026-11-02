@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Hapus %1$s</string>
     <string name="visual_place_delete_confirm">Hapus foto %1$s?</string>
     <string name="visual_model_missing">Model pengenalan gambar belum terpasang di ponsel ini.</string>
-    <string name="visual_model_intro">Pengenalan tempat dengan AI memungkinkan Anda merekam tempat yang sering Anda kunjungi, seperti pintu depan rumah atau pintu masuk toko. Saat Anda kembali dalam jarak 50 meter, layar peta akan menawarkan untuk memulai pengenalan: arahkan kamera ke depan, dan ponsel akan memberi tahu saat melihat tempat itu serta ke arah mana Anda harus berputar agar menghadapnya.
-
-Untuk itu diperlukan model pengenalan gambar yang diunduh satu kali (%1$s). Disarankan menggunakan Wi-Fi. Foto Anda dan proses pengenalan tetap berada di ponsel Anda.</string>
+    <string name="visual_model_intro">Pengenalan tempat dengan AI memungkinkan Anda merekam tempat yang sering Anda kunjungi, seperti pintu depan rumah atau pintu masuk toko. Saat Anda kembali dalam jarak 50 meter, layar peta akan menawarkan untuk memulai pengenalan: arahkan kamera ke depan, dan ponsel akan memberi tahu saat melihat tempat itu serta ke arah mana Anda harus berputar agar menghadapnya.\n\nUntuk itu diperlukan model pengenalan gambar yang diunduh satu kali (%1$s). Disarankan menggunakan Wi-Fi. Foto Anda dan proses pengenalan tetap berada di ponsel Anda.</string>
     <string name="action_download_visual_model">Unduh</string>
     <string name="visual_model_downloading">Mengunduh model pengenalan gambar: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

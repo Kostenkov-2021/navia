@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">Odstrániť %1$s</string>
     <string name="visual_place_delete_confirm">Odstrániť fotky miesta %1$s?</string>
     <string name="visual_model_missing">Model rozpoznávania obrazu nie je v tomto telefóne nainštalovaný.</string>
-    <string name="visual_model_intro">Rozpoznávanie miest pomocou AI vám umožní natočiť miesta, kam často chodíte, napríklad vchodové dvere alebo vchod do obchodu. Keď sa vrátite do vzdialenosti 50 metrov, obrazovka mapy ponúkne spustenie rozpoznávania: namierte kameru dopredu a telefón vám povie, kedy miesto vidí a ktorým smerom sa otočiť, aby ste k nemu stáli čelom.
-
-Na to je potrebný model rozpoznávania obrazu, ktorý sa stiahne len raz (%1$s). Odporúčame Wi-Fi. Vaše fotky aj rozpoznávanie zostávajú vo vašom telefóne.</string>
+    <string name="visual_model_intro">Rozpoznávanie miest pomocou AI vám umožní natočiť miesta, kam často chodíte, napríklad vchodové dvere alebo vchod do obchodu. Keď sa vrátite do vzdialenosti 50 metrov, obrazovka mapy ponúkne spustenie rozpoznávania: namierte kameru dopredu a telefón vám povie, kedy miesto vidí a ktorým smerom sa otočiť, aby ste k nemu stáli čelom.\n\nNa to je potrebný model rozpoznávania obrazu, ktorý sa stiahne len raz (%1$s). Odporúčame Wi-Fi. Vaše fotky aj rozpoznávanie zostávajú vo vašom telefóne.</string>
     <string name="action_download_visual_model">Stiahnuť</string>
     <string name="visual_model_downloading">Sťahovanie modelu rozpoznávania obrazu: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

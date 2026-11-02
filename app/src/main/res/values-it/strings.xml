@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Elimina %1$s</string>
     <string name="visual_place_delete_confirm">Eliminare le foto di %1$s?</string>
     <string name="visual_model_missing">Il modello di riconoscimento delle immagini non è installato su questo telefono.</string>
-    <string name="visual_model_intro">Il riconoscimento dei luoghi con IA ti permette di riprendere i luoghi che frequenti spesso, come la porta di casa o l\'ingresso di un negozio. Quando torni entro 50 metri, la schermata della mappa propone di avviare il riconoscimento: punta la fotocamera davanti a te e il telefono ti dice quando vede il luogo e da che parte girarti per trovartelo di fronte.
-
-Serve un modello di riconoscimento delle immagini da scaricare una sola volta (%1$s). Si consiglia il Wi-Fi. Le tue foto e il riconoscimento restano sul tuo telefono.</string>
+    <string name="visual_model_intro">Il riconoscimento dei luoghi con IA ti permette di riprendere i luoghi che frequenti spesso, come la porta di casa o l\'ingresso di un negozio. Quando torni entro 50 metri, la schermata della mappa propone di avviare il riconoscimento: punta la fotocamera davanti a te e il telefono ti dice quando vede il luogo e da che parte girarti per trovartelo di fronte.\n\nServe un modello di riconoscimento delle immagini da scaricare una sola volta (%1$s). Si consiglia il Wi-Fi. Le tue foto e il riconoscimento restano sul tuo telefono.</string>
     <string name="action_download_visual_model">Scarica</string>
     <string name="visual_model_downloading">Download del modello di riconoscimento delle immagini: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

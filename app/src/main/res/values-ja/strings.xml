@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">%1$s を削除</string>
     <string name="visual_place_delete_confirm">%1$s の写真を削除しますか？</string>
     <string name="visual_model_missing">このスマートフォンには画像認識モデルがインストールされていません。</string>
-    <string name="visual_model_intro">AI場所認識では、自宅の玄関や店の入口など、よく行く場所を動画で撮影しておけます。50メートル以内に戻ると、地図画面で認識の開始が提案されます。カメラを前方に向けると、場所が見えたときと、その場所の方を向くにはどちらに回ればよいかをスマートフォンが教えてくれます。
-
-これには一度だけダウンロードする画像認識モデル（%1$s）が必要です。Wi-Fi の使用をおすすめします。写真と認識処理はスマートフォンの中だけで行われます。</string>
+    <string name="visual_model_intro">AI場所認識では、自宅の玄関や店の入口など、よく行く場所を動画で撮影しておけます。50メートル以内に戻ると、地図画面で認識の開始が提案されます。カメラを前方に向けると、場所が見えたときと、その場所の方を向くにはどちらに回ればよいかをスマートフォンが教えてくれます。\n\nこれには一度だけダウンロードする画像認識モデル（%1$s）が必要です。Wi-Fi の使用をおすすめします。写真と認識処理はスマートフォンの中だけで行われます。</string>
     <string name="action_download_visual_model">ダウンロード</string>
     <string name="visual_model_downloading">画像認識モデルをダウンロード中: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

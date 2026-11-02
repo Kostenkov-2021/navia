@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">删除 %1$s</string>
     <string name="visual_place_delete_confirm">删除 %1$s 的照片？</string>
     <string name="visual_model_missing">此手机上未安装图像识别模型。</string>
-    <string name="visual_model_intro">AI 地点识别可以让你拍摄经常去的地方，例如家门口或商店入口。当你回到 50 米范围内时，地图界面会提示开始识别：将摄像头对准前方，手机会在看到该地点时告诉你，并告诉你应向哪边转才能正对它。
-
-此功能需要一个只需下载一次的图像识别模型（%1$s）。建议使用 Wi-Fi。你的照片和识别过程都只在你的手机上。</string>
+    <string name="visual_model_intro">AI 地点识别可以让你拍摄经常去的地方，例如家门口或商店入口。当你回到 50 米范围内时，地图界面会提示开始识别：将摄像头对准前方，手机会在看到该地点时告诉你，并告诉你应向哪边转才能正对它。\n\n此功能需要一个只需下载一次的图像识别模型（%1$s）。建议使用 Wi-Fi。你的照片和识别过程都只在你的手机上。</string>
     <string name="action_download_visual_model">下载</string>
     <string name="visual_model_downloading">正在下载图像识别模型：%1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

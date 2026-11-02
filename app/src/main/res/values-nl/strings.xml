@@ -508,9 +508,7 @@
     <string name="content_description_delete_visual_place">%1$s verwijderen</string>
     <string name="visual_place_delete_confirm">De foto\'s van %1$s verwijderen?</string>
     <string name="visual_model_missing">Het beeldherkenningsmodel is niet op deze telefoon geïnstalleerd.</string>
-    <string name="visual_model_intro">Met AI-plaatsherkenning kun je plaatsen filmen waar je vaak komt, zoals je voordeur of de ingang van een winkel. Als je weer binnen 50 meter bent, biedt het kaartscherm aan om de herkenning te starten: richt de camera vooruit en de telefoon vertelt je wanneer hij de plaats ziet en welke kant je op moet draaien om ernaar te kijken.
-
-Hiervoor is een beeldherkenningsmodel nodig dat eenmalig wordt gedownload (%1$s). Wifi wordt aanbevolen. Je foto\'s en de herkenning blijven op je telefoon.</string>
+    <string name="visual_model_intro">Met AI-plaatsherkenning kun je plaatsen filmen waar je vaak komt, zoals je voordeur of de ingang van een winkel. Als je weer binnen 50 meter bent, biedt het kaartscherm aan om de herkenning te starten: richt de camera vooruit en de telefoon vertelt je wanneer hij de plaats ziet en welke kant je op moet draaien om ernaar te kijken.\n\nHiervoor is een beeldherkenningsmodel nodig dat eenmalig wordt gedownload (%1$s). Wifi wordt aanbevolen. Je foto\'s en de herkenning blijven op je telefoon.</string>
     <string name="action_download_visual_model">Downloaden</string>
     <string name="visual_model_downloading">Beeldherkenningsmodel downloaden: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

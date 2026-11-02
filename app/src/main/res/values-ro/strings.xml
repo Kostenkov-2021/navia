@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">Șterge %1$s</string>
     <string name="visual_place_delete_confirm">Ștergi fotografiile pentru %1$s?</string>
     <string name="visual_model_missing">Modelul de recunoaștere a imaginilor nu este instalat pe acest telefon.</string>
-    <string name="visual_model_intro">Recunoașterea locurilor cu IA îți permite să filmezi locurile pe care le vizitezi des, cum ar fi ușa de la intrare sau intrarea unui magazin. Când revii la mai puțin de 50 de metri, ecranul hărții îți oferă să pornești recunoașterea: îndreaptă camera înainte, iar telefonul îți spune când vede locul și în ce parte să te întorci ca să fii cu fața spre el.
-
-Pentru aceasta este nevoie de un model de recunoaștere a imaginilor descărcat o singură dată (%1$s). Se recomandă Wi-Fi. Fotografiile tale și recunoașterea rămân pe telefonul tău.</string>
+    <string name="visual_model_intro">Recunoașterea locurilor cu IA îți permite să filmezi locurile pe care le vizitezi des, cum ar fi ușa de la intrare sau intrarea unui magazin. Când revii la mai puțin de 50 de metri, ecranul hărții îți oferă să pornești recunoașterea: îndreaptă camera înainte, iar telefonul îți spune când vede locul și în ce parte să te întorci ca să fii cu fața spre el.\n\nPentru aceasta este nevoie de un model de recunoaștere a imaginilor descărcat o singură dată (%1$s). Se recomandă Wi-Fi. Fotografiile tale și recunoașterea rămân pe telefonul tău.</string>
     <string name="action_download_visual_model">Descarcă</string>
     <string name="visual_model_downloading">Se descarcă modelul de recunoaștere a imaginilor: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

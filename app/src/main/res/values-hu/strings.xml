@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">%1$s törlése</string>
     <string name="visual_place_delete_confirm">Törli a(z) %1$s fényképeit?</string>
     <string name="visual_model_missing">A képfelismerő modell nincs telepítve ezen a telefonon.</string>
-    <string name="visual_model_intro">Az MI-alapú helyfelismeréssel filmre veheti a gyakran felkeresett helyeket, például a bejárati ajtaját vagy egy üzlet bejáratát. Amikor újra 50 méteren belül van, a térképképernyő felajánlja a felismerés indítását: irányítsa a kamerát előre, és a telefon szól, amikor látja a helyet, és hogy merre forduljon, hogy szemben álljon vele.
-
-Ehhez egy egyszer letöltendő képfelismerő modell szükséges (%1$s). Wi-Fi használata ajánlott. A fényképei és a felismerés a telefonján maradnak.</string>
+    <string name="visual_model_intro">Az MI-alapú helyfelismeréssel filmre veheti a gyakran felkeresett helyeket, például a bejárati ajtaját vagy egy üzlet bejáratát. Amikor újra 50 méteren belül van, a térképképernyő felajánlja a felismerés indítását: irányítsa a kamerát előre, és a telefon szól, amikor látja a helyet, és hogy merre forduljon, hogy szemben álljon vele.\n\nEhhez egy egyszer letöltendő képfelismerő modell szükséges (%1$s). Wi-Fi használata ajánlott. A fényképei és a felismerés a telefonján maradnak.</string>
     <string name="action_download_visual_model">Letöltés</string>
     <string name="visual_model_downloading">A képfelismerő modell letöltése: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

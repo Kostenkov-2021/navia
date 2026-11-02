@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">Ištrinti %1$s</string>
     <string name="visual_place_delete_confirm">Ištrinti vietos %1$s nuotraukas?</string>
     <string name="visual_model_missing">Vaizdų atpažinimo modelis šiame telefone neįdiegtas.</string>
-    <string name="visual_model_intro">Vietų atpažinimas su DI leidžia nufilmuoti vietas, kuriose dažnai lankotės, pavyzdžiui, savo namų duris ar parduotuvės įėjimą. Kai vėl būsite ne toliau kaip 50 metrų, žemėlapio ekranas pasiūlys pradėti atpažinimą: nukreipkite kamerą į priekį, ir telefonas praneš, kai mato vietą ir į kurią pusę pasisukti, kad būtumėte į ją atsisukę.
-
-Tam reikia vaizdų atpažinimo modelio, kuris atsisiunčiamas vieną kartą (%1$s). Rekomenduojamas Wi-Fi. Jūsų nuotraukos ir atpažinimas lieka jūsų telefone.</string>
+    <string name="visual_model_intro">Vietų atpažinimas su DI leidžia nufilmuoti vietas, kuriose dažnai lankotės, pavyzdžiui, savo namų duris ar parduotuvės įėjimą. Kai vėl būsite ne toliau kaip 50 metrų, žemėlapio ekranas pasiūlys pradėti atpažinimą: nukreipkite kamerą į priekį, ir telefonas praneš, kai mato vietą ir į kurią pusę pasisukti, kad būtumėte į ją atsisukę.\n\nTam reikia vaizdų atpažinimo modelio, kuris atsisiunčiamas vieną kartą (%1$s). Rekomenduojamas Wi-Fi. Jūsų nuotraukos ir atpažinimas lieka jūsų telefone.</string>
     <string name="action_download_visual_model">Atsisiųsti</string>
     <string name="visual_model_downloading">Atsisiunčiamas vaizdų atpažinimo modelis: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

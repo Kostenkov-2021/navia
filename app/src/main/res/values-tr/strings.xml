@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">%1$s sil</string>
     <string name="visual_place_delete_confirm">%1$s fotoğrafları silinsin mi?</string>
     <string name="visual_model_missing">Görüntü tanıma modeli bu telefonda yüklü değil.</string>
-    <string name="visual_model_intro">Yapay zekâ ile yer tanıma, sık gittiğiniz yerlerin (örneğin evinizin kapısı ya da bir mağaza girişi) videosunu çekmenizi sağlar. 50 metre yakınına geri döndüğünüzde harita ekranı tanımayı başlatmayı önerir: kamerayı ileri doğru tutun; telefon yeri gördüğünde ve ona dönmek için hangi yöne dönmeniz gerektiğini söyler.
-
-Bunun için bir kez indirilen bir görüntü tanıma modeli gerekir (%1$s). Wi-Fi önerilir. Fotoğraflarınız ve tanıma işlemi telefonunuzda kalır.</string>
+    <string name="visual_model_intro">Yapay zekâ ile yer tanıma, sık gittiğiniz yerlerin (örneğin evinizin kapısı ya da bir mağaza girişi) videosunu çekmenizi sağlar. 50 metre yakınına geri döndüğünüzde harita ekranı tanımayı başlatmayı önerir: kamerayı ileri doğru tutun; telefon yeri gördüğünde ve ona dönmek için hangi yöne dönmeniz gerektiğini söyler.\n\nBunun için bir kez indirilen bir görüntü tanıma modeli gerekir (%1$s). Wi-Fi önerilir. Fotoğraflarınız ve tanıma işlemi telefonunuzda kalır.</string>
     <string name="action_download_visual_model">İndir</string>
     <string name="visual_model_downloading">Görüntü tanıma modeli indiriliyor: %%%1$d</string>
     <string name="visual_model_percent">%%%1$d</string>

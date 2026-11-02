@@ -508,9 +508,7 @@
     <string name="content_description_delete_visual_place">Poista %1$s</string>
     <string name="visual_place_delete_confirm">Poistetaanko paikan %1$s kuvat?</string>
     <string name="visual_model_missing">Kuvantunnistusmallia ei ole asennettu tähän puhelimeen.</string>
-    <string name="visual_model_intro">Tekoälypaikantunnistuksella voit kuvata paikkoja, joissa käyt usein, kuten kotiovesi tai kaupan sisäänkäynnin. Kun palaat 50 metrin säteelle, karttanäkymä tarjoaa tunnistuksen aloittamista: suuntaa kamera eteenpäin, niin puhelin kertoo, kun se näkee paikan ja mihin suuntaan sinun pitää kääntyä ollaksesi sitä kohti.
-
-Tähän tarvitaan kuvantunnistusmalli, joka ladataan kerran (%1$s). Wi-Fi-yhteyttä suositellaan. Kuvasi ja tunnistus pysyvät puhelimessasi.</string>
+    <string name="visual_model_intro">Tekoälypaikantunnistuksella voit kuvata paikkoja, joissa käyt usein, kuten kotiovesi tai kaupan sisäänkäynnin. Kun palaat 50 metrin säteelle, karttanäkymä tarjoaa tunnistuksen aloittamista: suuntaa kamera eteenpäin, niin puhelin kertoo, kun se näkee paikan ja mihin suuntaan sinun pitää kääntyä ollaksesi sitä kohti.\n\nTähän tarvitaan kuvantunnistusmalli, joka ladataan kerran (%1$s). Wi-Fi-yhteyttä suositellaan. Kuvasi ja tunnistus pysyvät puhelimessasi.</string>
     <string name="action_download_visual_model">Lataa</string>
     <string name="visual_model_downloading">Ladataan kuvantunnistusmallia: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

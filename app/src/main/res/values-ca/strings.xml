@@ -508,9 +508,7 @@
     <string name="content_description_delete_visual_place">Suprimeix %1$s</string>
     <string name="visual_place_delete_confirm">Vols suprimir les fotos de %1$s?</string>
     <string name="visual_model_missing">El model de reconeixement d\'imatges no està instal·lat en aquest telèfon.</string>
-    <string name="visual_model_intro">El reconeixement de llocs amb IA et permet gravar llocs que visites sovint, com la porta de casa o l\'entrada d\'una botiga. Quan tornis a menys de 50 metres, la pantalla del mapa t\'oferirà iniciar el reconeixement: apunta la càmera endavant i el telèfon et dirà quan veu el lloc i cap a quin costat has de girar per quedar-hi de cara.
-
-Cal un model de reconeixement d\'imatges que es baixa una sola vegada (%1$s). Es recomana fer servir la Wi-Fi. Les teves fotos i el reconeixement es queden al teu telèfon.</string>
+    <string name="visual_model_intro">El reconeixement de llocs amb IA et permet gravar llocs que visites sovint, com la porta de casa o l\'entrada d\'una botiga. Quan tornis a menys de 50 metres, la pantalla del mapa t\'oferirà iniciar el reconeixement: apunta la càmera endavant i el telèfon et dirà quan veu el lloc i cap a quin costat has de girar per quedar-hi de cara.\n\nCal un model de reconeixement d\'imatges que es baixa una sola vegada (%1$s). Es recomana fer servir la Wi-Fi. Les teves fotos i el reconeixement es queden al teu telèfon.</string>
     <string name="action_download_visual_model">Baixa</string>
     <string name="visual_model_downloading">S\'està baixant el model de reconeixement d\'imatges: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">%1$s löschen</string>
     <string name="visual_place_delete_confirm">Die Fotos von %1$s löschen?</string>
     <string name="visual_model_missing">Das Bilderkennungsmodell ist auf diesem Telefon nicht installiert.</string>
-    <string name="visual_model_intro">Mit der KI-Ortserkennung kannst du Orte filmen, die du oft besuchst, zum Beispiel deine Haustür oder einen Ladeneingang. Wenn du wieder im Umkreis von 50 Metern bist, bietet die Kartenansicht an, die Erkennung zu starten: Richte die Kamera nach vorn, und das Telefon sagt dir, wann es den Ort sieht und in welche Richtung du dich drehen musst, um ihm zugewandt zu sein.
-
-Dazu wird ein Bilderkennungsmodell benötigt, das einmalig heruntergeladen wird (%1$s). WLAN wird empfohlen. Deine Fotos und die Erkennung bleiben auf deinem Telefon.</string>
+    <string name="visual_model_intro">Mit der KI-Ortserkennung kannst du Orte filmen, die du oft besuchst, zum Beispiel deine Haustür oder einen Ladeneingang. Wenn du wieder im Umkreis von 50 Metern bist, bietet die Kartenansicht an, die Erkennung zu starten: Richte die Kamera nach vorn, und das Telefon sagt dir, wann es den Ort sieht und in welche Richtung du dich drehen musst, um ihm zugewandt zu sein.\n\nDazu wird ein Bilderkennungsmodell benötigt, das einmalig heruntergeladen wird (%1$s). WLAN wird empfohlen. Deine Fotos und die Erkennung bleiben auf deinem Telefon.</string>
     <string name="action_download_visual_model">Herunterladen</string>
     <string name="visual_model_downloading">Bilderkennungsmodell wird heruntergeladen: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

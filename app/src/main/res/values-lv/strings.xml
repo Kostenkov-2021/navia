@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">Dzēst %1$s</string>
     <string name="visual_place_delete_confirm">Vai dzēst vietas %1$s fotoattēlus?</string>
     <string name="visual_model_missing">Attēlu atpazīšanas modelis šajā tālrunī nav instalēts.</string>
-    <string name="visual_model_intro">Vietu atpazīšana ar MI ļauj nofilmēt vietas, kuras bieži apmeklējat, piemēram, savas mājas durvis vai veikala ieeju. Kad atkal būsiet 50 metru attālumā, kartes ekrāns piedāvās sākt atpazīšanu: pavērsiet kameru uz priekšu, un tālrunis pateiks, kad redz vietu un uz kuru pusi pagriezties, lai būtu ar seju pret to.
-
-Tam nepieciešams attēlu atpazīšanas modelis, ko lejupielādē vienu reizi (%1$s). Ieteicams Wi-Fi. Jūsu fotoattēli un atpazīšana paliek jūsu tālrunī.</string>
+    <string name="visual_model_intro">Vietu atpazīšana ar MI ļauj nofilmēt vietas, kuras bieži apmeklējat, piemēram, savas mājas durvis vai veikala ieeju. Kad atkal būsiet 50 metru attālumā, kartes ekrāns piedāvās sākt atpazīšanu: pavērsiet kameru uz priekšu, un tālrunis pateiks, kad redz vietu un uz kuru pusi pagriezties, lai būtu ar seju pret to.\n\nTam nepieciešams attēlu atpazīšanas modelis, ko lejupielādē vienu reizi (%1$s). Ieteicams Wi-Fi. Jūsu fotoattēli un atpazīšana paliek jūsu tālrunī.</string>
     <string name="action_download_visual_model">Lejupielādēt</string>
     <string name="visual_model_downloading">Notiek attēlu atpazīšanas modeļa lejupielāde: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

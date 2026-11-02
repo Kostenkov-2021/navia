@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Burahin ang %1$s</string>
     <string name="visual_place_delete_confirm">Burahin ang mga larawan ng %1$s?</string>
     <string name="visual_model_missing">Hindi naka-install sa teleponong ito ang model para sa pagkilala ng larawan.</string>
-    <string name="visual_model_intro">Sa pagkilala ng lugar gamit ang AI, maaari mong i-video ang mga lugar na madalas mong puntahan, gaya ng pinto ng bahay mo o pasukan ng isang tindahan. Kapag bumalik ka sa loob ng 50 metro, mag-aalok ang screen ng mapa na simulan ang pagkilala: itutok ang camera sa harap at sasabihin ng telepono kapag nakita nito ang lugar at kung saang direksyon ka dapat pumihit para humarap dito.
-
-Kailangan nito ng model para sa pagkilala ng larawan na isang beses lang ida-download (%1$s). Inirerekomenda ang Wi-Fi. Mananatili sa telepono mo ang iyong mga larawan at ang pagkilala.</string>
+    <string name="visual_model_intro">Sa pagkilala ng lugar gamit ang AI, maaari mong i-video ang mga lugar na madalas mong puntahan, gaya ng pinto ng bahay mo o pasukan ng isang tindahan. Kapag bumalik ka sa loob ng 50 metro, mag-aalok ang screen ng mapa na simulan ang pagkilala: itutok ang camera sa harap at sasabihin ng telepono kapag nakita nito ang lugar at kung saang direksyon ka dapat pumihit para humarap dito.\n\nKailangan nito ng model para sa pagkilala ng larawan na isang beses lang ida-download (%1$s). Inirerekomenda ang Wi-Fi. Mananatili sa telepono mo ang iyong mga larawan at ang pagkilala.</string>
     <string name="action_download_visual_model">I-download</string>
     <string name="visual_model_downloading">Dina-download ang model para sa pagkilala ng larawan: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

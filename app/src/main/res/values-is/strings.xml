@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Eyða %1$s</string>
     <string name="visual_place_delete_confirm">Eyða myndunum af %1$s?</string>
     <string name="visual_model_missing">Myndgreiningarlíkanið er ekki uppsett í þessum síma.</string>
-    <string name="visual_model_intro">Með staðgreiningu með gervigreind geturðu tekið upp staði sem þú heimsækir oft, til dæmis útidyrnar heima eða inngang verslunar. Þegar þú kemur aftur innan 50 metra býður kortaskjárinn upp á að hefja greiningu: beindu myndavélinni fram og síminn lætur þig vita þegar hann sér staðinn og í hvaða átt þú átt að snúa þér til að horfa að honum.
-
-Til þess þarf myndgreiningarlíkan sem er sótt einu sinni (%1$s). Mælt er með Wi-Fi. Myndirnar þínar og greiningin verða áfram í símanum þínum.</string>
+    <string name="visual_model_intro">Með staðgreiningu með gervigreind geturðu tekið upp staði sem þú heimsækir oft, til dæmis útidyrnar heima eða inngang verslunar. Þegar þú kemur aftur innan 50 metra býður kortaskjárinn upp á að hefja greiningu: beindu myndavélinni fram og síminn lætur þig vita þegar hann sér staðinn og í hvaða átt þú átt að snúa þér til að horfa að honum.\n\nTil þess þarf myndgreiningarlíkan sem er sótt einu sinni (%1$s). Mælt er með Wi-Fi. Myndirnar þínar og greiningin verða áfram í símanum þínum.</string>
     <string name="action_download_visual_model">Sækja</string>
     <string name="visual_model_downloading">Sæki myndgreiningarlíkanið: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

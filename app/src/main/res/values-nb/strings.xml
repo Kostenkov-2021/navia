@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">Slett %1$s</string>
     <string name="visual_place_delete_confirm">Vil du slette bildene av %1$s?</string>
     <string name="visual_model_missing">Bildegjenkjenningsmodellen er ikke installert på denne telefonen.</string>
-    <string name="visual_model_intro">Med AI-stedsgjenkjenning kan du filme steder du ofte besøker, for eksempel inngangsdøren din eller inngangen til en butikk. Når du kommer tilbake innenfor 50 meter, tilbyr kartskjermen å starte gjenkjenningen: Rett kameraet fremover, så sier telefonen fra når den ser stedet, og hvilken vei du må snu deg for å stå vendt mot det.
-
-Dette krever en bildegjenkjenningsmodell som lastes ned én gang (%1$s). Wi-Fi anbefales. Bildene dine og gjenkjenningen blir på telefonen din.</string>
+    <string name="visual_model_intro">Med AI-stedsgjenkjenning kan du filme steder du ofte besøker, for eksempel inngangsdøren din eller inngangen til en butikk. Når du kommer tilbake innenfor 50 meter, tilbyr kartskjermen å starte gjenkjenningen: Rett kameraet fremover, så sier telefonen fra når den ser stedet, og hvilken vei du må snu deg for å stå vendt mot det.\n\nDette krever en bildegjenkjenningsmodell som lastes ned én gang (%1$s). Wi-Fi anbefales. Bildene dine og gjenkjenningen blir på telefonen din.</string>
     <string name="action_download_visual_model">Last ned</string>
     <string name="visual_model_downloading">Laster ned bildegjenkjenningsmodellen: %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

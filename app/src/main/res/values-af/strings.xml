@@ -508,9 +508,7 @@
     <string name="content_description_delete_visual_place">Vee %1$s uit</string>
     <string name="visual_place_delete_confirm">Vee die foto\'s van %1$s uit?</string>
     <string name="visual_model_missing">Die beeldherkenningsmodel is nie op hierdie foon geïnstalleer nie.</string>
-    <string name="visual_model_intro">Met KI-plekherkenning kan jy plekke verfilm wat jy gereeld besoek, soos jou voordeur of \'n winkelingang. Wanneer jy weer binne 50 meter is, bied die kaartskerm aan om herkenning te begin: rig die kamera vorentoe en die foon sê vir jou wanneer dit die plek sien en na watter kant jy moet draai om dit in die gesig te staar.
-
-Dit benodig \'n beeldherkenningsmodel wat een keer afgelaai word (%1$s). Wi-Fi word aanbeveel. Jou foto\'s en die herkenning bly op jou foon.</string>
+    <string name="visual_model_intro">Met KI-plekherkenning kan jy plekke verfilm wat jy gereeld besoek, soos jou voordeur of \'n winkelingang. Wanneer jy weer binne 50 meter is, bied die kaartskerm aan om herkenning te begin: rig die kamera vorentoe en die foon sê vir jou wanneer dit die plek sien en na watter kant jy moet draai om dit in die gesig te staar.\n\nDit benodig \'n beeldherkenningsmodel wat een keer afgelaai word (%1$s). Wi-Fi word aanbeveel. Jou foto\'s en die herkenning bly op jou foon.</string>
     <string name="action_download_visual_model">Laai af</string>
     <string name="visual_model_downloading">Laai tans die beeldherkenningsmodel af: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

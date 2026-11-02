@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Supprimer %1$s</string>
     <string name="visual_place_delete_confirm">Supprimer les photos de %1$s ?</string>
     <string name="visual_model_missing">Le modèle de reconnaissance d\'images n\'est pas installé sur ce téléphone.</string>
-    <string name="visual_model_intro">La reconnaissance de lieux par IA vous permet de filmer les lieux où vous allez souvent, comme votre porte d\'entrée ou l\'entrée d\'un magasin. Quand vous revenez à moins de 50 mètres, l\'écran de la carte propose de lancer la reconnaissance : pointez la caméra devant vous et le téléphone vous dit quand il voit le lieu et de quel côté vous tourner pour lui faire face.
-
-Cela nécessite un modèle de reconnaissance d\'images téléchargé une seule fois (%1$s). Le Wi-Fi est recommandé. Vos photos et la reconnaissance restent sur votre téléphone.</string>
+    <string name="visual_model_intro">La reconnaissance de lieux par IA vous permet de filmer les lieux où vous allez souvent, comme votre porte d\'entrée ou l\'entrée d\'un magasin. Quand vous revenez à moins de 50 mètres, l\'écran de la carte propose de lancer la reconnaissance : pointez la caméra devant vous et le téléphone vous dit quand il voit le lieu et de quel côté vous tourner pour lui faire face.\n\nCela nécessite un modèle de reconnaissance d\'images téléchargé une seule fois (%1$s). Le Wi-Fi est recommandé. Vos photos et la reconnaissance restent sur votre téléphone.</string>
     <string name="action_download_visual_model">Télécharger</string>
     <string name="visual_model_downloading">Téléchargement du modèle de reconnaissance d\'images : %1$d %%</string>
     <string name="visual_model_percent">%1$d %%</string>

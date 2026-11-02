@@ -497,9 +497,7 @@
     <string name="content_description_delete_visual_place">%1$s 삭제</string>
     <string name="visual_place_delete_confirm">%1$s의 사진을 삭제할까요?</string>
     <string name="visual_model_missing">이 휴대폰에 이미지 인식 모델이 설치되어 있지 않습니다.</string>
-    <string name="visual_model_intro">AI 장소 인식을 사용하면 집 현관이나 가게 입구처럼 자주 가는 장소를 촬영해 둘 수 있습니다. 50미터 이내로 다시 오면 지도 화면에서 인식 시작을 제안합니다. 카메라를 앞으로 향하면 휴대폰이 장소를 봤을 때와 그 장소를 마주하려면 어느 쪽으로 돌아야 하는지 알려 줍니다.
-
-이를 위해 한 번만 다운로드하는 이미지 인식 모델(%1$s)이 필요합니다. Wi-Fi 사용을 권장합니다. 사진과 인식 과정은 모두 휴대폰 안에만 있습니다.</string>
+    <string name="visual_model_intro">AI 장소 인식을 사용하면 집 현관이나 가게 입구처럼 자주 가는 장소를 촬영해 둘 수 있습니다. 50미터 이내로 다시 오면 지도 화면에서 인식 시작을 제안합니다. 카메라를 앞으로 향하면 휴대폰이 장소를 봤을 때와 그 장소를 마주하려면 어느 쪽으로 돌아야 하는지 알려 줍니다.\n\n이를 위해 한 번만 다운로드하는 이미지 인식 모델(%1$s)이 필요합니다. Wi-Fi 사용을 권장합니다. 사진과 인식 과정은 모두 휴대폰 안에만 있습니다.</string>
     <string name="action_download_visual_model">다운로드</string>
     <string name="visual_model_downloading">이미지 인식 모델 다운로드 중: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>

@@ -509,9 +509,7 @@
     <string name="content_description_delete_visual_place">Usuń %1$s</string>
     <string name="visual_place_delete_confirm">Usunąć zdjęcia miejsca %1$s?</string>
     <string name="visual_model_missing">Model rozpoznawania obrazów nie jest zainstalowany na tym telefonie.</string>
-    <string name="visual_model_intro">Rozpoznawanie miejsc z AI pozwala nagrywać miejsca, które często odwiedzasz, na przykład drzwi wejściowe lub wejście do sklepu. Gdy wrócisz w promień 50 metrów, ekran mapy zaproponuje rozpoczęcie rozpoznawania: skieruj kamerę przed siebie, a telefon powie, kiedy widzi miejsce i w którą stronę się obrócić, aby stanąć do niego przodem.
-
-Wymaga to modelu rozpoznawania obrazów pobieranego jednorazowo (%1$s). Zalecane jest Wi-Fi. Twoje zdjęcia i rozpoznawanie pozostają na twoim telefonie.</string>
+    <string name="visual_model_intro">Rozpoznawanie miejsc z AI pozwala nagrywać miejsca, które często odwiedzasz, na przykład drzwi wejściowe lub wejście do sklepu. Gdy wrócisz w promień 50 metrów, ekran mapy zaproponuje rozpoczęcie rozpoznawania: skieruj kamerę przed siebie, a telefon powie, kiedy widzi miejsce i w którą stronę się obrócić, aby stanąć do niego przodem.\n\nWymaga to modelu rozpoznawania obrazów pobieranego jednorazowo (%1$s). Zalecane jest Wi-Fi. Twoje zdjęcia i rozpoznawanie pozostają na twoim telefonie.</string>
     <string name="action_download_visual_model">Pobierz</string>
     <string name="visual_model_downloading">Pobieranie modelu rozpoznawania obrazów: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>
