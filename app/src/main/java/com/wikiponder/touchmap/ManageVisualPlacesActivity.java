@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wikiponder.touchmap.classes.ui.EdgeToEdgeActionBar;
+import com.wikiponder.touchmap.classes.ui.VprModelDownloadDialog;
 import com.wikiponder.touchmap.classes.vpr.VisualPlacesDb;
 import com.wikiponder.touchmap.classes.vpr.VprModel;
 
@@ -52,10 +53,7 @@ public class ManageVisualPlacesActivity extends AppCompatActivity {
 		list.setAdapter(adapter);
 		findViewById(R.id.add_place_button).setOnClickListener(v -> {
 			if (!VprModel.isAvailable(this)) {
-				new AlertDialog.Builder(this)
-						.setMessage(R.string.visual_model_missing)
-						.setPositiveButton(android.R.string.ok, null)
-						.show();
+				VprModelDownloadDialog.show(this, () -> startActivity(new Intent(this, RecordVisualPlaceActivity.class)));
 				return;
 			}
 			startActivity(new Intent(this, RecordVisualPlaceActivity.class));

@@ -19,16 +19,22 @@ import ai.onnxruntime.TensorInfo;
  * One camera frame in, one L2-normalized place descriptor out; two descriptors are compared by
  * their dot product (cosine similarity, 1 = identical view).
  *
- * The model file is not bundled (~240 MB): it is looked for in files/vpr/ and, for development
- * (pushed with adb), in the app's external files/vpr/. Not thread-safe; callers run it on one
- * background thread.
+ * The model file is not bundled (~240 MB): VprModelDownload fetches it into files/vpr/ the first
+ * time the user opens Place photos. For development it may also be pushed with adb into the app's
+ * external files/vpr/. Not thread-safe; callers run it on one background thread.
  */
 public class VprModel {
 	private static final String TAG = "VprModel";
 	/** Changing the model makes every stored descriptor incomparable, which is why each stored
 	 * frame records the model it was computed with (VisualPlacesDb.frames.model). */
 	public static final String MODEL_NAME = "megaloc_full_224_hq";
-	private static final String MODEL_FILE = MODEL_NAME + ".onnx";
+	static final String MODEL_FILE = MODEL_NAME + ".onnx";
+	/** Where VprModelDownload gets the model; hosted next to the other navia data (an .htaccess
+	 * rewrite can move it to B2 like the boxes without changing this URL). Size and hash are of
+	 * tools/out/vpr/megaloc_full_224_hq.onnx and must change together with MODEL_NAME. */
+	static final String MODEL_URL = "https://wikiponder.com/navia/vpr/" + MODEL_FILE;
+	public static final long MODEL_BYTES = 240712048L;
+	static final String MODEL_SHA256 = "d4c0a8d7bb850853d8ed9c2ca9a49d36f0f26f07ef72da695da9b86c6425cb27";
 	/** Stored with each descriptor (frames.model): the model plus how frames are fed to it. Saved
 	 * frames whose key differs are ignored by the check (their JPEGs are kept, so they could be
 	 * recomputed). "sq" = centre square crop, see embed. */
@@ -51,8 +57,13 @@ public class VprModel {
 		inputSize = (int) shape[2];
 	}
 
+	/** Where the downloaded model lives. */
+	static File internalModelFile(Context context) {
+		return new File(new File(context.getFilesDir(), "vpr"), MODEL_FILE);
+	}
+
 	public static File findModelFile(Context context) {
-		File internal = new File(new File(context.getFilesDir(), "vpr"), MODEL_FILE);
+		File internal = internalModelFile(context);
 		if (internal.exists()) return internal;
 		File external = context.getExternalFilesDir(null);
 		if (external != null) {

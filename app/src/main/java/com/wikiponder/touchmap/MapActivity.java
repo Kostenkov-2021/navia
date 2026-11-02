@@ -42,6 +42,7 @@ import com.wikiponder.touchmap.classes.ui.ImportProgressDialog;
 import com.wikiponder.touchmap.classes.ui.NodeAddingDialogBox;
 import com.wikiponder.touchmap.classes.ui.NodeEditDialogBox;
 import com.wikiponder.touchmap.classes.ui.SharePromptDialog;
+import com.wikiponder.touchmap.classes.ui.VprModelDownloadDialog;
 import com.wikiponder.touchmap.classes.vpr.VisualCheckController;
 import com.wikiponder.touchmap.classes.vpr.VisualPlacesDb;
 import com.wikiponder.touchmap.classes.vpr.VprModel;
@@ -809,7 +810,12 @@ public class MapActivity extends BaseActivity
 				openDownloadMapActivity();
 				return true;
 			} else if (id == R.id.menu_visual_places) {
-				startActivity(new Intent(MapActivity.this, ManageVisualPlacesActivity.class));
+				Intent places = new Intent(MapActivity.this, ManageVisualPlacesActivity.class);
+				if (VprModel.isAvailable(this)) {
+					startActivity(places);
+				} else {
+					VprModelDownloadDialog.show(this, () -> startActivity(places));
+				}
 				return true;
 			} else if (id == R.id.menu_settings) {
 				openSettings();

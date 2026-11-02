@@ -538,6 +538,16 @@
     <string name="content_description_delete_visual_place">Delete %1$s</string>
     <string name="visual_place_delete_confirm">Delete the photos of %1$s?</string>
     <string name="visual_model_missing">The image recognition model is not installed on this phone.</string>
+    <string name="visual_model_intro">Place photos lets you save short videos of places you visit often, such as your front door or a shop entrance. When you come back within 50 metres, the map screen offers a visual check: point the camera ahead and the phone tells you when it sees the place and which way to turn to face it.\n\nThis needs an image recognition model that is downloaded once (%1$s). Wi-Fi is recommended. Your photos and the recognition stay on your phone.</string>
+    <string name="action_download_visual_model">Download</string>
+    <string name="visual_model_downloading">Downloading the image recognition model: %1$d%%</string>
+    <string name="visual_model_percent">%1$d%%</string>
+    <string name="action_cancel_visual_model_download">Cancel download</string>
+    <string name="visual_model_download_done">Download complete. Place photos is ready to use.</string>
+    <string name="action_start_visual_places">Start</string>
+    <string name="visual_model_download_failed">The download failed. Check your internet connection and try again.</string>
+    <string name="visual_model_no_space">Not enough free storage. The model needs %1$s.</string>
+    <string name="action_retry_visual_model_download">Try again</string>
     <string name="record_visual_place_title">Add place</string>
     <string name="hint_visual_place_name">Place name, e.g. my house</string>
     <string name="record_visual_place_instructions">Enter a name, point the phone at the place and press Start recording. The phone beeps every second for 5 seconds; move it slowly a little to the left and right.</string>

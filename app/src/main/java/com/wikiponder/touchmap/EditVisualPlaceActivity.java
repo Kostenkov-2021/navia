@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.wikiponder.touchmap.classes.ui.EdgeToEdgeActionBar;
 import com.wikiponder.touchmap.classes.ui.VoiceInputEditText;
+import com.wikiponder.touchmap.classes.ui.VprModelDownloadDialog;
 import com.wikiponder.touchmap.classes.vpr.VisualPlacesDb;
 import com.wikiponder.touchmap.classes.vpr.VprModel;
 
@@ -62,15 +63,13 @@ public class EditVisualPlaceActivity extends AppCompatActivity {
 
 		findViewById(R.id.save_name_button).setOnClickListener(v -> saveName());
 		findViewById(R.id.add_recording_button).setOnClickListener(v -> {
+			Intent record = new Intent(this, RecordVisualPlaceActivity.class)
+					.putExtra(RecordVisualPlaceActivity.EXTRA_PLACE_ID, placeId);
 			if (!VprModel.isAvailable(this)) {
-				new AlertDialog.Builder(this)
-						.setMessage(R.string.visual_model_missing)
-						.setPositiveButton(android.R.string.ok, null)
-						.show();
+				VprModelDownloadDialog.show(this, () -> startActivity(record));
 				return;
 			}
-			startActivity(new Intent(this, RecordVisualPlaceActivity.class)
-					.putExtra(RecordVisualPlaceActivity.EXTRA_PLACE_ID, placeId));
+			startActivity(record);
 		});
 	}
 
