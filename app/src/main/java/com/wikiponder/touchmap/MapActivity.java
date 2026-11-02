@@ -152,7 +152,7 @@ public class MapActivity extends BaseActivity
 	private boolean permissionsRequested;
 
 	// Visual place check (experimental): the offer button appears when a place saved under
-	// More > Place photos is within VisualCheckController.RADIUS_M; see updateVisualCheckOffer.
+	// More > AI place recognition is within VisualCheckController.RADIUS_M; see updateVisualCheckOffer.
 	private VisualCheckController visualCheck;
 	private static final long VISUAL_OFFER_CHECK_MS = 10_000;
 	private long lastVisualOfferCheck;

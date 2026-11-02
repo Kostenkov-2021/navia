@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * The places saved for the visual check (More > Place photos): list, delete, open one in
+ * The places saved for the visual check (More > AI place recognition): list, delete, open one in
  * EditVisualPlaceActivity, and the button that opens RecordVisualPlaceActivity to film a new one.
  */
 public class ManageVisualPlacesActivity extends AppCompatActivity {

@@ -170,6 +170,10 @@
     <string name="credits_play_services_body">Device location services, from Google.</string>
     <string name="credits_firebase_heading" translatable="false">Firebase Crashlytics</string>
     <string name="credits_firebase_body">Crash reporting, from Google, so problems can be found and fixed.</string>
+    <string name="credits_megaloc_heading" translatable="false">MegaLoc</string>
+    <string name="credits_megaloc_body">The AI model behind AI place recognition, by Gabriele Berton and Carlo Masone. Copyright © 2024 Gabriele Berton, Carlo Masone, licensed under the MIT License. It builds on DINOv2 from Meta AI, licensed under the Apache License 2.0. See github.com/gmberton/MegaLoc.</string>
+    <string name="credits_onnxruntime_heading" translatable="false">ONNX Runtime</string>
+    <string name="credits_onnxruntime_body">Runs the AI model on the phone, from Microsoft, licensed under the MIT License. See onnxruntime.ai.</string>
 
     <!-- About / legal notice screen (AboutActivity), reachable from the More menu. Separate from
          Credits: Credits is third-party attribution, this is who publishes the app and how to reach
@@ -531,19 +535,19 @@
     <string name="tl_water_tank">water tank</string>
     <string name="tl_woodland">woodland</string>
     <!-- Visual place check (experimental): ManageVisualPlacesActivity, RecordVisualPlaceActivity, VisualCheckController -->
-    <string name="visual_places_title">Place photos</string>
+    <string name="visual_places_title">AI place recognition</string>
     <string name="action_add_visual_place">Add place</string>
-    <string name="visual_places_empty">No places saved yet. Add a place, then film it for 5 seconds. When you come back within 50 metres, the map screen offers a visual check that tells you when the camera sees it.</string>
+    <string name="visual_places_empty">No places saved yet. Add a place, then film it for 5 seconds. When you come back within 50 metres, the map screen offers place recognition, which tells you when the camera sees it.</string>
     <string name="visual_place_item">%1$s, saved %2$s, %3$d photos</string>
     <string name="content_description_delete_visual_place">Delete %1$s</string>
     <string name="visual_place_delete_confirm">Delete the photos of %1$s?</string>
     <string name="visual_model_missing">The image recognition model is not installed on this phone.</string>
-    <string name="visual_model_intro">Place photos lets you save short videos of places you visit often, such as your front door or a shop entrance. When you come back within 50 metres, the map screen offers a visual check: point the camera ahead and the phone tells you when it sees the place and which way to turn to face it.\n\nThis needs an image recognition model that is downloaded once (%1$s). Wi-Fi is recommended. Your photos and the recognition stay on your phone.</string>
+    <string name="visual_model_intro">AI place recognition lets you film places you visit often, such as your front door or a shop entrance. When you come back within 50 metres, the map screen offers to start recognition: point the camera ahead and the phone tells you when it sees the place and which way to turn to face it.\n\nThis needs an image recognition model that is downloaded once (%1$s). Wi-Fi is recommended. Your photos and the recognition stay on your phone.</string>
     <string name="action_download_visual_model">Download</string>
     <string name="visual_model_downloading">Downloading the image recognition model: %1$d%%</string>
     <string name="visual_model_percent">%1$d%%</string>
     <string name="action_cancel_visual_model_download">Cancel download</string>
-    <string name="visual_model_download_done">Download complete. Place photos is ready to use.</string>
+    <string name="visual_model_download_done">Download complete. AI place recognition is ready to use.</string>
     <string name="action_start_visual_places">Start</string>
     <string name="visual_model_download_failed">The download failed. Check your internet connection and try again.</string>
     <string name="visual_model_no_space">Not enough free storage. The model needs %1$s.</string>
@@ -566,17 +570,17 @@
     <string name="record_visual_recording_title">New recording of %1$s</string>
     <string name="record_visual_recording_instructions">Stand where you usually approach the place from, point the phone at it and press Start recording. The phone beeps every second for 5 seconds; move it slowly a little to the left and right.</string>
     <string name="visual_place_save_failed">Could not save the place. Please try again.</string>
-    <string name="camera_permission_required">Camera permission is needed for place photos.</string>
+    <string name="camera_permission_required">Camera permission is needed for AI place recognition.</string>
     <string name="action_use_front_camera">Use front camera</string>
     <string name="action_use_back_camera">Use back camera</string>
     <string name="front_camera_on">Front camera</string>
     <string name="back_camera_on">Back camera</string>
     <string name="camera_unavailable">The camera could not be started.</string>
-    <string name="action_start_visual_check">%1$s is nearby. Start visual check</string>
-    <string name="action_stop_visual_check">Stop visual check</string>
-    <string name="visual_check_started">Visual check started. Point the phone ahead.</string>
-    <string name="visual_check_stopped">Visual check stopped.</string>
-    <string name="visual_check_no_places">No saved place nearby. Visual check stopped.</string>
+    <string name="action_start_visual_check">%1$s is nearby. Start place recognition</string>
+    <string name="action_stop_visual_check">Stop place recognition</string>
+    <string name="visual_check_started">Place recognition started. Point the phone ahead.</string>
+    <string name="visual_check_stopped">Place recognition stopped.</string>
+    <string name="visual_check_no_places">No saved place nearby. Place recognition stopped.</string>
     <string name="visual_check_match">%1$s ahead, %2$d percent</string>
     <string name="visual_check_match_turn">%1$s, %2$d percent. %3$s</string>
     <string name="visual_turn_right">Turn %1$d degrees right</string>

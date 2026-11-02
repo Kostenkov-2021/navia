@@ -20,7 +20,7 @@ import ai.onnxruntime.TensorInfo;
  * their dot product (cosine similarity, 1 = identical view).
  *
  * The model file is not bundled (~240 MB): VprModelDownload fetches it into files/vpr/ the first
- * time the user opens Place photos. For development it may also be pushed with adb into the app's
+ * time the user opens AI place recognition. For development it may also be pushed with adb into the app's
  * external files/vpr/. Not thread-safe; callers run it on one background thread.
  */
 public class VprModel {

@@ -16,7 +16,7 @@ import com.wikiponder.touchmap.classes.vpr.VprModel;
 import com.wikiponder.touchmap.classes.vpr.VprModelDownload;
 
 /**
- * Shown instead of Place photos while the image recognition model is not on the phone: explains
+ * Shown instead of AI place recognition while the image recognition model is not on the phone: explains
  * the feature and the download size, downloads the model in place with its progress, and ends with
  * a Start button that runs onStart. One dialog walks through all the states (intro, downloading,
  * done, failed) by swapping its text and buttons, so TalkBack users stay in one place. Leaving the
