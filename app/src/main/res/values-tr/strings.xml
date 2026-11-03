@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d derece sola dönün</string>
     <string name="visual_compass_hint_right">%1$s yaklaşık %2$d derece sağınızda</string>
     <string name="visual_compass_hint_left">%1$s yaklaşık %2$d derece solunuzda</string>
+    <string name="action_simulate_sound">Buradaki sesi canlandır</string>
+    <string name="soundscape_started">%1$s çevresinin canlandırılmış sesi çalıyor. Kulaklık kullanın ve çevrenizde duymak için dönün.</string>
+    <string name="soundscape_stop">%1$s ses canlandırmasını durdur</string>
+    <string name="soundscape_stopped">Ses canlandırması durduruldu</string>
+    <string name="soundscape_no_data">Bu noktanın çevresinde ses canlandırmak için indirilmiş harita verisi yok.</string>
+    <string name="soundscape_failed">Ses canlandırması bu telefonda başlatılamadı.</string>
+    <string name="credits_openal_body">Ses canlandırmasının 3B sesi, Chris Robinson ve katkıda bulunanların OpenAL Soft kütüphanesiyle GNU LGPL sürüm 2.1 kapsamında üretilir; değiştirilmeden ayrı bir kütüphane olarak kullanılır. Kaynak kodu github.com/kcat/openal-soft adresinde (sürüm 1.24.3), lisans metni gnu.org/licenses/old-licenses/lgpl-2.1.html adresindedir.</string>
+    <string name="credits_stable_audio_body">Ses canlandırmasının ortam kayıtları, Stability AI\'ın Stable Audio Open 1.0 modeliyle Stability AI Community License kapsamında üretilmiştir. Powered by Stability AI.</string>
 </resources>

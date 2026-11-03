@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d டிகிரி இடதுபுறம் திரும்புங்கள்</string>
     <string name="visual_compass_hint_right">%1$s உங்கள் வலதுபுறம் சுமார் %2$d டிகிரியில் உள்ளது</string>
     <string name="visual_compass_hint_left">%1$s உங்கள் இடதுபுறம் சுமார் %2$d டிகிரியில் உள்ளது</string>
+    <string name="action_simulate_sound">இங்குள்ள ஒலியை உருவகப்படுத்து</string>
+    <string name="soundscape_started">%1$s சுற்றியுள்ள உருவகப்படுத்திய ஒலி இயங்குகிறது. ஹெட்ஃபோன் பயன்படுத்துங்கள், உங்களைச் சுற்றிக் கேட்க திரும்புங்கள்.</string>
+    <string name="soundscape_stop">%1$s ஒலி உருவகப்படுத்தலை நிறுத்து</string>
+    <string name="soundscape_stopped">ஒலி உருவகப்படுத்தல் நிறுத்தப்பட்டது</string>
+    <string name="soundscape_no_data">இந்தப் புள்ளியைச் சுற்றி ஒலியை உருவகப்படுத்த பதிவிறக்கிய வரைபடத் தரவு இல்லை.</string>
+    <string name="soundscape_failed">இந்தத் தொலைபேசியில் ஒலி உருவகப்படுத்தலைத் தொடங்க முடியவில்லை.</string>
+    <string name="credits_openal_body">ஒலி உருவகப்படுத்தலின் 3D ஒலியை OpenAL Soft உருவாக்குகிறது, Chris Robinson மற்றும் பங்களிப்பாளர்களால், GNU LGPL பதிப்பு 2.1 இன் கீழ், மாற்றமின்றி தனி நூலகமாகப் பயன்படுத்தப்படுகிறது. அதன் மூலக் குறியீடு github.com/kcat/openal-soft இல் (வெளியீடு 1.24.3), உரிம உரை gnu.org/licenses/old-licenses/lgpl-2.1.html இல் உள்ளது.</string>
+    <string name="credits_stable_audio_body">ஒலி உருவகப்படுத்தலின் சூழல் பதிவுகள் Stability AI இன் Stable Audio Open 1.0 மூலம், Stability AI Community License இன் கீழ் உருவாக்கப்பட்டன. Powered by Stability AI.</string>
 </resources>

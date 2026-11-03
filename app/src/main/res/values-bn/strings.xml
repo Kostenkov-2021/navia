@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d ডিগ্রি বাঁয়ে ঘুরুন</string>
     <string name="visual_compass_hint_right">%1$s আপনার ডানদিকে প্রায় %2$d ডিগ্রিতে আছে</string>
     <string name="visual_compass_hint_left">%1$s আপনার বাঁদিকে প্রায় %2$d ডিগ্রিতে আছে</string>
+    <string name="action_simulate_sound">এখানকার শব্দ সিমুলেট করুন</string>
+    <string name="soundscape_started">%1$s-এর চারপাশের সিমুলেটেড শব্দ বাজছে। হেডফোন ব্যবহার করুন, আর চারপাশে শুনতে ঘুরে দাঁড়ান।</string>
+    <string name="soundscape_stop">%1$s-এর শব্দ সিমুলেশন বন্ধ করুন</string>
+    <string name="soundscape_stopped">শব্দ সিমুলেশন বন্ধ হয়েছে</string>
+    <string name="soundscape_no_data">এই বিন্দুর চারপাশে শব্দ সিমুলেট করার মতো কোনো ডাউনলোড করা মানচিত্র ডেটা নেই।</string>
+    <string name="soundscape_failed">এই ফোনে শব্দ সিমুলেশন শুরু করা যায়নি।</string>
+    <string name="credits_openal_body">শব্দ সিমুলেশনের 3D শব্দ তৈরি করে OpenAL Soft, Chris Robinson ও অবদানকারীদের তৈরি, GNU LGPL সংস্করণ 2.1-এর অধীনে, পরিবর্তন ছাড়াই আলাদা লাইব্রেরি হিসেবে ব্যবহৃত। এর সোর্স কোড github.com/kcat/openal-soft-এ (রিলিজ 1.24.3), এবং লাইসেন্সের পাঠ gnu.org/licenses/old-licenses/lgpl-2.1.html-এ।</string>
+    <string name="credits_stable_audio_body">শব্দ সিমুলেশনের পরিবেশগত রেকর্ডিংগুলো Stability AI-এর Stable Audio Open 1.0 দিয়ে তৈরি, Stability AI Community License-এর অধীনে। Powered by Stability AI.</string>
 </resources>

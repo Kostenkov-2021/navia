@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Pumihit nang %1$d digri pakaliwa</string>
     <string name="visual_compass_hint_right">Ang %1$s ay mga %2$d digri sa kanan mo</string>
     <string name="visual_compass_hint_left">Ang %1$s ay mga %2$d digri sa kaliwa mo</string>
+    <string name="action_simulate_sound">I-simulate ang tunog dito</string>
+    <string name="soundscape_started">Pinapatugtog ang simulated na tunog sa paligid ng %1$s. Gumamit ng headphones, at umikot para marinig ito sa paligid mo.</string>
+    <string name="soundscape_stop">Ihinto ang sound simulation ng %1$s</string>
+    <string name="soundscape_stopped">Huminto ang sound simulation</string>
+    <string name="soundscape_no_data">Walang na-download na data ng mapa sa paligid ng puntong ito para gayahin ang tunog.</string>
+    <string name="soundscape_failed">Hindi masimulan ang sound simulation sa teleponong ito.</string>
+    <string name="credits_openal_body">Ang 3D na tunog ng sound simulation ay ginagawa ng OpenAL Soft, nina Chris Robinson at mga kontribyutor, sa ilalim ng GNU LGPL bersyon 2.1, ginamit nang walang pagbabago bilang hiwalay na library. Ang source code nito ay nasa github.com/kcat/openal-soft (release 1.24.3), at ang teksto ng lisensya ay nasa gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Ang mga ambient recording ng sound simulation ay ginawa gamit ang Stable Audio Open 1.0 ng Stability AI, sa ilalim ng Stability AI Community License. Powered by Stability AI.</string>
 </resources>

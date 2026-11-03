@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d درجه به چپ بچرخید</string>
     <string name="visual_compass_hint_right">%1$s حدود %2$d درجه سمت راست شماست</string>
     <string name="visual_compass_hint_left">%1$s حدود %2$d درجه سمت چپ شماست</string>
+    <string name="action_simulate_sound">شبیه‌سازی صدای این نقطه</string>
+    <string name="soundscape_started">در حال پخش صدای شبیه‌سازی‌شده‌ی اطراف %1$s. از هدفون استفاده کنید و بچرخید تا صدا را دور خودتان بشنوید.</string>
+    <string name="soundscape_stop">توقف شبیه‌سازی صدای %1$s</string>
+    <string name="soundscape_stopped">شبیه‌سازی صدا متوقف شد</string>
+    <string name="soundscape_no_data">در اطراف این نقطه داده‌ی نقشه‌ی دانلودشده‌ای برای شبیه‌سازی صدا وجود ندارد.</string>
+    <string name="soundscape_failed">شبیه‌سازی صدا روی این گوشی شروع نشد.</string>
+    <string name="credits_openal_body">صدای سه‌بعدی شبیه‌سازی صدا با OpenAL Soft ساخته می‌شود، اثر Chris Robinson و همکاران، با مجوز GNU LGPL نسخه‌ی 2.1، که بدون تغییر و به‌صورت یک کتابخانه‌ی جداگانه استفاده شده است. کد منبع آن در github.com/kcat/openal-soft (نسخه‌ی 1.24.3) و متن مجوز در gnu.org/licenses/old-licenses/lgpl-2.1.html است.</string>
+    <string name="credits_stable_audio_body">صداهای محیطی شبیه‌سازی صدا با Stable Audio Open 1.0 از Stability AI و با مجوز Stability AI Community License تولید شده‌اند. Powered by Stability AI.</string>
 </resources>

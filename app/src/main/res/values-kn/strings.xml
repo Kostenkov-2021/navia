@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d ಡಿಗ್ರಿ ಎಡಕ್ಕೆ ತಿರುಗಿ</string>
     <string name="visual_compass_hint_right">%1$s ನಿಮ್ಮ ಬಲಕ್ಕೆ ಸುಮಾರು %2$d ಡಿಗ್ರಿಯಲ್ಲಿದೆ</string>
     <string name="visual_compass_hint_left">%1$s ನಿಮ್ಮ ಎಡಕ್ಕೆ ಸುಮಾರು %2$d ಡಿಗ್ರಿಯಲ್ಲಿದೆ</string>
+    <string name="action_simulate_sound">ಇಲ್ಲಿನ ಧ್ವನಿಯನ್ನು ಸಿಮ್ಯುಲೇಟ್ ಮಾಡಿ</string>
+    <string name="soundscape_started">%1$s ಸುತ್ತಲಿನ ಸಿಮ್ಯುಲೇಟೆಡ್ ಧ್ವನಿ ಪ್ಲೇ ಆಗುತ್ತಿದೆ. ಹೆಡ್‌ಫೋನ್ ಬಳಸಿ, ಮತ್ತು ನಿಮ್ಮ ಸುತ್ತ ಕೇಳಲು ತಿರುಗಿ.</string>
+    <string name="soundscape_stop">%1$s ನ ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್ ನಿಲ್ಲಿಸಿ</string>
+    <string name="soundscape_stopped">ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್ ನಿಲ್ಲಿಸಲಾಗಿದೆ</string>
+    <string name="soundscape_no_data">ಈ ಬಿಂದುವಿನ ಸುತ್ತ ಧ್ವನಿಯನ್ನು ಸಿಮ್ಯುಲೇಟ್ ಮಾಡಲು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ನಕ್ಷೆ ಡೇಟಾ ಇಲ್ಲ.</string>
+    <string name="soundscape_failed">ಈ ಫೋನ್‌ನಲ್ಲಿ ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
+    <string name="credits_openal_body">ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್‌ನ 3D ಧ್ವನಿಯನ್ನು OpenAL Soft ರಚಿಸುತ್ತದೆ, Chris Robinson ಮತ್ತು ಕೊಡುಗೆದಾರರಿಂದ, GNU LGPL ಆವೃತ್ತಿ 2.1 ಅಡಿಯಲ್ಲಿ, ಬದಲಾವಣೆ ಇಲ್ಲದೆ ಪ್ರತ್ಯೇಕ ಲೈಬ್ರರಿಯಾಗಿ ಬಳಸಲಾಗಿದೆ. ಇದರ ಸೋರ್ಸ್ ಕೋಡ್ github.com/kcat/openal-soft ನಲ್ಲಿ (ಬಿಡುಗಡೆ 1.24.3), ಮತ್ತು ಪರವಾನಗಿ ಪಠ್ಯ gnu.org/licenses/old-licenses/lgpl-2.1.html ನಲ್ಲಿದೆ.</string>
+    <string name="credits_stable_audio_body">ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್‌ನ ಪರಿಸರ ರೆಕಾರ್ಡಿಂಗ್‌ಗಳನ್ನು Stability AI ನ Stable Audio Open 1.0 ಬಳಸಿ, Stability AI Community License ಅಡಿಯಲ್ಲಿ ರಚಿಸಲಾಗಿದೆ. Powered by Stability AI.</string>
 </resources>

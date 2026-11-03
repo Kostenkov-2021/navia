@@ -1,0 +1,193 @@
+{
+ "model": "stability-ai/stable-audio-open-1.0",
+ "replicate_version": "9aff84a639f96d0f7e6081cdea002d15133d0043727f849c40abdd166b7c75a8",
+ "sample_rate": 44100,
+ "clips": {
+  "car": {
+   "kind": "loop",
+   "seconds": 12.15,
+   "prompt": "field recording, steady sound of a single car engine and tires rolling on asphalt at constant speed, recorded close, no pass-by, continuous",
+   "seed": 1234
+  },
+  "truck": {
+   "kind": "loop",
+   "seconds": 12.05,
+   "prompt": "field recording, steady low rumble of a heavy diesel truck engine and tires rolling at constant speed, continuous, recorded close",
+   "seed": 1234
+  },
+  "bus": {
+   "kind": "loop",
+   "seconds": 12.05,
+   "prompt": "field recording, steady city bus diesel engine driving at constant low speed, continuous hum, recorded close",
+   "seed": 1234
+  },
+  "motorcycle": {
+   "kind": "loop",
+   "seconds": 10.5,
+   "prompt": "field recording, steady motorcycle engine cruising at constant speed, continuous, recorded close",
+   "seed": 1234
+  },
+  "bicycle": {
+   "kind": "loop",
+   "seconds": 7.8,
+   "prompt": "field recording, bicycle rolling on pavement, freewheel ticking and chain, steady, close, quiet",
+   "seed": 1234
+  },
+  "train": {
+   "kind": "loop",
+   "seconds": 14.5,
+   "prompt": "field recording, steady rhythmic train wheels clacking over rail joints and rumbling, continuous, constant speed, recorded close to the track",
+   "seed": 1234
+  },
+  "tram": {
+   "kind": "loop",
+   "seconds": 14.3,
+   "prompt": "field recording, steady electric tram rolling on rails, motor whine and wheel squeal, continuous, constant speed, recorded close",
+   "seed": 1234
+  },
+  "traffic_far": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, distant busy city traffic, steady broadband hum of many cars, far away, continuous ambience",
+   "seed": 1234
+  },
+  "city_hum": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, quiet urban background ambience, distant city murmur, soft and continuous, no single events",
+   "seed": 1234
+  },
+  "birds": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, many small songbirds chirping in trees in a city park, daytime, natural ambience",
+   "seed": 1234
+  },
+  "leaves": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, gentle wind rustling leaves in tall trees, soft continuous ambience",
+   "seed": 1234
+  },
+  "playground": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, children playing and laughing on a playground, swings creaking, outdoors, distant cheerful ambience",
+   "seed": 1234
+  },
+  "schoolyard": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, school yard during break time, many children talking and shouting, ball bouncing, outdoors",
+   "seed": 1234
+  },
+  "cafe": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, busy cafe terrace, people chatting softly, cups and saucers clinking, espresso machine, ambience",
+   "seed": 1234
+  },
+  "restaurant": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, restaurant ambience, cutlery and plates clinking, murmur of diners talking, indistinct",
+   "seed": 1234
+  },
+  "pub": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, lively pub crowd talking and laughing, glasses clinking, indistinct chatter",
+   "seed": 1234
+  },
+  "market": {
+   "kind": "loop",
+   "seconds": 18.15,
+   "prompt": "field recording, busy shopping street and market, crowd murmur, footsteps, shop doors, indistinct voices",
+   "seed": 1234
+  },
+  "footsteps": {
+   "kind": "loop",
+   "seconds": 14.05,
+   "prompt": "field recording, pedestrian street, many people walking past, footsteps on pavement, soft indistinct murmur",
+   "seed": 1234
+  },
+  "fountain": {
+   "kind": "loop",
+   "seconds": 14.5,
+   "prompt": "field recording, water fountain splashing in a public square, continuous water",
+   "seed": 1234
+  },
+  "ped_signal": {
+   "kind": "loop",
+   "seconds": 6.45,
+   "prompt": "field recording, accessible pedestrian crossing signal ticking steadily, repetitive tick tick at traffic light, outdoors",
+   "seed": 1234
+  },
+  "crossing_bell": {
+   "kind": "loop",
+   "seconds": 6.3,
+   "prompt": "field recording, railway level crossing warning bell ringing continuously, ding ding ding",
+   "seed": 1234
+  },
+  "sports": {
+   "kind": "loop",
+   "seconds": 14.45,
+   "prompt": "field recording, people playing football on an outdoor sports field, ball kicks, shouts, whistle in the distance",
+   "seed": 1234
+  },
+  "construction": {
+   "kind": "loop",
+   "seconds": 14.0,
+   "prompt": "field recording, distant construction site, hammering, machinery, metallic clanks, outdoors",
+   "seed": 1234
+  },
+  "car_horn": {
+   "kind": "oneshot",
+   "seconds": 3.8,
+   "prompt": "field recording, a single short car horn honk in a city street",
+   "seed": 1234
+  },
+  "tram_bell": {
+   "kind": "oneshot",
+   "seconds": 3.8,
+   "prompt": "field recording, a tram warning bell ringing twice, ding ding, outdoors",
+   "seed": 1234
+  },
+  "bus_doors": {
+   "kind": "oneshot",
+   "seconds": 5.9,
+   "prompt": "field recording, city bus stopping, air brakes hiss and doors opening with a pneumatic hiss",
+   "seed": 1234
+  },
+  "church_bells": {
+   "kind": "oneshot",
+   "seconds": 12.05,
+   "prompt": "field recording, church bells ringing from a bell tower, heard from the street",
+   "seed": 1234
+  },
+  "dog_bark": {
+   "kind": "oneshot",
+   "seconds": 3.7,
+   "prompt": "field recording, a dog barking a few times in a residential street, outdoors",
+   "seed": 1234
+  },
+  "siren": {
+   "kind": "oneshot",
+   "seconds": 9.75,
+   "prompt": "field recording, distant ambulance siren passing in the city, far away",
+   "seed": 1234
+  },
+  "bicycle_bell": {
+   "kind": "oneshot",
+   "seconds": 2.85,
+   "prompt": "field recording, a single bicycle bell ring, outdoors",
+   "seed": 1234
+  },
+  "pigeons": {
+   "kind": "oneshot",
+   "seconds": 6.0,
+   "prompt": "field recording, pigeons cooing and flapping wings on a city square",
+   "seed": 1234
+  }
+ }
+}

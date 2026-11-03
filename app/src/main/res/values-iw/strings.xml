@@ -554,4 +554,12 @@
     <string name="visual_turn_left">הסתובבו %1$d מעלות שמאלה</string>
     <string name="visual_compass_hint_right">%1$s נמצא בערך %2$d מעלות מימינכם</string>
     <string name="visual_compass_hint_left">%1$s נמצא בערך %2$d מעלות משמאלכם</string>
+    <string name="action_simulate_sound">הדמיית הצליל כאן</string>
+    <string name="soundscape_started">מושמע הצליל המדומה סביב %1$s. השתמשו באוזניות והסתובבו כדי לשמוע אותו מסביבכם.</string>
+    <string name="soundscape_stop">עצירת הדמיית הצליל של %1$s</string>
+    <string name="soundscape_stopped">הדמיית הצליל נעצרה</string>
+    <string name="soundscape_no_data">אין נתוני מפה שהורדו סביב נקודה זו שמהם אפשר להדמות צליל.</string>
+    <string name="soundscape_failed">לא ניתן היה להפעיל את הדמיית הצליל בטלפון זה.</string>
+    <string name="credits_openal_body">הצליל התלת־ממדי של הדמיית הצליל מופק על ידי OpenAL Soft, מאת Chris Robinson ותורמים, ברישיון GNU LGPL גרסה 2.1, בשימוש ללא שינוי כספרייה נפרדת. קוד המקור נמצא ב־github.com/kcat/openal-soft (גרסה 1.24.3), וטקסט הרישיון ב־gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">הקלטות הסביבה של הדמיית הצליל נוצרו באמצעות Stable Audio Open 1.0 של Stability AI, ברישיון Stability AI Community License. Powered by Stability AI.</string>
 </resources>

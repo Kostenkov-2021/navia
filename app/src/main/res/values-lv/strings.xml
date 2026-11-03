@@ -542,4 +542,12 @@
     <string name="visual_turn_left">Pagriezieties par %1$d grādiem pa kreisi</string>
     <string name="visual_compass_hint_right">%1$s ir apmēram %2$d grādus pa labi no jums</string>
     <string name="visual_compass_hint_left">%1$s ir apmēram %2$d grādus pa kreisi no jums</string>
+    <string name="action_simulate_sound">Simulēt šeit dzirdamo skaņu</string>
+    <string name="soundscape_started">Tiek atskaņota simulētā skaņa ap %1$s. Izmantojiet austiņas un pagriezieties, lai to dzirdētu sev apkārt.</string>
+    <string name="soundscape_stop">Apturēt %1$s skaņas simulāciju</string>
+    <string name="soundscape_stopped">Skaņas simulācija apturēta</string>
+    <string name="soundscape_no_data">Ap šo punktu nav lejupielādētu kartes datu, no kuriem simulēt skaņu.</string>
+    <string name="soundscape_failed">Šajā tālrunī skaņas simulāciju neizdevās palaist.</string>
+    <string name="credits_openal_body">Skaņas simulācijas 3D skaņu veido OpenAL Soft, ko izstrādājis Chris Robinson un līdzautori, saskaņā ar GNU LGPL 2.1 versiju, izmantots bez izmaiņām kā atsevišķa bibliotēka. Pirmkods atrodams github.com/kcat/openal-soft (laidiens 1.24.3), bet licences teksts – gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Skaņas simulācijas apkārtnes ieraksti ir ģenerēti ar Stability AI Stable Audio Open 1.0 saskaņā ar Stability AI Community License. Powered by Stability AI.</string>
 </resources>

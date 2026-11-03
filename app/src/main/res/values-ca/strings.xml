@@ -553,4 +553,12 @@
     <string name="visual_turn_left">Gira %1$d graus a l\'esquerra</string>
     <string name="visual_compass_hint_right">%1$s és a uns %2$d graus a la teva dreta</string>
     <string name="visual_compass_hint_left">%1$s és a uns %2$d graus a la teva esquerra</string>
+    <string name="action_simulate_sound">Simula el so d\'aquí</string>
+    <string name="soundscape_started">S\'està reproduint el so simulat al voltant de %1$s. Feu servir auriculars i gireu-vos per sentir-lo al vostre voltant.</string>
+    <string name="soundscape_stop">Atura la simulació de so de %1$s</string>
+    <string name="soundscape_stopped">Simulació de so aturada</string>
+    <string name="soundscape_no_data">No hi ha dades de mapa baixades al voltant d\'aquest punt per simular-ne un so.</string>
+    <string name="soundscape_failed">La simulació de so no s\'ha pogut iniciar en aquest telèfon.</string>
+    <string name="credits_openal_body">El so 3D de la simulació de so el genera OpenAL Soft, de Chris Robinson i col·laboradors, sota la GNU LGPL versió 2.1, utilitzat sense modificar com a biblioteca separada. El codi font és a github.com/kcat/openal-soft (versió 1.24.3) i el text de la llicència a gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Els enregistraments ambientals de la simulació de so s\'han generat amb Stable Audio Open 1.0 de Stability AI, sota la Stability AI Community License. Powered by Stability AI.</string>
 </resources>

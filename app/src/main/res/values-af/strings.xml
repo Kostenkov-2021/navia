@@ -553,4 +553,12 @@
     <string name="visual_turn_left">Draai %1$d grade na links</string>
     <string name="visual_compass_hint_right">%1$s is omtrent %2$d grade regs van jou</string>
     <string name="visual_compass_hint_left">%1$s is omtrent %2$d grade links van jou</string>
+    <string name="action_simulate_sound">Simuleer die klank hier</string>
+    <string name="soundscape_started">Speel die gesimuleerde klank rondom %1$s. Gebruik oorfone en draai om dit rondom jou te hoor.</string>
+    <string name="soundscape_stop">Stop die klanksimulasie van %1$s</string>
+    <string name="soundscape_stopped">Klanksimulasie gestop</string>
+    <string name="soundscape_no_data">Geen afgelaaide kaartdata rondom hierdie punt om \'n klank van te simuleer nie.</string>
+    <string name="soundscape_failed">Die klanksimulasie kon nie op hierdie foon begin nie.</string>
+    <string name="credits_openal_body">Die 3D-klank van die klanksimulasie word deur OpenAL Soft weergegee, deur Chris Robinson en bydraers, onder die GNU LGPL weergawe 2.1, ongewysig gebruik as \'n aparte biblioteek. Die bronkode is by github.com/kcat/openal-soft (weergawe 1.24.3), en die lisensieteks by gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Die omgewingsopnames van die klanksimulasie is gegenereer met Stable Audio Open 1.0 deur Stability AI, onder die Stability AI Community License. Powered by Stability AI.</string>
 </resources>

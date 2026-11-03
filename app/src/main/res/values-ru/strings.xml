@@ -542,4 +542,12 @@
     <string name="visual_turn_left">Повернитесь влево на %1$d градусов</string>
     <string name="visual_compass_hint_right">%1$s примерно в %2$d градусах справа от вас</string>
     <string name="visual_compass_hint_left">%1$s примерно в %2$d градусах слева от вас</string>
+    <string name="action_simulate_sound">Смоделировать звук здесь</string>
+    <string name="soundscape_started">Воспроизводится смоделированный звук вокруг %1$s. Наденьте наушники и поворачивайтесь, чтобы слышать его вокруг себя.</string>
+    <string name="soundscape_stop">Остановить моделирование звука %1$s</string>
+    <string name="soundscape_stopped">Моделирование звука остановлено</string>
+    <string name="soundscape_no_data">Вокруг этой точки нет загруженных данных карты, по которым можно смоделировать звук.</string>
+    <string name="soundscape_failed">Не удалось запустить моделирование звука на этом телефоне.</string>
+    <string name="credits_openal_body">Объёмный звук моделирования звука создаётся OpenAL Soft, авторы Chris Robinson и участники проекта, по лицензии GNU LGPL версии 2.1, используется без изменений как отдельная библиотека. Исходный код — на github.com/kcat/openal-soft (выпуск 1.24.3), текст лицензии — на gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Фоновые записи для моделирования звука созданы с помощью Stable Audio Open 1.0 от Stability AI по лицензии Stability AI Community License. Powered by Stability AI.</string>
 </resources>

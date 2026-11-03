@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Obróć się o %1$d stopni w lewo</string>
     <string name="visual_compass_hint_right">%1$s jest około %2$d stopni po twojej prawej</string>
     <string name="visual_compass_hint_left">%1$s jest około %2$d stopni po twojej lewej</string>
+    <string name="action_simulate_sound">Symuluj dźwięk w tym miejscu</string>
+    <string name="soundscape_started">Odtwarzanie symulowanego dźwięku wokół %1$s. Użyj słuchawek i obracaj się, aby słyszeć go wokół siebie.</string>
+    <string name="soundscape_stop">Zatrzymaj symulację dźwięku %1$s</string>
+    <string name="soundscape_stopped">Symulacja dźwięku zatrzymana</string>
+    <string name="soundscape_no_data">Wokół tego punktu nie ma pobranych danych mapy, z których można by zasymulować dźwięk.</string>
+    <string name="soundscape_failed">Nie udało się uruchomić symulacji dźwięku na tym telefonie.</string>
+    <string name="credits_openal_body">Dźwięk 3D symulacji dźwięku generuje OpenAL Soft, autorstwa Chrisa Robinsona i współtwórców, na licencji GNU LGPL w wersji 2.1, używany bez zmian jako osobna biblioteka. Kod źródłowy jest na github.com/kcat/openal-soft (wydanie 1.24.3), a tekst licencji na gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Nagrania otoczenia symulacji dźwięku wygenerowano za pomocą Stable Audio Open 1.0 firmy Stability AI, na licencji Stability AI Community License. Powered by Stability AI.</string>
 </resources>

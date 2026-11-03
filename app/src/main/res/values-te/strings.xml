@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d డిగ్రీలు ఎడమవైపు తిరగండి</string>
     <string name="visual_compass_hint_right">%1$s మీ కుడివైపు సుమారు %2$d డిగ్రీల వద్ద ఉంది</string>
     <string name="visual_compass_hint_left">%1$s మీ ఎడమవైపు సుమారు %2$d డిగ్రీల వద్ద ఉంది</string>
+    <string name="action_simulate_sound">ఇక్కడి శబ్దాన్ని సిమ్యులేట్ చేయండి</string>
+    <string name="soundscape_started">%1$s చుట్టూ ఉన్న సిమ్యులేటెడ్ శబ్దం ప్లే అవుతోంది. హెడ్‌ఫోన్‌లు వాడండి, మీ చుట్టూ వినడానికి తిరగండి.</string>
+    <string name="soundscape_stop">%1$s శబ్ద సిమ్యులేషన్‌ను ఆపండి</string>
+    <string name="soundscape_stopped">శబ్ద సిమ్యులేషన్ ఆగిపోయింది</string>
+    <string name="soundscape_no_data">ఈ బిందువు చుట్టూ శబ్దాన్ని సిమ్యులేట్ చేయడానికి డౌన్‌లోడ్ చేసిన మ్యాప్ డేటా లేదు.</string>
+    <string name="soundscape_failed">ఈ ఫోన్‌లో శబ్ద సిమ్యులేషన్ ప్రారంభం కాలేదు.</string>
+    <string name="credits_openal_body">శబ్ద సిమ్యులేషన్ యొక్క 3D శబ్దాన్ని OpenAL Soft రూపొందిస్తుంది, Chris Robinson మరియు సహకారులచే, GNU LGPL వెర్షన్ 2.1 కింద, మార్పు లేకుండా ప్రత్యేక లైబ్రరీగా ఉపయోగించబడింది. దీని సోర్స్ కోడ్ github.com/kcat/openal-soft లో (విడుదల 1.24.3), లైసెన్స్ పాఠం gnu.org/licenses/old-licenses/lgpl-2.1.html లో ఉంది.</string>
+    <string name="credits_stable_audio_body">శబ్ద సిమ్యులేషన్ యొక్క పరిసర రికార్డింగ్‌లు Stability AI యొక్క Stable Audio Open 1.0 తో, Stability AI Community License కింద రూపొందించబడ్డాయి. Powered by Stability AI.</string>
 </resources>

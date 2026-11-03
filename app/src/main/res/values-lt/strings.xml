@@ -542,4 +542,12 @@
     <string name="visual_turn_left">Pasisukite %1$d laipsnių į kairę</string>
     <string name="visual_compass_hint_right">%1$s yra maždaug %2$d laipsnių į dešinę nuo jūsų</string>
     <string name="visual_compass_hint_left">%1$s yra maždaug %2$d laipsnių į kairę nuo jūsų</string>
+    <string name="action_simulate_sound">Imituoti čia esantį garsą</string>
+    <string name="soundscape_started">Grojamas imituotas garsas aplink %1$s. Naudokite ausines ir pasisukite, kad išgirstumėte jį aplink save.</string>
+    <string name="soundscape_stop">Sustabdyti %1$s garso imitaciją</string>
+    <string name="soundscape_stopped">Garso imitacija sustabdyta</string>
+    <string name="soundscape_no_data">Aplink šį tašką nėra atsisiųstų žemėlapio duomenų, iš kurių būtų galima imituoti garsą.</string>
+    <string name="soundscape_failed">Šiame telefone nepavyko paleisti garso imitacijos.</string>
+    <string name="credits_openal_body">Garso imitacijos 3D garsą sukuria OpenAL Soft, kurį sukūrė Chris Robinson ir bendraautoriai, pagal GNU LGPL 2.1 versiją, naudojamas nepakeistas kaip atskira biblioteka. Jo pirminis kodas yra github.com/kcat/openal-soft (1.24.3 versija), o licencijos tekstas – gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Garso imitacijos aplinkos įrašai sukurti naudojant Stability AI Stable Audio Open 1.0 pagal Stability AI Community License. Powered by Stability AI.</string>
 </resources>

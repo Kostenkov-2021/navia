@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d Grad nach links drehen</string>
     <string name="visual_compass_hint_right">%1$s ist etwa %2$d Grad rechts von dir</string>
     <string name="visual_compass_hint_left">%1$s ist etwa %2$d Grad links von dir</string>
+    <string name="action_simulate_sound">Klang hier simulieren</string>
+    <string name="soundscape_started">Die simulierte Geräuschkulisse um %1$s wird abgespielt. Verwende Kopfhörer und dreh dich, um sie rund um dich zu hören.</string>
+    <string name="soundscape_stop">Klangsimulation von %1$s beenden</string>
+    <string name="soundscape_stopped">Klangsimulation beendet</string>
+    <string name="soundscape_no_data">Um diesen Punkt gibt es keine heruntergeladenen Kartendaten, aus denen sich ein Klang simulieren ließe.</string>
+    <string name="soundscape_failed">Die Klangsimulation konnte auf diesem Telefon nicht starten.</string>
+    <string name="credits_openal_body">Der 3D-Klang der Klangsimulation wird von OpenAL Soft berechnet, von Chris Robinson und Mitwirkenden, unter der GNU LGPL Version 2.1, unverändert als separate Bibliothek verwendet. Der Quellcode liegt auf github.com/kcat/openal-soft (Version 1.24.3), der Lizenztext auf gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Die Umgebungsaufnahmen der Klangsimulation wurden mit Stable Audio Open 1.0 von Stability AI erzeugt, unter der Stability AI Community License. Powered by Stability AI.</string>
 </resources>

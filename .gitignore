@@ -41,3 +41,4 @@ app/google-services.json
 
 # Android Studio project files (machine/user specific)
 /.idea/
+tools/soundscape_raw/

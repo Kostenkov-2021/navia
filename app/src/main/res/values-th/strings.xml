@@ -554,4 +554,12 @@
     <string name="visual_turn_left">หันไปทางซ้าย %1$d องศา</string>
     <string name="visual_compass_hint_right">%1$s อยู่ทางขวาของคุณประมาณ %2$d องศา</string>
     <string name="visual_compass_hint_left">%1$s อยู่ทางซ้ายของคุณประมาณ %2$d องศา</string>
+    <string name="action_simulate_sound">จำลองเสียงที่นี่</string>
+    <string name="soundscape_started">กำลังเล่นเสียงจำลองรอบ %1$s ใช้หูฟัง แล้วหมุนตัวเพื่อฟังเสียงรอบตัวคุณ</string>
+    <string name="soundscape_stop">หยุดการจำลองเสียงของ %1$s</string>
+    <string name="soundscape_stopped">หยุดการจำลองเสียงแล้ว</string>
+    <string name="soundscape_no_data">ไม่มีข้อมูลแผนที่ที่ดาวน์โหลดไว้รอบจุดนี้สำหรับจำลองเสียง</string>
+    <string name="soundscape_failed">ไม่สามารถเริ่มการจำลองเสียงบนโทรศัพท์นี้ได้</string>
+    <string name="credits_openal_body">เสียง 3 มิติของการจำลองเสียงสร้างโดย OpenAL Soft ของ Chris Robinson และผู้ร่วมพัฒนา ภายใต้ GNU LGPL เวอร์ชัน 2.1 ใช้โดยไม่ดัดแปลงเป็นไลบรารีแยก ซอร์สโค้ดอยู่ที่ github.com/kcat/openal-soft (รุ่น 1.24.3) และข้อความสัญญาอนุญาตอยู่ที่ gnu.org/licenses/old-licenses/lgpl-2.1.html</string>
+    <string name="credits_stable_audio_body">เสียงบรรยากาศของการจำลองเสียงสร้างด้วย Stable Audio Open 1.0 ของ Stability AI ภายใต้ Stability AI Community License Powered by Stability AI.</string>
 </resources>
