@@ -587,4 +587,15 @@
     <string name="visual_turn_left">Turn %1$d degrees left</string>
     <string name="visual_compass_hint_right">%1$s is about %2$d degrees to your right</string>
     <string name="visual_compass_hint_left">%1$s is about %2$d degrees to your left</string>
+    <!-- Simulated soundscape of a touched point (MapActivity's point menu, classes/soundscape) -->
+    <string name="action_simulate_sound">Simulate the sound here</string>
+    <string name="soundscape_started">Playing the simulated sound around %1$s. Use headphones, and turn to hear it around you.</string>
+    <string name="soundscape_stop">Stop the sound simulation of %1$s</string>
+    <string name="soundscape_stopped">Sound simulation stopped</string>
+    <string name="soundscape_no_data">No downloaded map data around this point to simulate a sound from.</string>
+    <string name="soundscape_failed">The sound simulation could not start on this phone.</string>
+    <string name="credits_openal_heading" translatable="false">OpenAL Soft</string>
+    <string name="credits_stable_audio_heading" translatable="false">Stable Audio Open</string>
+    <string name="credits_openal_body">The 3D sound of the sound simulation is rendered by OpenAL Soft, by Chris Robinson and contributors, under the GNU LGPL version 2.1, used unmodified as a separate library. Its source code is at github.com/kcat/openal-soft (release 1.24.3), and the license text at gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">The ambient recordings of the sound simulation were generated with Stable Audio Open 1.0 by Stability AI, under the Stability AI Community License. Powered by Stability AI.</string>
 </resources>

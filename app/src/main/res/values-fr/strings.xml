@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Tournez de %1$d degrés à gauche</string>
     <string name="visual_compass_hint_right">%1$s est à environ %2$d degrés sur votre droite</string>
     <string name="visual_compass_hint_left">%1$s est à environ %2$d degrés sur votre gauche</string>
+    <string name="action_simulate_sound">Simuler le son d\'ici</string>
+    <string name="soundscape_started">Lecture du son simulé autour de %1$s. Utilisez un casque et tournez-vous pour l\'entendre autour de vous.</string>
+    <string name="soundscape_stop">Arrêter la simulation sonore de %1$s</string>
+    <string name="soundscape_stopped">Simulation sonore arrêtée</string>
+    <string name="soundscape_no_data">Aucune donnée cartographique téléchargée autour de ce point pour simuler un son.</string>
+    <string name="soundscape_failed">La simulation sonore n\'a pas pu démarrer sur ce téléphone.</string>
+    <string name="credits_openal_body">Le son 3D de la simulation sonore est rendu par OpenAL Soft, de Chris Robinson et ses contributeurs, sous licence GNU LGPL version 2.1, utilisé sans modification comme bibliothèque séparée. Son code source se trouve sur github.com/kcat/openal-soft (version 1.24.3) et le texte de la licence sur gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Les enregistrements d\'ambiance de la simulation sonore ont été générés avec Stable Audio Open 1.0 de Stability AI, sous la Stability AI Community License. Powered by Stability AI.</string>
 </resources>

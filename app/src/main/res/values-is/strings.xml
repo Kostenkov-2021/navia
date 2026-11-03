@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Snúðu þér %1$d gráður til vinstri</string>
     <string name="visual_compass_hint_right">%1$s er um það bil %2$d gráður hægra megin við þig</string>
     <string name="visual_compass_hint_left">%1$s er um það bil %2$d gráður vinstra megin við þig</string>
+    <string name="action_simulate_sound">Herma eftir hljóðinu hér</string>
+    <string name="soundscape_started">Spilar hermt hljóð í kringum %1$s. Notaðu heyrnartól og snúðu þér til að heyra það allt í kringum þig.</string>
+    <string name="soundscape_stop">Stöðva hljóðhermun fyrir %1$s</string>
+    <string name="soundscape_stopped">Hljóðhermun stöðvuð</string>
+    <string name="soundscape_no_data">Engin sótt kortagögn eru í kringum þennan punkt til að herma eftir hljóði.</string>
+    <string name="soundscape_failed">Ekki tókst að ræsa hljóðhermunina í þessum síma.</string>
+    <string name="credits_openal_body">Þrívíddarhljóð hljóðhermunarinnar er reiknað með OpenAL Soft, eftir Chris Robinson og fleiri, samkvæmt GNU LGPL útgáfu 2.1, notað óbreytt sem sérstakt safn. Frumkóðinn er á github.com/kcat/openal-soft (útgáfa 1.24.3) og leyfistextinn á gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Umhverfisupptökur hljóðhermunarinnar voru búnar til með Stable Audio Open 1.0 frá Stability AI, samkvæmt Stability AI Community License. Powered by Stability AI.</string>
 </resources>

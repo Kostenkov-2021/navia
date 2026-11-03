@@ -33,6 +33,7 @@ import com.wikiponder.touchmap.classes.importer.ImportService;
 import com.wikiponder.touchmap.classes.importer.ImportState;
 import com.wikiponder.touchmap.classes.interfaces.UserLocationListener;
 import com.wikiponder.touchmap.classes.models.MapElement;
+import com.wikiponder.touchmap.classes.soundscape.SoundscapePlayer;
 import com.wikiponder.touchmap.classes.ui.ActionsDialog;
 import com.wikiponder.touchmap.classes.ui.AddressSearch;
 import com.wikiponder.touchmap.classes.ui.BaseActivity;
@@ -115,7 +116,9 @@ public class MapActivity extends BaseActivity
 	private final OnBackPressedCallback modeBackCallback = new OnBackPressedCallback(false) {
 		@Override
 		public void handleOnBackPressed() {
-			if (MyApplication.getMapTileManager(MapActivity.this).getAimedElement() != null) {
+			if (soundscape != null) {
+				stopSoundscape(true);
+			} else if (MyApplication.getMapTileManager(MapActivity.this).getAimedElement() != null) {
 				cancelAiming();
 			} else if (MyApplication.getMapTileManager(MapActivity.this).getKeyword() != null) {
 				cancelSearchOnMap();
@@ -154,6 +157,12 @@ public class MapActivity extends BaseActivity
 	// Visual place check (experimental): the offer button appears when a place saved under
 	// More > AI place recognition is within VisualCheckController.RADIUS_M; see updateVisualCheckOffer.
 	private VisualCheckController visualCheck;
+
+	// Simulated soundscape of a touched point (menu item "Simulate the sound here"); non-null while
+	// it plays. Shares the action button and modeBackCallback with aiming and the keyword filter, so
+	// starting any one of the three ends the others. lastAzimuth seeds its listener heading.
+	private SoundscapePlayer soundscape;
+	private float lastAzimuth;
 	private static final long VISUAL_OFFER_CHECK_MS = 10_000;
 	private long lastVisualOfferCheck;
 	private String visualOfferPlace;
@@ -441,7 +450,8 @@ public class MapActivity extends BaseActivity
 		}
 		// Aiming and a keyword filter are mutually exclusive — they share this screen's one action
 		// button, so starting one cancels the other rather than leaving a stale aim active with no
-		// visible way to cancel it.
+		// visible way to cancel it. Same for a playing soundscape.
+		stopSoundscape(false);
 		MyApplication.getMapTileManager(this).setAimedElement(null);
 		MyApplication.getMapTileManager(this).setKeywordSearch(keyword);
 		showSearchCancelButton(keyword);
@@ -492,6 +502,9 @@ public class MapActivity extends BaseActivity
 	@Override
 	protected void onPause() {
 		super.onPause();
+		// Its heading comes from AngleManager, which stops below — and a soundscape playing on with
+		// the app in the background would be unexpected anyway.
+		if (soundscape != null) stopSoundscape(false);
 		if (visualCheck.isRunning()) {
 			visualCheck.stop();
 			updateVisualCheckButton();
@@ -675,6 +688,12 @@ public class MapActivity extends BaseActivity
 			actions.put(getString(R.string.action_edit_node), () -> showEditNodeDialog(element));
 		}
 
+		// Ways too (listening to a street is the point), and world places — the scene comes from
+		// whatever downloaded map data surrounds the touched position, not from the element itself.
+		if (SoundscapePlayer.isSupported()) {
+			actions.put(getString(R.string.action_simulate_sound), () -> startSoundscape(element));
+		}
+
 		final String detailsLabel = getString(R.string.action_details);
 		actions.put(detailsLabel, () -> ElementDetailsDialog.show(this, element));
 
@@ -705,7 +724,54 @@ public class MapActivity extends BaseActivity
 		setFocus(binding.actionButton);
 	}
 
+	private void startSoundscape(MapElement element) {
+		if (soundscape != null) stopSoundscape(false);
+		// Mutually exclusive with aiming and the keyword filter: all three own the action button.
+		MyApplication.getMapTileManager(this).setAimedElement(null);
+		MyApplication.getMapTileManager(this).setKeywordSearch(null);
+		final String name = element.getFormattedName(this, true);
+		final SoundscapePlayer[] self = new SoundscapePlayer[1];
+		self[0] = new SoundscapePlayer(this, element.lat, element.lon, lastAzimuth, new SoundscapePlayer.Listener() {
+			@Override
+			public void onSoundscapeStarted() {
+			}
+
+			@Override
+			public void onSoundscapeEmpty() {
+				if (soundscape != self[0]) return;
+				stopSoundscape(false);
+				Toast.makeText(MapActivity.this, R.string.soundscape_no_data, Toast.LENGTH_LONG).show();
+			}
+
+			@Override
+			public void onSoundscapeFailed() {
+				if (soundscape != self[0]) return;
+				stopSoundscape(false);
+				Toast.makeText(MapActivity.this, R.string.soundscape_failed, Toast.LENGTH_LONG).show();
+			}
+		});
+		soundscape = self[0];
+		soundscape.start();
+		binding.actionButton.setVisibility(View.VISIBLE);
+		binding.actionButton.setContentDescription(getString(R.string.soundscape_stop, name));
+		binding.actionButton.setOnClickListener((v) -> stopSoundscape(true));
+		modeBackCallback.setEnabled(true);
+		Toast.makeText(this, getString(R.string.soundscape_started, name), Toast.LENGTH_LONG).show();
+		setFocus(binding.actionButton);
+	}
+
+	/** @param announce whether to tell the user — false when something else is taking over. */
+	private void stopSoundscape(boolean announce) {
+		if (soundscape == null) return;
+		soundscape.stop();
+		soundscape = null;
+		binding.actionButton.setVisibility(View.INVISIBLE);
+		modeBackCallback.setEnabled(false);
+		if (announce) Toast.makeText(this, R.string.soundscape_stopped, Toast.LENGTH_SHORT).show();
+	}
+
 	private void aimAtPoint(MapElement element) {
+		stopSoundscape(false);
 		// Aiming and an on-map search filter are mutually exclusive — see onShowOnMap's comment.
 		MyApplication.getMapTileManager(this).setKeywordSearch(null);
 		MyApplication.getMapTileManager(this).setAimedElement(element);
@@ -857,6 +923,8 @@ public class MapActivity extends BaseActivity
 	@Override
 	public void onAverageAnglesComputed(float avgAzimuth, float avgPitch, float avgRoll) {
 		binding.mapView.setCompassRotation(avgAzimuth, avgPitch);
+		lastAzimuth = avgAzimuth;
+		if (soundscape != null) soundscape.setHeading(avgAzimuth);
 	}
 
 	// ---- ImportState.Listener: this activity owns the download progress dialog (see

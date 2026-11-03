@@ -542,4 +542,12 @@
     <string name="visual_turn_left">左に %1$d 度回ってください</string>
     <string name="visual_compass_hint_right">%1$s は右に約 %2$d 度の方向です</string>
     <string name="visual_compass_hint_left">%1$s は左に約 %2$d 度の方向です</string>
+    <string name="action_simulate_sound">ここの音をシミュレート</string>
+    <string name="soundscape_started">%1$sの周りのシミュレートした音を再生中です。ヘッドホンを使い、体の向きを変えると周囲の音として聞こえます。</string>
+    <string name="soundscape_stop">%1$sの音のシミュレーションを停止</string>
+    <string name="soundscape_stopped">音のシミュレーションを停止しました</string>
+    <string name="soundscape_no_data">この地点の周りには、音をシミュレートするためのダウンロード済み地図データがありません。</string>
+    <string name="soundscape_failed">このスマートフォンでは音のシミュレーションを開始できませんでした。</string>
+    <string name="credits_openal_body">音のシミュレーションの3Dサウンドは OpenAL Soft（Chris Robinson と貢献者）によって生成されています。GNU LGPL バージョン2.1のもと、改変せずに独立したライブラリとして使用しています。ソースコードは github.com/kcat/openal-soft（リリース 1.24.3）、ライセンス本文は gnu.org/licenses/old-licenses/lgpl-2.1.html にあります。</string>
+    <string name="credits_stable_audio_body">音のシミュレーションの環境音は、Stability AI の Stable Audio Open 1.0 を使い、Stability AI Community License のもとで生成されました。Powered by Stability AI.</string>
 </resources>

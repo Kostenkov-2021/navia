@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Pusing %1$d darjah ke kiri</string>
     <string name="visual_compass_hint_right">%1$s kira-kira %2$d darjah di sebelah kanan anda</string>
     <string name="visual_compass_hint_left">%1$s kira-kira %2$d darjah di sebelah kiri anda</string>
+    <string name="action_simulate_sound">Simulasikan bunyi di sini</string>
+    <string name="soundscape_started">Memainkan bunyi simulasi di sekitar %1$s. Gunakan fon kepala, dan berpusing untuk mendengarnya di sekeliling anda.</string>
+    <string name="soundscape_stop">Hentikan simulasi bunyi %1$s</string>
+    <string name="soundscape_stopped">Simulasi bunyi dihentikan</string>
+    <string name="soundscape_no_data">Tiada data peta yang dimuat turun di sekitar titik ini untuk menyimulasikan bunyi.</string>
+    <string name="soundscape_failed">Simulasi bunyi tidak dapat dimulakan pada telefon ini.</string>
+    <string name="credits_openal_body">Bunyi 3D simulasi bunyi dihasilkan oleh OpenAL Soft, oleh Chris Robinson dan penyumbang, di bawah GNU LGPL versi 2.1, digunakan tanpa diubah sebagai pustaka berasingan. Kod sumbernya di github.com/kcat/openal-soft (keluaran 1.24.3), dan teks lesen di gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Rakaman suasana simulasi bunyi dijana dengan Stable Audio Open 1.0 oleh Stability AI, di bawah Stability AI Community License. Powered by Stability AI.</string>
 </resources>

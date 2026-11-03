@@ -554,4 +554,12 @@
     <string name="visual_turn_left">%1$d ഡിഗ്രി ഇടത്തോട്ട് തിരിയുക</string>
     <string name="visual_compass_hint_right">%1$s നിങ്ങളുടെ വലതുവശത്ത് ഏകദേശം %2$d ഡിഗ്രിയിലാണ്</string>
     <string name="visual_compass_hint_left">%1$s നിങ്ങളുടെ ഇടതുവശത്ത് ഏകദേശം %2$d ഡിഗ്രിയിലാണ്</string>
+    <string name="action_simulate_sound">ഇവിടത്തെ ശബ്ദം സിമുലേറ്റ് ചെയ്യുക</string>
+    <string name="soundscape_started">%1$s ന് ചുറ്റുമുള്ള സിമുലേറ്റ് ചെയ്ത ശബ്ദം പ്ലേ ചെയ്യുന്നു. ഹെഡ്‌ഫോൺ ഉപയോഗിക്കുക, നിങ്ങൾക്ക് ചുറ്റും കേൾക്കാൻ തിരിയുക.</string>
+    <string name="soundscape_stop">%1$s ന്റെ ശബ്ദ സിമുലേഷൻ നിർത്തുക</string>
+    <string name="soundscape_stopped">ശബ്ദ സിമുലേഷൻ നിർത്തി</string>
+    <string name="soundscape_no_data">ഈ പോയിന്റിന് ചുറ്റും ശബ്ദം സിമുലേറ്റ് ചെയ്യാൻ ഡൗൺലോഡ് ചെയ്ത മാപ്പ് ഡാറ്റയില്ല.</string>
+    <string name="soundscape_failed">ഈ ഫോണിൽ ശബ്ദ സിമുലേഷൻ ആരംഭിക്കാനായില്ല.</string>
+    <string name="credits_openal_body">ശബ്ദ സിമുലേഷന്റെ 3D ശബ്ദം OpenAL Soft ആണ് സൃഷ്ടിക്കുന്നത്, Chris Robinson-ഉം സംഭാവകരും നിർമ്മിച്ചത്, GNU LGPL പതിപ്പ് 2.1 പ്രകാരം, മാറ്റമില്ലാതെ പ്രത്യേക ലൈബ്രറിയായി ഉപയോഗിക്കുന്നു. സോഴ്സ് കോഡ് github.com/kcat/openal-soft-ൽ (റിലീസ് 1.24.3), ലൈസൻസ് വാചകം gnu.org/licenses/old-licenses/lgpl-2.1.html-ൽ.</string>
+    <string name="credits_stable_audio_body">ശബ്ദ സിമുലേഷന്റെ പരിസര റെക്കോർഡിംഗുകൾ Stability AI-യുടെ Stable Audio Open 1.0 ഉപയോഗിച്ച്, Stability AI Community License പ്രകാരം സൃഷ്ടിച്ചതാണ്. Powered by Stability AI.</string>
 </resources>

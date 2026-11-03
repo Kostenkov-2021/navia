@@ -553,4 +553,12 @@
     <string name="visual_turn_left">Käänny %1$d astetta vasemmalle</string>
     <string name="visual_compass_hint_right">%1$s on noin %2$d astetta oikealla puolellasi</string>
     <string name="visual_compass_hint_left">%1$s on noin %2$d astetta vasemmalla puolellasi</string>
+    <string name="action_simulate_sound">Simuloi täällä kuuluva ääni</string>
+    <string name="soundscape_started">Toistetaan simuloitua ääntä kohteen %1$s ympäriltä. Käytä kuulokkeita ja käänny kuullaksesi sen ympärilläsi.</string>
+    <string name="soundscape_stop">Lopeta kohteen %1$s äänisimulaatio</string>
+    <string name="soundscape_stopped">Äänisimulaatio lopetettu</string>
+    <string name="soundscape_no_data">Tämän pisteen ympäriltä ei ole ladattua karttadataa, josta ääntä voisi simuloida.</string>
+    <string name="soundscape_failed">Äänisimulaatiota ei voitu käynnistää tässä puhelimessa.</string>
+    <string name="credits_openal_body">Äänisimulaation 3D-äänen tuottaa OpenAL Soft, tekijöinä Chris Robinson ja muut, GNU LGPL -lisenssin versiolla 2.1, muuttamattomana erillisenä kirjastona. Lähdekoodi on osoitteessa github.com/kcat/openal-soft (versio 1.24.3) ja lisenssin teksti osoitteessa gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Äänisimulaation ympäristöäänitteet on luotu Stability AI:n Stable Audio Open 1.0 -mallilla Stability AI Community License -lisenssillä. Powered by Stability AI.</string>
 </resources>

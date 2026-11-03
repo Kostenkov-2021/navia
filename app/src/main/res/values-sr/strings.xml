@@ -542,4 +542,12 @@
     <string name="visual_turn_left">Окрените се %1$d степени улево</string>
     <string name="visual_compass_hint_right">%1$s је око %2$d степени десно од вас</string>
     <string name="visual_compass_hint_left">%1$s је око %2$d степени лево од вас</string>
+    <string name="action_simulate_sound">Симулирај звук овде</string>
+    <string name="soundscape_started">Пушта се симулирани звук око %1$s. Користите слушалице и окрећите се да бисте га чули око себе.</string>
+    <string name="soundscape_stop">Заустави симулацију звука за %1$s</string>
+    <string name="soundscape_stopped">Симулација звука је заустављена</string>
+    <string name="soundscape_no_data">Око ове тачке нема преузетих података мапе из којих би се симулирао звук.</string>
+    <string name="soundscape_failed">Симулација звука није могла да се покрене на овом телефону.</string>
+    <string name="credits_openal_body">3D звук симулације звука прави OpenAL Soft, аутора Chris Robinson и сарадника, под лиценцом GNU LGPL верзија 2.1, коришћен без измена као засебна библиотека. Изворни код је на github.com/kcat/openal-soft (издање 1.24.3), а текст лиценце на gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Амбијентални снимци симулације звука направљени су помоћу Stable Audio Open 1.0 компаније Stability AI, под лиценцом Stability AI Community License. Powered by Stability AI.</string>
 </resources>

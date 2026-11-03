@@ -542,4 +542,12 @@
     <string name="visual_turn_left">왼쪽으로 %1$d도 도세요</string>
     <string name="visual_compass_hint_right">%1$s은(는) 오른쪽으로 약 %2$d도 방향에 있습니다</string>
     <string name="visual_compass_hint_left">%1$s은(는) 왼쪽으로 약 %2$d도 방향에 있습니다</string>
+    <string name="action_simulate_sound">이곳의 소리 시뮬레이션</string>
+    <string name="soundscape_started">%1$s 주변의 시뮬레이션된 소리를 재생 중입니다. 헤드폰을 사용하고, 몸을 돌려 주변에서 들어 보세요.</string>
+    <string name="soundscape_stop">%1$s 소리 시뮬레이션 중지</string>
+    <string name="soundscape_stopped">소리 시뮬레이션이 중지되었습니다</string>
+    <string name="soundscape_no_data">이 지점 주변에는 소리를 시뮬레이션할 다운로드된 지도 데이터가 없습니다.</string>
+    <string name="soundscape_failed">이 휴대전화에서 소리 시뮬레이션을 시작할 수 없습니다.</string>
+    <string name="credits_openal_body">소리 시뮬레이션의 3D 사운드는 Chris Robinson과 기여자들이 만든 OpenAL Soft가 GNU LGPL 버전 2.1에 따라 렌더링하며, 수정 없이 별도의 라이브러리로 사용됩니다. 소스 코드는 github.com/kcat/openal-soft(릴리스 1.24.3)에, 라이선스 전문은 gnu.org/licenses/old-licenses/lgpl-2.1.html에 있습니다.</string>
+    <string name="credits_stable_audio_body">소리 시뮬레이션의 주변음 녹음은 Stability AI의 Stable Audio Open 1.0으로 Stability AI Community License에 따라 생성되었습니다. Powered by Stability AI.</string>
 </resources>

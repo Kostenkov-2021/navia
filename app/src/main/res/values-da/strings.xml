@@ -553,4 +553,12 @@
     <string name="visual_turn_left">Drej %1$d grader til venstre</string>
     <string name="visual_compass_hint_right">%1$s er cirka %2$d grader til højre for dig</string>
     <string name="visual_compass_hint_left">%1$s er cirka %2$d grader til venstre for dig</string>
+    <string name="action_simulate_sound">Simulér lyden her</string>
+    <string name="soundscape_started">Afspiller den simulerede lyd omkring %1$s. Brug hovedtelefoner, og drej dig for at høre den omkring dig.</string>
+    <string name="soundscape_stop">Stop lydsimuleringen af %1$s</string>
+    <string name="soundscape_stopped">Lydsimulering stoppet</string>
+    <string name="soundscape_no_data">Ingen downloadede kortdata omkring dette punkt at simulere en lyd ud fra.</string>
+    <string name="soundscape_failed">Lydsimuleringen kunne ikke starte på denne telefon.</string>
+    <string name="credits_openal_body">Lydsimuleringens 3D-lyd gengives af OpenAL Soft, af Chris Robinson og bidragydere, under GNU LGPL version 2.1, brugt uændret som et separat bibliotek. Kildekoden findes på github.com/kcat/openal-soft (version 1.24.3) og licensteksten på gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Lydsimuleringens omgivelsesoptagelser er genereret med Stable Audio Open 1.0 fra Stability AI under Stability AI Community License. Powered by Stability AI.</string>
 </resources>

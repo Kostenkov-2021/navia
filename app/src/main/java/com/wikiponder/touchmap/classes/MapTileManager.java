@@ -1003,7 +1003,7 @@ public class MapTileManager {
 	 * already-loaded cache. {@code keyword} null or blank means no filter (plain nearby list). */
 	public List<MapElement> queryNearbyNodes(Location center, double radiusMeters, String keyword) {
 		double[] box = bboxAround(center, radiusMeters);
-		List<NodeRecord> nodes = queryNodesNearest(box, center.getLatitude(), center.getLongitude(), NEARBY_NODES_MAX, keyword);
+		List<NodeRecord> nodes = queryNodesNearest(box, center.getLatitude(), center.getLongitude(), NEARBY_NODES_MAX, keyword, false, null);
 		List<MapElement> out = new ArrayList<>(nodes.size());
 		for (NodeRecord nd : nodes) {
 			out.add(new MapElement(nd.favorite, nd.id, nd.lat, nd.lon, nd.catId, nd.type, nd.name, nd.tags));
@@ -1015,7 +1015,43 @@ public class MapTileManager {
 	 * ORDER BY + LIMIT — kept as a separate method rather than added as optional params there, since
 	 * every other caller of queryNodes wants every matching row (rendering, nearest-element search)
 	 * and none of them want this ordering/keyword filter. */
-	private List<NodeRecord> queryNodesNearest(double[] box, double centerLat, double centerLon, int limit, String keyword) {
+	/**
+	 * Every non-address, non-intersection node within roughly {@code radiusMeters} (bbox, same cheap
+	 * metric as {@link #queryNearbyNodes}), nearest first, capped at {@code limit}. For the soundscape
+	 * simulation (see soundscape.SceneBuilder): it needs trees, shops, rail nodes etc., and in a dense
+	 * city the address points alone (most of all nodes) would otherwise fill the whole cap. Reads the
+	 * db directly, so it does not depend on what the map viewport has loaded. Blocking — call off the
+	 * main thread.
+	 */
+	public List<MapElement> queryFeatureNodesAround(Location center, double radiusMeters, int limit) {
+		double[] box = bboxAround(center, radiusMeters);
+		return toElements(queryNodesNearest(box, center.getLatitude(), center.getLongitude(), limit, null, true, null));
+	}
+
+	/** Like {@link #queryFeatureNodesAround}, restricted to nodes whose {@code type} is one of
+	 * {@code types} — for the soundscape's far-carrying features (waterfalls, beaches, ...), which a
+	 * plain nearest-first query over a wide radius would lose to the city's trees and shops. */
+	public List<MapElement> queryNodesOfTypesAround(Location center, double radiusMeters, java.util.Collection<String> types, int limit) {
+		double[] box = bboxAround(center, radiusMeters);
+		return toElements(queryNodesNearest(box, center.getLatitude(), center.getLongitude(), limit, null, true, types));
+	}
+
+	private static List<MapElement> toElements(List<NodeRecord> nodes) {
+		List<MapElement> out = new ArrayList<>(nodes.size());
+		for (NodeRecord nd : nodes) {
+			out.add(new MapElement(nd.favorite, nd.id, nd.lat, nd.lon, nd.catId, nd.type, nd.name, nd.tags));
+		}
+		return out;
+	}
+
+	/** Every way whose bounding box overlaps a box of roughly {@code radiusMeters} around
+	 * {@code center}, straight from the db (see {@link #queryFeatureNodesAround}). Blocking. */
+	public List<WayRecord> queryWaysAround(Location center, double radiusMeters) {
+		return queryWays(bboxAround(center, radiusMeters));
+	}
+
+	private List<NodeRecord> queryNodesNearest(double[] box, double centerLat, double centerLon, int limit, String keyword,
+											   boolean featuresOnly, java.util.Collection<String> types) {
 		List<NodeRecord> out = new ArrayList<>();
 		List<int[]> cells = Utils.cellsForBbox(box[0], box[1], box[2], box[3]);
 		if (cells.isEmpty()) return out;
@@ -1033,6 +1069,18 @@ public class MapTileManager {
 		args.add(String.valueOf(box[1]));
 		args.add(String.valueOf(box[2]));
 		args.add(String.valueOf(box[3]));
+		if (featuresOnly) {
+			sql.append(" AND cat_id NOT IN (" + OSMDatabaseHelper.CATEGORY_ADDRESS + "," + OSMDatabaseHelper.CATEGORY_INTERSECTION + ")");
+		}
+		if (types != null && !types.isEmpty()) {
+			sql.append(" AND type IN (");
+			int i = 0;
+			for (String t : types) {
+				sql.append(i++ == 0 ? "?" : ",?");
+				args.add(t);
+			}
+			sql.append(")");
+		}
 		if (keyword != null && !keyword.isEmpty()) {
 			sql.append(" AND (type LIKE ? OR name LIKE ?)");
 			String pattern = "%" + keyword + "%";

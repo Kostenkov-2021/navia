@@ -56,6 +56,18 @@ android {
         versionName = "1.1.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Native code is only the soundscape renderer (OpenAL Soft + its JNI bridge, see
+        // src/main/cpp/CMakeLists.txt). 32-bit x86 is left out: no real phone ships it, and
+        // SpatialRenderer.isAvailable() hides the feature wherever the library can't load.
+        ndk {
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64")
+        }
+        externalNativeBuild {
+            cmake {
+                arguments += listOf("-DANDROID_STL=c++_shared")
+            }
+        }
     }
 
     signingConfigs {
@@ -109,6 +121,13 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
+    }
+    ndkVersion = "28.2.13676358"
     lint {
         // AGP's own "lint vital" pass (which runs automatically on every release build, separate
         // from the full `lint`/`lintRelease` task) crashes on this project on Windows: its

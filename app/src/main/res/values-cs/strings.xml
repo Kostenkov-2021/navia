@@ -553,4 +553,12 @@
     <string name="visual_turn_left">Otočte se o %1$d stupňů doleva</string>
     <string name="visual_compass_hint_right">%1$s je asi %2$d stupňů vpravo od vás</string>
     <string name="visual_compass_hint_left">%1$s je asi %2$d stupňů vlevo od vás</string>
+    <string name="action_simulate_sound">Simulovat zvuk tady</string>
+    <string name="soundscape_started">Přehrává se simulovaný zvuk okolí %1$s. Použijte sluchátka a otáčejte se, abyste ho slyšeli kolem sebe.</string>
+    <string name="soundscape_stop">Zastavit simulaci zvuku %1$s</string>
+    <string name="soundscape_stopped">Simulace zvuku zastavena</string>
+    <string name="soundscape_no_data">Kolem tohoto bodu nejsou stažená mapová data, ze kterých by šlo zvuk simulovat.</string>
+    <string name="soundscape_failed">Simulaci zvuku se na tomto telefonu nepodařilo spustit.</string>
+    <string name="credits_openal_body">3D zvuk simulace zvuku vykresluje OpenAL Soft od Chrise Robinsona a přispěvatelů, pod licencí GNU LGPL verze 2.1, použitý beze změn jako samostatná knihovna. Zdrojový kód je na github.com/kcat/openal-soft (verze 1.24.3) a text licence na gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Okolní nahrávky simulace zvuku byly vytvořeny pomocí Stable Audio Open 1.0 od Stability AI, pod licencí Stability AI Community License. Powered by Stability AI.</string>
 </resources>

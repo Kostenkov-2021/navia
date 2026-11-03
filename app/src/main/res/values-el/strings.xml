@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Στρίψτε %1$d μοίρες αριστερά</string>
     <string name="visual_compass_hint_right">Η τοποθεσία %1$s είναι περίπου %2$d μοίρες στα δεξιά σας</string>
     <string name="visual_compass_hint_left">Η τοποθεσία %1$s είναι περίπου %2$d μοίρες στα αριστερά σας</string>
+    <string name="action_simulate_sound">Προσομοίωση του ήχου εδώ</string>
+    <string name="soundscape_started">Αναπαράγεται ο προσομοιωμένος ήχος γύρω από %1$s. Χρησιμοποιήστε ακουστικά και γυρίστε για να τον ακούσετε γύρω σας.</string>
+    <string name="soundscape_stop">Διακοπή της ηχητικής προσομοίωσης του %1$s</string>
+    <string name="soundscape_stopped">Η ηχητική προσομοίωση σταμάτησε</string>
+    <string name="soundscape_no_data">Δεν υπάρχουν ληφθέντα δεδομένα χάρτη γύρω από αυτό το σημείο για προσομοίωση ήχου.</string>
+    <string name="soundscape_failed">Η ηχητική προσομοίωση δεν μπόρεσε να ξεκινήσει σε αυτό το τηλέφωνο.</string>
+    <string name="credits_openal_body">Ο τρισδιάστατος ήχος της ηχητικής προσομοίωσης αποδίδεται από το OpenAL Soft, των Chris Robinson και συνεισφερόντων, με την άδεια GNU LGPL έκδοση 2.1, χρησιμοποιείται χωρίς τροποποίηση ως ξεχωριστή βιβλιοθήκη. Ο πηγαίος κώδικας βρίσκεται στο github.com/kcat/openal-soft (έκδοση 1.24.3) και το κείμενο της άδειας στο gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Οι ηχογραφήσεις περιβάλλοντος της ηχητικής προσομοίωσης δημιουργήθηκαν με το Stable Audio Open 1.0 της Stability AI, με την άδεια Stability AI Community License. Powered by Stability AI.</string>
 </resources>

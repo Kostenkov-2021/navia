@@ -553,4 +553,12 @@
     <string name="visual_turn_left">Draai %1$d graden naar links</string>
     <string name="visual_compass_hint_right">%1$s is ongeveer %2$d graden rechts van je</string>
     <string name="visual_compass_hint_left">%1$s is ongeveer %2$d graden links van je</string>
+    <string name="action_simulate_sound">Simuleer het geluid hier</string>
+    <string name="soundscape_started">Het gesimuleerde geluid rond %1$s wordt afgespeeld. Gebruik een koptelefoon en draai je om het rondom je te horen.</string>
+    <string name="soundscape_stop">Geluidssimulatie van %1$s stoppen</string>
+    <string name="soundscape_stopped">Geluidssimulatie gestopt</string>
+    <string name="soundscape_no_data">Rond dit punt zijn geen gedownloade kaartgegevens om een geluid uit te simuleren.</string>
+    <string name="soundscape_failed">De geluidssimulatie kon op deze telefoon niet starten.</string>
+    <string name="credits_openal_body">Het 3D-geluid van de geluidssimulatie wordt berekend door OpenAL Soft, van Chris Robinson en bijdragers, onder de GNU LGPL versie 2.1, ongewijzigd gebruikt als aparte bibliotheek. De broncode staat op github.com/kcat/openal-soft (versie 1.24.3) en de licentietekst op gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">De omgevingsopnamen van de geluidssimulatie zijn gegenereerd met Stable Audio Open 1.0 van Stability AI, onder de Stability AI Community License. Powered by Stability AI.</string>
 </resources>

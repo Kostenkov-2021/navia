@@ -542,4 +542,12 @@
     <string name="visual_turn_left">Întoarce-te %1$d grade la stânga</string>
     <string name="visual_compass_hint_right">%1$s este la aproximativ %2$d grade la dreapta ta</string>
     <string name="visual_compass_hint_left">%1$s este la aproximativ %2$d grade la stânga ta</string>
+    <string name="action_simulate_sound">Simulează sunetul de aici</string>
+    <string name="soundscape_started">Se redă sunetul simulat din jurul %1$s. Folosiți căști și întoarceți-vă pentru a-l auzi în jurul dvs.</string>
+    <string name="soundscape_stop">Oprește simularea sonoră pentru %1$s</string>
+    <string name="soundscape_stopped">Simularea sonoră s-a oprit</string>
+    <string name="soundscape_no_data">Nu există date de hartă descărcate în jurul acestui punct din care să se simuleze un sunet.</string>
+    <string name="soundscape_failed">Simularea sonoră nu a putut porni pe acest telefon.</string>
+    <string name="credits_openal_body">Sunetul 3D al simulării sonore este redat de OpenAL Soft, de Chris Robinson și colaboratori, sub GNU LGPL versiunea 2.1, folosit nemodificat ca bibliotecă separată. Codul sursă este la github.com/kcat/openal-soft (versiunea 1.24.3), iar textul licenței la gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Înregistrările ambientale ale simulării sonore au fost generate cu Stable Audio Open 1.0 de la Stability AI, sub Stability AI Community License. Powered by Stability AI.</string>
 </resources>

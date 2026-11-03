@@ -542,4 +542,12 @@
     <string name="visual_turn_left">向左转 %1$d 度</string>
     <string name="visual_compass_hint_right">%1$s 大约在你右侧 %2$d 度</string>
     <string name="visual_compass_hint_left">%1$s 大约在你左侧 %2$d 度</string>
+    <string name="action_simulate_sound">模拟此处的声音</string>
+    <string name="soundscape_started">正在播放%1$s周围的模拟声音。请使用耳机，转动身体即可听到四周的声音。</string>
+    <string name="soundscape_stop">停止%1$s的声音模拟</string>
+    <string name="soundscape_stopped">声音模拟已停止</string>
+    <string name="soundscape_no_data">此地点周围没有已下载的地图数据，无法模拟声音。</string>
+    <string name="soundscape_failed">无法在此手机上启动声音模拟。</string>
+    <string name="credits_openal_body">声音模拟的 3D 声音由 OpenAL Soft（Chris Robinson 及贡献者开发）渲染，依据 GNU LGPL 2.1 版许可，作为独立的库未经修改使用。其源代码位于 github.com/kcat/openal-soft（1.24.3 版），许可文本位于 gnu.org/licenses/old-licenses/lgpl-2.1.html。</string>
+    <string name="credits_stable_audio_body">声音模拟的环境录音使用 Stability AI 的 Stable Audio Open 1.0 生成，依据 Stability AI Community License。Powered by Stability AI.</string>
 </resources>

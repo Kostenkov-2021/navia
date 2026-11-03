@@ -45,3 +45,10 @@
 # aborted (NoSuchMethodError in OrtSession.getInputInfo) as soon as the place recognition model
 # loaded, while debug builds worked.
 -keep class ai.onnxruntime.** { *; }
+
+# The soundscape's JNI functions are bound by their Java_..._SpatialRenderer_native* names, so the
+# class and its native methods must keep their names (R8 would otherwise rename them and every call
+# would throw UnsatisfiedLinkError in release builds only).
+-keepclasseswithmembernames class com.wikiponder.touchmap.classes.soundscape.SpatialRenderer {
+    native <methods>;
+}

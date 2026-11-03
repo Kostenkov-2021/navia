@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Xoay %1$d độ sang trái</string>
     <string name="visual_compass_hint_right">%1$s ở khoảng %2$d độ về bên phải bạn</string>
     <string name="visual_compass_hint_left">%1$s ở khoảng %2$d độ về bên trái bạn</string>
+    <string name="action_simulate_sound">Mô phỏng âm thanh ở đây</string>
+    <string name="soundscape_started">Đang phát âm thanh mô phỏng quanh %1$s. Hãy dùng tai nghe và xoay người để nghe âm thanh quanh bạn.</string>
+    <string name="soundscape_stop">Dừng mô phỏng âm thanh của %1$s</string>
+    <string name="soundscape_stopped">Đã dừng mô phỏng âm thanh</string>
+    <string name="soundscape_no_data">Không có dữ liệu bản đồ đã tải quanh điểm này để mô phỏng âm thanh.</string>
+    <string name="soundscape_failed">Không thể bắt đầu mô phỏng âm thanh trên điện thoại này.</string>
+    <string name="credits_openal_body">Âm thanh 3D của tính năng mô phỏng âm thanh được tạo bởi OpenAL Soft, của Chris Robinson và những người đóng góp, theo giấy phép GNU LGPL phiên bản 2.1, được dùng nguyên bản như một thư viện riêng. Mã nguồn có tại github.com/kcat/openal-soft (bản phát hành 1.24.3), và văn bản giấy phép tại gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">Các bản ghi âm môi trường của tính năng mô phỏng âm thanh được tạo bằng Stable Audio Open 1.0 của Stability AI, theo Stability AI Community License. Powered by Stability AI.</string>
 </resources>

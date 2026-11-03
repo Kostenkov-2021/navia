@@ -554,4 +554,12 @@
     <string name="visual_turn_left">Forduljon %1$d fokot balra</string>
     <string name="visual_compass_hint_right">%1$s körülbelül %2$d fokkal jobbra van</string>
     <string name="visual_compass_hint_left">%1$s körülbelül %2$d fokkal balra van</string>
+    <string name="action_simulate_sound">Az itteni hang szimulálása</string>
+    <string name="soundscape_started">A(z) %1$s környékének szimulált hangja szól. Használjon fejhallgatót, és forduljon el, hogy maga körül hallja.</string>
+    <string name="soundscape_stop">A(z) %1$s hangszimulációjának leállítása</string>
+    <string name="soundscape_stopped">Hangszimuláció leállítva</string>
+    <string name="soundscape_no_data">E pont körül nincs letöltött térképadat, amelyből hangot lehetne szimulálni.</string>
+    <string name="soundscape_failed">A hangszimuláció nem tudott elindulni ezen a telefonon.</string>
+    <string name="credits_openal_body">A hangszimuláció 3D hangját az OpenAL Soft állítja elő, Chris Robinson és közreműködők munkája, GNU LGPL 2.1-es verziója alatt, változtatás nélkül, külön könyvtárként használva. Forráskódja: github.com/kcat/openal-soft (1.24.3-as kiadás), a licenc szövege: gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">A hangszimuláció környezeti felvételei a Stability AI Stable Audio Open 1.0 modelljével készültek, a Stability AI Community License alatt. Powered by Stability AI.</string>
 </resources>

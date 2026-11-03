@@ -554,4 +554,12 @@
     <string name="visual_turn_left">استدر %1$d درجة إلى اليسار</string>
     <string name="visual_compass_hint_right">%1$s على بُعد %2$d درجة تقريبًا إلى يمينك</string>
     <string name="visual_compass_hint_left">%1$s على بُعد %2$d درجة تقريبًا إلى يسارك</string>
+    <string name="action_simulate_sound">محاكاة الصوت هنا</string>
+    <string name="soundscape_started">يتم تشغيل الصوت المحاكى حول %1$s. استخدم سماعات الرأس، واستدر لتسمعه من حولك.</string>
+    <string name="soundscape_stop">إيقاف محاكاة صوت %1$s</string>
+    <string name="soundscape_stopped">تم إيقاف محاكاة الصوت</string>
+    <string name="soundscape_no_data">لا توجد بيانات خريطة منزّلة حول هذه النقطة لمحاكاة صوت منها.</string>
+    <string name="soundscape_failed">تعذّر بدء محاكاة الصوت على هذا الهاتف.</string>
+    <string name="credits_openal_body">يُنتَج الصوت ثلاثي الأبعاد لمحاكاة الصوت بواسطة OpenAL Soft، من Chris Robinson والمساهمين، بموجب رخصة GNU LGPL الإصدار 2.1، ويُستخدم دون تعديل كمكتبة منفصلة. الشيفرة المصدرية على github.com/kcat/openal-soft (الإصدار 1.24.3)، ونص الرخصة على gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
+    <string name="credits_stable_audio_body">أُنشئت التسجيلات المحيطية لمحاكاة الصوت باستخدام Stable Audio Open 1.0 من Stability AI، بموجب رخصة Stability AI Community License. Powered by Stability AI.</string>
 </resources>
