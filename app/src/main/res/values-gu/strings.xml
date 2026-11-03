@@ -562,4 +562,8 @@
     <string name="soundscape_failed">આ ફોન પર અવાજ સિમ્યુલેશન શરૂ થઈ શક્યું નહીં.</string>
     <string name="credits_openal_body">અવાજ સિમ્યુલેશનનો 3D અવાજ OpenAL Soft દ્વારા બને છે, Chris Robinson અને યોગદાનકર્તાઓ દ્વારા, GNU LGPL સંસ્કરણ 2.1 હેઠળ, ફેરફાર વિના અલગ લાઇબ્રેરી તરીકે વપરાયેલ. તેનો સોર્સ કોડ github.com/kcat/openal-soft પર છે (રિલીઝ 1.24.3), અને લાઇસન્સ લખાણ gnu.org/licenses/old-licenses/lgpl-2.1.html પર.</string>
     <string name="credits_stable_audio_body">અવાજ સિમ્યુલેશનના આસપાસના રેકોર્ડિંગ Stability AI ના Stable Audio Open 1.0 વડે, Stability AI Community License હેઠળ બનાવાયા છે. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">શોધખોળ કરો. નકશો વાંચવા આંગળી દબાવી રાખી ખસેડો.</string>
+    <string name="hint_double_tap_options">વિકલ્પો માટે આંગળી ઉઠાવી બે વાર ટૅપ કરો.</string>
+    <string name="whats_new_title">નવું શું છે</string>
+    <string name="whats_new_message">એઆઈ દ્વારા સ્થળ ઓળખ: તમે વારંવાર જાઓ છો તે સ્થળો, જેમ કે તમારો મુખ્ય દરવાજો, ફિલ્મ કરો. પાછા આવો ત્યારે કૅમેરા કહેશે કે તે સ્થળ ક્યારે દેખાય છે અને કઈ બાજુ વળવું. વધુ, એઆઈ દ્વારા સ્થળ ઓળખમાંથી ખોલો.\n\nઅવાજ સિમ્યુલેશન: નકશા પરના બિંદુ પર બે વાર ટૅપ કરો અને અહીંનો અવાજ સિમ્યુલેટ કરો પસંદ કરો, જેથી તમારી આસપાસનો વિસ્તાર કેવો સંભળાય છે તે સાંભળી શકો. હેડફોન વાપરો.</string>
 </resources>

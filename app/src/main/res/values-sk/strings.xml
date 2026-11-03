@@ -550,4 +550,8 @@
     <string name="soundscape_failed">Simuláciu zvuku sa na tomto telefóne nepodarilo spustiť.</string>
     <string name="credits_openal_body">3D zvuk simulácie zvuku vytvára OpenAL Soft od Chrisa Robinsona a prispievateľov, pod licenciou GNU LGPL verzie 2.1, použitý bez zmien ako samostatná knižnica. Zdrojový kód je na github.com/kcat/openal-soft (verzia 1.24.3) a text licencie na gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Okolité nahrávky simulácie zvuku boli vytvorené pomocou Stable Audio Open 1.0 od Stability AI, pod licenciou Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Preskúmať. Podržte a posúvajte prst na čítanie mapy.</string>
+    <string name="hint_double_tap_options">Zdvihnite prst a dvakrát ťuknite pre možnosti.</string>
+    <string name="whats_new_title">Čo je nové</string>
+    <string name="whats_new_message">Rozpoznávanie miest pomocou AI: natočte miesta, kam často chodíte, napríklad vchodové dvere. Keď sa vrátite, kamera vám povie, kedy miesto vidí a ktorým smerom sa otočiť. Otvoríte ho cez Viac, Rozpoznávanie miest pomocou AI.\n\nSimulácia zvuku: dvakrát ťuknite na bod na mape a vyberte Simulovať zvuk tu, aby ste počuli, ako znie okolie okolo vás. Použite slúchadlá.</string>
 </resources>

@@ -550,4 +550,8 @@
     <string name="soundscape_failed">이 휴대전화에서 소리 시뮬레이션을 시작할 수 없습니다.</string>
     <string name="credits_openal_body">소리 시뮬레이션의 3D 사운드는 Chris Robinson과 기여자들이 만든 OpenAL Soft가 GNU LGPL 버전 2.1에 따라 렌더링하며, 수정 없이 별도의 라이브러리로 사용됩니다. 소스 코드는 github.com/kcat/openal-soft(릴리스 1.24.3)에, 라이선스 전문은 gnu.org/licenses/old-licenses/lgpl-2.1.html에 있습니다.</string>
     <string name="credits_stable_audio_body">소리 시뮬레이션의 주변음 녹음은 Stability AI의 Stable Audio Open 1.0으로 Stability AI Community License에 따라 생성되었습니다. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">탐색. 손가락을 댄 채 움직이면 지도를 읽어 줍니다.</string>
+    <string name="hint_double_tap_options">손가락을 떼고 두 번 탭하면 옵션이 열립니다.</string>
+    <string name="whats_new_title">새로운 기능</string>
+    <string name="whats_new_message">AI 장소 인식: 현관문처럼 자주 가는 장소를 촬영해 두세요. 다시 오면 카메라가 그 장소가 보일 때와 어느 쪽으로 돌아야 하는지 알려 줍니다. 더보기, AI 장소 인식에서 열 수 있습니다.\n\n소리 시뮬레이션: 지도에서 지점을 두 번 탭하고 이곳의 소리 시뮬레이션을 선택하면 주변이 어떤 소리로 들리는지 들을 수 있습니다. 헤드폰을 사용하세요.</string>
 </resources>

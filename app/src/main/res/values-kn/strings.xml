@@ -562,4 +562,8 @@
     <string name="soundscape_failed">ಈ ಫೋನ್‌ನಲ್ಲಿ ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
     <string name="credits_openal_body">ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್‌ನ 3D ಧ್ವನಿಯನ್ನು OpenAL Soft ರಚಿಸುತ್ತದೆ, Chris Robinson ಮತ್ತು ಕೊಡುಗೆದಾರರಿಂದ, GNU LGPL ಆವೃತ್ತಿ 2.1 ಅಡಿಯಲ್ಲಿ, ಬದಲಾವಣೆ ಇಲ್ಲದೆ ಪ್ರತ್ಯೇಕ ಲೈಬ್ರರಿಯಾಗಿ ಬಳಸಲಾಗಿದೆ. ಇದರ ಸೋರ್ಸ್ ಕೋಡ್ github.com/kcat/openal-soft ನಲ್ಲಿ (ಬಿಡುಗಡೆ 1.24.3), ಮತ್ತು ಪರವಾನಗಿ ಪಠ್ಯ gnu.org/licenses/old-licenses/lgpl-2.1.html ನಲ್ಲಿದೆ.</string>
     <string name="credits_stable_audio_body">ಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್‌ನ ಪರಿಸರ ರೆಕಾರ್ಡಿಂಗ್‌ಗಳನ್ನು Stability AI ನ Stable Audio Open 1.0 ಬಳಸಿ, Stability AI Community License ಅಡಿಯಲ್ಲಿ ರಚಿಸಲಾಗಿದೆ. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">ಅನ್ವೇಷಿಸಿ. ನಕ್ಷೆ ಓದಲು ಬೆರಳನ್ನು ಒತ್ತಿ ಹಿಡಿದು ಸರಿಸಿ.</string>
+    <string name="hint_double_tap_options">ಆಯ್ಕೆಗಳಿಗಾಗಿ ಬೆರಳು ಎತ್ತಿ ಎರಡು ಬಾರಿ ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="whats_new_title">ಹೊಸತೇನು</string>
+    <string name="whats_new_message">AI ಸ್ಥಳ ಗುರುತಿಸುವಿಕೆ: ನೀವು ಆಗಾಗ ಹೋಗುವ ಸ್ಥಳಗಳನ್ನು, ಉದಾಹರಣೆಗೆ ನಿಮ್ಮ ಮುಂಬಾಗಿಲನ್ನು, ವೀಡಿಯೊ ಮಾಡಿ. ನೀವು ಹಿಂದಿರುಗಿದಾಗ, ಕ್ಯಾಮೆರಾ ಆ ಸ್ಥಳವನ್ನು ನೋಡಿದಾಗ ಮತ್ತು ಯಾವ ಕಡೆ ತಿರುಗಬೇಕು ಎಂದು ಹೇಳುತ್ತದೆ. ಇನ್ನಷ್ಟು, AI ಸ್ಥಳ ಗುರುತಿಸುವಿಕೆಯಿಂದ ತೆರೆಯಿರಿ.\n\nಧ್ವನಿ ಸಿಮ್ಯುಲೇಶನ್: ನಕ್ಷೆಯಲ್ಲಿನ ಬಿಂದುವನ್ನು ಎರಡು ಬಾರಿ ಟ್ಯಾಪ್ ಮಾಡಿ, ಇಲ್ಲಿನ ಧ್ವನಿಯನ್ನು ಸಿಮ್ಯುಲೇಟ್ ಮಾಡಿ ಆಯ್ಕೆಮಾಡಿ, ನಿಮ್ಮ ಸುತ್ತಲಿನ ಪ್ರದೇಶ ಹೇಗೆ ಕೇಳಿಸುತ್ತದೆ ಎಂದು ಕೇಳಿ. ಹೆಡ್‌ಫೋನ್ ಬಳಸಿ.</string>
 </resources>

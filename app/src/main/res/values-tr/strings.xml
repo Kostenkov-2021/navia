@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Ses canlandırması bu telefonda başlatılamadı.</string>
     <string name="credits_openal_body">Ses canlandırmasının 3B sesi, Chris Robinson ve katkıda bulunanların OpenAL Soft kütüphanesiyle GNU LGPL sürüm 2.1 kapsamında üretilir; değiştirilmeden ayrı bir kütüphane olarak kullanılır. Kaynak kodu github.com/kcat/openal-soft adresinde (sürüm 1.24.3), lisans metni gnu.org/licenses/old-licenses/lgpl-2.1.html adresindedir.</string>
     <string name="credits_stable_audio_body">Ses canlandırmasının ortam kayıtları, Stability AI\'ın Stable Audio Open 1.0 modeliyle Stability AI Community License kapsamında üretilmiştir. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Keşfet. Haritayı okumak için parmağınızı basılı tutup kaydırın.</string>
+    <string name="hint_double_tap_options">Seçenekler için parmağınızı kaldırıp iki kez dokunun.</string>
+    <string name="whats_new_title">Yenilikler</string>
+    <string name="whats_new_message">Yapay zekâ ile yer tanıma: ön kapınız gibi sık gittiğiniz yerleri videoya çekin. Geri döndüğünüzde kamera, yeri ne zaman gördüğünü ve hangi yöne dönmeniz gerektiğini söyler. Diğer, Yapay zekâ ile yer tanıma bölümünden açın.\n\nSes canlandırma: haritada bir noktaya iki kez dokunun ve Buradaki sesi canlandır seçeneğini seçerek çevrenizdeki yerin nasıl duyulduğunu dinleyin. Kulaklık kullanın.</string>
 </resources>

@@ -562,4 +562,8 @@
     <string name="soundscape_failed">इस फ़ोन पर ध्वनि सिमुलेशन शुरू नहीं हो सका।</string>
     <string name="credits_openal_body">ध्वनि सिमुलेशन की 3D आवाज़ OpenAL Soft बनाता है, Chris Robinson और योगदानकर्ताओं द्वारा, GNU LGPL संस्करण 2.1 के तहत, बिना बदलाव के अलग लाइब्रेरी के रूप में इस्तेमाल। इसका सोर्स कोड github.com/kcat/openal-soft पर है (रिलीज़ 1.24.3), और लाइसेंस का पाठ gnu.org/licenses/old-licenses/lgpl-2.1.html पर।</string>
     <string name="credits_stable_audio_body">ध्वनि सिमुलेशन की परिवेश रिकॉर्डिंग Stability AI के Stable Audio Open 1.0 से, Stability AI Community License के तहत बनाई गई हैं। Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">एक्सप्लोर करें। मैप पढ़ने के लिए उंगली दबाए रखकर घुमाएँ।</string>
+    <string name="hint_double_tap_options">विकल्पों के लिए उंगली उठाकर दो बार टैप करें।</string>
+    <string name="whats_new_title">नया क्या है</string>
+    <string name="whats_new_message">एआई से जगह की पहचान: जिन जगहों पर आप अक्सर जाते हैं, जैसे अपना मुख्य दरवाज़ा, उनका वीडियो बनाएँ। लौटने पर कैमरा बताएगा कि वह जगह कब दिख रही है और किस ओर मुड़ना है। इसे अधिक, एआई से जगह की पहचान से खोलें।\n\nआवाज़ सिमुलेशन: मैप पर किसी बिंदु पर दो बार टैप करें और यहाँ की आवाज़ सिम्युलेट करें चुनें, ताकि सुन सकें कि आसपास की जगह कैसी सुनाई देती है। हेडफ़ोन लगाएँ।</string>
 </resources>

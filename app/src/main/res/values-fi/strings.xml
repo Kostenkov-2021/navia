@@ -561,4 +561,8 @@
     <string name="soundscape_failed">Äänisimulaatiota ei voitu käynnistää tässä puhelimessa.</string>
     <string name="credits_openal_body">Äänisimulaation 3D-äänen tuottaa OpenAL Soft, tekijöinä Chris Robinson ja muut, GNU LGPL -lisenssin versiolla 2.1, muuttamattomana erillisenä kirjastona. Lähdekoodi on osoitteessa github.com/kcat/openal-soft (versio 1.24.3) ja lisenssin teksti osoitteessa gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Äänisimulaation ympäristöäänitteet on luotu Stability AI:n Stable Audio Open 1.0 -mallilla Stability AI Community License -lisenssillä. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Tutki. Pidä ja liikuta sormea lukeaksesi karttaa.</string>
+    <string name="hint_double_tap_options">Nosta sormi ja kaksoisnapauta nähdäksesi vaihtoehdot.</string>
+    <string name="whats_new_title">Uutta</string>
+    <string name="whats_new_message">Tekoälypaikantunnistus: kuvaa paikkoja, joissa käyt usein, kuten kotiovesi. Kun palaat, kamera kertoo, milloin se näkee paikan ja mihin suuntaan kääntyä. Avaa se kohdasta Lisää, Tekoälypaikantunnistus.\n\nÄänisimulaatio: kaksoisnapauta kartan pistettä ja valitse Simuloi täällä kuuluva ääni kuullaksesi, miltä ympäristö ympärilläsi kuulostaa. Käytä kuulokkeita.</string>
 </resources>

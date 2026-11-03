@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Không thể bắt đầu mô phỏng âm thanh trên điện thoại này.</string>
     <string name="credits_openal_body">Âm thanh 3D của tính năng mô phỏng âm thanh được tạo bởi OpenAL Soft, của Chris Robinson và những người đóng góp, theo giấy phép GNU LGPL phiên bản 2.1, được dùng nguyên bản như một thư viện riêng. Mã nguồn có tại github.com/kcat/openal-soft (bản phát hành 1.24.3), và văn bản giấy phép tại gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Các bản ghi âm môi trường của tính năng mô phỏng âm thanh được tạo bằng Stable Audio Open 1.0 của Stability AI, theo Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Khám phá. Giữ và di chuyển ngón tay để đọc bản đồ.</string>
+    <string name="hint_double_tap_options">Nhấc ngón tay và nhấn đúp để xem tùy chọn.</string>
+    <string name="whats_new_title">Có gì mới</string>
+    <string name="whats_new_message">Nhận dạng địa điểm bằng AI: quay video những nơi bạn hay đến, như cửa nhà bạn. Khi bạn quay lại, camera sẽ báo khi nó thấy nơi đó và bạn nên quay về hướng nào. Mở từ Thêm, Nhận dạng địa điểm bằng AI.\n\nMô phỏng âm thanh: nhấn đúp vào một điểm trên bản đồ và chọn Mô phỏng âm thanh ở đây để nghe khu vực xung quanh bạn có âm thanh như thế nào. Hãy dùng tai nghe.</string>
 </resources>

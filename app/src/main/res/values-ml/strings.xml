@@ -562,4 +562,8 @@
     <string name="soundscape_failed">ഈ ഫോണിൽ ശബ്ദ സിമുലേഷൻ ആരംഭിക്കാനായില്ല.</string>
     <string name="credits_openal_body">ശബ്ദ സിമുലേഷന്റെ 3D ശബ്ദം OpenAL Soft ആണ് സൃഷ്ടിക്കുന്നത്, Chris Robinson-ഉം സംഭാവകരും നിർമ്മിച്ചത്, GNU LGPL പതിപ്പ് 2.1 പ്രകാരം, മാറ്റമില്ലാതെ പ്രത്യേക ലൈബ്രറിയായി ഉപയോഗിക്കുന്നു. സോഴ്സ് കോഡ് github.com/kcat/openal-soft-ൽ (റിലീസ് 1.24.3), ലൈസൻസ് വാചകം gnu.org/licenses/old-licenses/lgpl-2.1.html-ൽ.</string>
     <string name="credits_stable_audio_body">ശബ്ദ സിമുലേഷന്റെ പരിസര റെക്കോർഡിംഗുകൾ Stability AI-യുടെ Stable Audio Open 1.0 ഉപയോഗിച്ച്, Stability AI Community License പ്രകാരം സൃഷ്ടിച്ചതാണ്. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">പര്യവേക്ഷണം ചെയ്യുക. മാപ്പ് വായിക്കാൻ വിരൽ അമർത്തിപ്പിടിച്ച് നീക്കുക.</string>
+    <string name="hint_double_tap_options">ഓപ്ഷനുകൾക്കായി വിരൽ ഉയർത്തി രണ്ടുതവണ ടാപ്പ് ചെയ്യുക.</string>
+    <string name="whats_new_title">പുതിയതെന്ത്</string>
+    <string name="whats_new_message">AI സ്ഥല തിരിച്ചറിയൽ: നിങ്ങൾ പതിവായി പോകുന്ന സ്ഥലങ്ങൾ, ഉദാഹരണത്തിന് വീടിന്റെ മുൻവാതിൽ, വീഡിയോ എടുക്കുക. തിരികെ വരുമ്പോൾ ക്യാമറ ആ സ്ഥലം കാണുന്നത് എപ്പോഴാണെന്നും ഏത് വശത്തേക്ക് തിരിയണമെന്നും പറയും. കൂടുതൽ, AI സ്ഥല തിരിച്ചറിയൽ എന്നതിൽ നിന്ന് തുറക്കുക.\n\nശബ്ദ സിമുലേഷൻ: മാപ്പിലെ ഒരു പോയിന്റിൽ രണ്ടുതവണ ടാപ്പ് ചെയ്ത് ഇവിടത്തെ ശബ്ദം സിമുലേറ്റ് ചെയ്യുക തിരഞ്ഞെടുക്കുക, ചുറ്റുമുള്ള പ്രദേശം എങ്ങനെ കേൾക്കുന്നുവെന്ന് അറിയാൻ. ഹെഡ്‌ഫോൺ ഉപയോഗിക്കുക.</string>
 </resources>

@@ -561,4 +561,8 @@
     <string name="soundscape_failed">Die klanksimulasie kon nie op hierdie foon begin nie.</string>
     <string name="credits_openal_body">Die 3D-klank van die klanksimulasie word deur OpenAL Soft weergegee, deur Chris Robinson en bydraers, onder die GNU LGPL weergawe 2.1, ongewysig gebruik as \'n aparte biblioteek. Die bronkode is by github.com/kcat/openal-soft (weergawe 1.24.3), en die lisensieteks by gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Die omgewingsopnames van die klanksimulasie is gegenereer met Stable Audio Open 1.0 deur Stability AI, onder die Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Verken. Hou en beweeg jou vinger om die kaart te lees.</string>
+    <string name="hint_double_tap_options">Lig op en dubbeltik vir opsies.</string>
+    <string name="whats_new_title">Wat\'s nuut</string>
+    <string name="whats_new_message">KI-plekherkenning: verfilm plekke wat jy gereeld besoek, soos jou voordeur. Wanneer jy terugkom, sê die kamera wanneer dit die plek sien en watter kant toe om te draai. Maak dit oop via Meer, KI-plekherkenning.\n\nKlanksimulasie: dubbeltik \'n punt op die kaart en kies Simuleer die klank hier om te hoor hoe die omgewing rondom jou klink. Gebruik oorfone.</string>
 </resources>

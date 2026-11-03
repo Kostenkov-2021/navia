@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Simulasi suara tidak dapat dimulai di ponsel ini.</string>
     <string name="credits_openal_body">Suara 3D dari simulasi suara dihasilkan oleh OpenAL Soft, oleh Chris Robinson dan para kontributor, di bawah GNU LGPL versi 2.1, digunakan tanpa diubah sebagai pustaka terpisah. Kode sumbernya ada di github.com/kcat/openal-soft (rilis 1.24.3), dan teks lisensinya di gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Rekaman suasana simulasi suara dibuat dengan Stable Audio Open 1.0 dari Stability AI, di bawah Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Jelajahi. Tahan dan geser jari untuk membaca peta.</string>
+    <string name="hint_double_tap_options">Angkat jari dan ketuk dua kali untuk opsi.</string>
+    <string name="whats_new_title">Yang baru</string>
+    <string name="whats_new_message">Pengenalan tempat dengan AI: rekam tempat yang sering Anda kunjungi, misalnya pintu depan rumah. Saat Anda kembali, kamera memberi tahu kapan ia melihat tempat itu dan ke arah mana harus berbelok. Buka dari Lainnya, Pengenalan tempat dengan AI.\n\nSimulasi suara: ketuk dua kali sebuah titik di peta dan pilih Simulasikan suara di sini untuk mendengar suasana suara di sekitar Anda. Gunakan headphone.</string>
 </resources>

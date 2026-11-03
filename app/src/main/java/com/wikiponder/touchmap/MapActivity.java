@@ -34,6 +34,7 @@ import com.wikiponder.touchmap.classes.importer.ImportState;
 import com.wikiponder.touchmap.classes.interfaces.UserLocationListener;
 import com.wikiponder.touchmap.classes.models.MapElement;
 import com.wikiponder.touchmap.classes.soundscape.SoundscapePlayer;
+import com.wikiponder.touchmap.classes.TouchHints;
 import com.wikiponder.touchmap.classes.ui.ActionsDialog;
 import com.wikiponder.touchmap.classes.ui.AddressSearch;
 import com.wikiponder.touchmap.classes.ui.BaseActivity;
@@ -235,8 +236,13 @@ public class MapActivity extends BaseActivity
 	 * every other dialog on this screen (see BaseActivity's window-focus handling) — no extra wiring
 	 * needed here. */
 	private void showTalkBackRequiredNoticeIfFirstRun() {
-		if (sharedPreferences.getBoolean("talkback_required_notice_shown", false)) return;
-		sharedPreferences.edit().putBoolean("talkback_required_notice_shown", true).apply();
+		if (sharedPreferences.getBoolean("talkback_required_notice_shown", false)) {
+			showWhatsNewIfUpdated();
+			return;
+		}
+		// a new user already gets the current features; What's New is only for those updating
+		sharedPreferences.edit().putBoolean("talkback_required_notice_shown", true)
+				.putInt("whats_new_seen", WHATS_NEW_EDITION).apply();
 
 		talkBackNoticeShowing = true;
 		new AlertDialog.Builder(this)
@@ -251,15 +257,34 @@ public class MapActivity extends BaseActivity
 				// hide this one underneath it entirely (found live: dismissing the download prompt
 				// revealed this notice still sitting there, unacknowledged). Deferring the download
 				// check to this dismiss callback instead means at most one dialog is ever showing.
-				.setOnDismissListener(dialog -> {
-					talkBackNoticeShowing = false;
-					if (pendingStartupDownloadCheckLocation != null) {
-						Location location = pendingStartupDownloadCheckLocation;
-						pendingStartupDownloadCheckLocation = null;
-						checkAndShowStartupDownloadPrompt(location);
-					}
-				})
+				.setOnDismissListener(dialog -> onStartupNoticeDismissed())
 				.show();
+	}
+
+	/** Raise when whats_new_message describes a new release's features, so updaters see it once more. */
+	private static final int WHATS_NEW_EDITION = 1;
+
+	/** Once per edition, for users updating from an older version (see showTalkBackRequiredNoticeIfFirstRun). */
+	private void showWhatsNewIfUpdated() {
+		if (sharedPreferences.getInt("whats_new_seen", 0) >= WHATS_NEW_EDITION) return;
+		sharedPreferences.edit().putInt("whats_new_seen", WHATS_NEW_EDITION).apply();
+
+		talkBackNoticeShowing = true;
+		new AlertDialog.Builder(this)
+				.setTitle(R.string.whats_new_title)
+				.setMessage(R.string.whats_new_message)
+				.setPositiveButton(android.R.string.ok, null)
+				.setOnDismissListener(dialog -> onStartupNoticeDismissed())
+				.show();
+	}
+
+	private void onStartupNoticeDismissed() {
+		talkBackNoticeShowing = false;
+		if (pendingStartupDownloadCheckLocation != null) {
+			Location location = pendingStartupDownloadCheckLocation;
+			pendingStartupDownloadCheckLocation = null;
+			checkAndShowStartupDownloadPrompt(location);
+		}
 	}
 
 	@Override
@@ -666,6 +691,7 @@ public class MapActivity extends BaseActivity
 	private void showNodeActionsDialog() {
 		final MapElement element = MyApplication.getAnnouncementManager(this).getSelectedElement();
 		if (element == null) return;
+		TouchHints.onPointMenuOpened(this);
 
 		Map<String, Runnable> actions = new LinkedHashMap<>();
 		if (element.catId != OSMDatabaseHelper.CATEGORY_WAY) {

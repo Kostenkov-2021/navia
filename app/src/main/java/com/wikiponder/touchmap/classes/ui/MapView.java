@@ -24,9 +24,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.wikiponder.touchmap.MyApplication;
+import com.wikiponder.touchmap.R;
 import com.wikiponder.touchmap.classes.Contract;
 import com.wikiponder.touchmap.classes.MapTileManager;
 import com.wikiponder.touchmap.classes.TimerLogger;
+import com.wikiponder.touchmap.classes.TouchHints;
 import com.wikiponder.touchmap.classes.Utils;
 import com.wikiponder.touchmap.classes.db.OSMDatabaseHelper;
 import com.wikiponder.touchmap.classes.models.MapElement;
@@ -300,6 +302,7 @@ public class MapView extends View {
 		this.dark = (context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
 				== Configuration.UI_MODE_NIGHT_YES;
 		setClickable(true);
+		refreshExploreDescription();
 		for (int i = 0; i < placedRects.length; i++) placedRects[i] = new RectF();
 
 		// set paints
@@ -1102,9 +1105,16 @@ public class MapView extends View {
 				copycenterLocationBuffer();
 				if (updateListener != null)
 					updateListener.onTouchStop();
+				refreshExploreDescription();
 				break;
 		}
 		return super.dispatchHoverEvent(event);
+	}
+
+	/** TalkBack's label for the map: adds how to read it until enough points were read by touch. */
+	private void refreshExploreDescription() {
+		setContentDescription(context.getString(TouchHints.needsExploreHint(context)
+				? R.string.content_description_explore_map_hint : R.string.content_description_explore_map));
 	}
 	
 	@Override

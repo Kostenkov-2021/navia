@@ -561,4 +561,8 @@
     <string name="soundscape_failed">La simulació de so no s\'ha pogut iniciar en aquest telèfon.</string>
     <string name="credits_openal_body">El so 3D de la simulació de so el genera OpenAL Soft, de Chris Robinson i col·laboradors, sota la GNU LGPL versió 2.1, utilitzat sense modificar com a biblioteca separada. El codi font és a github.com/kcat/openal-soft (versió 1.24.3) i el text de la llicència a gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Els enregistraments ambientals de la simulació de so s\'han generat amb Stable Audio Open 1.0 de Stability AI, sota la Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Explora. Mantén i mou el dit per llegir el mapa.</string>
+    <string name="hint_double_tap_options">Aixeca el dit i fes doble toc per a opcions.</string>
+    <string name="whats_new_title">Novetats</string>
+    <string name="whats_new_message">Reconeixement de llocs amb IA: filma els llocs que visites sovint, com la porta de casa. Quan hi tornis, la càmera et dirà quan veu el lloc i cap a on girar. Obre\'l des de Més, Reconeixement de llocs amb IA.\n\nSimulació del so: fes doble toc en un punt del mapa i tria Simula el so d\'aquí per sentir com sona el lloc al teu voltant. Fes servir auriculars.</string>
 </resources>

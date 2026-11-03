@@ -562,4 +562,8 @@
     <string name="soundscape_failed">இந்தத் தொலைபேசியில் ஒலி உருவகப்படுத்தலைத் தொடங்க முடியவில்லை.</string>
     <string name="credits_openal_body">ஒலி உருவகப்படுத்தலின் 3D ஒலியை OpenAL Soft உருவாக்குகிறது, Chris Robinson மற்றும் பங்களிப்பாளர்களால், GNU LGPL பதிப்பு 2.1 இன் கீழ், மாற்றமின்றி தனி நூலகமாகப் பயன்படுத்தப்படுகிறது. அதன் மூலக் குறியீடு github.com/kcat/openal-soft இல் (வெளியீடு 1.24.3), உரிம உரை gnu.org/licenses/old-licenses/lgpl-2.1.html இல் உள்ளது.</string>
     <string name="credits_stable_audio_body">ஒலி உருவகப்படுத்தலின் சூழல் பதிவுகள் Stability AI இன் Stable Audio Open 1.0 மூலம், Stability AI Community License இன் கீழ் உருவாக்கப்பட்டன. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">ஆராய். வரைபடத்தைப் படிக்க விரலை அழுத்திப் பிடித்து நகர்த்தவும்.</string>
+    <string name="hint_double_tap_options">விருப்பங்களுக்கு விரலை எடுத்து இருமுறை தட்டவும்.</string>
+    <string name="whats_new_title">புதியவை</string>
+    <string name="whats_new_message">AI இட அடையாளம்: நீங்கள் அடிக்கடி செல்லும் இடங்களை, உதாரணமாக உங்கள் வீட்டு வாசலை, வீடியோ எடுங்கள். நீங்கள் திரும்பி வரும்போது, கேமரா அந்த இடத்தைப் பார்க்கும்போதும் எந்தப் பக்கம் திரும்ப வேண்டும் என்பதையும் சொல்லும். மேலும், AI இட அடையாளம் என்பதில் திறக்கவும்.\n\nஒலி உருவகப்படுத்தல்: வரைபடத்தில் ஒரு புள்ளியை இருமுறை தட்டி, இங்குள்ள ஒலியை உருவகப்படுத்து என்பதைத் தேர்ந்தெடுத்து, உங்களைச் சுற்றியுள்ள பகுதி எப்படி ஒலிக்கிறது என்று கேளுங்கள். ஹெட்ஃபோன் பயன்படுத்தவும்.</string>
 </resources>

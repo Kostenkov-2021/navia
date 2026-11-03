@@ -562,4 +562,8 @@
     <string name="soundscape_failed">לא ניתן היה להפעיל את הדמיית הצליל בטלפון זה.</string>
     <string name="credits_openal_body">הצליל התלת־ממדי של הדמיית הצליל מופק על ידי OpenAL Soft, מאת Chris Robinson ותורמים, ברישיון GNU LGPL גרסה 2.1, בשימוש ללא שינוי כספרייה נפרדת. קוד המקור נמצא ב־github.com/kcat/openal-soft (גרסה 1.24.3), וטקסט הרישיון ב־gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">הקלטות הסביבה של הדמיית הצליל נוצרו באמצעות Stable Audio Open 1.0 של Stability AI, ברישיון Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">חקירה. החזיקו והזיזו את האצבע כדי לקרוא את המפה.</string>
+    <string name="hint_double_tap_options">הרימו את האצבע והקישו פעמיים לאפשרויות.</string>
+    <string name="whats_new_title">מה חדש</string>
+    <string name="whats_new_message">זיהוי מקומות בבינה מלאכותית: צלמו בווידאו מקומות שאתם מבקרים בהם לעיתים קרובות, כמו דלת הכניסה. כשתחזרו, המצלמה תגיד מתי היא רואה את המקום ולאיזה כיוון להסתובב. פותחים דרך עוד, זיהוי מקומות בבינה מלאכותית.\n\nהדמיית צליל: הקישו פעמיים על נקודה במפה ובחרו הדמיית הצליל כאן כדי לשמוע איך נשמע האזור סביבכם. השתמשו באוזניות.</string>
 </resources>

@@ -550,4 +550,8 @@
     <string name="soundscape_failed">Šiame telefone nepavyko paleisti garso imitacijos.</string>
     <string name="credits_openal_body">Garso imitacijos 3D garsą sukuria OpenAL Soft, kurį sukūrė Chris Robinson ir bendraautoriai, pagal GNU LGPL 2.1 versiją, naudojamas nepakeistas kaip atskira biblioteka. Jo pirminis kodas yra github.com/kcat/openal-soft (1.24.3 versija), o licencijos tekstas – gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Garso imitacijos aplinkos įrašai sukurti naudojant Stability AI Stable Audio Open 1.0 pagal Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Tyrinėti. Laikykite ir judinkite pirštą, kad skaitytumėte žemėlapį.</string>
+    <string name="hint_double_tap_options">Atitraukite pirštą ir bakstelėkite dukart, kad matytumėte parinktis.</string>
+    <string name="whats_new_title">Kas naujo</string>
+    <string name="whats_new_message">Vietų atpažinimas su DI: nufilmuokite vietas, kuriose dažnai lankotės, pavyzdžiui, savo lauko duris. Kai sugrįšite, kamera pasakys, kada mato vietą ir į kurią pusę pasisukti. Atidarykite per Daugiau, Vietų atpažinimas su DI.\n\nGarso imitacija: dukart bakstelėkite žemėlapio tašką ir pasirinkite Imituoti čia esantį garsą, kad išgirstumėte, kaip skamba aplinka aplink jus. Naudokite ausines.</string>
 </resources>

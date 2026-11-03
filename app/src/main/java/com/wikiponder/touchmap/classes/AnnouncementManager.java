@@ -6,6 +6,7 @@ import android.location.Location;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.accessibility.AccessibilityManager;
 
 import androidx.preference.PreferenceManager;
 import com.wikiponder.touchmap.MyApplication;
@@ -193,6 +194,7 @@ public class AnnouncementManager implements MapView.UpdateListener {
 		else {
 			description = context.getString(R.string.announce_location_kilometers, element.getFormattedName(context, true), distance / 1000.0);
 		}
+		description = withTouchHint(description);
 		audioClient.stopSpeaking();
 		double bearing = userLocation.bearingTo(element.getLocation()) - mapRotation;
 		double balance = Math.sin(Math.toRadians(bearing)) *50 + 50;
@@ -229,7 +231,7 @@ public class AnnouncementManager implements MapView.UpdateListener {
 			lastElement = element;
 			lastAnnounceTime = System.currentTimeMillis();
 			
-			String description = element.getFormattedName(context, true);
+			String description = withTouchHint(element.getFormattedName(context, true));
 			audioClient.stopSpeaking();
 			audioClient.speak(description);
 		}
@@ -240,6 +242,18 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	}
 	
 	
+	/** Counts a point read by touch and, until the user has opened the point menu a few times, adds
+	 * how to open it. Only with explore-by-touch on: without it a plain tap opens the menu. */
+	private String withTouchHint(String description) {
+		TouchHints.onPointRead(context);
+		AccessibilityManager am = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+		if (am == null || !am.isTouchExplorationEnabled() || !TouchHints.needsDoubleTapHint(context))
+			return description;
+		// end the announcement as a sentence first, or TTS runs straight into the hint without a pause
+		boolean ended = !description.isEmpty() && ".。۔!?！？".indexOf(description.charAt(description.length() - 1)) >= 0;
+		return description + (ended ? " " : ". ") + context.getString(R.string.hint_double_tap_options);
+	}
+
 	/** {@code count} distinct buzzes, scaled by the vibration-intensity setting. */
 	public void vibratePulses(int count) {
 		long[] timings = new long[count * 2];

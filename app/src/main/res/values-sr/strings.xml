@@ -550,4 +550,8 @@
     <string name="soundscape_failed">Симулација звука није могла да се покрене на овом телефону.</string>
     <string name="credits_openal_body">3D звук симулације звука прави OpenAL Soft, аутора Chris Robinson и сарадника, под лиценцом GNU LGPL верзија 2.1, коришћен без измена као засебна библиотека. Изворни код је на github.com/kcat/openal-soft (издање 1.24.3), а текст лиценце на gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Амбијентални снимци симулације звука направљени су помоћу Stable Audio Open 1.0 компаније Stability AI, под лиценцом Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Истражи. Држите и померајте прст да бисте читали мапу.</string>
+    <string name="hint_double_tap_options">Подигните прст и двапут додирните за опције.</string>
+    <string name="whats_new_title">Шта је ново</string>
+    <string name="whats_new_message">Препознавање места помоћу ВИ: снимите места која често посећујете, на пример улазна врата. Када се вратите, камера вам каже када види место и на коју страну да се окренете. Отворите га преко Више, Препознавање места помоћу ВИ.\n\nСимулација звука: двапут додирните тачку на мапи и изаберите Симулирај звук овде да бисте чули како звучи околина око вас. Користите слушалице.</string>
 </resources>

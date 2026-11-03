@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Simulasi bunyi tidak dapat dimulakan pada telefon ini.</string>
     <string name="credits_openal_body">Bunyi 3D simulasi bunyi dihasilkan oleh OpenAL Soft, oleh Chris Robinson dan penyumbang, di bawah GNU LGPL versi 2.1, digunakan tanpa diubah sebagai pustaka berasingan. Kod sumbernya di github.com/kcat/openal-soft (keluaran 1.24.3), dan teks lesen di gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Rakaman suasana simulasi bunyi dijana dengan Stable Audio Open 1.0 oleh Stability AI, di bawah Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Terokai. Tahan dan gerakkan jari untuk membaca peta.</string>
+    <string name="hint_double_tap_options">Angkat jari dan ketik dua kali untuk pilihan.</string>
+    <string name="whats_new_title">Apa yang baharu</string>
+    <string name="whats_new_message">Pengecaman tempat dengan AI: rakam tempat yang kerap anda kunjungi, seperti pintu depan rumah. Apabila anda kembali, kamera memberitahu bila ia nampak tempat itu dan ke arah mana perlu berpusing. Buka dari Lagi, Pengecaman tempat dengan AI.\n\nSimulasi bunyi: ketik dua kali satu titik pada peta dan pilih Simulasikan bunyi di sini untuk mendengar bunyi kawasan di sekeliling anda. Gunakan fon kepala.</string>
 </resources>
