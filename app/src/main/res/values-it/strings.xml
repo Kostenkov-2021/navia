@@ -548,8 +548,8 @@
     <string name="visual_check_started">Riconoscimento del luogo avviato. Punta il telefono davanti a te.</string>
     <string name="visual_check_stopped">Riconoscimento del luogo interrotto.</string>
     <string name="visual_check_no_places">Nessun luogo salvato nelle vicinanze. Riconoscimento del luogo interrotto.</string>
-    <string name="visual_check_match">%1$s davanti, %2$d per cento</string>
-    <string name="visual_check_match_turn">%1$s, %2$d per cento. %3$s</string>
+    <string name="visual_check_seen">%1$s davanti</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Girati di %1$d gradi a destra</string>
     <string name="visual_turn_left">Girati di %1$d gradi a sinistra</string>
     <string name="visual_compass_hint_right">%1$s è a circa %2$d gradi alla tua destra</string>

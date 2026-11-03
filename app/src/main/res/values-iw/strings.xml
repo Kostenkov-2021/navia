@@ -548,8 +548,8 @@
     <string name="visual_check_started">זיהוי המקום התחיל. כוונו את הטלפון קדימה.</string>
     <string name="visual_check_stopped">זיהוי המקום הופסק.</string>
     <string name="visual_check_no_places">אין מקום שמור בקרבת מקום. זיהוי המקום הופסק.</string>
-    <string name="visual_check_match">%1$s לפניכם, %2$d אחוז</string>
-    <string name="visual_check_match_turn">%1$s, %2$d אחוז. %3$s</string>
+    <string name="visual_check_seen">%1$s לפניכם</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">הסתובבו %1$d מעלות ימינה</string>
     <string name="visual_turn_left">הסתובבו %1$d מעלות שמאלה</string>
     <string name="visual_compass_hint_right">%1$s נמצא בערך %2$d מעלות מימינכם</string>

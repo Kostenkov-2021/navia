@@ -536,8 +536,8 @@
     <string name="visual_check_started">Rozpoznávanie miesta spustené. Namierte telefón dopredu.</string>
     <string name="visual_check_stopped">Rozpoznávanie miesta zastavené.</string>
     <string name="visual_check_no_places">Nablízku nie je žiadne uložené miesto. Rozpoznávanie miesta zastavené.</string>
-    <string name="visual_check_match">%1$s pred vami, %2$d percent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d percent. %3$s</string>
+    <string name="visual_check_seen">%1$s pred vami</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Otočte sa o %1$d stupňov doprava</string>
     <string name="visual_turn_left">Otočte sa o %1$d stupňov doľava</string>
     <string name="visual_compass_hint_right">%1$s je asi %2$d stupňov vpravo od vás</string>

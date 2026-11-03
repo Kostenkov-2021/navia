@@ -536,8 +536,8 @@
     <string name="visual_check_started">地点识别已开始。请将手机对准前方。</string>
     <string name="visual_check_stopped">地点识别已停止。</string>
     <string name="visual_check_no_places">附近没有已保存的地点。地点识别已停止。</string>
-    <string name="visual_check_match">%1$s 在前方，百分之 %2$d</string>
-    <string name="visual_check_match_turn">%1$s，百分之 %2$d。%3$s</string>
+    <string name="visual_check_seen">%1$s 在前方</string>
+    <string name="visual_check_seen_turn">%1$s。%2$s</string>
     <string name="visual_turn_right">向右转 %1$d 度</string>
     <string name="visual_turn_left">向左转 %1$d 度</string>
     <string name="visual_compass_hint_right">%1$s 大约在你右侧 %2$d 度</string>

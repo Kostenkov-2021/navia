@@ -548,8 +548,8 @@
     <string name="visual_check_started">जगह की पहचान शुरू हुई। फ़ोन को सामने की ओर रखें।</string>
     <string name="visual_check_stopped">जगह की पहचान रोक दी गई।</string>
     <string name="visual_check_no_places">पास में कोई सहेजी गई जगह नहीं है। जगह की पहचान रोक दी गई।</string>
-    <string name="visual_check_match">%1$s सामने है, %2$d प्रतिशत</string>
-    <string name="visual_check_match_turn">%1$s, %2$d प्रतिशत। %3$s</string>
+    <string name="visual_check_seen">%1$s सामने है</string>
+    <string name="visual_check_seen_turn">%1$s। %2$s</string>
     <string name="visual_turn_right">%1$d डिग्री दाएं मुड़ें</string>
     <string name="visual_turn_left">%1$d डिग्री बाएं मुड़ें</string>
     <string name="visual_compass_hint_right">%1$s आपके दाईं ओर लगभग %2$d डिग्री पर है</string>

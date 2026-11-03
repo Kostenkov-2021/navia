@@ -253,7 +253,6 @@ public class VisualCheckController {
 				boolean fromImage = !Float.isNaN(turn);
 				if (!fromImage) turn = angleDiff(bestFrame.heading, liveHeading);
 				Log.d(TAG, "best " + best.name + " " + bestSim + " turn " + turn + (fromImage ? " image" : " compass"));
-				int pct = Math.round(bestSim * 100);
 				boolean fresh = best.id != lastAnnouncedPlace || now - lastAnnouncedAt > REPEAT_MS;
 				if (fromImage) {
 					float abs = Math.abs(turn);
@@ -262,14 +261,14 @@ public class VisualCheckController {
 				}
 				if (Float.isNaN(turn) || Math.abs(turn) < ALIGNED_DEG) {
 					if (fresh || !wasAligned) {
-						audio.speak(activity.getString(R.string.visual_check_match, best.name, pct));
+						audio.speak(activity.getString(R.string.visual_check_seen, best.name));
 						lastAnnouncedAt = now;
 					}
 					wasAligned = true;
 				} else {
 					String instruction = turnInstruction(turn);
 					if (fresh) {
-						audio.speak(activity.getString(R.string.visual_check_match_turn, best.name, pct, instruction));
+						audio.speak(activity.getString(R.string.visual_check_seen_turn, best.name, instruction));
 						lastAnnouncedAt = now;
 					} else {
 						audio.speak(instruction);

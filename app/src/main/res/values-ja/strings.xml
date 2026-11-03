@@ -536,8 +536,8 @@
     <string name="visual_check_started">場所認識を開始しました。スマートフォンを前方に向けてください。</string>
     <string name="visual_check_stopped">場所認識を停止しました。</string>
     <string name="visual_check_no_places">近くに保存された場所がありません。場所認識を停止しました。</string>
-    <string name="visual_check_match">%1$s が前方に、%2$d パーセント</string>
-    <string name="visual_check_match_turn">%1$s、%2$d パーセント。%3$s</string>
+    <string name="visual_check_seen">%1$s が前方に</string>
+    <string name="visual_check_seen_turn">%1$s。%2$s</string>
     <string name="visual_turn_right">右に %1$d 度回ってください</string>
     <string name="visual_turn_left">左に %1$d 度回ってください</string>
     <string name="visual_compass_hint_right">%1$s は右に約 %2$d 度の方向です</string>

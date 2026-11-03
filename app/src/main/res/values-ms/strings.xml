@@ -548,8 +548,8 @@
     <string name="visual_check_started">Pengecaman tempat dimulakan. Halakan telefon ke hadapan.</string>
     <string name="visual_check_stopped">Pengecaman tempat dihentikan.</string>
     <string name="visual_check_no_places">Tiada tempat disimpan berdekatan. Pengecaman tempat dihentikan.</string>
-    <string name="visual_check_match">%1$s di hadapan, %2$d peratus</string>
-    <string name="visual_check_match_turn">%1$s, %2$d peratus. %3$s</string>
+    <string name="visual_check_seen">%1$s di hadapan</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Pusing %1$d darjah ke kanan</string>
     <string name="visual_turn_left">Pusing %1$d darjah ke kiri</string>
     <string name="visual_compass_hint_right">%1$s kira-kira %2$d darjah di sebelah kanan anda</string>

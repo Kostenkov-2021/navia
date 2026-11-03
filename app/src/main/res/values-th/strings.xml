@@ -548,8 +548,8 @@
     <string name="visual_check_started">เริ่มการจดจำสถานที่แล้ว หันโทรศัพท์ไปข้างหน้า</string>
     <string name="visual_check_stopped">หยุดการจดจำสถานที่แล้ว</string>
     <string name="visual_check_no_places">ไม่มีสถานที่ที่บันทึกไว้ใกล้ๆ หยุดการจดจำสถานที่แล้ว</string>
-    <string name="visual_check_match">%1$s อยู่ข้างหน้า, %2$d เปอร์เซ็นต์</string>
-    <string name="visual_check_match_turn">%1$s, %2$d เปอร์เซ็นต์ %3$s</string>
+    <string name="visual_check_seen">%1$s อยู่ข้างหน้า</string>
+    <string name="visual_check_seen_turn">%1$s %2$s</string>
     <string name="visual_turn_right">หันไปทางขวา %1$d องศา</string>
     <string name="visual_turn_left">หันไปทางซ้าย %1$d องศา</string>
     <string name="visual_compass_hint_right">%1$s อยู่ทางขวาของคุณประมาณ %2$d องศา</string>

@@ -548,8 +548,8 @@
     <string name="visual_check_started">ठिकाण ओळख सुरू झाली. फोन समोर धरा.</string>
     <string name="visual_check_stopped">ठिकाण ओळख थांबवली.</string>
     <string name="visual_check_no_places">जवळ कोणतेही जतन केलेले ठिकाण नाही. ठिकाण ओळख थांबवली.</string>
-    <string name="visual_check_match">%1$s समोर, %2$d टक्के</string>
-    <string name="visual_check_match_turn">%1$s, %2$d टक्के. %3$s</string>
+    <string name="visual_check_seen">%1$s समोर</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d अंश उजवीकडे वळा</string>
     <string name="visual_turn_left">%1$d अंश डावीकडे वळा</string>
     <string name="visual_compass_hint_right">%1$s तुमच्या उजवीकडे सुमारे %2$d अंशांवर आहे</string>

@@ -536,8 +536,8 @@
     <string name="visual_check_started">Vietos atpažinimas pradėtas. Nukreipkite telefoną į priekį.</string>
     <string name="visual_check_stopped">Vietos atpažinimas sustabdytas.</string>
     <string name="visual_check_no_places">Netoliese nėra išsaugotų vietų. Vietos atpažinimas sustabdytas.</string>
-    <string name="visual_check_match">%1$s priekyje, %2$d procentai</string>
-    <string name="visual_check_match_turn">%1$s, %2$d procentai. %3$s</string>
+    <string name="visual_check_seen">%1$s priekyje</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Pasisukite %1$d laipsnių į dešinę</string>
     <string name="visual_turn_left">Pasisukite %1$d laipsnių į kairę</string>
     <string name="visual_compass_hint_right">%1$s yra maždaug %2$d laipsnių į dešinę nuo jūsų</string>

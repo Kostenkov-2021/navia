@@ -548,8 +548,8 @@
     <string name="visual_check_started">Staðgreining hafin. Beindu símanum fram.</string>
     <string name="visual_check_stopped">Staðgreining stöðvuð.</string>
     <string name="visual_check_no_places">Enginn vistaður staður nálægt. Staðgreining stöðvuð.</string>
-    <string name="visual_check_match">%1$s framundan, %2$d prósent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d prósent. %3$s</string>
+    <string name="visual_check_seen">%1$s framundan</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Snúðu þér %1$d gráður til hægri</string>
     <string name="visual_turn_left">Snúðu þér %1$d gráður til vinstri</string>
     <string name="visual_compass_hint_right">%1$s er um það bil %2$d gráður hægra megin við þig</string>

@@ -536,8 +536,8 @@
     <string name="visual_check_started">Platsigenkänning startad. Rikta telefonen framåt.</string>
     <string name="visual_check_stopped">Platsigenkänning stoppad.</string>
     <string name="visual_check_no_places">Ingen sparad plats i närheten. Platsigenkänning stoppad.</string>
-    <string name="visual_check_match">%1$s rakt fram, %2$d procent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d procent. %3$s</string>
+    <string name="visual_check_seen">%1$s rakt fram</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Vrid dig %1$d grader åt höger</string>
     <string name="visual_turn_left">Vrid dig %1$d grader åt vänster</string>
     <string name="visual_compass_hint_right">%1$s är ungefär %2$d grader till höger om dig</string>

@@ -547,8 +547,8 @@
     <string name="visual_check_started">Plekherkenning het begin. Rig die foon vorentoe.</string>
     <string name="visual_check_stopped">Plekherkenning gestop.</string>
     <string name="visual_check_no_places">Geen gestoorde plek naby nie. Plekherkenning gestop.</string>
-    <string name="visual_check_match">%1$s voor jou, %2$d persent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d persent. %3$s</string>
+    <string name="visual_check_seen">%1$s voor jou</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Draai %1$d grade na regs</string>
     <string name="visual_turn_left">Draai %1$d grade na links</string>
     <string name="visual_compass_hint_right">%1$s is omtrent %2$d grade regs van jou</string>

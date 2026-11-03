@@ -536,8 +536,8 @@
     <string name="visual_check_started">Reconhecimento do lugar iniciado. Aponte o telefone para a frente.</string>
     <string name="visual_check_stopped">Reconhecimento do lugar parado.</string>
     <string name="visual_check_no_places">Nenhum lugar salvo por perto. Reconhecimento do lugar parado.</string>
-    <string name="visual_check_match">%1$s à frente, %2$d por cento</string>
-    <string name="visual_check_match_turn">%1$s, %2$d por cento. %3$s</string>
+    <string name="visual_check_seen">%1$s à frente</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Vire %1$d graus para a direita</string>
     <string name="visual_turn_left">Vire %1$d graus para a esquerda</string>
     <string name="visual_compass_hint_right">%1$s está a cerca de %2$d graus à sua direita</string>

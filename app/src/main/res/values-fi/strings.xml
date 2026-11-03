@@ -547,8 +547,8 @@
     <string name="visual_check_started">Paikantunnistus aloitettu. Suuntaa puhelin eteenpäin.</string>
     <string name="visual_check_stopped">Paikantunnistus lopetettu.</string>
     <string name="visual_check_no_places">Lähellä ei ole tallennettuja paikkoja. Paikantunnistus lopetettu.</string>
-    <string name="visual_check_match">%1$s edessä, %2$d prosenttia</string>
-    <string name="visual_check_match_turn">%1$s, %2$d prosenttia. %3$s</string>
+    <string name="visual_check_seen">%1$s edessä</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Käänny %1$d astetta oikealle</string>
     <string name="visual_turn_left">Käänny %1$d astetta vasemmalle</string>
     <string name="visual_compass_hint_right">%1$s on noin %2$d astetta oikealla puolellasi</string>

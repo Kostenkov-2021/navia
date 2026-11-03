@@ -548,8 +548,8 @@
     <string name="visual_check_started">Розпізнавання місця розпочато. Спрямуйте телефон уперед.</string>
     <string name="visual_check_stopped">Розпізнавання місця зупинено.</string>
     <string name="visual_check_no_places">Поруч немає збережених місць. Розпізнавання місця зупинено.</string>
-    <string name="visual_check_match">%1$s попереду, %2$d відсотків</string>
-    <string name="visual_check_match_turn">%1$s, %2$d відсотків. %3$s</string>
+    <string name="visual_check_seen">%1$s попереду</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Поверніться праворуч на %1$d градусів</string>
     <string name="visual_turn_left">Поверніться ліворуч на %1$d градусів</string>
     <string name="visual_compass_hint_right">%1$s приблизно за %2$d градусів праворуч від вас</string>

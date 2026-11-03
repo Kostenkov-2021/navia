@@ -548,8 +548,8 @@
     <string name="visual_check_started">بدأ التعرّف على المكان. وجّه الهاتف إلى الأمام.</string>
     <string name="visual_check_stopped">توقّف التعرّف على المكان.</string>
     <string name="visual_check_no_places">لا يوجد مكان محفوظ قريب. توقّف التعرّف على المكان.</string>
-    <string name="visual_check_match">%1$s أمامك، %2$d بالمئة</string>
-    <string name="visual_check_match_turn">%1$s، %2$d بالمئة. %3$s</string>
+    <string name="visual_check_seen">%1$s أمامك</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">استدر %1$d درجة إلى اليمين</string>
     <string name="visual_turn_left">استدر %1$d درجة إلى اليسار</string>
     <string name="visual_compass_hint_right">%1$s على بُعد %2$d درجة تقريبًا إلى يمينك</string>

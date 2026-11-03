@@ -548,8 +548,8 @@
     <string name="visual_check_started">സ്ഥല തിരിച്ചറിയൽ ആരംഭിച്ചു. ഫോൺ മുന്നോട്ട് പിടിക്കുക.</string>
     <string name="visual_check_stopped">സ്ഥല തിരിച്ചറിയൽ നിർത്തി.</string>
     <string name="visual_check_no_places">സമീപത്ത് സംരക്ഷിച്ച സ്ഥലമില്ല. സ്ഥല തിരിച്ചറിയൽ നിർത്തി.</string>
-    <string name="visual_check_match">%1$s മുന്നിൽ, %2$d ശതമാനം</string>
-    <string name="visual_check_match_turn">%1$s, %2$d ശതമാനം. %3$s</string>
+    <string name="visual_check_seen">%1$s മുന്നിൽ</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d ഡിഗ്രി വലത്തോട്ട് തിരിയുക</string>
     <string name="visual_turn_left">%1$d ഡിഗ്രി ഇടത്തോട്ട് തിരിയുക</string>
     <string name="visual_compass_hint_right">%1$s നിങ്ങളുടെ വലതുവശത്ത് ഏകദേശം %2$d ഡിഗ്രിയിലാണ്</string>

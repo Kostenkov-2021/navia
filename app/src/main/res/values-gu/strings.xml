@@ -548,8 +548,8 @@
     <string name="visual_check_started">સ્થળ ઓળખ શરૂ થઈ. ફોનને સામેની તરફ રાખો.</string>
     <string name="visual_check_stopped">સ્થળ ઓળખ બંધ થઈ.</string>
     <string name="visual_check_no_places">નજીકમાં કોઈ સાચવેલું સ્થળ નથી. સ્થળ ઓળખ બંધ થઈ.</string>
-    <string name="visual_check_match">%1$s સામે, %2$d ટકા</string>
-    <string name="visual_check_match_turn">%1$s, %2$d ટકા. %3$s</string>
+    <string name="visual_check_seen">%1$s સામે</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d ડિગ્રી જમણે વળો</string>
     <string name="visual_turn_left">%1$d ડિગ્રી ડાબે વળો</string>
     <string name="visual_compass_hint_right">%1$s તમારી જમણી બાજુ લગભગ %2$d ડિગ્રી પર છે</string>

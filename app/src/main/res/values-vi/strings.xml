@@ -548,8 +548,8 @@
     <string name="visual_check_started">Đã bắt đầu nhận dạng địa điểm. Hướng điện thoại về phía trước.</string>
     <string name="visual_check_stopped">Đã dừng nhận dạng địa điểm.</string>
     <string name="visual_check_no_places">Không có địa điểm đã lưu nào ở gần. Đã dừng nhận dạng địa điểm.</string>
-    <string name="visual_check_match">%1$s ở phía trước, %2$d phần trăm</string>
-    <string name="visual_check_match_turn">%1$s, %2$d phần trăm. %3$s</string>
+    <string name="visual_check_seen">%1$s ở phía trước</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Xoay %1$d độ sang phải</string>
     <string name="visual_turn_left">Xoay %1$d độ sang trái</string>
     <string name="visual_compass_hint_right">%1$s ở khoảng %2$d độ về bên phải bạn</string>

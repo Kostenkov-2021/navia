@@ -536,8 +536,8 @@
     <string name="visual_check_started">Препознавање места је покренуто. Усмерите телефон напред.</string>
     <string name="visual_check_stopped">Препознавање места је заустављено.</string>
     <string name="visual_check_no_places">У близини нема сачуваних места. Препознавање места је заустављено.</string>
-    <string name="visual_check_match">%1$s испред, %2$d процената</string>
-    <string name="visual_check_match_turn">%1$s, %2$d процената. %3$s</string>
+    <string name="visual_check_seen">%1$s испред</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Окрените се %1$d степени удесно</string>
     <string name="visual_turn_left">Окрените се %1$d степени улево</string>
     <string name="visual_compass_hint_right">%1$s је око %2$d степени десно од вас</string>

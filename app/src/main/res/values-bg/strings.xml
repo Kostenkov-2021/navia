@@ -547,8 +547,8 @@
     <string name="visual_check_started">Разпознаването на мястото започна. Насочете телефона напред.</string>
     <string name="visual_check_stopped">Разпознаването на мястото е спряно.</string>
     <string name="visual_check_no_places">Няма запазено място наблизо. Разпознаването на мястото е спряно.</string>
-    <string name="visual_check_match">%1$s напред, %2$d процента</string>
-    <string name="visual_check_match_turn">%1$s, %2$d процента. %3$s</string>
+    <string name="visual_check_seen">%1$s напред</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Завъртете се на %1$d градуса надясно</string>
     <string name="visual_turn_left">Завъртете се на %1$d градуса наляво</string>
     <string name="visual_compass_hint_right">%1$s е на около %2$d градуса вдясно от вас</string>

@@ -547,8 +547,8 @@
     <string name="visual_check_started">Plaatsherkenning gestart. Richt de telefoon vooruit.</string>
     <string name="visual_check_stopped">Plaatsherkenning gestopt.</string>
     <string name="visual_check_no_places">Geen opgeslagen plaats in de buurt. Plaatsherkenning gestopt.</string>
-    <string name="visual_check_match">%1$s recht vooruit, %2$d procent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d procent. %3$s</string>
+    <string name="visual_check_seen">%1$s recht vooruit</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Draai %1$d graden naar rechts</string>
     <string name="visual_turn_left">Draai %1$d graden naar links</string>
     <string name="visual_compass_hint_right">%1$s is ongeveer %2$d graden rechts van je</string>

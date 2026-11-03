@@ -548,8 +548,8 @@
     <string name="visual_check_started">Η αναγνώριση τοποθεσίας ξεκίνησε. Στρέψτε το τηλέφωνο μπροστά.</string>
     <string name="visual_check_stopped">Η αναγνώριση τοποθεσίας σταμάτησε.</string>
     <string name="visual_check_no_places">Δεν υπάρχει αποθηκευμένη τοποθεσία κοντά. Η αναγνώριση τοποθεσίας σταμάτησε.</string>
-    <string name="visual_check_match">%1$s μπροστά, %2$d τοις εκατό</string>
-    <string name="visual_check_match_turn">%1$s, %2$d τοις εκατό. %3$s</string>
+    <string name="visual_check_seen">%1$s μπροστά</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Στρίψτε %1$d μοίρες δεξιά</string>
     <string name="visual_turn_left">Στρίψτε %1$d μοίρες αριστερά</string>
     <string name="visual_compass_hint_right">Η τοποθεσία %1$s είναι περίπου %2$d μοίρες στα δεξιά σας</string>

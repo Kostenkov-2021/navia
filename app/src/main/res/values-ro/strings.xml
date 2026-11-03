@@ -536,8 +536,8 @@
     <string name="visual_check_started">Recunoașterea locului a pornit. Îndreaptă telefonul înainte.</string>
     <string name="visual_check_stopped">Recunoașterea locului s-a oprit.</string>
     <string name="visual_check_no_places">Niciun loc salvat în apropiere. Recunoașterea locului s-a oprit.</string>
-    <string name="visual_check_match">%1$s în față, %2$d la sută</string>
-    <string name="visual_check_match_turn">%1$s, %2$d la sută. %3$s</string>
+    <string name="visual_check_seen">%1$s în față</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Întoarce-te %1$d grade la dreapta</string>
     <string name="visual_turn_left">Întoarce-te %1$d grade la stânga</string>
     <string name="visual_compass_hint_right">%1$s este la aproximativ %2$d grade la dreapta ta</string>

@@ -548,8 +548,8 @@
     <string name="visual_check_started">A helyfelismerés elindult. Irányítsa a telefont előre.</string>
     <string name="visual_check_stopped">A helyfelismerés leállt.</string>
     <string name="visual_check_no_places">Nincs mentett hely a közelben. A helyfelismerés leállt.</string>
-    <string name="visual_check_match">%1$s előttünk, %2$d százalék</string>
-    <string name="visual_check_match_turn">%1$s, %2$d százalék. %3$s</string>
+    <string name="visual_check_seen">%1$s előttünk</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Forduljon %1$d fokot jobbra</string>
     <string name="visual_turn_left">Forduljon %1$d fokot balra</string>
     <string name="visual_compass_hint_right">%1$s körülbelül %2$d fokkal jobbra van</string>

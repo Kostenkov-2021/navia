@@ -548,8 +548,8 @@
     <string name="visual_check_started">Yer tanıma başladı. Telefonu ileri doğru tutun.</string>
     <string name="visual_check_stopped">Yer tanıma durduruldu.</string>
     <string name="visual_check_no_places">Yakında kayıtlı yer yok. Yer tanıma durduruldu.</string>
-    <string name="visual_check_match">%1$s önünüzde, yüzde %2$d</string>
-    <string name="visual_check_match_turn">%1$s, yüzde %2$d. %3$s</string>
+    <string name="visual_check_seen">%1$s önünüzde</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d derece sağa dönün</string>
     <string name="visual_turn_left">%1$d derece sola dönün</string>
     <string name="visual_compass_hint_right">%1$s yaklaşık %2$d derece sağınızda</string>

@@ -548,8 +548,8 @@
     <string name="visual_check_started">Pengenalan tempat dimulai. Arahkan ponsel ke depan.</string>
     <string name="visual_check_stopped">Pengenalan tempat dihentikan.</string>
     <string name="visual_check_no_places">Tidak ada tempat tersimpan di dekat sini. Pengenalan tempat dihentikan.</string>
-    <string name="visual_check_match">%1$s di depan, %2$d persen</string>
-    <string name="visual_check_match_turn">%1$s, %2$d persen. %3$s</string>
+    <string name="visual_check_seen">%1$s di depan</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Putar %1$d derajat ke kanan</string>
     <string name="visual_turn_left">Putar %1$d derajat ke kiri</string>
     <string name="visual_compass_hint_right">%1$s sekitar %2$d derajat di sebelah kanan Anda</string>

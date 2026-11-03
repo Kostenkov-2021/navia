@@ -548,8 +548,8 @@
     <string name="visual_check_started">స్థల గుర్తింపు ప్రారంభమైంది. ఫోన్‌ను ముందుకు ఉంచండి.</string>
     <string name="visual_check_stopped">స్థల గుర్తింపు ఆపివేయబడింది.</string>
     <string name="visual_check_no_places">సమీపంలో సేవ్ చేసిన స్థలం లేదు. స్థల గుర్తింపు ఆపివేయబడింది.</string>
-    <string name="visual_check_match">%1$s ముందు ఉంది, %2$d శాతం</string>
-    <string name="visual_check_match_turn">%1$s, %2$d శాతం. %3$s</string>
+    <string name="visual_check_seen">%1$s ముందు ఉంది</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d డిగ్రీలు కుడివైపు తిరగండి</string>
     <string name="visual_turn_left">%1$d డిగ్రీలు ఎడమవైపు తిరగండి</string>
     <string name="visual_compass_hint_right">%1$s మీ కుడివైపు సుమారు %2$d డిగ్రీల వద్ద ఉంది</string>

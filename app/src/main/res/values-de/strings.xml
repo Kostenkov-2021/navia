@@ -548,8 +548,8 @@
     <string name="visual_check_started">Ortserkennung gestartet. Richte das Telefon nach vorn.</string>
     <string name="visual_check_stopped">Ortserkennung beendet.</string>
     <string name="visual_check_no_places">Kein gespeicherter Ort in der Nähe. Ortserkennung beendet.</string>
-    <string name="visual_check_match">%1$s voraus, %2$d Prozent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d Prozent. %3$s</string>
+    <string name="visual_check_seen">%1$s voraus</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d Grad nach rechts drehen</string>
     <string name="visual_turn_left">%1$d Grad nach links drehen</string>
     <string name="visual_compass_hint_right">%1$s ist etwa %2$d Grad rechts von dir</string>

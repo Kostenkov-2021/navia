@@ -548,8 +548,8 @@
     <string name="visual_check_started">تشخیص مکان شروع شد. گوشی را رو به جلو بگیرید.</string>
     <string name="visual_check_stopped">تشخیص مکان متوقف شد.</string>
     <string name="visual_check_no_places">هیچ مکان ذخیره‌شده‌ای نزدیک نیست. تشخیص مکان متوقف شد.</string>
-    <string name="visual_check_match">%1$s روبه‌رو، %2$d درصد</string>
-    <string name="visual_check_match_turn">%1$s، %2$d درصد. %3$s</string>
+    <string name="visual_check_seen">%1$s روبه‌رو</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d درجه به راست بچرخید</string>
     <string name="visual_turn_left">%1$d درجه به چپ بچرخید</string>
     <string name="visual_compass_hint_right">%1$s حدود %2$d درجه سمت راست شماست</string>

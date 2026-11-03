@@ -548,8 +548,8 @@
     <string name="visual_check_started">স্থান শনাক্তকরণ শুরু হয়েছে। ফোনটি সামনের দিকে ধরুন।</string>
     <string name="visual_check_stopped">স্থান শনাক্তকরণ বন্ধ হয়েছে।</string>
     <string name="visual_check_no_places">কাছে কোনো সংরক্ষিত স্থান নেই। স্থান শনাক্তকরণ বন্ধ হয়েছে।</string>
-    <string name="visual_check_match">%1$s সামনে, %2$d শতাংশ</string>
-    <string name="visual_check_match_turn">%1$s, %2$d শতাংশ। %3$s</string>
+    <string name="visual_check_seen">%1$s সামনে</string>
+    <string name="visual_check_seen_turn">%1$s। %2$s</string>
     <string name="visual_turn_right">%1$d ডিগ্রি ডানে ঘুরুন</string>
     <string name="visual_turn_left">%1$d ডিগ্রি বাঁয়ে ঘুরুন</string>
     <string name="visual_compass_hint_right">%1$s আপনার ডানদিকে প্রায় %2$d ডিগ্রিতে আছে</string>

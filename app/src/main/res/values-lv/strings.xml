@@ -536,8 +536,8 @@
     <string name="visual_check_started">Vietas atpazīšana sākta. Pavērsiet tālruni uz priekšu.</string>
     <string name="visual_check_stopped">Vietas atpazīšana apturēta.</string>
     <string name="visual_check_no_places">Tuvumā nav saglabātu vietu. Vietas atpazīšana apturēta.</string>
-    <string name="visual_check_match">%1$s priekšā, %2$d procenti</string>
-    <string name="visual_check_match_turn">%1$s, %2$d procenti. %3$s</string>
+    <string name="visual_check_seen">%1$s priekšā</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Pagriezieties par %1$d grādiem pa labi</string>
     <string name="visual_turn_left">Pagriezieties par %1$d grādiem pa kreisi</string>
     <string name="visual_compass_hint_right">%1$s ir apmēram %2$d grādus pa labi no jums</string>

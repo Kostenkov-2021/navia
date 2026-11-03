@@ -548,8 +548,8 @@
     <string name="visual_check_started">Nagsimula ang pagkilala ng lugar. Itutok ang telepono sa harap.</string>
     <string name="visual_check_stopped">Huminto ang pagkilala ng lugar.</string>
     <string name="visual_check_no_places">Walang naka-save na lugar sa malapit. Huminto ang pagkilala ng lugar.</string>
-    <string name="visual_check_match">%1$s sa harap, %2$d porsiyento</string>
-    <string name="visual_check_match_turn">%1$s, %2$d porsiyento. %3$s</string>
+    <string name="visual_check_seen">%1$s sa harap</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Pumihit nang %1$d digri pakanan</string>
     <string name="visual_turn_left">Pumihit nang %1$d digri pakaliwa</string>
     <string name="visual_compass_hint_right">Ang %1$s ay mga %2$d digri sa kanan mo</string>

@@ -536,8 +536,8 @@
     <string name="visual_check_started">Stedsgjenkjenning startet. Rett telefonen fremover.</string>
     <string name="visual_check_stopped">Stedsgjenkjenning stoppet.</string>
     <string name="visual_check_no_places">Ingen lagrede steder i nærheten. Stedsgjenkjenning stoppet.</string>
-    <string name="visual_check_match">%1$s rett frem, %2$d prosent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d prosent. %3$s</string>
+    <string name="visual_check_seen">%1$s rett frem</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Snu deg %1$d grader til høyre</string>
     <string name="visual_turn_left">Snu deg %1$d grader til venstre</string>
     <string name="visual_compass_hint_right">%1$s er omtrent %2$d grader til høyre for deg</string>

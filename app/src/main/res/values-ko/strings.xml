@@ -536,8 +536,8 @@
     <string name="visual_check_started">장소 인식을 시작했습니다. 휴대폰을 앞으로 향하세요.</string>
     <string name="visual_check_stopped">장소 인식을 중지했습니다.</string>
     <string name="visual_check_no_places">근처에 저장된 장소가 없습니다. 장소 인식을 중지했습니다.</string>
-    <string name="visual_check_match">%1$s 앞쪽, %2$d퍼센트</string>
-    <string name="visual_check_match_turn">%1$s, %2$d퍼센트. %3$s</string>
+    <string name="visual_check_seen">%1$s 앞쪽</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">오른쪽으로 %1$d도 도세요</string>
     <string name="visual_turn_left">왼쪽으로 %1$d도 도세요</string>
     <string name="visual_compass_hint_right">%1$s은(는) 오른쪽으로 약 %2$d도 방향에 있습니다</string>

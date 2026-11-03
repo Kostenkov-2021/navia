@@ -548,8 +548,8 @@
     <string name="visual_check_started">இட அடையாளம் தொடங்கியது. ஃபோனை முன்னோக்கிப் பிடியுங்கள்.</string>
     <string name="visual_check_stopped">இட அடையாளம் நிறுத்தப்பட்டது.</string>
     <string name="visual_check_no_places">அருகில் சேமிக்கப்பட்ட இடம் இல்லை. இட அடையாளம் நிறுத்தப்பட்டது.</string>
-    <string name="visual_check_match">%1$s முன்னால், %2$d சதவீதம்</string>
-    <string name="visual_check_match_turn">%1$s, %2$d சதவீதம். %3$s</string>
+    <string name="visual_check_seen">%1$s முன்னால்</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d டிகிரி வலதுபுறம் திரும்புங்கள்</string>
     <string name="visual_turn_left">%1$d டிகிரி இடதுபுறம் திரும்புங்கள்</string>
     <string name="visual_compass_hint_right">%1$s உங்கள் வலதுபுறம் சுமார் %2$d டிகிரியில் உள்ளது</string>

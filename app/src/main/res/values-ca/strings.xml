@@ -547,8 +547,8 @@
     <string name="visual_check_started">S\'ha iniciat el reconeixement del lloc. Apunta el telèfon endavant.</string>
     <string name="visual_check_stopped">S\'ha aturat el reconeixement del lloc.</string>
     <string name="visual_check_no_places">No hi ha cap lloc desat a prop. S\'ha aturat el reconeixement del lloc.</string>
-    <string name="visual_check_match">%1$s al davant, %2$d per cent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d per cent. %3$s</string>
+    <string name="visual_check_seen">%1$s al davant</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Gira %1$d graus a la dreta</string>
     <string name="visual_turn_left">Gira %1$d graus a l\'esquerra</string>
     <string name="visual_compass_hint_right">%1$s és a uns %2$d graus a la teva dreta</string>

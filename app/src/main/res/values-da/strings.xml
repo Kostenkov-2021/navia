@@ -547,8 +547,8 @@
     <string name="visual_check_started">Stedgenkendelse startet. Ret telefonen fremad.</string>
     <string name="visual_check_stopped">Stedgenkendelse stoppet.</string>
     <string name="visual_check_no_places">Intet gemt sted i nærheden. Stedgenkendelse stoppet.</string>
-    <string name="visual_check_match">%1$s lige frem, %2$d procent</string>
-    <string name="visual_check_match_turn">%1$s, %2$d procent. %3$s</string>
+    <string name="visual_check_seen">%1$s lige frem</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">Drej %1$d grader til højre</string>
     <string name="visual_turn_left">Drej %1$d grader til venstre</string>
     <string name="visual_compass_hint_right">%1$s er cirka %2$d grader til højre for dig</string>

@@ -548,8 +548,8 @@
     <string name="visual_check_started">مقام کی شناخت شروع ہو گئی۔ فون کو سامنے کی طرف رکھیں۔</string>
     <string name="visual_check_stopped">مقام کی شناخت روک دی گئی۔</string>
     <string name="visual_check_no_places">قریب کوئی محفوظ مقام نہیں ہے۔ مقام کی شناخت روک دی گئی۔</string>
-    <string name="visual_check_match">%1$s سامنے ہے، %2$d فیصد</string>
-    <string name="visual_check_match_turn">%1$s، %2$d فیصد۔ %3$s</string>
+    <string name="visual_check_seen">%1$s سامنے ہے</string>
+    <string name="visual_check_seen_turn">%1$s۔ %2$s</string>
     <string name="visual_turn_right">%1$d درجے دائیں مڑیں</string>
     <string name="visual_turn_left">%1$d درجے بائیں مڑیں</string>
     <string name="visual_compass_hint_right">%1$s آپ کے دائیں جانب تقریباً %2$d درجے پر ہے</string>

@@ -548,8 +548,8 @@
     <string name="visual_check_started">ಸ್ಥಳ ಗುರುತಿಸುವಿಕೆ ಪ್ರಾರಂಭವಾಗಿದೆ. ಫೋನ್ ಅನ್ನು ಮುಂದಕ್ಕೆ ಹಿಡಿಯಿರಿ.</string>
     <string name="visual_check_stopped">ಸ್ಥಳ ಗುರುತಿಸುವಿಕೆ ನಿಲ್ಲಿಸಲಾಗಿದೆ.</string>
     <string name="visual_check_no_places">ಹತ್ತಿರದಲ್ಲಿ ಉಳಿಸಿದ ಸ್ಥಳವಿಲ್ಲ. ಸ್ಥಳ ಗುರುತಿಸುವಿಕೆ ನಿಲ್ಲಿಸಲಾಗಿದೆ.</string>
-    <string name="visual_check_match">%1$s ಮುಂದೆ, %2$d ಶೇಕಡಾ</string>
-    <string name="visual_check_match_turn">%1$s, %2$d ಶೇಕಡಾ. %3$s</string>
+    <string name="visual_check_seen">%1$s ಮುಂದೆ</string>
+    <string name="visual_check_seen_turn">%1$s. %2$s</string>
     <string name="visual_turn_right">%1$d ಡಿಗ್ರಿ ಬಲಕ್ಕೆ ತಿರುಗಿ</string>
     <string name="visual_turn_left">%1$d ಡಿಗ್ರಿ ಎಡಕ್ಕೆ ತಿರುಗಿ</string>
     <string name="visual_compass_hint_right">%1$s ನಿಮ್ಮ ಬಲಕ್ಕೆ ಸುಮಾರು %2$d ಡಿಗ್ರಿಯಲ್ಲಿದೆ</string>
