@@ -188,6 +188,186 @@
    "seconds": 6.0,
    "prompt": "field recording, pigeons cooing and flapping wings on a city square",
    "seed": 1234
+  },
+  "waterfall": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, powerful waterfall, roaring cascading water crashing onto rocks, continuous, close",
+   "seed": 1234
+  },
+  "river": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, wide river flowing steadily, water rushing over stones, continuous, natural ambience",
+   "seed": 1234
+  },
+  "stream": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, small mountain brook babbling over pebbles, gentle trickling water, continuous",
+   "seed": 1234
+  },
+  "sea_waves": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, ocean waves gently breaking on a sandy beach, rolling surf, continuous, natural",
+   "seed": 1234
+  },
+  "rocky_shore": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, sea waves crashing against rocky cliffs, splashing surf, continuous, windy coast",
+   "seed": 1234
+  },
+  "harbor": {
+   "kind": "loop",
+   "seconds": 18.15,
+   "prompt": "field recording, quiet harbor, water lapping against boats and quay, rigging clinking, wooden boats creaking",
+   "seed": 1234
+  },
+  "seagulls": {
+   "kind": "oneshot",
+   "seconds": 7.6,
+   "prompt": "field recording, seagulls calling over a harbor, several gull cries, outdoors",
+   "seed": 1234
+  },
+  "ship_horn": {
+   "kind": "oneshot",
+   "seconds": 7.95,
+   "prompt": "field recording, a ferry ship horn blowing a long deep blast in a harbor, distant",
+   "seed": 1234
+  },
+  "cave_drips": {
+   "kind": "loop",
+   "seconds": 14.5,
+   "prompt": "field recording, inside a cave entrance, water droplets dripping into puddles, echoing, quiet",
+   "seed": 1234
+  },
+  "forest": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, deep forest ambience, distant woodpecker, forest birds, soft wind in tall trees, no traffic",
+   "seed": 1234
+  },
+  "wind_open": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, steady wind blowing over an open mountain ridge, gusting, whistling, continuous",
+   "seed": 1234
+  },
+  "frogs": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, frogs croaking in a pond and wetland, many frogs, evening, natural ambience",
+   "seed": 1234
+  },
+  "crickets": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, crickets and grasshoppers chirping in a summer meadow, continuous insect ambience",
+   "seed": 1234
+  },
+  "countryside": {
+   "kind": "loop",
+   "seconds": 18.15,
+   "prompt": "field recording, quiet countryside ambience, distant birds, faint far away tractor, gentle breeze, peaceful",
+   "seed": 1234
+  },
+  "rooster": {
+   "kind": "oneshot",
+   "seconds": 4.0,
+   "prompt": "field recording, a rooster crowing on a farm, outdoors",
+   "seed": 1234
+  },
+  "cows": {
+   "kind": "oneshot",
+   "seconds": 7.7,
+   "prompt": "field recording, cows mooing in a pasture, cowbells, outdoors",
+   "seed": 1234
+  },
+  "sheep": {
+   "kind": "oneshot",
+   "seconds": 8.0,
+   "prompt": "field recording, a flock of sheep bleating in a meadow, outdoors",
+   "seed": 1234
+  },
+  "goats": {
+   "kind": "oneshot",
+   "seconds": 7.7,
+   "prompt": "field recording, goats bleating on a farm, small bells, outdoors",
+   "seed": 1234
+  },
+  "horses": {
+   "kind": "oneshot",
+   "seconds": 8.0,
+   "prompt": "field recording, horses neighing and snorting at a riding stable, hooves on ground, outdoors",
+   "seed": 1234
+  },
+  "kennel_dogs": {
+   "kind": "oneshot",
+   "seconds": 7.35,
+   "prompt": "field recording, several dogs barking at an animal shelter kennel, outdoors, distant",
+   "seed": 1234
+  },
+  "campfire": {
+   "kind": "loop",
+   "seconds": 14.4,
+   "prompt": "field recording, campfire crackling and popping, burning wood, outdoors, close",
+   "seed": 1234
+  },
+  "fuel_station": {
+   "kind": "loop",
+   "seconds": 17.6,
+   "prompt": "field recording, petrol station forecourt, car idling, fuel pump running, car door closing, indistinct",
+   "seed": 1234
+  },
+  "car_wash": {
+   "kind": "loop",
+   "seconds": 10.4,
+   "prompt": "field recording, self service car wash, high pressure water jet spraying a car, continuous",
+   "seed": 1234
+  },
+  "garage": {
+   "kind": "loop",
+   "seconds": 14.1,
+   "prompt": "field recording, car repair workshop, pneumatic impact wrench, air compressor, metal tools clanking",
+   "seed": 1234
+  },
+  "supermarket": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "field recording, supermarket entrance, automatic doors, shopping carts rattling, checkout scanner beeps, crowd murmur",
+   "seed": 1234
+  },
+  "shop_bell": {
+   "kind": "oneshot",
+   "seconds": 2.8,
+   "prompt": "field recording, a small shop door opening with a bell chime ringing",
+   "seed": 1234
+  },
+  "station_hall": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, busy train station hall, rolling suitcases, footsteps, echoing crowd, distant chime, indistinct",
+   "seed": 1234
+  },
+  "nightclub": {
+   "kind": "loop",
+   "seconds": 14.5,
+   "prompt": "field recording, muffled bass thumping through the walls of a nightclub, heard from the street outside",
+   "seed": 1234
+  },
+  "temple_bell": {
+   "kind": "oneshot",
+   "seconds": 9.7,
+   "prompt": "field recording, a large temple bell struck once, deep resonant gong, long decay, outdoors",
+   "seed": 1234
+  },
+  "car_gravel": {
+   "kind": "loop",
+   "seconds": 11.85,
+   "prompt": "field recording, a single car driving steadily on a gravel dirt road, tires crunching on gravel, constant speed, close",
+   "seed": 1234
   }
  }
 }

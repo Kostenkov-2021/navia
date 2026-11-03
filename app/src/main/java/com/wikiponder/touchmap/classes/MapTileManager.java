@@ -1003,7 +1003,7 @@ public class MapTileManager {
 	 * already-loaded cache. {@code keyword} null or blank means no filter (plain nearby list). */
 	public List<MapElement> queryNearbyNodes(Location center, double radiusMeters, String keyword) {
 		double[] box = bboxAround(center, radiusMeters);
-		List<NodeRecord> nodes = queryNodesNearest(box, center.getLatitude(), center.getLongitude(), NEARBY_NODES_MAX, keyword, false);
+		List<NodeRecord> nodes = queryNodesNearest(box, center.getLatitude(), center.getLongitude(), NEARBY_NODES_MAX, keyword, false, null);
 		List<MapElement> out = new ArrayList<>(nodes.size());
 		for (NodeRecord nd : nodes) {
 			out.add(new MapElement(nd.favorite, nd.id, nd.lat, nd.lon, nd.catId, nd.type, nd.name, nd.tags));
@@ -1025,7 +1025,18 @@ public class MapTileManager {
 	 */
 	public List<MapElement> queryFeatureNodesAround(Location center, double radiusMeters, int limit) {
 		double[] box = bboxAround(center, radiusMeters);
-		List<NodeRecord> nodes = queryNodesNearest(box, center.getLatitude(), center.getLongitude(), limit, null, true);
+		return toElements(queryNodesNearest(box, center.getLatitude(), center.getLongitude(), limit, null, true, null));
+	}
+
+	/** Like {@link #queryFeatureNodesAround}, restricted to nodes whose {@code type} is one of
+	 * {@code types} — for the soundscape's far-carrying features (waterfalls, beaches, ...), which a
+	 * plain nearest-first query over a wide radius would lose to the city's trees and shops. */
+	public List<MapElement> queryNodesOfTypesAround(Location center, double radiusMeters, java.util.Collection<String> types, int limit) {
+		double[] box = bboxAround(center, radiusMeters);
+		return toElements(queryNodesNearest(box, center.getLatitude(), center.getLongitude(), limit, null, true, types));
+	}
+
+	private static List<MapElement> toElements(List<NodeRecord> nodes) {
 		List<MapElement> out = new ArrayList<>(nodes.size());
 		for (NodeRecord nd : nodes) {
 			out.add(new MapElement(nd.favorite, nd.id, nd.lat, nd.lon, nd.catId, nd.type, nd.name, nd.tags));
@@ -1040,7 +1051,7 @@ public class MapTileManager {
 	}
 
 	private List<NodeRecord> queryNodesNearest(double[] box, double centerLat, double centerLon, int limit, String keyword,
-											   boolean featuresOnly) {
+											   boolean featuresOnly, java.util.Collection<String> types) {
 		List<NodeRecord> out = new ArrayList<>();
 		List<int[]> cells = Utils.cellsForBbox(box[0], box[1], box[2], box[3]);
 		if (cells.isEmpty()) return out;
@@ -1060,6 +1071,15 @@ public class MapTileManager {
 		args.add(String.valueOf(box[3]));
 		if (featuresOnly) {
 			sql.append(" AND cat_id NOT IN (" + OSMDatabaseHelper.CATEGORY_ADDRESS + "," + OSMDatabaseHelper.CATEGORY_INTERSECTION + ")");
+		}
+		if (types != null && !types.isEmpty()) {
+			sql.append(" AND type IN (");
+			int i = 0;
+			for (String t : types) {
+				sql.append(i++ == 0 ? "?" : ",?");
+				args.add(t);
+			}
+			sql.append(")");
 		}
 		if (keyword != null && !keyword.isEmpty()) {
 			sql.append(" AND (type LIKE ? OR name LIKE ?)");

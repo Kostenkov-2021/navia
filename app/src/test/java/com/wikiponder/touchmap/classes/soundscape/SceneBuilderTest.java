@@ -118,6 +118,80 @@ public class SceneBuilderTest {
 	}
 
 	@Test
+	public void waterfallCarriesFarAndInlandCliffHasNoSurf() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("waterfall", tags("waterway", "waterfall"), 200, 150));
+		nodes.add(new SceneBuilder.Node("cliff", tags("natural", "cliff"), -100, 50));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "waterfall"));
+		assertFalse("a cliff alone is no coast", hasSpot(s, "rocky_shore"));
+		assertFalse(hasSpot(s, "seagulls"));
+	}
+
+	@Test
+	public void beachAndFerryMakeACoast() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("beach", tags("natural", "beach"), 0, -250));
+		nodes.add(new SceneBuilder.Node("ferry_terminal", tags("amenity", "ferry_terminal"), 120, -200));
+		nodes.add(new SceneBuilder.Node("cliff", tags("natural", "cliff"), -300, -200));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "sea_waves"));
+		assertTrue(hasSpot(s, "rocky_shore"));
+		assertTrue(hasSpot(s, "harbor"));
+		assertTrue(hasSpot(s, "seagulls"));
+		assertTrue(hasSpot(s, "ship_horn"));
+	}
+
+	@Test
+	public void unpavedRoadsGetGravelTyresAndCountryside() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("unclassified", 15, tags("surface", "gravel")));
+		ways.add(road("residential", -50, tags("surface", "dirt")));
+		Scene s = SceneBuilder.build(Collections.emptyList(), ways);
+		assertEquals("car_gravel", lane(s, "unclassified").vehicles.get(0).clip);
+		boolean countryside = false;
+		for (Scene.Bed b : s.beds) countryside |= b.clip.equals("countryside");
+		assertTrue(countryside);
+		assertTrue(hasSpot(s, "rooster"));
+	}
+
+	@Test
+	public void placesOfWorshipFollowTheirReligion() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("place_of_worship", tags("amenity", "place_of_worship", "religion", "buddhist"), 50, 0));
+		nodes.add(new SceneBuilder.Node("place_of_worship", tags("amenity", "place_of_worship", "religion", "muslim"), -50, 0));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "temple_bell"));
+		assertFalse(hasSpot(s, "church_bells"));
+	}
+
+	@Test
+	public void fuelStationGarageAndSmallShops() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("fuel", tags("amenity", "fuel"), 30, 10));
+		nodes.add(new SceneBuilder.Node("car_repair", tags("shop", "car_repair"), -30, 10));
+		nodes.add(new SceneBuilder.Node("bakery", tags("shop", "bakery"), 10, -10));
+		nodes.add(new SceneBuilder.Node("supermarket", tags("shop", "supermarket"), 20, 40));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "fuel_station"));
+		assertTrue(hasSpot(s, "garage"));
+		assertTrue(hasSpot(s, "shop_bell"));
+		assertTrue(hasSpot(s, "supermarket"));
+	}
+
+	@Test
+	public void farmCluesBringAnimals() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("cattle_grid", tags("barrier", "cattle_grid"), 80, 20));
+		nodes.add(new SceneBuilder.Node("horse_riding", tags("leisure", "horse_riding"), -120, 40));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "cows"));
+		assertTrue(hasSpot(s, "sheep"));
+		assertTrue(hasSpot(s, "horses"));
+		assertFalse(hasSpot(s, "goats"));
+	}
+
+	@Test
 	public void nothingMappedMeansEmptyScene() {
 		Scene s = SceneBuilder.build(Collections.emptyList(), Collections.emptyList());
 		assertTrue(s.isEmpty());

@@ -33,6 +33,15 @@ public final class SceneBuilder {
 
 	/** Everything further than this is not heard (and not queried — see SoundscapeData). */
 	public static final float RADIUS_M = 180f;
+	/** Loud natural features (waterfalls, surf) and landmarks carry further; SoundscapeData queries
+	 * just these node types out to this distance. */
+	public static final float FAR_RADIUS_M = 450f;
+	public static final Set<String> FAR_TYPES = new HashSet<>(Arrays.asList(
+			"waterfall", "rapids", "weir", "dam", "lock_gate", "river", "stream", "canal", "spring", "hot_spring",
+			"water", "wetland", "beach", "bay", "cape", "cliff", "reef", "islet", "ferry_terminal", "marina",
+			"slipway", "lighthouse", "pier", "peak", "saddle", "viewpoint", "volcano", "cave_entrance", "wood",
+			"camp_site", "place_of_worship", "station", "bus_station",
+			"cattle_grid", "farm", "dairy", "animal_breeding", "horse_riding", "animal_shelter", "dog_park"));
 
 	/** A point feature in listener-relative metres. */
 	public static final class Node {
@@ -121,6 +130,8 @@ public final class SceneBuilder {
 
 	public static Scene build(List<Node> nodes, List<Way> ways) {
 		Scene scene = new Scene();
+		// No map data at all: say so rather than invent a countryside (isRural is true of nothing).
+		if (nodes.isEmpty() && ways.isEmpty()) return scene;
 		List<Node> sorted = new ArrayList<>(nodes);
 		sorted.sort(Comparator.comparingDouble(Node::dist));
 
@@ -129,11 +140,21 @@ public final class SceneBuilder {
 		addRail(scene, sorted, ways);
 		addGreenery(scene, sorted, ways);
 		addPointsOfInterest(scene, sorted);
+		addWater(scene, sorted, ways);
+		addLandscape(scene, sorted, trafficLoad);
+		addAnimals(scene, sorted);
 		addCasualEvents(scene, ways, trafficLoad);
 
-		// Always some air: a city is never digitally silent, and without it the gaps between cars
-		// sound like the audio dropped out.
-		scene.beds.add(new Scene.Bed("city_hum", 0.12f + Math.min(0.25f, trafficLoad * 0.01f)));
+		// Always some air: never digitally silent, or the gaps between cars sound like the audio
+		// dropped out. Rural places (little traffic, few shops, unpaved roads) get countryside air
+		// and farm sounds instead of city murmur.
+		if (isRural(sorted, ways, trafficLoad)) {
+			scene.beds.add(new Scene.Bed("countryside", 0.3f));
+			scene.spots.add(new Scene.Spot("crickets", 25, -20, 0.35f, 20f, 0, 0));
+			scene.spots.add(new Scene.Spot("rooster", -60, 40, 0.45f, 15f, 60, 160));
+		} else {
+			scene.beds.add(new Scene.Bed("city_hum", 0.12f + Math.min(0.25f, trafficLoad * 0.01f)));
+		}
 		if (trafficLoad > 4) {
 			scene.beds.add(new Scene.Bed("traffic_far", Math.min(0.45f, 0.08f + trafficLoad * 0.006f)));
 		}
@@ -172,10 +193,17 @@ public final class SceneBuilder {
 
 			List<Scene.Vehicle> vehicles = new ArrayList<>();
 			float cars = 1f - rc.trucks - buses - rc.motorcycles;
-			if (cars > 0) vehicles.add(new Scene.Vehicle("car", cars, 0.9f));
-			if (rc.trucks > 0) vehicles.add(new Scene.Vehicle("truck", rc.trucks, 1.0f));
-			if (buses > 0) vehicles.add(new Scene.Vehicle("bus", buses, 1.0f));
-			if (rc.motorcycles > 0) vehicles.add(new Scene.Vehicle("motorcycle", rc.motorcycles, 0.8f));
+			if (isUnpaved(w)) {
+				// Tyres on gravel/dirt are the dominant sound there, whatever the vehicle.
+				vehicles.add(new Scene.Vehicle("car_gravel", cars + rc.trucks + buses, 0.9f));
+				vehicles.add(new Scene.Vehicle("motorcycle", Math.max(0.05f, rc.motorcycles), 0.8f));
+				speed = Math.min(speed, 12f);
+			} else {
+				if (cars > 0) vehicles.add(new Scene.Vehicle("car", cars, 0.9f));
+				if (rc.trucks > 0) vehicles.add(new Scene.Vehicle("truck", rc.trucks, 1.0f));
+				if (buses > 0) vehicles.add(new Scene.Vehicle("bus", buses, 1.0f));
+				if (rc.motorcycles > 0) vehicles.add(new Scene.Vehicle("motorcycle", rc.motorcycles, 0.8f));
+			}
 
 			float[][] clipped = clipToRadius(w.east, w.north, RADIUS_M + 60);
 			if (clipped == null) continue;
@@ -207,6 +235,31 @@ public final class SceneBuilder {
 			}
 		}
 		return load;
+	}
+
+	private static final Set<String> UNPAVED = new HashSet<>(Arrays.asList(
+			"unpaved", "gravel", "fine_gravel", "dirt", "ground", "earth", "compacted", "sand", "grass", "pebblestone", "mud"));
+
+	static boolean isUnpaved(Way w) {
+		return UNPAVED.contains(w.tag("surface"));
+	}
+
+	/** Little traffic, hardly any shops or amenities nearby, and mostly unpaved roads (or none). */
+	private static boolean isRural(List<Node> nodes, List<Way> ways, float trafficLoad) {
+		if (trafficLoad > 5) return false;
+		int places = 0;
+		for (Node n : nodes) {
+			if (n.dist() > RADIUS_M) break;
+			if (n.tags.containsKey("shop") || (n.tags.containsKey("amenity")
+					&& !"bench".equals(n.type) && !"waste_basket".equals(n.type))) places++;
+		}
+		int unpaved = 0, paved = 0;
+		for (Way w : ways) {
+			if (!ROADS.containsKey(w.type) || minDistance(w.east, w.north) > RADIUS_M) continue;
+			if (isUnpaved(w)) unpaved++;
+			else paved++;
+		}
+		return places <= 3 && unpaved >= paved;
 	}
 
 	private static float laneFactor(Way w) {
@@ -405,7 +458,7 @@ public final class SceneBuilder {
 		Map<String, Integer> used = new HashMap<>();
 		for (Node n : nodes) {
 			float d = n.dist();
-			if (d > RADIUS_M) break;
+			if (d > FAR_RADIUS_M) break;
 			String amenity = n.tag("amenity");
 			String leisure = n.tag("leisure");
 			String shop = n.tag("shop");
@@ -415,11 +468,49 @@ public final class SceneBuilder {
 				clip = "cafe";
 			} else if (amenity.equals("restaurant") || amenity.equals("fast_food") || amenity.equals("food_court")) {
 				clip = "restaurant";
-			} else if (amenity.equals("pub") || amenity.equals("bar") || amenity.equals("biergarten") || amenity.equals("nightclub")) {
+			} else if (amenity.equals("nightclub")) {
+				clip = "nightclub";
+				gain = 0.5f;
+			} else if (amenity.equals("pub") || amenity.equals("bar") || amenity.equals("biergarten")) {
 				clip = "pub";
-			} else if (amenity.equals("marketplace") || shop.equals("supermarket") || shop.equals("mall") || shop.equals("department_store")) {
-				clip = "market";
+			} else if (shop.equals("supermarket") || shop.equals("mall") || shop.equals("department_store")) {
+				clip = "supermarket";
 				gain = 0.55f;
+				maxD = 60f;
+			} else if (amenity.equals("marketplace")) {
+				clip = "market";
+				ref = 12f;
+				maxD = 120f;
+			} else if (amenity.equals("fuel")) {
+				clip = "fuel_station";
+				ref = 8f;
+				maxD = 90f;
+			} else if (amenity.equals("car_wash")) {
+				clip = "car_wash";
+				gain = 0.5f;
+			} else if (shop.equals("car_repair") || shop.equals("tyres") || shop.equals("car_parts")
+					|| shop.equals("motorcycle_repair")) {
+				clip = "garage";
+				gain = 0.5f;
+			} else if (n.tag("railway").equals("station") || n.tag("public_transport").equals("station")
+					|| amenity.equals("bus_station")) {
+				clip = "station_hall";
+				gain = 0.5f;
+				ref = 15f;
+				maxD = 130f;
+			} else if (n.tag("tourism").equals("camp_site") || amenity.equals("bbq") || leisure.equals("firepit")) {
+				clip = "campfire";
+				gain = 0.5f;
+				ref = 3f;
+				maxD = 50f;
+			} else if (!shop.isEmpty() && d < 40) {
+				// Small shops: a door bell now and then, from whichever shops are closest.
+				clip = "shop_bell";
+				gain = 0.45f;
+				ref = 3f;
+				maxD = 40f;
+				minI = 18;
+				maxI = 45;
 			} else if (amenity.equals("school") || amenity.equals("kindergarten") || amenity.equals("childcare")) {
 				clip = "schoolyard";
 				gain = 0.6f;
@@ -438,12 +529,21 @@ public final class SceneBuilder {
 				gain = 0.7f;
 				ref = 4f;
 				maxD = 60f;
-			} else if (amenity.equals("place_of_worship") && !"muslim".equals(n.tag("religion"))
-					&& !"jewish".equals(n.tag("religion")) && !"buddhist".equals(n.tag("religion"))) {
+			} else if (amenity.equals("place_of_worship") && (n.tag("religion").equals("buddhist")
+					|| n.tag("religion").equals("shinto") || n.tag("religion").equals("hindu"))) {
+				clip = "temple_bell";
+				gain = 0.6f;
+				ref = 30f;
+				maxD = 300f;
+				minI = 45;
+				maxI = 120;
+			} else if (amenity.equals("place_of_worship")
+					&& (n.tag("religion").isEmpty() || n.tag("religion").equals("christian"))) {
+				// Other religions' places stay silent rather than get a sound that isn't theirs.
 				clip = "church_bells";
 				gain = 0.6f;
 				ref = 40f;
-				maxD = RADIUS_M;
+				maxD = 350f;
 				minI = 50;
 				maxI = 110;
 			} else if (amenity.equals("hospital") || amenity.equals("fire_station") || n.tag("emergency").equals("ambulance_station")) {
@@ -475,6 +575,174 @@ public final class SceneBuilder {
 			used.put(clip, count + 1);
 			scene.spots.add(new Scene.Spot(clip, n.east, n.north, gain, ref, minI, maxI));
 		}
+	}
+
+	// ------------------------------------------------------------------ water and landscape
+
+	/**
+	 * Water. Rivers, lakes and the sea are lines/areas the box dbs don't carry, so this goes by the
+	 * points that mark them — waterfalls, rapids and weirs, springs, beaches, harbours — and, for a
+	 * river or canal under a bridge, by the bridge itself.
+	 */
+	private static void addWater(Scene scene, List<Node> nodes, List<Way> ways) {
+		Map<String, Integer> used = new HashMap<>();
+		boolean coast = false;
+		Node beach = null, rocks = null, harbour = null, ferry = null;
+		for (Node n : nodes) {
+			float d = n.dist();
+			if (d > FAR_RADIUS_M) break;
+			String natural = n.tag("natural"), waterway = n.tag("waterway"), amenity = n.tag("amenity");
+			String manMade = n.tag("man_made"), leisure = n.tag("leisure");
+			if (waterway.equals("waterfall") && d < 350) {
+				addOnce(scene, used, new Scene.Spot("waterfall", n.east, n.north, 0.85f, 30f, 0, 0));
+			} else if ((waterway.equals("rapids") || waterway.equals("weir") || waterway.equals("dam")) && d < 250) {
+				addOnce(scene, used, new Scene.Spot("river", n.east, n.north, 0.7f, 20f, 0, 0));
+			} else if (waterway.equals("river") && d < 200) {
+				addOnce(scene, used, new Scene.Spot("river", n.east, n.north, 0.5f, 15f, 0, 0));
+			} else if ((waterway.equals("canal") || waterway.equals("lock_gate")) && d < 150) {
+				addOnce(scene, used, new Scene.Spot("harbor", n.east, n.north, 0.35f, 10f, 0, 0));
+			} else if ((natural.equals("spring") || natural.equals("hot_spring") || waterway.equals("stream")) && d < 80) {
+				addOnce(scene, used, new Scene.Spot("stream", n.east, n.north, 0.55f, 5f, 0, 0));
+			} else if (natural.equals("wetland") && d < 220) {
+				addOnce(scene, used, new Scene.Spot("frogs", n.east, n.north, 0.5f, 20f, 0, 0));
+			} else if (natural.equals("water") && d < 150) {
+				addOnce(scene, used, new Scene.Spot("harbor", n.east, n.north, 0.3f, 10f, 0, 0));
+			} else if (natural.equals("cave_entrance") && d < 40) {
+				addOnce(scene, used, new Scene.Spot("cave_drips", n.east, n.north, 0.6f, 4f, 0, 0));
+			}
+			if (natural.equals("beach") && beach == null) beach = n;
+			if ((natural.equals("cliff") || natural.equals("cape") || natural.equals("reef")) && rocks == null) rocks = n;
+			if ((leisure.equals("marina") || leisure.equals("slipway") || manMade.equals("lighthouse")
+					|| manMade.equals("pier")) && harbour == null) harbour = n;
+			if (amenity.equals("ferry_terminal") && ferry == null) ferry = n;
+			if (natural.equals("beach") || natural.equals("bay") || natural.equals("reef") || natural.equals("islet")
+					|| leisure.equals("marina") || leisure.equals("slipway") || amenity.equals("ferry_terminal")
+					|| manMade.equals("lighthouse")) coast = true;
+		}
+		// Ferry piers are often mapped as platform ways rather than a terminal node (Amsterdam's IJ
+		// ferries behind Centraal, for one).
+		if (ferry == null) {
+			float best = RADIUS_M;
+			for (Way w : ways) {
+				if (!"platform".equals(w.type) || !("yes".equals(w.tag("ferry")) || "ferry_terminal".equals(w.tag("amenity")))) continue;
+				float[] p = nearestPoint(w.east, w.north);
+				float d = (float) Math.hypot(p[0], p[1]);
+				if (d < best) {
+					best = d;
+					ferry = new Node("ferry_terminal", w.tags, p[0], p[1]);
+				}
+			}
+			if (ferry != null) coast = true;
+		}
+		// Surf only with real evidence of a coast: a cliff on its own is just as often inland.
+		if (beach != null) {
+			scene.spots.add(new Scene.Spot("sea_waves", beach.east, beach.north, 0.8f, 45f, 0, 0));
+		}
+		if (rocks != null && coast) {
+			scene.spots.add(new Scene.Spot("rocky_shore", rocks.east, rocks.north, 0.7f, 40f, 0, 0));
+		}
+		Node port = harbour != null ? harbour : ferry;
+		Node gulls = port != null ? port : (beach != null ? beach : (coast ? rocks : null));
+		if (port != null) {
+			scene.spots.add(new Scene.Spot("harbor", port.east, port.north, 0.6f, 15f, 0, 0));
+		}
+		if (gulls != null) {
+			scene.spots.add(new Scene.Spot("seagulls", gulls.east + 20, gulls.north + 10, 0.55f, 20f, 15, 50));
+		}
+		if (ferry != null) {
+			scene.spots.add(new Scene.Spot("ship_horn", ferry.east, ferry.north, 0.6f, 60f, 60, 160));
+		}
+
+		// A small bridge (not a motorway viaduct) is usually over water: a stream in the country, a
+		// canal's lapping in town. Only a guess, so kept quiet and used only without better evidence.
+		if (used.isEmpty() && port == null && beach == null) {
+			Way bridge = null;
+			float best = 70;
+			for (Way w : ways) {
+				if (!"yes".equals(w.tag("bridge")) || w.type.startsWith("motorway") || w.type.startsWith("trunk")) continue;
+				float d = minDistance(w.east, w.north);
+				if (d < best && pathLength(w) >= 8) {
+					best = d;
+					bridge = w;
+				}
+			}
+			if (bridge != null) {
+				float[] p = nearestPoint(bridge.east, bridge.north);
+				boolean town = false;
+				for (Node n : nodes) {
+					if (n.dist() > 120) break;
+					if (n.tags.containsKey("shop")) {
+						town = true;
+						break;
+					}
+				}
+				scene.spots.add(new Scene.Spot(town ? "harbor" : "stream", p[0], p[1], 0.35f, 6f, 0, 0));
+			}
+		}
+	}
+
+	private static void addOnce(Scene scene, Map<String, Integer> used, Scene.Spot spot) {
+		int count = used.getOrDefault(spot.clip, 0);
+		if (count >= MAX_POINT_SPOTS_PER_CLIP) return;
+		used.put(spot.clip, count + 1);
+		scene.spots.add(spot);
+	}
+
+	/** Wind on exposed ground (peaks, ridges, viewpoints), and forest sound deep in woods. */
+	private static void addLandscape(Scene scene, List<Node> nodes, float trafficLoad) {
+		boolean exposed = false, wood = false;
+		int trees = 0;
+		for (Node n : nodes) {
+			float d = n.dist();
+			if (d > FAR_RADIUS_M) break;
+			String natural = n.tag("natural");
+			if ((natural.equals("peak") || natural.equals("saddle") || natural.equals("volcano")) && d < 400) exposed = true;
+			if (n.tag("tourism").equals("viewpoint") && d < 150) exposed = true;
+			if (natural.equals("wood") && d < 300) wood = true;
+			if ("tree".equals(n.type) && d < 120) trees++;
+		}
+		if (exposed && trafficLoad < 6) scene.beds.add(new Scene.Bed("wind_open", 0.35f));
+		if ((wood || trees >= 40) && trafficLoad < 4) {
+			scene.spots.add(new Scene.Spot("forest", -20, 30, 0.6f, 25f, 0, 0));
+		}
+	}
+
+	/**
+	 * Farm animals and dogs. OSM maps no animals, only places that imply them: cattle grids
+	 * (pasture), farm and dairy shops, animal breeding, riding stables, animal shelters, dog parks.
+	 */
+	private static void addAnimals(Scene scene, List<Node> nodes) {
+		Map<String, Integer> used = new HashMap<>();
+		for (Node n : nodes) {
+			float d = n.dist();
+			if (d > 300) break;
+			String barrier = n.tag("barrier"), shop = n.tag("shop"), amenity = n.tag("amenity");
+			String leisure = n.tag("leisure"), sport = n.tag("sport");
+			// Placed a little off the point itself: the animals are in the field, not on the grid.
+			float e = n.east + 25, no = n.north + 15;
+			if (barrier.equals("cattle_grid")) {
+				addOnce(scene, used, new Scene.Spot("cows", e, no, 0.5f, 20f, 40, 110));
+				addOnce(scene, used, new Scene.Spot("sheep", e - 40, no + 20, 0.5f, 20f, 45, 120));
+			} else if (shop.equals("farm") || shop.equals("dairy") || amenity.equals("animal_breeding")) {
+				addOnce(scene, used, new Scene.Spot("cows", e, no, 0.5f, 20f, 40, 110));
+				addOnce(scene, used, new Scene.Spot("goats", e - 30, no - 10, 0.5f, 15f, 45, 120));
+				addOnce(scene, used, new Scene.Spot("rooster", e + 20, no + 25, 0.45f, 15f, 60, 160));
+			} else if (leisure.equals("horse_riding") || sport.equals("equestrian") || sport.equals("horse_racing")) {
+				addOnce(scene, used, new Scene.Spot("horses", e, no, 0.55f, 15f, 35, 90));
+			} else if ((amenity.equals("animal_shelter") || amenity.equals("animal_boarding")) && d < 200) {
+				addOnce(scene, used, new Scene.Spot("kennel_dogs", n.east, n.north, 0.5f, 15f, 30, 80));
+			} else if (leisure.equals("dog_park") && d < 120) {
+				addOnce(scene, used, new Scene.Spot("dog_bark", n.east, n.north, 0.5f, 10f, 25, 60));
+			}
+		}
+	}
+
+	private static float pathLength(Way w) {
+		float len = 0;
+		for (int i = 1; i < w.east.length; i++) {
+			len += (float) Math.hypot(w.east[i] - w.east[i - 1], w.north[i] - w.north[i - 1]);
+		}
+		return len;
 	}
 
 	/** Occasional sounds that belong to a kind of street rather than to one mapped point. */

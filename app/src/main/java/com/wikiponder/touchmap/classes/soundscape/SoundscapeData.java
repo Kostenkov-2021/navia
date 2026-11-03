@@ -27,8 +27,14 @@ public final class SoundscapeData {
 		double cosLat = Math.cos(Math.toRadians(lat));
 
 		List<SceneBuilder.Node> nodes = new ArrayList<>();
-		for (MapElement e : MyApplication.getMapTileManager(context)
-				.queryFeatureNodesAround(center, SceneBuilder.RADIUS_M, MAX_NODES)) {
+		java.util.Set<Long> seen = new java.util.HashSet<>();
+		List<MapElement> found = new ArrayList<>(MyApplication.getMapTileManager(context)
+				.queryFeatureNodesAround(center, SceneBuilder.RADIUS_M, MAX_NODES));
+		// Waterfalls, surf, harbours, church bells... carry further than shops do.
+		found.addAll(MyApplication.getMapTileManager(context)
+				.queryNodesOfTypesAround(center, SceneBuilder.FAR_RADIUS_M, SceneBuilder.FAR_TYPES, 300));
+		for (MapElement e : found) {
+			if (!seen.add(e.id)) continue;
 			nodes.add(new SceneBuilder.Node(e.type, e.tags, east(e.lon - lon, cosLat), north(e.lat - lat)));
 		}
 		List<SceneBuilder.Way> ways = new ArrayList<>();

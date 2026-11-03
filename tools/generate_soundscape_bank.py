@@ -85,6 +85,40 @@ BANK = [
     ("siren", "oneshot", 10, "field recording, distant ambulance siren passing in the city, far away"),
     ("bicycle_bell", "oneshot", 3, "field recording, a single bicycle bell ring, outdoors"),
     ("pigeons", "oneshot", 6, "field recording, pigeons cooing and flapping wings on a city square"),
+    # --- added after surveying 45 planet boxes for what the map data commonly holds ---
+    # nature: water
+    ("waterfall", "loop", 20, "field recording, powerful waterfall, roaring cascading water crashing onto rocks, continuous, close"),
+    ("river", "loop", 20, "field recording, wide river flowing steadily, water rushing over stones, continuous, natural ambience"),
+    ("stream", "loop", 20, "field recording, small mountain brook babbling over pebbles, gentle trickling water, continuous"),
+    ("sea_waves", "loop", 20, "field recording, ocean waves gently breaking on a sandy beach, rolling surf, continuous, natural"),
+    ("rocky_shore", "loop", 20, "field recording, sea waves crashing against rocky cliffs, splashing surf, continuous, windy coast"),
+    ("harbor", "loop", 20, "field recording, quiet harbor, water lapping against boats and quay, rigging clinking, wooden boats creaking"),
+    ("seagulls", "oneshot", 8, "field recording, seagulls calling over a harbor, several gull cries, outdoors"),
+    ("ship_horn", "oneshot", 8, "field recording, a ferry ship horn blowing a long deep blast in a harbor, distant"),
+    ("cave_drips", "loop", 16, "field recording, inside a cave entrance, water droplets dripping into puddles, echoing, quiet"),
+    # nature: land
+    ("forest", "loop", 20, "field recording, deep forest ambience, distant woodpecker, forest birds, soft wind in tall trees, no traffic"),
+    ("wind_open", "loop", 20, "field recording, steady wind blowing over an open mountain ridge, gusting, whistling, continuous"),
+    ("frogs", "loop", 20, "field recording, frogs croaking in a pond and wetland, many frogs, evening, natural ambience"),
+    ("crickets", "loop", 20, "field recording, crickets and grasshoppers chirping in a summer meadow, continuous insect ambience"),
+    ("countryside", "loop", 20, "field recording, quiet countryside ambience, distant birds, faint far away tractor, gentle breeze, peaceful"),
+    ("rooster", "oneshot", 5, "field recording, a rooster crowing on a farm, outdoors"),
+    ("cows", "oneshot", 8, "field recording, cows mooing in a pasture, cowbells, outdoors"),
+    ("sheep", "oneshot", 8, "field recording, a flock of sheep bleating in a meadow, outdoors"),
+    ("goats", "oneshot", 8, "field recording, goats bleating on a farm, small bells, outdoors"),
+    ("horses", "oneshot", 8, "field recording, horses neighing and snorting at a riding stable, hooves on ground, outdoors"),
+    ("kennel_dogs", "oneshot", 8, "field recording, several dogs barking at an animal shelter kennel, outdoors, distant"),
+    ("campfire", "loop", 16, "field recording, campfire crackling and popping, burning wood, outdoors, close"),
+    # places
+    ("fuel_station", "loop", 20, "field recording, petrol station forecourt, car idling, fuel pump running, car door closing, indistinct"),
+    ("car_wash", "loop", 16, "field recording, self service car wash, high pressure water jet spraying a car, continuous"),
+    ("garage", "loop", 16, "field recording, car repair workshop, pneumatic impact wrench, air compressor, metal tools clanking"),
+    ("supermarket", "loop", 20, "field recording, supermarket entrance, automatic doors, shopping carts rattling, checkout scanner beeps, crowd murmur"),
+    ("shop_bell", "oneshot", 3, "field recording, a small shop door opening with a bell chime ringing"),
+    ("station_hall", "loop", 20, "field recording, busy train station hall, rolling suitcases, footsteps, echoing crowd, distant chime, indistinct"),
+    ("nightclub", "loop", 16, "field recording, muffled bass thumping through the walls of a nightclub, heard from the street outside"),
+    ("temple_bell", "oneshot", 10, "field recording, a large temple bell struck once, deep resonant gong, long decay, outdoors"),
+    ("car_gravel", "loop", 14, "field recording, a single car driving steadily on a gravel dirt road, tires crunching on gravel, constant speed, close"),
 ]
 
 LOOP_XFADE_S = 1.5

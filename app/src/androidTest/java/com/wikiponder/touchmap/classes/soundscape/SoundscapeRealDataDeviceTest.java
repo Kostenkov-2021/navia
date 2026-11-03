@@ -55,4 +55,20 @@ public class SoundscapeRealDataDeviceTest {
 	public void centraalStationHasTrains() {
 		scene(52.3791, 4.9003);
 	}
+
+	@Test
+	public void ferryBehindCentraalHasHarbour() {
+		Scene s = scene(52.3790, 4.9050);
+		Assume.assumeFalse("no Amsterdam data on this device", s.isEmpty());
+		boolean harbour = false;
+		for (Scene.Spot sp : s.spots) harbour |= sp.clip.equals("harbor") || sp.clip.equals("ship_horn");
+		assertTrue("harbour sounds at the IJ ferries", harbour);
+	}
+
+	@Test
+	public void canalBridgeAndSuburbsAreLogged() {
+		scene(52.3700, 4.8840); // Prinsengracht
+		scene(52.3420, 4.9580); // Amsterdam-Oost residential
+		scene(52.2950, 4.9600); // outskirts
+	}
 }
