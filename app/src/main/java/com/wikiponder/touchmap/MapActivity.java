@@ -751,6 +751,8 @@ public class MapActivity extends BaseActivity
 			}
 		});
 		soundscape = self[0];
+		// Nearby-place announcements would talk over the simulated sound.
+		MyApplication.getAnnouncementManager(this).setAutomaticSuppressed(soundscape, true);
 		soundscape.start();
 		binding.actionButton.setVisibility(View.VISIBLE);
 		binding.actionButton.setContentDescription(getString(R.string.soundscape_stop, name));
@@ -764,6 +766,7 @@ public class MapActivity extends BaseActivity
 	private void stopSoundscape(boolean announce) {
 		if (soundscape == null) return;
 		soundscape.stop();
+		MyApplication.getAnnouncementManager(this).setAutomaticSuppressed(soundscape, false);
 		soundscape = null;
 		binding.actionButton.setVisibility(View.INVISIBLE);
 		modeBackCallback.setEnabled(false);

@@ -18,8 +18,10 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class AnnouncementManager implements MapView.UpdateListener {
 	private static final String TAG = "AnnouncementManager";
@@ -40,9 +42,11 @@ public class AnnouncementManager implements MapView.UpdateListener {
 	private String lastMapMessage = "";
 	private long lastMapMessageTime = 0;
 	private boolean isPaused;
-	/** Set while the visual place check runs (VisualCheckController): the automatic, location- and
-	 * aiming-driven announcements stay quiet so they don't talk over its guidance. Separate from
+	/** Set while the visual place check (VisualCheckController) or a simulated soundscape runs: the
+	 * automatic, location- and aiming-driven announcements stay quiet so they don't talk over it.
+	 * Held per owner so one of them ending doesn't lift the other's suppression. Separate from
 	 * isPaused, which window focus and activity starts keep resetting. Touching the map still speaks. */
+	private final Set<Object> suppressors = new HashSet<>();
 	private volatile boolean automaticSuppressed;
 	private int lastAnnouncedAimingClock;
 	private float screenWidthMeters;
@@ -345,8 +349,10 @@ public class AnnouncementManager implements MapView.UpdateListener {
 		isPaused = false;
 	}
 
-	public void setAutomaticSuppressed(boolean suppressed) {
-		automaticSuppressed = suppressed;
+	public synchronized void setAutomaticSuppressed(Object owner, boolean suppressed) {
+		if (suppressed) suppressors.add(owner);
+		else suppressors.remove(owner);
+		automaticSuppressed = !suppressors.isEmpty();
 	}
 	
 	public void announceAiming(MapElement element, double distance, double bearing) {

@@ -130,7 +130,7 @@ public class VisualCheckController {
 		if (running) return;
 		running = true;
 		// Nearby-place announcements would talk over the check's own guidance.
-		MyApplication.getAnnouncementManager(activity).setAutomaticSuppressed(true);
+		MyApplication.getAnnouncementManager(activity).setAutomaticSuppressed(this, true);
 		lastAnnouncedPlace = -1;
 		wasAligned = false;
 		lastHintAt = 0;
@@ -171,7 +171,7 @@ public class VisualCheckController {
 
 	public void stop() {
 		running = false;
-		MyApplication.getAnnouncementManager(activity).setAutomaticSuppressed(false);
+		MyApplication.getAnnouncementManager(activity).setAutomaticSuppressed(this, false);
 		wantFrame.set(false);
 		handler.removeCallbacksAndMessages(null);
 		orientation.stop();
