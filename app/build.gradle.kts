@@ -52,8 +52,8 @@ android {
         // never tracked in this checkout's history — it's what was on-device when the stuck-at-98%/
         // cancel-doesn't-dismiss box-download bug (see BoxImporter/ImportService/MapActivity's
         // cancelled-flag and ImportState.finish() handling) was diagnosed and fixed.
-        versionCode = 12
-        versionName = "1.1.8"
+        versionCode = 13
+        versionName = "1.1.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
