@@ -550,4 +550,8 @@
     <string name="soundscape_failed">このスマートフォンでは音のシミュレーションを開始できませんでした。</string>
     <string name="credits_openal_body">音のシミュレーションの3Dサウンドは OpenAL Soft（Chris Robinson と貢献者）によって生成されています。GNU LGPL バージョン2.1のもと、改変せずに独立したライブラリとして使用しています。ソースコードは github.com/kcat/openal-soft（リリース 1.24.3）、ライセンス本文は gnu.org/licenses/old-licenses/lgpl-2.1.html にあります。</string>
     <string name="credits_stable_audio_body">音のシミュレーションの環境音は、Stability AI の Stable Audio Open 1.0 を使い、Stability AI Community License のもとで生成されました。Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">探索。指を置いたまま動かすと地図を読み上げます。</string>
+    <string name="hint_double_tap_options">指を離してダブルタップでオプション。</string>
+    <string name="whats_new_title">新機能</string>
+    <string name="whats_new_message">AI場所認識：玄関など、よく行く場所を撮影しておくと、戻ってきたときにカメラがその場所を見つけたことと、どちらを向けばよいかを知らせます。「その他」の「AI場所認識」から開けます。\n\n音のシミュレーション：地図上の地点をダブルタップして「ここの音をシミュレート」を選ぶと、周りがどんな音に包まれているかを聞けます。ヘッドホンを使ってください。</string>
 </resources>

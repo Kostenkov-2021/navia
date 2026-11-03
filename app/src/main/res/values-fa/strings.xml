@@ -562,4 +562,8 @@
     <string name="soundscape_failed">شبیه‌سازی صدا روی این گوشی شروع نشد.</string>
     <string name="credits_openal_body">صدای سه‌بعدی شبیه‌سازی صدا با OpenAL Soft ساخته می‌شود، اثر Chris Robinson و همکاران، با مجوز GNU LGPL نسخه‌ی 2.1، که بدون تغییر و به‌صورت یک کتابخانه‌ی جداگانه استفاده شده است. کد منبع آن در github.com/kcat/openal-soft (نسخه‌ی 1.24.3) و متن مجوز در gnu.org/licenses/old-licenses/lgpl-2.1.html است.</string>
     <string name="credits_stable_audio_body">صداهای محیطی شبیه‌سازی صدا با Stable Audio Open 1.0 از Stability AI و با مجوز Stability AI Community License تولید شده‌اند. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">کاوش. انگشت را روی نقشه نگه دارید و حرکت دهید تا خوانده شود.</string>
+    <string name="hint_double_tap_options">برای گزینه‌ها، انگشت را بردارید و دو بار ضربه بزنید.</string>
+    <string name="whats_new_title">تازه‌ها</string>
+    <string name="whats_new_message">تشخیص مکان با هوش مصنوعی: از جاهایی که زیاد می‌روید، مثل در خانه‌تان، فیلم بگیرید. وقتی برگردید، دوربین می‌گوید کی آن مکان را می‌بیند و به کدام سمت بچرخید. از بیشتر، تشخیص مکان با هوش مصنوعی بازش کنید.\n\nشبیه‌سازی صدا: روی یک نقطهٔ نقشه دو بار ضربه بزنید و شبیه‌سازی صدای این نقطه را انتخاب کنید تا صدای محیط اطرافتان را بشنوید. از هدفون استفاده کنید.</string>
 </resources>

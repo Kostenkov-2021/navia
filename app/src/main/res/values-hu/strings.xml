@@ -562,4 +562,8 @@
     <string name="soundscape_failed">A hangszimuláció nem tudott elindulni ezen a telefonon.</string>
     <string name="credits_openal_body">A hangszimuláció 3D hangját az OpenAL Soft állítja elő, Chris Robinson és közreműködők munkája, GNU LGPL 2.1-es verziója alatt, változtatás nélkül, külön könyvtárként használva. Forráskódja: github.com/kcat/openal-soft (1.24.3-as kiadás), a licenc szövege: gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">A hangszimuláció környezeti felvételei a Stability AI Stable Audio Open 1.0 modelljével készültek, a Stability AI Community License alatt. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Felfedezés. Tartsa és mozgassa az ujját a térkép olvasásához.</string>
+    <string name="hint_double_tap_options">Emelje fel az ujját, és koppintson duplán a lehetőségekért.</string>
+    <string name="whats_new_title">Újdonságok</string>
+    <string name="whats_new_message">MI-alapú helyfelismerés: vegye fel videóra a gyakran látogatott helyeket, például a bejárati ajtaját. Amikor visszatér, a kamera megmondja, mikor látja a helyet, és merre forduljon. A Több, MI-alapú helyfelismerés menüben nyitható meg.\n\nHangszimuláció: koppintson duplán egy pontra a térképen, és válassza Az itteni hang szimulálása lehetőséget, hogy meghallja, milyen hangja van a környéknek. Használjon fejhallgatót.</string>
 </resources>

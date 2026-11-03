@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Die Klangsimulation konnte auf diesem Telefon nicht starten.</string>
     <string name="credits_openal_body">Der 3D-Klang der Klangsimulation wird von OpenAL Soft berechnet, von Chris Robinson und Mitwirkenden, unter der GNU LGPL Version 2.1, unverändert als separate Bibliothek verwendet. Der Quellcode liegt auf github.com/kcat/openal-soft (Version 1.24.3), der Lizenztext auf gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Die Umgebungsaufnahmen der Klangsimulation wurden mit Stable Audio Open 1.0 von Stability AI erzeugt, unter der Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Erkunden. Finger halten und bewegen, um die Karte zu lesen.</string>
+    <string name="hint_double_tap_options">Loslassen und doppelt tippen für Optionen.</string>
+    <string name="whats_new_title">Neuigkeiten</string>
+    <string name="whats_new_message">KI-Ortserkennung: Filme Orte, die du oft besuchst, zum Beispiel deine Haustür. Wenn du zurückkommst, sagt dir die Kamera, wann sie den Ort sieht und in welche Richtung du dich drehen musst. Zu finden unter Mehr, KI-Ortserkennung.\n\nKlangsimulation: Tippe doppelt auf einen Punkt der Karte und wähle Klang hier simulieren, um zu hören, wie die Umgebung um dich herum klingt. Verwende Kopfhörer.</string>
 </resources>

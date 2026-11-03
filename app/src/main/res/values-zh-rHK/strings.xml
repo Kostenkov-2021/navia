@@ -550,4 +550,8 @@
     <string name="soundscape_failed">無法在此手機上啟動聲音模擬。</string>
     <string name="credits_openal_body">聲音模擬的 3D 聲音由 OpenAL Soft（Chris Robinson 及貢獻者開發）渲染，依據 GNU LGPL 2.1 版授權，作為獨立的程式庫未經修改使用。其原始碼位於 github.com/kcat/openal-soft（1.24.3 版），授權條款全文位於 gnu.org/licenses/old-licenses/lgpl-2.1.html。</string>
     <string name="credits_stable_audio_body">聲音模擬的環境錄音使用 Stability AI 的 Stable Audio Open 1.0 生成，依據 Stability AI Community License。Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">探索。按住並移動手指來朗讀地圖。</string>
+    <string name="hint_double_tap_options">提起手指並輕按兩下查看選項。</string>
+    <string name="whats_new_title">新功能</string>
+    <string name="whats_new_message">AI 地點識別：拍攝你常去的地方，例如家門口。你回來時，相機會告訴你何時看到該地點，以及應該轉向哪邊。從「更多」中的「AI 地點識別」開啟。\n\n聲音模擬：輕按兩下地圖上的一點，選擇「模擬此處的聲音」，即可聽到你周圍這個地方的聲音。請使用耳機。</string>
 </resources>

@@ -562,4 +562,8 @@
     <string name="soundscape_failed">या फोनवर ध्वनी सिम्युलेशन सुरू होऊ शकले नाही.</string>
     <string name="credits_openal_body">ध्वनी सिम्युलेशनचा 3D आवाज OpenAL Soft तयार करते, Chris Robinson आणि योगदानकर्त्यांचे, GNU LGPL आवृत्ती 2.1 अंतर्गत, बदल न करता स्वतंत्र लायब्ररी म्हणून वापरलेले. त्याचा सोर्स कोड github.com/kcat/openal-soft वर आहे (रिलीझ 1.24.3), आणि परवान्याचा मजकूर gnu.org/licenses/old-licenses/lgpl-2.1.html वर.</string>
     <string name="credits_stable_audio_body">ध्वनी सिम्युलेशनची परिसर रेकॉर्डिंग Stability AI च्या Stable Audio Open 1.0 ने, Stability AI Community License अंतर्गत तयार केली आहेत. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">एक्सप्लोर करा. नकाशा वाचण्यासाठी बोट धरून हलवा.</string>
+    <string name="hint_double_tap_options">पर्यायांसाठी बोट उचला आणि दोनदा टॅप करा.</string>
+    <string name="whats_new_title">नवीन काय</string>
+    <string name="whats_new_message">एआयद्वारे ठिकाण ओळख: तुम्ही नेहमी जाता ती ठिकाणे, जसे तुमचा मुख्य दरवाजा, चित्रित करा. परत आल्यावर कॅमेरा सांगेल की ते ठिकाण कधी दिसते आणि कोणत्या बाजूला वळायचे. अधिक, एआयद्वारे ठिकाण ओळख येथून उघडा.\n\nआवाज सिम्युलेशन: नकाशावरील बिंदूवर दोनदा टॅप करा आणि येथील आवाज सिम्युलेट करा निवडा, म्हणजे तुमच्या आजूबाजूचा परिसर कसा ऐकू येतो ते ऐकता येईल. हेडफोन वापरा.</string>
 </resources>

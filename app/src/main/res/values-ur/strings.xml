@@ -562,4 +562,8 @@
     <string name="soundscape_failed">اس فون پر آواز کی سمیولیشن شروع نہیں ہو سکی۔</string>
     <string name="credits_openal_body">آواز کی سمیولیشن کی 3D آواز OpenAL Soft بناتا ہے، جسے Chris Robinson اور معاونین نے بنایا، GNU LGPL ورژن 2.1 کے تحت، بغیر تبدیلی کے الگ لائبریری کے طور پر استعمال کیا گیا۔ اس کا سورس کوڈ github.com/kcat/openal-soft پر ہے (ریلیز 1.24.3)، اور لائسنس کا متن gnu.org/licenses/old-licenses/lgpl-2.1.html پر۔</string>
     <string name="credits_stable_audio_body">آواز کی سمیولیشن کی ماحولیاتی ریکارڈنگز Stability AI کے Stable Audio Open 1.0 سے، Stability AI Community License کے تحت بنائی گئی ہیں۔ Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">دریافت کریں۔ نقشہ پڑھنے کے لیے انگلی رکھ کر حرکت دیں۔</string>
+    <string name="hint_double_tap_options">اختیارات کے لیے انگلی اٹھا کر دو بار تھپتھپائیں۔</string>
+    <string name="whats_new_title">نیا کیا ہے</string>
+    <string name="whats_new_message">اے آئی سے مقام کی شناخت: جن جگہوں پر آپ اکثر جاتے ہیں، جیسے اپنا مرکزی دروازہ، ان کی ویڈیو بنائیں۔ واپس آنے پر کیمرا بتائے گا کہ وہ جگہ کب نظر آ رہی ہے اور کس طرف مڑنا ہے۔ اسے مزید، اے آئی سے مقام کی شناخت سے کھولیں۔\n\nآواز کی سمولیشن: نقشے پر کسی نقطے کو دو بار تھپتھپائیں اور یہاں کی آواز سمیولیٹ کریں منتخب کریں، تاکہ سن سکیں کہ آپ کے اردگرد کی جگہ کیسی سنائی دیتی ہے۔ ہیڈفون استعمال کریں۔</string>
 </resources>

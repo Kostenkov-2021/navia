@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Nie udało się uruchomić symulacji dźwięku na tym telefonie.</string>
     <string name="credits_openal_body">Dźwięk 3D symulacji dźwięku generuje OpenAL Soft, autorstwa Chrisa Robinsona i współtwórców, na licencji GNU LGPL w wersji 2.1, używany bez zmian jako osobna biblioteka. Kod źródłowy jest na github.com/kcat/openal-soft (wydanie 1.24.3), a tekst licencji na gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Nagrania otoczenia symulacji dźwięku wygenerowano za pomocą Stable Audio Open 1.0 firmy Stability AI, na licencji Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Eksploruj. Przytrzymaj i przesuwaj palec, aby czytać mapę.</string>
+    <string name="hint_double_tap_options">Unieś palec i stuknij dwukrotnie, aby zobaczyć opcje.</string>
+    <string name="whats_new_title">Co nowego</string>
+    <string name="whats_new_message">Rozpoznawanie miejsc z AI: nagraj miejsca, które często odwiedzasz, na przykład drzwi wejściowe. Gdy wrócisz, kamera powie, kiedy widzi to miejsce i w którą stronę się obrócić. Otwórz je z menu Więcej, Rozpoznawanie miejsc z AI.\n\nSymulacja dźwięku: dwukrotnie stuknij punkt na mapie i wybierz Symuluj dźwięk w tym miejscu, aby usłyszeć, jak brzmi okolica wokół ciebie. Użyj słuchawek.</string>
 </resources>

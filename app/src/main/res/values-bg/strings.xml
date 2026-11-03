@@ -561,4 +561,8 @@
     <string name="soundscape_failed">Звуковата симулация не можа да стартира на този телефон.</string>
     <string name="credits_openal_body">3D звукът на звуковата симулация се изчислява от OpenAL Soft, от Chris Robinson и сътрудници, под GNU LGPL версия 2.1, използван без промени като отделна библиотека. Изходният код е на github.com/kcat/openal-soft (версия 1.24.3), а текстът на лиценза на gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Околните записи на звуковата симулация са генерирани със Stable Audio Open 1.0 на Stability AI, под лиценза Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Разгледай. Задръжте и движете пръста си, за да четете картата.</string>
+    <string name="hint_double_tap_options">Вдигнете пръста и докоснете двукратно за опции.</string>
+    <string name="whats_new_title">Какво ново</string>
+    <string name="whats_new_message">Разпознаване на места с ИИ: заснемете места, които посещавате често, например входната си врата. Когато се върнете, камерата ви казва кога вижда мястото и накъде да се обърнете. Отваря се от Още, Разпознаване на места с ИИ.\n\nСимулация на звука: докоснете двукратно точка на картата и изберете Симулирай звука тук, за да чуете как звучи мястото около вас. Използвайте слушалки.</string>
 </resources>

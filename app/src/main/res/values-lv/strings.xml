@@ -550,4 +550,8 @@
     <string name="soundscape_failed">Šajā tālrunī skaņas simulāciju neizdevās palaist.</string>
     <string name="credits_openal_body">Skaņas simulācijas 3D skaņu veido OpenAL Soft, ko izstrādājis Chris Robinson un līdzautori, saskaņā ar GNU LGPL 2.1 versiju, izmantots bez izmaiņām kā atsevišķa bibliotēka. Pirmkods atrodams github.com/kcat/openal-soft (laidiens 1.24.3), bet licences teksts – gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Skaņas simulācijas apkārtnes ieraksti ir ģenerēti ar Stability AI Stable Audio Open 1.0 saskaņā ar Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Izpētīt. Turiet un kustiniet pirkstu, lai lasītu karti.</string>
+    <string name="hint_double_tap_options">Paceliet pirkstu un divreiz pieskarieties, lai skatītu opcijas.</string>
+    <string name="whats_new_title">Jaunumi</string>
+    <string name="whats_new_message">Vietu atpazīšana ar MI: nofilmējiet vietas, kur bieži esat, piemēram, savas ārdurvis. Kad atgriezīsieties, kamera pateiks, kad redz vietu un uz kuru pusi pagriezties. Atveriet to no Vairāk, Vietu atpazīšana ar MI.\n\nSkaņas simulācija: divreiz pieskarieties kartes punktam un izvēlieties Simulēt šeit dzirdamo skaņu, lai dzirdētu, kā skan apkārtne ap jums. Izmantojiet austiņas.</string>
 </resources>

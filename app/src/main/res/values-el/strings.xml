@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Η ηχητική προσομοίωση δεν μπόρεσε να ξεκινήσει σε αυτό το τηλέφωνο.</string>
     <string name="credits_openal_body">Ο τρισδιάστατος ήχος της ηχητικής προσομοίωσης αποδίδεται από το OpenAL Soft, των Chris Robinson και συνεισφερόντων, με την άδεια GNU LGPL έκδοση 2.1, χρησιμοποιείται χωρίς τροποποίηση ως ξεχωριστή βιβλιοθήκη. Ο πηγαίος κώδικας βρίσκεται στο github.com/kcat/openal-soft (έκδοση 1.24.3) και το κείμενο της άδειας στο gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Οι ηχογραφήσεις περιβάλλοντος της ηχητικής προσομοίωσης δημιουργήθηκαν με το Stable Audio Open 1.0 της Stability AI, με την άδεια Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Εξερεύνηση. Κρατήστε και κινήστε το δάχτυλο για να διαβάσετε τον χάρτη.</string>
+    <string name="hint_double_tap_options">Σηκώστε και πατήστε δύο φορές για επιλογές.</string>
+    <string name="whats_new_title">Τι νέο υπάρχει</string>
+    <string name="whats_new_message">Αναγνώριση τοποθεσιών με ΤΝ: βιντεοσκοπήστε μέρη που επισκέπτεστε συχνά, όπως την εξώπορτά σας. Όταν επιστρέψετε, η κάμερα σάς λέει πότε βλέπει το μέρος και προς τα πού να στρίψετε. Ανοίξτε την από Περισσότερα, Αναγνώριση τοποθεσιών με ΤΝ.\n\nΠροσομοίωση ήχου: πατήστε δύο φορές ένα σημείο στον χάρτη και επιλέξτε Προσομοίωση του ήχου εδώ για να ακούσετε πώς ακούγεται η περιοχή γύρω σας. Χρησιμοποιήστε ακουστικά.</string>
 </resources>

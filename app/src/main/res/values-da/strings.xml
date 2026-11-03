@@ -561,4 +561,8 @@
     <string name="soundscape_failed">Lydsimuleringen kunne ikke starte på denne telefon.</string>
     <string name="credits_openal_body">Lydsimuleringens 3D-lyd gengives af OpenAL Soft, af Chris Robinson og bidragydere, under GNU LGPL version 2.1, brugt uændret som et separat bibliotek. Kildekoden findes på github.com/kcat/openal-soft (version 1.24.3) og licensteksten på gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Lydsimuleringens omgivelsesoptagelser er genereret med Stable Audio Open 1.0 fra Stability AI under Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Udforsk. Hold og bevæg fingeren for at læse kortet.</string>
+    <string name="hint_double_tap_options">Løft og dobbelttryk for valgmuligheder.</string>
+    <string name="whats_new_title">Nyheder</string>
+    <string name="whats_new_message">AI-stedgenkendelse: film steder, du ofte besøger, som din hoveddør. Når du kommer tilbage, fortæller kameraet, hvornår det ser stedet, og hvilken vej du skal dreje. Åbn det fra Mere, AI-stedgenkendelse.\n\nLydsimulering: dobbelttryk på et punkt på kortet, og vælg Simulér lyden her for at høre, hvordan stedet lyder omkring dig. Brug hovedtelefoner.</string>
 </resources>

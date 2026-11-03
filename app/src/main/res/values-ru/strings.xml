@@ -550,4 +550,8 @@
     <string name="soundscape_failed">Не удалось запустить моделирование звука на этом телефоне.</string>
     <string name="credits_openal_body">Объёмный звук моделирования звука создаётся OpenAL Soft, авторы Chris Robinson и участники проекта, по лицензии GNU LGPL версии 2.1, используется без изменений как отдельная библиотека. Исходный код — на github.com/kcat/openal-soft (выпуск 1.24.3), текст лицензии — на gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Фоновые записи для моделирования звука созданы с помощью Stable Audio Open 1.0 от Stability AI по лицензии Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Исследовать. Удерживайте и ведите пальцем, чтобы читать карту.</string>
+    <string name="hint_double_tap_options">Поднимите палец и коснитесь дважды для вариантов.</string>
+    <string name="whats_new_title">Что нового</string>
+    <string name="whats_new_message">Распознавание мест с ИИ: снимите на видео места, где вы часто бываете, например входную дверь. Когда вы вернётесь, камера скажет, когда видит это место и в какую сторону повернуться. Откройте его через Ещё, Распознавание мест с ИИ.\n\nМоделирование звука: дважды коснитесь точки на карте и выберите Смоделировать звук здесь, чтобы услышать, как звучит место вокруг вас. Используйте наушники.</string>
 </resources>

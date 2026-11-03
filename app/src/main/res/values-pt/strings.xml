@@ -550,4 +550,8 @@
     <string name="soundscape_failed">Não foi possível iniciar a simulação de som neste telefone.</string>
     <string name="credits_openal_body">O som 3D da simulação de som é gerado pelo OpenAL Soft, de Chris Robinson e colaboradores, sob a GNU LGPL versão 2.1, usado sem modificações como biblioteca separada. O código-fonte está em github.com/kcat/openal-soft (versão 1.24.3) e o texto da licença em gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">As gravações ambientes da simulação de som foram geradas com o Stable Audio Open 1.0 da Stability AI, sob a Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Explorar. Mantenha e mova o dedo para ler o mapa.</string>
+    <string name="hint_double_tap_options">Levante o dedo e toque duas vezes para ver opções.</string>
+    <string name="whats_new_title">Novidades</string>
+    <string name="whats_new_message">Reconhecimento de lugares com IA: filme os lugares que visita com frequência, como a porta de casa. Quando voltar, a câmera diz quando vê o lugar e para que lado virar. Abra em Mais, Reconhecimento de lugares com IA.\n\nSimulação do som: toque duas vezes num ponto do mapa e escolha Simular o som daqui para ouvir como soa o lugar à sua volta. Use fones de ouvido.</string>
 </resources>

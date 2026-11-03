@@ -561,4 +561,8 @@
     <string name="soundscape_failed">De geluidssimulatie kon op deze telefoon niet starten.</string>
     <string name="credits_openal_body">Het 3D-geluid van de geluidssimulatie wordt berekend door OpenAL Soft, van Chris Robinson en bijdragers, onder de GNU LGPL versie 2.1, ongewijzigd gebruikt als aparte bibliotheek. De broncode staat op github.com/kcat/openal-soft (versie 1.24.3) en de licentietekst op gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">De omgevingsopnamen van de geluidssimulatie zijn gegenereerd met Stable Audio Open 1.0 van Stability AI, onder de Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Verkennen. Houd je vinger op de kaart en beweeg hem om de kaart te lezen.</string>
+    <string name="hint_double_tap_options">Til op en tik twee keer voor opties.</string>
+    <string name="whats_new_title">Wat is er nieuw</string>
+    <string name="whats_new_message">AI-plaatsherkenning: film plaatsen waar je vaak komt, zoals je voordeur. Als je terugkomt, zegt de camera wanneer hij de plaats ziet en welke kant je op moet draaien. Open het via Meer, AI-plaatsherkenning.\n\nGeluidssimulatie: tik twee keer op een punt op de kaart en kies Simuleer het geluid hier om te horen hoe de omgeving om je heen klinkt. Gebruik een koptelefoon.</string>
 </resources>

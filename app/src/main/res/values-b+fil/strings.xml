@@ -562,4 +562,8 @@
     <string name="soundscape_failed">Hindi masimulan ang sound simulation sa teleponong ito.</string>
     <string name="credits_openal_body">Ang 3D na tunog ng sound simulation ay ginagawa ng OpenAL Soft, nina Chris Robinson at mga kontribyutor, sa ilalim ng GNU LGPL bersyon 2.1, ginamit nang walang pagbabago bilang hiwalay na library. Ang source code nito ay nasa github.com/kcat/openal-soft (release 1.24.3), at ang teksto ng lisensya ay nasa gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">Ang mga ambient recording ng sound simulation ay ginawa gamit ang Stable Audio Open 1.0 ng Stability AI, sa ilalim ng Stability AI Community License. Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">Tuklasin. Idiin at igalaw ang daliri para basahin ang mapa.</string>
+    <string name="hint_double_tap_options">Iangat at i-double tap para sa mga opsyon.</string>
+    <string name="whats_new_title">Ano\'ng bago</string>
+    <string name="whats_new_message">Pagkilala ng lugar gamit ang AI: i-film ang mga lugar na madalas mong puntahan, gaya ng pinto ng bahay mo. Pagbalik mo, sasabihin ng camera kapag nakita nito ang lugar at kung saan ka liliko. Buksan ito sa Higit pa, Pagkilala ng lugar gamit ang AI.\n\nSimulasyon ng tunog: i-double tap ang isang punto sa mapa at piliin ang I-simulate ang tunog dito para marinig ang tunog ng lugar sa paligid mo. Gumamit ng headphones.</string>
 </resources>

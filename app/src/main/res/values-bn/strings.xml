@@ -562,4 +562,8 @@
     <string name="soundscape_failed">এই ফোনে শব্দ সিমুলেশন শুরু করা যায়নি।</string>
     <string name="credits_openal_body">শব্দ সিমুলেশনের 3D শব্দ তৈরি করে OpenAL Soft, Chris Robinson ও অবদানকারীদের তৈরি, GNU LGPL সংস্করণ 2.1-এর অধীনে, পরিবর্তন ছাড়াই আলাদা লাইব্রেরি হিসেবে ব্যবহৃত। এর সোর্স কোড github.com/kcat/openal-soft-এ (রিলিজ 1.24.3), এবং লাইসেন্সের পাঠ gnu.org/licenses/old-licenses/lgpl-2.1.html-এ।</string>
     <string name="credits_stable_audio_body">শব্দ সিমুলেশনের পরিবেশগত রেকর্ডিংগুলো Stability AI-এর Stable Audio Open 1.0 দিয়ে তৈরি, Stability AI Community License-এর অধীনে। Powered by Stability AI.</string>
+    <string name="content_description_explore_map_hint">অন্বেষণ করুন। মানচিত্র পড়তে আঙুল ধরে রেখে সরান।</string>
+    <string name="hint_double_tap_options">বিকল্পের জন্য আঙুল তুলে দুবার ট্যাপ করুন।</string>
+    <string name="whats_new_title">নতুন কী</string>
+    <string name="whats_new_message">এআই দিয়ে স্থান শনাক্তকরণ: যেসব জায়গায় প্রায়ই যান, যেমন আপনার সদর দরজা, সেগুলোর ভিডিও করুন। ফিরে এলে ক্যামেরা জানাবে কখন জায়গাটি দেখছে এবং কোন দিকে ঘুরতে হবে। আরও, এআই দিয়ে স্থান শনাক্তকরণ থেকে খুলুন।\n\nশব্দ সিমুলেশন: মানচিত্রে একটি বিন্দুতে দুবার ট্যাপ করে এখানকার শব্দ সিমুলেট করুন বেছে নিন, আশপাশের জায়গাটি কেমন শোনায় শুনতে। হেডফোন ব্যবহার করুন।</string>
 </resources>
