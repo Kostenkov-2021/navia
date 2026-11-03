@@ -293,10 +293,10 @@ public class BoxImporter implements Cancellable {
 	 * — a corrupt/truncated download should fail cleanly here rather than surface as a confusing
 	 * ATTACH or query error later. */
 	private void probeOpens(File dbFile) throws Exception {
-		// Deliberately NOT opened through SQLiteDatabase: opening+closing the same file in-process right
-		// before ATTACHing it was observed live (Android 15) to leave the attached db unreadable — a
-		// "Getting lock failed due to (9)" EBADF followed by "no such table: box.nodes". Checking the
-		// 16-byte SQLite header is enough to catch a truncated/garbage download.
+		// Not opened through SQLiteDatabase; the 16-byte SQLite header is enough to catch a
+		// truncated/garbage download. (An earlier "no such table: box.nodes" on Android 15 was blamed
+		// on such an open/close probe, but the real cause was ATTACH landing on another pooled
+		// connection than the INSERTs — see OSMDatabaseHelper.onConfigure.)
 		byte[] header = new byte[16];
 		try (java.io.FileInputStream in = new java.io.FileInputStream(dbFile)) {
 			int read = 0;

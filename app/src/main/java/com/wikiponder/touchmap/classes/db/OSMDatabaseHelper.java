@@ -69,11 +69,16 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onConfigure(SQLiteDatabase db) {
 		super.onConfigure(db);
-		// WAL lets readers (BackgroundService's GPS/compass-triggered queries, which run on the main
-		// thread — see UserLocationManager/AngleManager) proceed while the importer holds a long write
-		// transaction on this same file. Without it, the default rollback-journal mode blocks every
-		// reader behind an open writer, which showed up as repeated ANRs during a large real import.
-		db.enableWriteAheadLogging();
+		// One connection, no WAL. This connection gets other databases ATTACHed (world_places.db as
+		// "wp", each downloaded box as "box"), and an attachment lives on one connection only. Android
+		// runs ATTACH as a read-only statement, so with WAL's connection pool it can land on a reader
+		// connection while the following INSERT/SELECT runs on another: imports failed with "no such
+		// table: box.nodes" and map queries with "no such table: wp.nodes". Android does switch WAL
+		// off by itself on the first ATTACH, but that switch throws (and stays undone for the whole
+		// process) when another thread holds a connection at that moment. WAL was enabled here to
+		// keep readers from blocking behind a long import (ANRs); in practice it was already off
+		// after the first ATTACH, so this only makes that state certain from the start.
+		db.disableWriteAheadLogging();
 	}
 	
 	/**
