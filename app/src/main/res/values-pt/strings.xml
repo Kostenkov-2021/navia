@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">Tamanho do download: %1$d arquivos, %2$s no total</string>
     <string name="download_size_unknown">Tamanho do download: desconhecido</string>
     <string name="download_already_downloaded_prefix">Já baixado.</string>
+    <string name="download_update_available">Há uma versão mais recente deste mapa.</string>
+    <string name="update_map_action">Atualizar mapa</string>
     <string name="download_larger_map_checkbox">Mapa maior</string>
     <string name="download_larger_map_hint">Também baixa as áreas vizinhas (pode ser mais arquivos).</string>
     <string name="download_looking_up">Procurando dados do mapa para esta área…</string>

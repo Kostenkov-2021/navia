@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">பதிவிறக்க அளவு: %1$d கோப்புகள், மொத்தம் %2$s</string>
     <string name="download_size_unknown">பதிவிறக்க அளவு: தெரியவில்லை</string>
     <string name="download_already_downloaded_prefix">ஏற்கனவே பதிவிறக்கப்பட்டது.</string>
+    <string name="download_update_available">இந்த வரைபடத்தின் புதிய பதிப்பு கிடைக்கிறது.</string>
+    <string name="update_map_action">வரைபடத்தைப் புதுப்பி</string>
     <string name="download_larger_map_checkbox">பெரிய வரைபடம்</string>
     <string name="download_larger_map_hint">அருகிலுள்ள பகுதிகளையும் பதிவிறக்குகிறது (இன்னும் சில கோப்புகள் இருக்கலாம்).</string>
     <string name="download_looking_up">இந்தப் பகுதிக்கான வரைபடத் தரவைத் தேடுகிறது…</string>

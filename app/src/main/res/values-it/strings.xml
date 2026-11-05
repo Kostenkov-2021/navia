@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Dimensione download: %1$d file, %2$s totali</string>
     <string name="download_size_unknown">Dimensione download: sconosciuta</string>
     <string name="download_already_downloaded_prefix">Già scaricata.</string>
+    <string name="download_update_available">È disponibile una versione più recente di questa mappa.</string>
+    <string name="update_map_action">Aggiorna mappa</string>
     <string name="download_larger_map_checkbox">Mappa più grande</string>
     <string name="download_larger_map_hint">Scarica anche le aree vicine (potrebbero essere diversi file in più).</string>
     <string name="download_looking_up">Ricerca dati mappa per quest\'area…</string>

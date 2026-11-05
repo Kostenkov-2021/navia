@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">Nedlastingsstørrelse: %1$d filer, %2$s totalt</string>
     <string name="download_size_unknown">Nedlastingsstørrelse: ukjent</string>
     <string name="download_already_downloaded_prefix">Allerede lastet ned.</string>
+    <string name="download_update_available">En nyere versjon av dette kartet er tilgjengelig.</string>
+    <string name="update_map_action">Oppdater kart</string>
     <string name="download_larger_map_checkbox">Større kart</string>
     <string name="download_larger_map_hint">Laster også ned nabområdene (kan bli flere filer).</string>
     <string name="download_looking_up">Ser etter kartdata for dette området…</string>

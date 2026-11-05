@@ -98,6 +98,16 @@
 
     </LinearLayout>
 
+    <!-- Shown while the map of the phone's own location is an old version (MapActivity
+         .updateMapUpdateOffer). -->
+    <Button
+        android:id="@+id/update_map_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:text="@string/update_map_action"
+        android:visibility="gone" />
+
     <!-- Offered when a place saved for the visual check is within 50 m (MapActivity
          .updateVisualCheckOffer); while the check runs it becomes its Stop button. -->
     <LinearLayout

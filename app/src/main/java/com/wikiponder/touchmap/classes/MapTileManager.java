@@ -914,6 +914,20 @@ public class MapTileManager {
 		}
 	}
 
+	/** True if the downloaded box covering this location is older than {@code currentMapVersion}.
+	 * False when the area was never downloaded. */
+	public boolean isTileOutdated(Location location, int currentMapVersion) {
+		String lat = String.valueOf(location.getLatitude());
+		String lon = String.valueOf(location.getLongitude());
+		SQLiteDatabase db = OSMDatabaseHelper.getInstance(context).getReadableDatabase();
+		try (Cursor c = db.query("imported_boxes", new String[]{"box_index"},
+				"min_lat<=? AND max_lat>=? AND min_lon<=? AND max_lon>=? AND map_version<?",
+				new String[]{lat, lat, lon, lon, String.valueOf(currentMapVersion)},
+				null, null, null, "1")) {
+			return c.moveToFirst();
+		}
+	}
+
 	public List<NearestElement> getNearestElements(Location location, int n) {
 		List<NearestElement> nearestElements = new ArrayList<>();
 		// Background announcement (BackgroundService) — always the GPS-driven announce cache, never

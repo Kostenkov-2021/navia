@@ -100,6 +100,7 @@ public class MyApplication extends Application {
 		// screen opens, but GeofabrikIndex.load() also awaits it directly (ensureReady()) if not.
 		geofabrikIndexRepository = new GeofabrikIndexRepository(this);
 		geofabrikIndexRepository.initializeAsync();
+		com.wikiponder.touchmap.classes.boxes.BoxManifestRepository.refreshAsync(this);
 		mapTileManager = new MapTileManager(this);
 		announcementManager = new AnnouncementManager(this);
 		angleManager = new AngleManager(this, 500);

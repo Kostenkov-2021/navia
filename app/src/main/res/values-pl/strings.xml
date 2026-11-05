@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Rozmiar pobierania: %1$d plików, łącznie %2$s</string>
     <string name="download_size_unknown">Rozmiar pobierania: nieznany</string>
     <string name="download_already_downloaded_prefix">Już pobrano.</string>
+    <string name="download_update_available">Dostępna jest nowsza wersja tej mapy.</string>
+    <string name="update_map_action">Zaktualizuj mapę</string>
     <string name="download_larger_map_checkbox">Większa mapa</string>
     <string name="download_larger_map_hint">Pobiera również sąsiednie obszary (może to być kilka dodatkowych plików).</string>
     <string name="download_looking_up">Wyszukiwanie danych mapy dla tego obszaru…</string>

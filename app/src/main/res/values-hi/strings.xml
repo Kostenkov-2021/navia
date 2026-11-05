@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">डाउनलोड आकार: %1$d फ़ाइलें, कुल %2$s</string>
     <string name="download_size_unknown">डाउनलोड आकार: अज्ञात</string>
     <string name="download_already_downloaded_prefix">पहले से ही डाउनलोड किया जा चुका है।</string>
+    <string name="download_update_available">इस मानचित्र का नया संस्करण उपलब्ध है।</string>
+    <string name="update_map_action">मानचित्र अपडेट करें</string>
     <string name="download_larger_map_checkbox">बड़ा मैप</string>
     <string name="download_larger_map_hint">आस-पास के क्षेत्र भी डाउनलोड होते हैं (कई और फ़ाइलें हो सकती हैं)।</string>
     <string name="download_looking_up">इस क्षेत्र के लिए मैप डेटा खोजा जा रहा है…</string>

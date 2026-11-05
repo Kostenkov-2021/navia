@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Dung lượng tải xuống: %1$d tệp, tổng %2$s</string>
     <string name="download_size_unknown">Dung lượng tải xuống: không xác định</string>
     <string name="download_already_downloaded_prefix">Đã tải xuống.</string>
+    <string name="download_update_available">Đã có phiên bản mới hơn của bản đồ này.</string>
+    <string name="update_map_action">Cập nhật bản đồ</string>
     <string name="download_larger_map_checkbox">Bản đồ lớn hơn</string>
     <string name="download_larger_map_hint">Cũng tải các khu vực lân cận (có thể có thêm vài tệp).</string>
     <string name="download_looking_up">Đang tìm dữ liệu bản đồ cho khu vực này…</string>

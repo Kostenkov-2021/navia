@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Saiz muat turun: %1$d fail, jumlah %2$s</string>
     <string name="download_size_unknown">Saiz muat turun: tidak diketahui</string>
     <string name="download_already_downloaded_prefix">Sudah dimuat turun.</string>
+    <string name="download_update_available">Versi lebih baharu peta ini tersedia.</string>
+    <string name="update_map_action">Kemas kini peta</string>
     <string name="download_larger_map_checkbox">Peta lebih besar</string>
     <string name="download_larger_map_hint">Turut memuat turun kawasan bersebelahan (mungkin beberapa fail lagi).</string>
     <string name="download_looking_up">Mencari data peta untuk kawasan ini…</string>

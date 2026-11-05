@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">גודל ההורדה: %1$d קבצים, סה״כ %2$s</string>
     <string name="download_size_unknown">גודל הורדה: לא ידוע</string>
     <string name="download_already_downloaded_prefix">כבר הורד.</string>
+    <string name="download_update_available">קיימת גרסה חדשה יותר של מפה זו.</string>
+    <string name="update_map_action">עדכון המפה</string>
     <string name="download_larger_map_checkbox">מפה גדולה יותר</string>
     <string name="download_larger_map_hint">מוריד גם את האזורים הסמוכים (עשוי להוסיף כמה קבצים נוספים).</string>
     <string name="download_looking_up">מחפש נתוני מפה עבור אזור זה…</string>

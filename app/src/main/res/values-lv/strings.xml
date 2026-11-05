@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">Lejupielādes apjoms: %1$d faili, kopā %2$s</string>
     <string name="download_size_unknown">Lejupielādes apjoms: nezināms</string>
     <string name="download_already_downloaded_prefix">Jau lejupielādēts.</string>
+    <string name="download_update_available">Ir pieejama jaunāka šīs kartes versija.</string>
+    <string name="update_map_action">Atjaunināt karti</string>
     <string name="download_larger_map_checkbox">Lielāka karte</string>
     <string name="download_larger_map_hint">Lejupielādē arī blakus esošos apgabalus (var pievienot vairākus failus).</string>
     <string name="download_looking_up">Notiek šī apgabala kartes datu meklēšana…</string>

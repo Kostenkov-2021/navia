@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Taille du téléchargement : %1$d fichiers, %2$s au total</string>
     <string name="download_size_unknown">Taille du téléchargement : inconnue</string>
     <string name="download_already_downloaded_prefix">Déjà téléchargée.</string>
+    <string name="download_update_available">Une version plus récente de cette carte est disponible.</string>
+    <string name="update_map_action">Mettre à jour la carte</string>
     <string name="download_larger_map_checkbox">Carte plus grande</string>
     <string name="download_larger_map_hint">Télécharge aussi les zones voisines (peut représenter plusieurs fichiers supplémentaires).</string>
     <string name="download_looking_up">Recherche des données cartographiques pour cette zone…</string>

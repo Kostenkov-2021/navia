@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">حجم التنزيل: %1$d ملفات، الإجمالي %2$s</string>
     <string name="download_size_unknown">حجم التنزيل: غير معروف</string>
     <string name="download_already_downloaded_prefix">تم تنزيلها بالفعل.</string>
+    <string name="download_update_available">يتوفر إصدار أحدث من هذه الخريطة.</string>
+    <string name="update_map_action">تحديث الخريطة</string>
     <string name="download_larger_map_checkbox">خريطة أكبر</string>
     <string name="download_larger_map_hint">يُنزّل أيضًا المناطق المجاورة (قد يضيف عدة ملفات).</string>
     <string name="download_looking_up">جارٍ البحث عن بيانات الخريطة لهذه المنطقة…</string>

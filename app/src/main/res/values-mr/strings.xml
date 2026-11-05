@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">डाउनलोड आकार: %1$d फाइल्स, एकूण %2$s</string>
     <string name="download_size_unknown">डाउनलोड आकार: अज्ञात</string>
     <string name="download_already_downloaded_prefix">आधीच डाउनलोड केले आहे.</string>
+    <string name="download_update_available">या नकाशाची नवीन आवृत्ती उपलब्ध आहे.</string>
+    <string name="update_map_action">नकाशा अपडेट करा</string>
     <string name="download_larger_map_checkbox">मोठा नकाशा</string>
     <string name="download_larger_map_hint">शेजारील भाग देखील डाउनलोड करते (आणखी काही फाइल्स असू शकतात).</string>
     <string name="download_looking_up">या भागासाठी नकाशा डेटा शोधत आहे…</string>

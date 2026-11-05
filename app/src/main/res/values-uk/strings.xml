@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Розмір завантаження: %1$d файлів, разом %2$s</string>
     <string name="download_size_unknown">Розмір завантаження: невідомо</string>
     <string name="download_already_downloaded_prefix">Уже завантажено.</string>
+    <string name="download_update_available">Доступна новіша версія цієї карти.</string>
+    <string name="update_map_action">Оновити карту</string>
     <string name="download_larger_map_checkbox">Більша карта</string>
     <string name="download_larger_map_hint">Також завантажує сусідні області (може бути ще кілька файлів).</string>
     <string name="download_looking_up">Пошук даних карти для цієї області…</string>

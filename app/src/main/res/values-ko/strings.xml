@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">다운로드 크기: 파일 %1$d개, 총 %2$s</string>
     <string name="download_size_unknown">다운로드 크기: 알 수 없음</string>
     <string name="download_already_downloaded_prefix">이미 다운로드되었습니다.</string>
+    <string name="download_update_available">이 지도의 새 버전이 있습니다.</string>
+    <string name="update_map_action">지도 업데이트</string>
     <string name="download_larger_map_checkbox">더 넓은 지도</string>
     <string name="download_larger_map_hint">인접 지역도 함께 다운로드합니다(파일 수가 늘어날 수 있음).</string>
     <string name="download_looking_up">이 지역의 지도 데이터를 조회하는 중…</string>

@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">ಡೌನ್‌ಲೋಡ್ ಗಾತ್ರ: %1$d ಫೈಲ್‌ಗಳು, ಒಟ್ಟು %2$s</string>
     <string name="download_size_unknown">ಡೌನ್‌ಲೋಡ್ ಗಾತ್ರ: ಅಜ್ಞಾತ</string>
     <string name="download_already_downloaded_prefix">ಈಗಾಗಲೇ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ.</string>
+    <string name="download_update_available">ಈ ನಕ್ಷೆಯ ಹೊಸ ಆವೃತ್ತಿ ಲಭ್ಯವಿದೆ.</string>
+    <string name="update_map_action">ನಕ್ಷೆಯನ್ನು ನವೀಕರಿಸಿ</string>
     <string name="download_larger_map_checkbox">ದೊಡ್ಡ ನಕ್ಷೆ</string>
     <string name="download_larger_map_hint">ಪಕ್ಕದ ಪ್ರದೇಶಗಳನ್ನೂ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತದೆ (ಹಲವಾರು ಹೆಚ್ಚುವರಿ ಫೈಲ್‌ಗಳಿರಬಹುದು).</string>
     <string name="download_looking_up">ಈ ಪ್ರದೇಶದ ನಕ್ಷೆ ಡೇಟಾವನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…</string>

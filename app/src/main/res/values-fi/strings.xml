@@ -90,6 +90,8 @@
     <string name="download_size_label_multi">Latauksen koko: %1$d tiedostoa, yhteensä %2$s</string>
     <string name="download_size_unknown">Latauksen koko: tuntematon</string>
     <string name="download_already_downloaded_prefix">Jo ladattu.</string>
+    <string name="download_update_available">Tästä kartasta on saatavilla uudempi versio.</string>
+    <string name="update_map_action">Päivitä kartta</string>
     <string name="download_larger_map_checkbox">Suurempi kartta</string>
     <string name="download_larger_map_hint">Lataa myös naapurialueet (voi olla useampia lisätiedostoja).</string>
     <string name="download_looking_up">Haetaan karttatietoja tälle alueelle…</string>

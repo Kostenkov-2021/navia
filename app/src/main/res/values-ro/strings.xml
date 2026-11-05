@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">Dimensiune descărcare: %1$d fișiere, %2$s în total</string>
     <string name="download_size_unknown">Dimensiune descărcare: necunoscută</string>
     <string name="download_already_downloaded_prefix">Deja descărcat.</string>
+    <string name="download_update_available">Este disponibilă o versiune mai nouă a acestei hărți.</string>
+    <string name="update_map_action">Actualizează harta</string>
     <string name="download_larger_map_checkbox">Hartă mai mare</string>
     <string name="download_larger_map_hint">Descarcă și zonele învecinate (pot fi mai multe fișiere).</string>
     <string name="download_looking_up">Se caută date de hartă pentru această zonă…</string>

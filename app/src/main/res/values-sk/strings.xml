@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">Veľkosť sťahovania: %1$d súborov, spolu %2$s</string>
     <string name="download_size_unknown">Veľkosť sťahovania: neznáma</string>
     <string name="download_already_downloaded_prefix">Už stiahnuté.</string>
+    <string name="download_update_available">K dispozícii je novšia verzia tejto mapy.</string>
+    <string name="update_map_action">Aktualizovať mapu</string>
     <string name="download_larger_map_checkbox">Väčšia mapa</string>
     <string name="download_larger_map_hint">Stiahne aj susedné oblasti (môže ísť o niekoľko ďalších súborov).</string>
     <string name="download_looking_up">Vyhľadávajú sa mapové údaje pre túto oblasť…</string>

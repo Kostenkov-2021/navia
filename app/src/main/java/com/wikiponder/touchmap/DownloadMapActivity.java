@@ -70,6 +70,8 @@ public class DownloadMapActivity extends AppCompatActivity {
 	// since an already-downloaded area can be genuinely sparse/empty, and an undownloaded one can show
 	// world-place gazetteer stand-ins that look like real data at a glance.
 	private boolean alreadyDownloaded = false;
+	// That downloaded box is older than the current map version, so the button offers an update.
+	private boolean outdated = false;
 	private long lookupToken = 0;
 
 	@Override
@@ -175,11 +177,14 @@ public class DownloadMapActivity extends AppCompatActivity {
 				loc.setLatitude(lat);
 				loc.setLongitude(lon);
 				boolean imported = MyApplication.getMapTileManager(this).isTileImported(loc);
+				boolean old = MyApplication.getMapTileManager(this).isTileOutdated(loc, manifest.mapVersion);
 				mainHandler.post(() -> {
 					if (token != lookupToken) return;
 					resolvedBox = box;
 					neighborBoxes = neighbors;
 					alreadyDownloaded = imported;
+					outdated = old;
+					downloadButton.setText(old ? R.string.update_map_action : R.string.download_button);
 					showBoxInfo(box);
 					updateButtonStates();
 				});
@@ -211,9 +216,13 @@ public class DownloadMapActivity extends AppCompatActivity {
 		} else {
 			sizeText = getString(R.string.download_size_label, formatMb(box.gzSizeMb));
 		}
-		infoText.setText(alreadyDownloaded
-				? getString(R.string.download_already_downloaded_prefix) + " " + sizeText
-				: sizeText);
+		if (outdated) {
+			infoText.setText(getString(R.string.download_update_available) + " " + sizeText);
+		} else {
+			infoText.setText(alreadyDownloaded
+					? getString(R.string.download_already_downloaded_prefix) + " " + sizeText
+					: sizeText);
+		}
 	}
 
 	// ---- import control ----

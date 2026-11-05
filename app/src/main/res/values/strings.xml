@@ -102,6 +102,8 @@
     <string name="download_size_label_multi">Download size: %1$d files, %2$s total</string>
     <string name="download_size_unknown">Download size: unknown</string>
     <string name="download_already_downloaded_prefix">Already downloaded.</string>
+    <string name="download_update_available">A newer version of this map is available.</string>
+    <string name="update_map_action">Update map</string>
     <string name="download_larger_map_checkbox">Larger map</string>
     <string name="download_larger_map_hint">Also downloads the neighboring areas (may be several more files).</string>
     <string name="download_looking_up">Looking up map data for this area…</string>

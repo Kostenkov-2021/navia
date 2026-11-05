@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Μέγεθος λήψης: %1$d αρχεία, %2$s συνολικά</string>
     <string name="download_size_unknown">Μέγεθος λήψης: άγνωστο</string>
     <string name="download_already_downloaded_prefix">Έχει ήδη κατέβει.</string>
+    <string name="download_update_available">Υπάρχει νεότερη έκδοση αυτού του χάρτη.</string>
+    <string name="update_map_action">Ενημέρωση χάρτη</string>
     <string name="download_larger_map_checkbox">Μεγαλύτερος χάρτης</string>
     <string name="download_larger_map_hint">Κατεβάζει επίσης τις γειτονικές περιοχές (ενδέχεται να είναι αρκετά επιπλέον αρχεία).</string>
     <string name="download_looking_up">Αναζήτηση δεδομένων χάρτη για αυτή την περιοχή…</string>

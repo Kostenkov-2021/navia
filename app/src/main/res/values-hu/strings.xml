@@ -91,6 +91,8 @@
     <string name="download_size_label_multi">Letöltés mérete: %1$d fájl, összesen %2$s</string>
     <string name="download_size_unknown">Letöltés mérete: ismeretlen</string>
     <string name="download_already_downloaded_prefix">Már letöltve.</string>
+    <string name="download_update_available">A térkép újabb verziója érhető el.</string>
+    <string name="update_map_action">Térkép frissítése</string>
     <string name="download_larger_map_checkbox">Nagyobb térkép</string>
     <string name="download_larger_map_hint">A szomszédos területeket is letölti (ez több további fájlt jelenthet).</string>
     <string name="download_looking_up">Térképadatok keresése ehhez a területhez…</string>

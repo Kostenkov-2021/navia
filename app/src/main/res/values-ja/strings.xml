@@ -88,6 +88,8 @@
     <string name="download_size_label_multi">ダウンロードサイズ: %1$dファイル、合計%2$s</string>
     <string name="download_size_unknown">ダウンロードサイズ: 不明</string>
     <string name="download_already_downloaded_prefix">ダウンロード済みです。</string>
+    <string name="download_update_available">この地図の新しいバージョンがあります。</string>
+    <string name="update_map_action">地図を更新</string>
     <string name="download_larger_map_checkbox">広い範囲の地図</string>
     <string name="download_larger_map_hint">隣接するエリアも合わせてダウンロードします（ファイル数が増える場合があります）。</string>
     <string name="download_looking_up">このエリアの地図データを検索中…</string>
