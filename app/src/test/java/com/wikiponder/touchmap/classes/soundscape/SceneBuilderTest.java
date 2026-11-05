@@ -170,7 +170,7 @@ public class SceneBuilderTest {
 		List<SceneBuilder.Node> nodes = new ArrayList<>();
 		nodes.add(new SceneBuilder.Node("fuel", tags("amenity", "fuel"), 30, 10));
 		nodes.add(new SceneBuilder.Node("car_repair", tags("shop", "car_repair"), -30, 10));
-		nodes.add(new SceneBuilder.Node("bakery", tags("shop", "bakery"), 10, -10));
+		nodes.add(new SceneBuilder.Node("florist", tags("shop", "florist"), 10, -10));
 		nodes.add(new SceneBuilder.Node("supermarket", tags("shop", "supermarket"), 20, 40));
 		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
 		assertTrue(hasSpot(s, "fuel_station"));
@@ -189,6 +189,210 @@ public class SceneBuilderTest {
 		assertTrue(hasSpot(s, "sheep"));
 		assertTrue(hasSpot(s, "horses"));
 		assertFalse(hasSpot(s, "goats"));
+	}
+
+	private static Scene.Spot spot(Scene s, String clip) {
+		for (Scene.Spot sp : s.spots) if (sp.clip.equals(clip)) return sp;
+		return null;
+	}
+
+	private static boolean hasVehicle(Scene.Lane l, String clip) {
+		for (Scene.Vehicle v : l.vehicles) if (v.clip.equals(clip)) return true;
+		return false;
+	}
+
+	@Test
+	public void speedComesFromTheLimitThenTheWidth() {
+		assertEquals(30 / 3.6f * 0.85f, SceneBuilder.speedOf(road("residential", 0, tags("maxspeed", "30")), 8f), 0.01f);
+		assertEquals(20 * 1.609f / 3.6f * 0.85f, SceneBuilder.speedOf(road("residential", 0, tags("maxspeed", "20 mph")), 8f), 0.01f);
+		assertEquals(50 / 3.6f * 0.85f, SceneBuilder.speedOf(road("residential", 0, tags("maxspeed", "DE:urban")), 8f), 0.01f);
+		assertEquals(30 / 3.6f * 0.85f, SceneBuilder.speedOf(road("residential", 0, tags("zone:maxspeed", "DE:30")), 8f), 0.01f);
+		float narrow = SceneBuilder.speedOf(road("tertiary", 0, tags("width", "4")), 11f);
+		float wide = SceneBuilder.speedOf(road("tertiary", 0, tags("lanes", "4")), 11f);
+		assertTrue(narrow < 11f);
+		assertTrue(wide > 11f);
+		assertEquals(11f, SceneBuilder.speedOf(road("tertiary", 0, tags()), 11f), 0.01f);
+	}
+
+	@Test
+	public void carSoundFollowsSpeed() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("residential", 10, tags("maxspeed", "30")));
+		ways.add(road("motorway", 60, tags("maxspeed", "120")));
+		Scene s = SceneBuilder.build(Collections.emptyList(), ways);
+		assertTrue(hasVehicle(lane(s, "residential"), "car_slow"));
+		assertTrue(hasVehicle(lane(s, "motorway"), "car_fast"));
+	}
+
+	@Test
+	public void heavyVehiclesOnlyOnWideRoads() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("primary", 10, tags("lanes", "4")));
+		ways.add(road("tertiary", 30, tags()));
+		ways.add(road("secondary", 50, tags("width", "5")));
+		Scene s = SceneBuilder.build(Collections.emptyList(), ways);
+		assertTrue(hasVehicle(lane(s, "primary"), "truck"));
+		assertTrue(hasVehicle(lane(s, "primary"), "bus"));
+		assertFalse(hasVehicle(lane(s, "tertiary"), "truck"));
+		assertFalse(hasVehicle(lane(s, "tertiary"), "bus"));
+		assertFalse(hasVehicle(lane(s, "secondary"), "truck"));
+	}
+
+	@Test
+	public void quietStreetHasNoHornsLouderBirdsSparseCarsAndChildren() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		for (int i = 0; i < 8; i++) ways.add(road("residential", 10 + i * 5, tags("maxspeed", "30")));
+		Scene s = SceneBuilder.build(Collections.emptyList(), ways, new SceneBuilder.Surroundings(4f, null));
+		assertFalse(hasSpot(s, "car_horn"));
+		assertTrue(spot(s, "birds").gain >= 0.7f);
+		assertTrue(hasSpot(s, "children"));
+		int nearest = 0;
+		for (Scene.Lane l : s.lanes) if (l.gapMin == 10f && l.gapMax == 20f) nearest++;
+		assertEquals(1, nearest);
+		assertEquals(5, s.lanes.size());
+	}
+
+	@Test
+	public void hornsFollowTheHornFactor() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("primary", 10, tags("lanes", "4", "maxspeed", "50")));
+		ways.add(road("secondary", 40, tags("maxspeed", "50")));
+		Scene loud = SceneBuilder.build(Collections.emptyList(), ways, new SceneBuilder.Surroundings(4f, null));
+		Scene mild = SceneBuilder.build(Collections.emptyList(), ways, new SceneBuilder.Surroundings(0.3f, null));
+		Scene none = SceneBuilder.build(Collections.emptyList(), ways, new SceneBuilder.Surroundings(0.15f, null));
+		assertTrue(spot(loud, "car_horn").maxInterval < spot(mild, "car_horn").minInterval);
+		assertTrue(hasSpot(loud, "car_horn_double"));
+		assertTrue(hasSpot(loud, "truck_horn"));
+		assertFalse(hasSpot(none, "car_horn"));
+	}
+
+	@Test
+	public void hornCultureCombinesCountryAndCity() {
+		float tehran = HornCulture.factor(35.70, 51.40, "IR");
+		float amsterdam = HornCulture.factor(52.37, 4.89, "NL");
+		float dutchVillage = HornCulture.factor(53.3, 6.5, "NL");
+		assertTrue(tehran > amsterdam * 5);
+		assertTrue(amsterdam > dutchVillage);
+		assertEquals(0f, SceneBuilder.hornInterval(dutchVillage), 0f);
+		assertTrue(SceneBuilder.hornInterval(tehran) < 15f);
+	}
+
+	@Test
+	public void onewayDrivesOneWayIncludingReversed() {
+		float[] e = {-300, 0, 300}, n = {10, 10, 10};
+		assertEquals(1, SceneBuilder.drivingDirection(new SceneBuilder.Way("residential", tags("oneway", "yes"), e, n)));
+		assertEquals(-1, SceneBuilder.drivingDirection(new SceneBuilder.Way("residential", tags("oneway", "-1"), e, n)));
+		assertEquals(0, SceneBuilder.drivingDirection(new SceneBuilder.Way("residential", tags(), e, n)));
+		assertEquals(0, SceneBuilder.drivingDirection(new SceneBuilder.Way("motorway", tags("oneway", "no"), e, n)));
+		assertEquals(1, SceneBuilder.drivingDirection(new SceneBuilder.Way("motorway", tags(), e, n)));
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(new SceneBuilder.Way("residential", tags("oneway", "-1"), new float[]{-100, 100}, n));
+		Scene.Lane reversed = SceneBuilder.build(Collections.emptyList(), ways).lanes.get(0);
+		assertTrue(reversed.oneway);
+		assertTrue(reversed.east[0] > reversed.east[1]);
+	}
+
+	@Test
+	public void cyclePathCarriesOnlyBicyclesWithAnOccasionalBell() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("cycleway", 5, tags()));
+		Scene.Lane l = lane(SceneBuilder.build(Collections.emptyList(), ways), "cycleway");
+		for (Scene.Vehicle v : l.vehicles) assertTrue(v.clip.startsWith("bicycle"));
+		assertEquals("bicycle_bell", l.passEvent);
+		assertTrue(l.passChance < 1f);
+	}
+
+	@Test
+	public void someTrafficLightsBeepAndTheSameOneAlwaysDoes() {
+		assertTrue(SceneBuilder.beepsForPedestrians(new SceneBuilder.Node(1, "traffic_signals", tags("traffic_signals:sound", "yes"), 0, 0)));
+		assertFalse(SceneBuilder.beepsForPedestrians(new SceneBuilder.Node(5, "traffic_signals", tags("traffic_signals:sound", "no"), 0, 0)));
+		int beeping = 0;
+		for (long id = 1; id <= 100; id++) {
+			if (SceneBuilder.beepsForPedestrians(new SceneBuilder.Node(id, "traffic_signals", tags(), 0, 0))) beeping++;
+		}
+		assertEquals(20, beeping);
+		assertFalse(SceneBuilder.beepsForPedestrians(new SceneBuilder.Node(5, "bench", tags(), 0, 0)));
+	}
+
+	@Test
+	public void longBridgeRoarsAndShortOneDoesNot() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(new SceneBuilder.Way("primary", tags("bridge", "yes"), new float[]{-100, 100}, new float[]{5, 5}));
+		assertTrue(hasSpot(SceneBuilder.build(Collections.emptyList(), ways), "river_roar"));
+		ways.clear();
+		ways.add(new SceneBuilder.Way("primary", tags("bridge", "yes"), new float[]{-10, 10}, new float[]{5, 5}));
+		assertFalse(hasSpot(SceneBuilder.build(Collections.emptyList(), ways), "river_roar"));
+		ways.clear();
+		ways.add(new SceneBuilder.Way("primary", tags("bridge", "viaduct"), new float[]{-100, 100}, new float[]{5, 5}));
+		assertFalse(hasSpot(SceneBuilder.build(Collections.emptyList(), ways), "river_roar"));
+	}
+
+	@Test
+	public void unpavedPathGetsSteps() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("path", 10, tags("surface", "dirt")));
+		assertTrue(hasSpot(SceneBuilder.build(Collections.emptyList(), ways), "footsteps_dirt"));
+		ways.clear();
+		ways.add(road("footway", 10, tags("surface", "asphalt")));
+		assertFalse(hasSpot(SceneBuilder.build(Collections.emptyList(), ways), "footsteps_dirt"));
+	}
+
+	@Test
+	public void churchBellsCarryFarButRarelyAndOnlyOnce() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("place_of_worship", tags("amenity", "place_of_worship", "religion", "christian"), 900, 0));
+		nodes.add(new SceneBuilder.Node("place_of_worship", tags("amenity", "place_of_worship", "religion", "christian"), 1000, 0));
+		nodes.add(new SceneBuilder.Node("place_of_worship", tags("amenity", "place_of_worship"), 5, 0));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		int bells = 0;
+		for (Scene.Spot sp : s.spots) if (sp.clip.equals("church_bells")) bells++;
+		assertEquals(1, bells);
+		assertEquals(120f, spot(s, "church_bells").minInterval, 0f);
+		assertEquals(180f, spot(s, "church_bells").maxInterval, 0f);
+	}
+
+	@Test
+	public void airportBringsAnAirlinerEveryFewMinutes() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("residential", 10, tags()));
+		Scene s = SceneBuilder.build(Collections.emptyList(), ways, new SceneBuilder.Surroundings(1f, new float[]{2000, 1000}));
+		Scene.Lane plane = lane(s, "aircraft");
+		assertEquals(120f, plane.gapMin, 0f);
+		assertEquals(180f, plane.gapMax, 0f);
+		assertTrue(plane.height > 100f);
+		assertNull(lane(SceneBuilder.build(Collections.emptyList(), ways), "aircraft"));
+	}
+
+	@Test
+	public void gullsAreHeardFarFromTheSeaSide() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("beach", tags("natural", "beach"), 1500, 0));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "seagulls"));
+		assertFalse(hasSpot(s, "sea_waves"));
+	}
+
+	@Test
+	public void moreKindsOfPlaces() {
+		List<SceneBuilder.Node> nodes = new ArrayList<>();
+		nodes.add(new SceneBuilder.Node("hairdresser", tags("shop", "hairdresser"), 10, 0));
+		nodes.add(new SceneBuilder.Node("bakery", tags("shop", "bakery"), 12, 0));
+		nodes.add(new SceneBuilder.Node("atm", tags("amenity", "atm"), 14, 0));
+		nodes.add(new SceneBuilder.Node("fitness_centre", tags("leisure", "fitness_centre"), 16, 0));
+		Scene s = SceneBuilder.build(nodes, Collections.emptyList());
+		assertTrue(hasSpot(s, "hairdresser"));
+		assertTrue(hasSpot(s, "bakery"));
+		assertTrue(hasSpot(s, "atm"));
+		assertTrue(hasSpot(s, "gym"));
+	}
+
+	@Test
+	public void airNoiseIsAlwaysThere() {
+		List<SceneBuilder.Way> ways = new ArrayList<>();
+		ways.add(road("residential", 10, tags()));
+		boolean air = false;
+		for (Scene.Bed b : SceneBuilder.build(Collections.emptyList(), ways).beds) air |= b.clip.equals("air_noise");
+		assertTrue(air);
 	}
 
 	@Test

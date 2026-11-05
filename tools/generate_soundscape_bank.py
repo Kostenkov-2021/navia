@@ -49,16 +49,17 @@ SAMPLE_RATE = 44100
 NEGATIVE = "music, melody, instruments, singing, speech, voice over, narration, low quality, distortion, clipping"
 
 # kind: "loop" clips get a crossfaded loop point; "oneshot" clips are faded in/out and played now
-# and then. seconds is what is generated; loops lose LOOP_XFADE_S of it to the crossfade.
+# and then; "steady" clips are loops for moving sources (see STEADY_SEEDS). seconds is what is
+# generated; loops lose LOOP_XFADE_S of it to the crossfade.
 BANK = [
     # --- moving sources (steady, no pass-by) ---
-    ("car", "loop", 14, "field recording, steady sound of a single car engine and tires rolling on asphalt at constant speed, recorded close, no pass-by, continuous"),
+    ("car", "steady", 20, "field recording, steady uniform sound of one car engine and tires rolling on asphalt at constant speed, constant distance, constant loudness, recorded from inside the wheel arch, monotone continuous drone, nothing changes"),
     ("truck", "loop", 14, "field recording, steady low rumble of a heavy diesel truck engine and tires rolling at constant speed, continuous, recorded close"),
     ("bus", "loop", 14, "field recording, steady city bus diesel engine driving at constant low speed, continuous hum, recorded close"),
-    ("motorcycle", "loop", 12, "field recording, steady motorcycle engine cruising at constant speed, continuous, recorded close"),
-    ("bicycle", "loop", 10, "field recording, bicycle rolling on pavement, freewheel ticking and chain, steady, close, quiet"),
+    ("motorcycle", "steady", 20, "field recording, steady uniform motorcycle engine drone at constant speed and constant rpm, constant distance, constant loudness, monotone, continuous, nothing changes"),
+    ("bicycle", "steady", 20, "field recording, steady uniform sound of bicycle tires rolling on pavement with a soft freewheel ticking and chain, constant speed, constant distance, constant loudness, continuous, close"),
     ("train", "loop", 16, "field recording, steady rhythmic train wheels clacking over rail joints and rumbling, continuous, constant speed, recorded close to the track"),
-    ("tram", "loop", 16, "field recording, steady electric tram rolling on rails, motor whine and wheel squeal, continuous, constant speed, recorded close"),
+    ("tram", "steady", 20, "field recording, steady uniform electric tram motor hum and wheels rolling on rails, constant speed, constant distance, constant loudness, monotone continuous, recorded on board"),
     # --- static / ambience loops ---
     ("traffic_far", "loop", 20, "field recording, distant busy city traffic, steady broadband hum of many cars, far away, continuous ambience"),
     ("city_hum", "loop", 20, "field recording, quiet urban background ambience, distant city murmur, soft and continuous, no single events"),
@@ -118,11 +119,56 @@ BANK = [
     ("station_hall", "loop", 20, "field recording, busy train station hall, rolling suitcases, footsteps, echoing crowd, distant chime, indistinct"),
     ("nightclub", "loop", 16, "field recording, muffled bass thumping through the walls of a nightclub, heard from the street outside"),
     ("temple_bell", "oneshot", 10, "field recording, a large temple bell struck once, deep resonant gong, long decay, outdoors"),
-    ("car_gravel", "loop", 14, "field recording, a single car driving steadily on a gravel dirt road, tires crunching on gravel, constant speed, close"),
+    ("car_gravel", "steady", 20, "field recording, steady uniform tires crunching on a gravel road at constant speed, constant distance, constant loudness, continuous, recorded close to the wheel"),
+    # --- variety pass (see docs/soundscape-rules.md): more vehicles, street life and kinds of place ---
+    ("car_b", "steady", 20, "field recording, steady uniform sound of a small petrol car engine and tires on asphalt at constant speed, constant distance, constant loudness, monotone continuous drone, nothing changes"),
+    ("car_slow", "steady", 20, "field recording, steady uniform quiet low-speed car engine purr and soft tires rolling slowly on a residential street, constant speed, constant distance, constant loudness, continuous"),
+    ("car_fast", "steady", 20, "field recording, steady uniform loud tire roar and wind noise of a car at high motorway speed, constant speed, constant distance, constant loudness, broadband continuous drone, nothing changes"),
+    ("bicycle_b", "steady", 20, "field recording, steady uniform sound of a city bicycle rolling, soft tire hum, light chain rattle, constant speed, constant distance, constant loudness, continuous, close"),
+    ("airplane", "steady", 20, "field recording, steady uniform jet airliner engine roar high in the sky, constant distance, constant loudness, broadband continuous drone, nothing changes"),
+    ("air_noise", "loop", 20, "soft steady white noise, faint air hiss, gentle outdoor room tone, perfectly uniform and continuous, no events"),
+    ("river_roar", "loop", 20, "field recording, roaring wide river rushing under a large bridge, powerful continuous water, heard from the bridge, no events"),
+    ("ped_beep", "loop", 8, "field recording, accessible pedestrian traffic light beeping steadily, repetitive electronic beep beep beep at a street crossing, outdoors"),
+    ("footsteps_dirt", "oneshot", 8, "field recording, one person walking on a dirt path, footsteps crunching and rustling on soil and small stones, outdoors, close"),
+    ("children", "oneshot", 7, "field recording, a few young children laughing and calling while playing in a quiet residential street, outdoors, indistinct"),
+    ("car_horn_double", "oneshot", 4, "field recording, a car horn honking twice in quick succession in a city street, beep beep, outdoors"),
+    ("truck_horn", "oneshot", 5, "field recording, a single deep loud truck air horn blast on a wide city road, outdoors"),
+    ("hairdresser", "loop", 16, "field recording, hair salon interior heard from the doorway, hair dryer blowing, scissors snipping, soft indistinct chatter"),
+    ("bakery", "loop", 16, "field recording, small bakery shop, paper bags rustling, bread trays sliding, cash register, soft indistinct customers"),
+    ("butcher", "oneshot", 6, "field recording, butcher shop, a cleaver chopping on a wooden block several times, indoors heard from the door"),
+    ("greengrocer", "loop", 18, "field recording, fruit and vegetable stall on the street, crates being stacked, paper bags, scale clinking, indistinct customers"),
+    ("laundry", "loop", 16, "field recording, laundromat, washing machines tumbling and humming, steady, indoors heard from the doorway"),
+    ("sewing", "loop", 12, "field recording, tailor shop, electric sewing machine running in short bursts, fabric rustling, quiet room"),
+    ("workshop", "loop", 16, "field recording, small craft workshop, electric drill, hand saw on wood, hammer taps, heard from the street"),
+    ("bicycle_repair", "oneshot", 6, "field recording, bicycle repair shop, ratchet wrench clicking, wheel spinning freely, tire pump hiss"),
+    ("atm", "oneshot", 5, "field recording, a street cash machine, keypad button beeps, banknotes being dispensed, outdoors"),
+    ("recycling_glass", "oneshot", 5, "field recording, glass bottles dropped into a street bottle bank, shattering clinks, outdoors"),
+    ("vending", "oneshot", 4, "field recording, a street vending machine, coins dropping and a can falling into the tray, outdoors"),
+    ("car_door", "oneshot", 5, "field recording, parking lot, a car door closing with a solid thud, then the engine starting, outdoors"),
+    ("gym", "loop", 16, "field recording, fitness gym heard from the door, weights clanking, treadmill running, indistinct"),
+    ("swimming", "loop", 18, "field recording, public swimming pool, water splashing, swimmers, children shouting, echoing hall, whistle far away"),
+    ("cinema_lobby", "loop", 16, "field recording, cinema and theatre foyer, large indoor crowd murmur, popcorn machine, indistinct, echoing"),
+    ("hotel", "oneshot", 7, "field recording, hotel entrance, a suitcase with wheels rolling on pavement, automatic door sliding open, outdoors"),
+    ("university", "loop", 18, "field recording, university campus courtyard, many students walking and talking, indistinct voices, outdoors"),
+    ("theme_park", "loop", 18, "field recording, amusement park from a distance, people screaming on a roller coaster, crowd, mechanical rides, outdoors"),
+    ("zoo", "oneshot", 8, "field recording, zoo, exotic birds calling and monkeys screeching in the distance, outdoors"),
+    ("arcade", "loop", 14, "field recording, arcade game hall, many electronic game machines beeping and bleeping, indistinct, indoors"),
+    ("stadium", "loop", 18, "field recording, football stadium heard from outside, big crowd roaring and chanting in the distance, outdoors"),
+    ("clothes_shop", "oneshot", 5, "field recording, clothing shop, metal hangers sliding along a rail, fabric rustling, quiet indoors"),
+    ("electronics_shop", "oneshot", 4, "field recording, electronics shop, soft digital beeps from a barcode scanner and devices, quiet indoors"),
+    ("kiosk", "oneshot", 4, "field recording, a street kiosk, coins placed on a counter, newspaper rustling, outdoors"),
+    ("pet_shop", "oneshot", 6, "field recording, pet shop, small birds chirping and a puppy yapping, indoors"),
 ]
 
 LOOP_XFADE_S = 1.5
 ONESHOT_FADE_S = 0.05
+# "steady" = a moving source: it must hold still in pitch and loudness, because the app's renderer adds
+# the movement and Doppler. Stable Audio often drifts or does a pass-by despite the prompt (the first
+# car clip swung 26 dB), so several seeds are tried and the steadiest stretch of the best one is kept.
+STEADY_SEEDS = (1234, 2345, 3456)
+STEADY_MIN_S = 7.0
+HISS_PENALTY = 40.0
+STEADY_NEGATIVE = ", pass-by, passing, approaching, receding, doppler, acceleration, gear change, fade in, fade out, horn"
 TARGET_RMS_DBFS = -20.0
 PEAK_LIMIT = 0.89
 
@@ -132,9 +178,9 @@ def raw_path(clip_id, prompt, seconds, seed):
     return os.path.join(RAW_DIR, f"{clip_id}_{h}.wav")
 
 
-def replicate(prompt, seconds, seed, token):
+def replicate(prompt, seconds, seed, token, negative=NEGATIVE):
     body = json.dumps({"version": MODEL_VERSION, "input": {
-        "prompt": prompt, "negative_prompt": NEGATIVE, "seconds_total": seconds,
+        "prompt": prompt, "negative_prompt": negative, "seconds_total": seconds,
         "seed": seed, "steps": 100, "cfg_scale": 7}}).encode()
     req = urllib.request.Request("https://api.replicate.com/v1/predictions", data=body, headers={
         "Authorization": f"Bearer {token}", "Content-Type": "application/json", "Prefer": "wait=60"})
@@ -201,6 +247,50 @@ def make_loop(x):
     return np.concatenate([body, head + tail]) if len(body) else head + tail
 
 
+def frames(x, win):
+    """Per-window loudness (dB) and spectral centroid (Hz)."""
+    n = len(x) // win
+    rms, cen = np.zeros(n), np.zeros(n)
+    f = np.fft.rfftfreq(win, 1 / SAMPLE_RATE)
+    w = np.hanning(win)
+    for i in range(n):
+        s = x[i * win:(i + 1) * win]
+        rms[i] = 20 * np.log10(np.sqrt(np.mean(s ** 2)) + 1e-9)
+        spec = np.abs(np.fft.rfft(s * w))
+        cen[i] = (spec * f).sum() / (spec.sum() + 1e-9)
+    return rms, cen
+
+
+def steadiest(x):
+    """The stretch of STEADY_MIN_S that changes least, and its score (lower is steadier): loudness
+    swing in dB plus centroid spread as a percentage of its mean."""
+    win = SAMPLE_RATE // 4
+    rms, cen = frames(x, win)
+    size = min(len(rms), int(STEADY_MIN_S * 4))
+    if size == 0:
+        return x, 1e9
+    best, best_score = 0, 1e9
+    for i in range(len(rms) - size + 1):
+        r, c = rms[i:i + size], cen[i:i + size]
+        score = (r.max() - r.min()) + 100 * c.std() / (c.mean() + 1e-9)
+        if score < best_score:
+            best, best_score = i, score
+    part = x[best * win:(best + size) * win]
+    # Plain hiss is the steadiest sound of all, but it is no engine: a take heavy above 4 kHz loses.
+    power = np.abs(np.fft.rfft(part)) ** 2
+    hiss = power[np.fft.rfftfreq(len(part), 1 / SAMPLE_RATE) >= 4000].sum() / (power.sum() + 1e-12)
+    return part, best_score + HISS_PENALTY * hiss
+
+
+def flatten_loudness(x):
+    """Evens out what slow loudness drift remains (1 s window, at most +-9 dB); fast texture stays."""
+    win = SAMPLE_RATE
+    kernel = np.ones(win) / win
+    env = np.sqrt(np.convolve(x ** 2, kernel, mode="same") + 1e-9)
+    gain = np.clip(np.sqrt(np.mean(x ** 2)) / env, 10 ** (-9 / 20), 10 ** (9 / 20))
+    return x * gain
+
+
 def normalize(x):
     rms = np.sqrt(np.mean(x ** 2) + 1e-12)
     x = x * (10 ** (TARGET_RMS_DBFS / 20) / rms)
@@ -235,21 +325,37 @@ def main():
 
     manifest = {}
     for clip_id, kind, seconds, prompt in BANK:
-        rp = raw_path(clip_id, prompt, seconds, args.seed)
-        if not os.path.exists(rp) and (only is None or clip_id in only):
-            if not token:
-                sys.exit("REPLICATE_API_TOKEN is not set")
-            print(f"generating {clip_id} ({seconds}s)...", flush=True)
-            data, url = replicate(prompt, seconds, args.seed, token)
-            decode_any(data, rp)
-        if not os.path.exists(rp):
+        seeds = STEADY_SEEDS if kind == "steady" else (args.seed,)
+        negative = NEGATIVE + STEADY_NEGATIVE if kind == "steady" else NEGATIVE
+        for seed in seeds:
+            rp = raw_path(clip_id, prompt, seconds, seed)
+            if not os.path.exists(rp) and (only is None or clip_id in only):
+                if not token:
+                    sys.exit("REPLICATE_API_TOKEN is not set")
+                print(f"generating {clip_id} seed {seed} ({seconds}s)...", flush=True)
+                data, url = replicate(prompt, seconds, seed, token, negative)
+                decode_any(data, rp)
+        takes = [(s, raw_path(clip_id, prompt, seconds, s)) for s in seeds]
+        takes = [(s, t) for s, t in takes if os.path.exists(t)]
+        if not takes:
             print(f"skip {clip_id}: not generated yet")
             continue
 
-        x, sr = sf.read(rp, dtype="float64")
-        assert sr == SAMPLE_RATE, sr
-        x = highpass(trim_silence(to_mono(x)))
-        if kind == "loop":
+        used_seed = takes[0][0]
+        if kind == "steady":
+            best_score = 1e9
+            for s, t in takes:
+                r, sr = sf.read(t, dtype="float64")
+                part, score = steadiest(highpass(trim_silence(to_mono(r))))
+                print(f"  {clip_id} seed {s}: steadiness score {score:.1f}")
+                if score < best_score:
+                    x, best_score, used_seed = part, score, s
+            x = flatten_loudness(x)
+        else:
+            x, sr = sf.read(takes[0][1], dtype="float64")
+            assert sr == SAMPLE_RATE, sr
+            x = highpass(trim_silence(to_mono(x)))
+        if kind != "oneshot":
             x = make_loop(x)
         else:
             f = int(ONESHOT_FADE_S * SAMPLE_RATE)
@@ -263,7 +369,7 @@ def main():
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", master, "-ac", "1",
                         "-c:a", "libvorbis", "-q:a", "3", out], check=True)
         manifest[clip_id] = {"kind": kind, "seconds": round(len(x) / SAMPLE_RATE, 2),
-                             "prompt": prompt, "seed": args.seed}
+                             "prompt": prompt, "seed": used_seed}
         print(f"{clip_id}: {manifest[clip_id]['seconds']}s -> {os.path.getsize(out) // 1024} KB")
 
     with open(os.path.join(OUT_DIR, "bank.json"), "w", encoding="utf-8") as f:

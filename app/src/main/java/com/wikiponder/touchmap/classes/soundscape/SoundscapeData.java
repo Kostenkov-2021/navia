@@ -33,9 +33,12 @@ public final class SoundscapeData {
 		// Waterfalls, surf, harbours, church bells... carry further than shops do.
 		found.addAll(MyApplication.getMapTileManager(context)
 				.queryNodesOfTypesAround(center, SceneBuilder.FAR_RADIUS_M, SceneBuilder.FAR_TYPES, 300));
+		// ...and church bells and gulls further still.
+		found.addAll(MyApplication.getMapTileManager(context)
+				.queryNodesOfTypesAround(center, SceneBuilder.VERY_FAR_RADIUS_M, SceneBuilder.VERY_FAR_TYPES, 300));
 		for (MapElement e : found) {
 			if (!seen.add(e.id)) continue;
-			nodes.add(new SceneBuilder.Node(e.type, e.tags, east(e.lon - lon, cosLat), north(e.lat - lat)));
+			nodes.add(new SceneBuilder.Node(e.id, e.type, e.tags, east(e.lon - lon, cosLat), north(e.lat - lat)));
 		}
 		List<SceneBuilder.Way> ways = new ArrayList<>();
 		// Wider than the node radius: a road just outside it still carries vehicles into earshot.
@@ -50,7 +53,15 @@ public final class SoundscapeData {
 			MapElement tags = new MapElement(false, w.id, 0, 0, w.catId, w.type, w.name, w.tags);
 			ways.add(new SceneBuilder.Way(w.type, tags.tags, xs, ys));
 		}
-		return SceneBuilder.build(nodes, ways);
+		return SceneBuilder.build(nodes, ways, surroundings(context, lat, lon, cosLat));
+	}
+
+	private static SceneBuilder.Surroundings surroundings(Context context, double lat, double lon, double cosLat) {
+		Airports.Airport airport = Airports.nearest(context, lat, lon);
+		if (airport == null) return SceneBuilder.Surroundings.UNKNOWN;
+		float e = east(airport.lon - lon, cosLat), n = north(airport.lat - lat);
+		return new SceneBuilder.Surroundings(HornCulture.factor(lat, lon, airport.country),
+				Math.hypot(e, n) <= SceneBuilder.AIRPORT_RADIUS_M ? new float[]{e, n} : null);
 	}
 
 	private static float east(double dLon, double cosLat) {

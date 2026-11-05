@@ -8,6 +8,8 @@ as implemented in `app/src/main/java/com/wikiponder/touchmap/classes/soundscape/
 |---|---|
 | `SoundscapeData` | Reads the map around the point and converts it to listener-relative metres |
 | `SceneBuilder` | **Selection rules**: decides which sounds exist, where, how loud, how often |
+| `HornCulture` | Horn factor: country habits × busy/medium city tables |
+| `Airports` | Bundled airport table (`assets/soundscape/airports.tsv`, OurAirports, public domain): airliners, and each point's country |
 | `Scene` | The result: beds, spots and lanes (pure data) |
 | `SoundscapePlayer` | **Playback rules**: animates vehicles, fires one-shots, follows the compass |
 | `SpatialRenderer` + `cpp/soundscape_jni.cpp` | OpenAL Soft (HRTF) rendering and Ogg decoding |
@@ -27,20 +29,21 @@ finger).
 |---|---|---|
 | All feature nodes (not addresses, not intersections), nearest first | 180 m | 1500 |
 | Nodes of far-carrying types only (see below), nearest first | 450 m | 300 |
+| Places of worship and sea-side nodes (beach, bay, reef, islet, marina, slipway, ferry_terminal, lighthouse, pier), nearest first | 2000 m | 300 |
 | Ways (streets, paths, platforms, barriers…) whose bounding box overlaps | 240 m | — |
 
 **Far-carrying types** (`SceneBuilder.FAR_TYPES`): waterfall, rapids, weir, dam, lock_gate, river,
 stream, canal, spring, hot_spring, water, wetland, beach, bay, cape, cliff, reef, islet,
 ferry_terminal, marina, slipway, lighthouse, pier, peak, saddle, viewpoint, volcano, cave_entrance,
-wood, camp_site, place_of_worship, station, bus_station, cattle_grid, farm, dairy, animal_breeding,
+wood, camp_site, station, bus_station, cattle_grid, farm, dairy, animal_breeding,
 horse_riding, animal_shelter, dog_park.
 
 ### What the map data does *not* contain
 
 The box databases keep only highways, barriers, platforms and addressed buildings as ways. There are
-**no rail lines, rivers, lakes, coastlines, parks or land-use areas**. Those are inferred from points
-(see each section). OpenStreetMap also never maps animals; they are inferred from the places that
-imply them.
+**no rail lines, rivers, lakes, coastlines, parks, land-use areas or airports**. Those are inferred
+from points (see each section), and airports come from a bundled table. OpenStreetMap also never maps
+animals; they are inferred from the places that imply them.
 
 If the area has no map data at all, nothing is played and the user is told so.
 
@@ -88,16 +91,30 @@ The remaining share is cars. Adjustments:
 - `*_link` roads carry 30 % of their parent class's traffic.
 - **Lanes/width:** traffic × `lanes / 2`, or × `width / 7 m` if there is no `lanes` tag, clamped to
   0.5–3.
-- **Speed:** `maxspeed` × 0.85 (traffic mostly drives below the limit), clamped to 3–36 m/s. mph is
-  converted.
-- **One-way:** `oneway=yes/1`, motorways and roundabouts drive in one direction only; others in both.
+- **Speed:** the limit × 0.85 (traffic mostly drives below it), clamped to 3–36 m/s. The limit comes
+  from `maxspeed`, else `zone:maxspeed`, `maxspeed:type` or `source:maxspeed`; mph, `walk`, `none` and
+  coded values like `DE:urban` or `DE:zone30` are understood. With no limit, the class speed ×
+  `width / 7 m` (or `lanes × 3.2 m / 7 m`), clamped to 0.7–1.3, or the class speed alone with no width.
+- **Each vehicle** then drives at 0.8–1.2 × that speed, trucks × 0.9, buses × 0.85, motorcycles × 1.1.
+- **Car sound by speed:** up to 9 m/s `car_slow`, from 20 m/s `car_fast`, else `car`; 35 % of cars are
+  the second recording, `car_b`.
+- **One-way:** `oneway=yes/1/true` drive along the way, `-1/reverse` against it, `no/false` both ways;
+  motorways and roundabouts are one-way unless tagged otherwise. Vehicles then come from one side only.
+- **Heavy vehicles only on wide roads.** Wide means `width` ≥ 8 m, else `lanes` ≥ 3 (or ≥ 2 on a one-way),
+  else a motorway, trunk, primary or secondary. Elsewhere no trucks (nor with `hgv=no`), and no buses
+  unless there is a bus stop within 60 m or a bus route.
 - **Buses:** at least 8 % within 60 m of a bus stop; at least 30 % on `bus=designated` or `psv=yes`.
+- **Quiet streets:** a living street, or a residential, unclassified, tertiary or `road` way limited to
+  30 km/h (20 mph) or less. The nearest one sends a car every **10–20 s**, the others every 40–80 s. See
+  also §3.9.
 - **Unpaved surface** (unpaved, gravel, fine_gravel, dirt, ground, earth, compacted, sand, grass,
   pebblestone, mud): all vehicles use the **car_gravel** sound (tyres on gravel), with at least 5 %
   motorcycles, at most 12 m/s.
 
 Only the **5 loudest lanes** are kept, ranked by `vehicles/min ÷ (1 + distance/25 m)`. In addition the
-**nearest cycleway within 60 m** always gets its own lane: bicycles at 4/min, 5 m/s.
+**nearest cycle path within 60 m** (`highway=cycleway`, or a path or footway with `bicycle=designated`)
+always gets its own lane, one-way if tagged: bicycles only, 4/min, about 5 m/s, two recordings, and
+**30 % ring their bell** as they pass within 70 m.
 
 **Traffic load** = Σ `vehicles/min ÷ (1 + distance/40 m)` over all roads. It drives the beds and
 car horns below.
@@ -165,20 +182,50 @@ Checked nearest first. A node matches the **first** row that fits. Loops have no
 | shop car_repair, tyres, car_parts, motorcycle_repair | garage | 70 m | 6 m | loop |
 | railway/public_transport station, amenity bus_station | station_hall | 130 m | 15 m | loop |
 | tourism camp_site, amenity bbq, leisure firepit | campfire | 50 m | 3 m | loop |
+| shop hairdresser, beauty | hairdresser | 40 m | 4 m | loop |
+| shop bakery, pastry, confectionery | bakery | 40 m | 4 m | loop |
+| shop butcher, seafood | butcher | 45 m | 4 m | 20–50 |
+| shop greengrocer | greengrocer | 50 m | 6 m | loop |
+| shop laundry, dry_cleaning | laundry | 35 m | 4 m | loop |
+| shop tailor, craft tailor, dressmaker | sewing | 30 m | 3 m | loop |
+| any other craft, shop hardware, doityourself | workshop | 50 m | 6 m | loop |
+| shop bicycle, amenity bicycle_repair_station | bicycle_repair | 40 m | 4 m | 25–60 |
+| shop clothes, shoes, bag, fashion | clothes_shop | 30 m | 3 m | 20–50 |
+| shop electronics, mobile_phone, computer, appliance | electronics_shop | 30 m | 3 m | 20–50 |
+| shop kiosk, tobacco, newsagent | kiosk | 30 m | 3 m | 25–60 |
+| shop pet | pet_shop | 35 m | 3 m | 25–60 |
 | any other shop within 40 m | shop_bell | 40 m | 3 m | 18–45 |
 | amenity school, kindergarten, childcare | schoolyard | 140 m | 15 m | loop |
 | leisure playground | playground | 110 m | 10 m | loop |
-| leisure pitch, sports_centre, stadium | sports | 140 m | 15 m | loop |
+| leisure stadium | stadium | 180 m | 50 m | loop |
+| amenity atm, bank | atm | 30 m | 3 m | 30–70 |
+| amenity recycling | recycling_glass | 60 m | 8 m | 50–130 |
+| amenity vending_machine | vending | 25 m | 3 m | 45–110 |
+| amenity parking, parking_entrance, taxi, car_rental, car_sharing | car_door | 60 m | 6 m | 30–80 |
+| leisure fitness_centre, sports_hall | gym | 40 m | 5 m | loop |
+| leisure swimming_pool (not `access=private`), water_park | swimming | 90 m | 10 m | loop |
+| amenity cinema, theatre, arts_centre, events_venue | cinema_lobby | 50 m | 6 m | loop |
+| tourism hotel, hostel, guest_house | hotel | 40 m | 4 m | 30–75 |
+| amenity university, college | university | 120 m | 15 m | loop |
+| tourism theme_park | theme_park | 180 m | 40 m | loop |
+| tourism zoo | zoo | 180 m | 30 m | 30–70 |
+| leisure amusement_arcade, adult_gaming_centre | arcade | 35 m | 4 m | loop |
+| leisure pitch, sports_centre | sports | 140 m | 15 m | loop |
 | amenity fountain | fountain | 60 m | 4 m | loop |
-| place_of_worship, religion buddhist / shinto / hindu | temple_bell | 300 m | 30 m | 45–120 |
-| place_of_worship, religion christian or untagged | church_bells | 350 m | 40 m | 50–110 |
 | amenity hospital, fire_station, emergency ambulance_station | siren | 180 m | 50 m | 40–90 |
 | bus_stop within 60 m | bus_doors | 60 m | 6 m | 35–70 |
-| traffic_signals / crossing with `traffic_signals:sound=yes` | ped_signal | 40 m | 2 m | loop |
+| traffic light (see below) | ped_beep or ped_signal | 40 m | 2 m | loop |
 | construction tag or landuse | construction | 140 m | 15 m | loop |
 
-Places of worship of other religions (Muslim, Jewish, …) are deliberately **left silent** rather than
-given a sound that isn't theirs.
+The **10 nearest** places are kept, so a dense shopping street stays legible.
+
+**Traffic lights** sound if `traffic_signals:sound` says anything but `no`; of those with no such tag,
+one in five (chosen from the node id, so the same light always behaves the same). Half beep, half tick.
+
+**Bells:** one tower at most, within 1500 m, ringing every **2–3 minutes** and carrying far (ref. 120 m):
+`church_bells` for `religion=christian`, `temple_bell` for buddhist, shinto or hindu. Other religions and
+places with no religion tag are deliberately **left silent** rather than given a sound that may not be
+theirs.
 
 ### 3.6 Water and coast
 
@@ -201,11 +248,17 @@ given a sound that isn't theirs.
 - **Cliff, cape or reef** → **rocky_shore**, *only if there is coast evidence*. Many cliffs are
   inland.
 - **Marina, slipway, lighthouse or pier** (else a ferry terminal) → **harbor** loop.
-- **Seagulls** (one-shot, 15–50 s) at the harbour; otherwise at the beach or rocky coast.
+- **Seagulls** (one-shot, 20–60 s, ref. 150 m) at the harbour; otherwise at the beach or rocky coast;
+  otherwise at any sea-side node within **2 km**. Lakes with a marina or beach get gulls too: the data
+  doesn't tell them from the sea.
 - **Ferry terminal** node, or a platform way with `ferry=yes` / `amenity=ferry_terminal` within
   180 m → **ship_horn** (one-shot, 60–160 s).
 
-**Bridges:** only if none of the above water sounds was found. The nearest bridge within 70 m that
+**Long bridges:** a bridge at least **60 m** long within 150 m (`bridge=viaduct` excluded) is taken to
+cross a wide river and gets **river_roar** at its nearest point, gain length/150 m, 0.5–0.9. This is a
+guess from length alone: it can also fire on a long bridge over a railway or a road.
+
+**Small bridges:** only if none of the above water sounds was found. The nearest bridge within 70 m that
 is not a motorway or trunk and is at least 8 m long gets a quiet water sound under it:
 
 - **harbor** lapping in town (a shop within 120 m),
@@ -237,8 +290,32 @@ All within 300 m. Sounds are placed a little off the point, in the field rather 
 | Rule | Clip |
 |---|---|
 | ≥ 2 residential / living streets within 80 m | dog_bark (one-shot, 45–120 s) |
-| traffic load > 6 | car_horn (one-shot, 20–55 s) near the busiest street |
-| a cycleway lane exists | bicycle_bell (one-shot, 30–80 s) on it |
+| traffic load > 4 and a street that isn't quiet | horns, see below |
+| nearest street (within 45 m) is quiet | **birds** 0.3 louder, even with no mapped trees |
+| ...and also narrow (not wide by §3.1, at most 2 lanes) | **children** (one-shot, 40–100 s) |
+| unpaved path or footway within 40 m (a path with no `surface` counts as unpaved) | **footsteps_dirt** (one-shot, 20–55 s) |
+
+**Horns** never come from a quiet street. The interval is `45 s ÷ factor`, at least 8 s; factor below 0.2
+means no horns at all. `factor = country × city`:
+
+| Country group | × | | City | × |
+|---|---|---|---|---|
+| Honking (IN, BD, PK, EG, IR, NG, VN, …) | 2.5 | | Busy (table in `HornCulture`) | 1.6 |
+| Fairly honking (TR, TH, CN, MX, BR, RU, IT, …) | 1.5 | | Medium (table in `HornCulture`) | 1 |
+| Others | 1 | | Anywhere else | 0.5 |
+| Fairly quiet (US, GB, FR, AU, KR, …) | 0.6 | | | |
+| Quiet (DE, NL, SE, JP, CH, …) | 0.3 | | | |
+
+So Tehran honks about every 11 s, Amsterdam every 150 s, and a Dutch village not at all. `car_horn` and
+`car_horn_double` come from the two busiest streets, `truck_horn` less often from a road with lorries.
+The country is that of the nearest airport in the bundled table. Busy and medium cities are hand-made
+lists judged by people per area; these numbers are judgement calls, not measurements.
+
+### 3.9a Aircraft
+
+Within **4 km** of an airport in the bundled table (large airports, and medium ones with scheduled
+service), an airliner passes every **2–3 minutes**: a moving source at 300 m height and 75 m/s, on a
+straight line through the airport. The runway's direction is not known.
 
 ### 3.10 Background beds
 
@@ -253,6 +330,7 @@ A place is **rural** if all of these hold:
 | rural | **countryside** bed (0.3), **crickets** loop, **rooster** one-shot (60–160 s) |
 | otherwise | **city_hum** bed, gain 0.12 + traffic load × 0.01 (max +0.25) |
 | traffic load > 4 | also **traffic_far** bed, gain 0.08 + traffic load × 0.006 (max 0.45) |
+| always | **air_noise** bed, a faint steady hiss at gain 0.1 |
 
 ---
 
@@ -305,11 +383,15 @@ in lockstep.
   `rate × lane length / speed`.
 - **Vehicle type:** picked by the lane's shares.
 - **Direction:** random on two-way lanes; it enters at the matching end.
-- **Pitch:** a random 0.92–1.08, so not every car sounds the same.
-- **Movement:** each vehicle moves along the polyline at the lane speed. Its velocity is passed to
-  OpenAL, which derives the Doppler shift.
-- **Edge fade:** gain fades in over the first 40 m and out over the last 40 m of the path, in case a
-  lane starts or ends within earshot.
+- **Timed arrivals:** quiet streets and airliners use a fixed range of gaps instead (§3.1, §3.9a) and
+  start empty, with the first one after `0.1–0.5 × min gap`.
+- **Pitch:** a random 0.96–1.04; on roads also `(speed / 14 m/s)^0.2`, within 0.88–1.12, so faster
+  vehicles sound higher.
+- **Gain:** on roads `(speed / 14 m/s)^0.4`, within 0.7–1.25.
+- **Movement:** each vehicle moves along the polyline at its own speed. Its velocity is passed to
+  OpenAL, which derives the Doppler shift. **The clips themselves hold no movement** (§5).
+- **Edge fade:** gain fades in over the first 40 m and out over the last 40 m of the path (airliners
+  1500 m), in case a lane starts or ends within earshot.
 - **Leaving:** the vehicle is removed at the end of the path.
 - **Cap:** at most **12 vehicles** at once. Arrivals beyond that are skipped.
 - **Pass events** (tram bell): fire once per vehicle when its distance stops shrinking, if its
@@ -338,22 +420,25 @@ in lockstep.
 
 ## 5. Sound bank
 
-61 mono clips at 44.1 kHz, generated with **Stable Audio Open 1.0** on Replicate by
+98 mono clips at 44.1 kHz, generated with **Stable Audio Open 1.0** on Replicate by
 `tools/generate_soundscape_bank.py`:
 
 - Every prompt asks for a steady field recording.
 - The negative prompt excludes music and speech.
 - Vehicles are generated as steady engine/rolling noise **without** a pass-by, because movement and
-  Doppler come from the renderer.
+  Doppler come from the renderer. The model doesn't always obey (the first `car` swung 26 dB), so these
+  **steady** clips (car, car_b, car_slow, car_fast, car_gravel, bicycle, bicycle_b, motorcycle, tram,
+  airplane) are generated from 3 seeds, the steadiest 7 s of the best one is kept (by loudness swing and
+  spectral-centroid spread), and remaining slow drift is evened out.
 
 | Group | Clips |
 |---|---|
-| Vehicles (loops) | car, car_gravel, truck, bus, motorcycle, bicycle, train, tram |
-| Traffic events | car_horn, tram_bell, crossing_bell, bus_doors, bicycle_bell, siren |
-| Beds | city_hum, traffic_far, countryside, wind_open |
+| Vehicles (loops) | car, car_b, car_slow, car_fast, car_gravel, truck, bus, motorcycle, bicycle, bicycle_b, train, tram, airplane |
+| Traffic events | car_horn, car_horn_double, truck_horn, tram_bell, crossing_bell, bus_doors, bicycle_bell, siren, ped_beep |
+| Beds | air_noise, city_hum, traffic_far, countryside, wind_open |
 | Nature | birds, leaves, forest, pigeons, crickets, frogs, cave_drips |
-| Water | waterfall, river, stream, sea_waves, rocky_shore, harbor, seagulls, ship_horn, fountain |
-| People and places | footsteps, market, supermarket, cafe, restaurant, pub, nightclub, playground, schoolyard, sports, station_hall, fuel_station, car_wash, garage, construction, shop_bell, ped_signal, campfire |
+| Water | river_roar, waterfall, river, stream, sea_waves, rocky_shore, harbor, seagulls, ship_horn, fountain |
+| People and places | footsteps, market, supermarket, cafe, restaurant, pub, nightclub, playground, schoolyard, sports, station_hall, fuel_station, car_wash, garage, construction, shop_bell, ped_signal, campfire, children, footsteps_dirt, hairdresser, bakery, butcher, greengrocer, laundry, sewing, workshop, bicycle_repair, atm, recycling_glass, vending, car_door, gym, swimming, cinema_lobby, hotel, university, theme_park, zoo, arcade, stadium, clothes_shop, electronics_shop, kiosk, pet_shop |
 | Bells | church_bells, temple_bell |
 | Animals | dog_bark, kennel_dogs, rooster, cows, sheep, goats, horses |
 
@@ -385,8 +470,8 @@ All three are listed on the Credits screen.
 ## 6. Known limits and future work
 
 - **Geometry:** rail lines are straight local fits. Rivers, lakes, coastlines and parks are inferred
-  from points and can be missed or misplaced. The real fix is to include railway, waterway,
-  coastline and land-use ways in `tools/build_global_cluster_dbs.py` and rebuild the boxes.
+  from points and can be missed or misplaced; a long bridge is only assumed to cross a wide river. The
+  real fix is to include railway, waterway, coastline, aeroway and land-use ways in `tools/build_global_cluster_dbs.py` and rebuild the boxes.
 - **No time of day, season or weather:** birds, crickets and schoolyards play at any hour.
 - **Traffic volumes** are per-class defaults, not measured counts.
 - **Uniform sounds per place type:** every cafe, garage or station sounds the same, apart from

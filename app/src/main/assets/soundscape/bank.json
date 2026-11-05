@@ -4,10 +4,10 @@
  "sample_rate": 44100,
  "clips": {
   "car": {
-   "kind": "loop",
-   "seconds": 12.15,
-   "prompt": "field recording, steady sound of a single car engine and tires rolling on asphalt at constant speed, recorded close, no pass-by, continuous",
-   "seed": 1234
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform sound of one car engine and tires rolling on asphalt at constant speed, constant distance, constant loudness, recorded from inside the wheel arch, monotone continuous drone, nothing changes",
+   "seed": 2345
   },
   "truck": {
    "kind": "loop",
@@ -22,16 +22,16 @@
    "seed": 1234
   },
   "motorcycle": {
-   "kind": "loop",
-   "seconds": 10.5,
-   "prompt": "field recording, steady motorcycle engine cruising at constant speed, continuous, recorded close",
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform motorcycle engine drone at constant speed and constant rpm, constant distance, constant loudness, monotone, continuous, nothing changes",
    "seed": 1234
   },
   "bicycle": {
-   "kind": "loop",
-   "seconds": 7.8,
-   "prompt": "field recording, bicycle rolling on pavement, freewheel ticking and chain, steady, close, quiet",
-   "seed": 1234
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform sound of bicycle tires rolling on pavement with a soft freewheel ticking and chain, constant speed, constant distance, constant loudness, continuous, close",
+   "seed": 3456
   },
   "train": {
    "kind": "loop",
@@ -40,10 +40,10 @@
    "seed": 1234
   },
   "tram": {
-   "kind": "loop",
-   "seconds": 14.3,
-   "prompt": "field recording, steady electric tram rolling on rails, motor whine and wheel squeal, continuous, constant speed, recorded close",
-   "seed": 1234
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform electric tram motor hum and wheels rolling on rails, constant speed, constant distance, constant loudness, monotone continuous, recorded on board",
+   "seed": 2345
   },
   "traffic_far": {
    "kind": "loop",
@@ -364,9 +364,231 @@
    "seed": 1234
   },
   "car_gravel": {
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform tires crunching on a gravel road at constant speed, constant distance, constant loudness, continuous, recorded close to the wheel",
+   "seed": 1234
+  },
+  "car_b": {
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform sound of a small petrol car engine and tires on asphalt at constant speed, constant distance, constant loudness, monotone continuous drone, nothing changes",
+   "seed": 1234
+  },
+  "car_slow": {
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform quiet low-speed car engine purr and soft tires rolling slowly on a residential street, constant speed, constant distance, constant loudness, continuous",
+   "seed": 3456
+  },
+  "car_fast": {
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform loud tire roar and wind noise of a car at high motorway speed, constant speed, constant distance, constant loudness, broadband continuous drone, nothing changes",
+   "seed": 1234
+  },
+  "bicycle_b": {
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform sound of a city bicycle rolling, soft tire hum, light chain rattle, constant speed, constant distance, constant loudness, continuous, close",
+   "seed": 3456
+  },
+  "airplane": {
+   "kind": "steady",
+   "seconds": 5.5,
+   "prompt": "field recording, steady uniform jet airliner engine roar high in the sky, constant distance, constant loudness, broadband continuous drone, nothing changes",
+   "seed": 1234
+  },
+  "air_noise": {
+   "kind": "loop",
+   "seconds": 18.55,
+   "prompt": "soft steady white noise, faint air hiss, gentle outdoor room tone, perfectly uniform and continuous, no events",
+   "seed": 1234
+  },
+  "river_roar": {
+   "kind": "loop",
+   "seconds": 18.5,
+   "prompt": "field recording, roaring wide river rushing under a large bridge, powerful continuous water, heard from the bridge, no events",
+   "seed": 1234
+  },
+  "ped_beep": {
+   "kind": "loop",
+   "seconds": 6.1,
+   "prompt": "field recording, accessible pedestrian traffic light beeping steadily, repetitive electronic beep beep beep at a street crossing, outdoors",
+   "seed": 1234
+  },
+  "footsteps_dirt": {
+   "kind": "oneshot",
+   "seconds": 7.95,
+   "prompt": "field recording, one person walking on a dirt path, footsteps crunching and rustling on soil and small stones, outdoors, close",
+   "seed": 1234
+  },
+  "children": {
+   "kind": "oneshot",
+   "seconds": 6.85,
+   "prompt": "field recording, a few young children laughing and calling while playing in a quiet residential street, outdoors, indistinct",
+   "seed": 1234
+  },
+  "car_horn_double": {
+   "kind": "oneshot",
+   "seconds": 3.95,
+   "prompt": "field recording, a car horn honking twice in quick succession in a city street, beep beep, outdoors",
+   "seed": 1234
+  },
+  "truck_horn": {
+   "kind": "oneshot",
+   "seconds": 4.5,
+   "prompt": "field recording, a single deep loud truck air horn blast on a wide city road, outdoors",
+   "seed": 1234
+  },
+  "hairdresser": {
+   "kind": "loop",
+   "seconds": 14.5,
+   "prompt": "field recording, hair salon interior heard from the doorway, hair dryer blowing, scissors snipping, soft indistinct chatter",
+   "seed": 1234
+  },
+  "bakery": {
+   "kind": "loop",
+   "seconds": 14.0,
+   "prompt": "field recording, small bakery shop, paper bags rustling, bread trays sliding, cash register, soft indistinct customers",
+   "seed": 1234
+  },
+  "butcher": {
+   "kind": "oneshot",
+   "seconds": 5.6,
+   "prompt": "field recording, butcher shop, a cleaver chopping on a wooden block several times, indoors heard from the door",
+   "seed": 1234
+  },
+  "greengrocer": {
+   "kind": "loop",
+   "seconds": 15.95,
+   "prompt": "field recording, fruit and vegetable stall on the street, crates being stacked, paper bags, scale clinking, indistinct customers",
+   "seed": 1234
+  },
+  "laundry": {
+   "kind": "loop",
+   "seconds": 13.7,
+   "prompt": "field recording, laundromat, washing machines tumbling and humming, steady, indoors heard from the doorway",
+   "seed": 1234
+  },
+  "sewing": {
+   "kind": "loop",
+   "seconds": 10.25,
+   "prompt": "field recording, tailor shop, electric sewing machine running in short bursts, fabric rustling, quiet room",
+   "seed": 1234
+  },
+  "workshop": {
+   "kind": "loop",
+   "seconds": 10.8,
+   "prompt": "field recording, small craft workshop, electric drill, hand saw on wood, hammer taps, heard from the street",
+   "seed": 1234
+  },
+  "bicycle_repair": {
+   "kind": "oneshot",
+   "seconds": 5.15,
+   "prompt": "field recording, bicycle repair shop, ratchet wrench clicking, wheel spinning freely, tire pump hiss",
+   "seed": 1234
+  },
+  "atm": {
+   "kind": "oneshot",
+   "seconds": 4.5,
+   "prompt": "field recording, a street cash machine, keypad button beeps, banknotes being dispensed, outdoors",
+   "seed": 1234
+  },
+  "recycling_glass": {
+   "kind": "oneshot",
+   "seconds": 2.5,
+   "prompt": "field recording, glass bottles dropped into a street bottle bank, shattering clinks, outdoors",
+   "seed": 1234
+  },
+  "vending": {
+   "kind": "oneshot",
+   "seconds": 3.5,
+   "prompt": "field recording, a street vending machine, coins dropping and a can falling into the tray, outdoors",
+   "seed": 1234
+  },
+  "car_door": {
+   "kind": "oneshot",
+   "seconds": 4.1,
+   "prompt": "field recording, parking lot, a car door closing with a solid thud, then the engine starting, outdoors",
+   "seed": 1234
+  },
+  "gym": {
+   "kind": "loop",
+   "seconds": 13.95,
+   "prompt": "field recording, fitness gym heard from the door, weights clanking, treadmill running, indistinct",
+   "seed": 1234
+  },
+  "swimming": {
+   "kind": "loop",
+   "seconds": 16.15,
+   "prompt": "field recording, public swimming pool, water splashing, swimmers, children shouting, echoing hall, whistle far away",
+   "seed": 1234
+  },
+  "cinema_lobby": {
+   "kind": "loop",
+   "seconds": 14.5,
+   "prompt": "field recording, cinema and theatre foyer, large indoor crowd murmur, popcorn machine, indistinct, echoing",
+   "seed": 1234
+  },
+  "hotel": {
+   "kind": "oneshot",
+   "seconds": 5.95,
+   "prompt": "field recording, hotel entrance, a suitcase with wheels rolling on pavement, automatic door sliding open, outdoors",
+   "seed": 1234
+  },
+  "university": {
+   "kind": "loop",
+   "seconds": 16.2,
+   "prompt": "field recording, university campus courtyard, many students walking and talking, indistinct voices, outdoors",
+   "seed": 1234
+  },
+  "theme_park": {
+   "kind": "loop",
+   "seconds": 15.9,
+   "prompt": "field recording, amusement park from a distance, people screaming on a roller coaster, crowd, mechanical rides, outdoors",
+   "seed": 1234
+  },
+  "zoo": {
+   "kind": "oneshot",
+   "seconds": 7.6,
+   "prompt": "field recording, zoo, exotic birds calling and monkeys screeching in the distance, outdoors",
+   "seed": 1234
+  },
+  "arcade": {
    "kind": "loop",
    "seconds": 11.85,
-   "prompt": "field recording, a single car driving steadily on a gravel dirt road, tires crunching on gravel, constant speed, close",
+   "prompt": "field recording, arcade game hall, many electronic game machines beeping and bleeping, indistinct, indoors",
+   "seed": 1234
+  },
+  "stadium": {
+   "kind": "loop",
+   "seconds": 15.35,
+   "prompt": "field recording, football stadium heard from outside, big crowd roaring and chanting in the distance, outdoors",
+   "seed": 1234
+  },
+  "clothes_shop": {
+   "kind": "oneshot",
+   "seconds": 4.1,
+   "prompt": "field recording, clothing shop, metal hangers sliding along a rail, fabric rustling, quiet indoors",
+   "seed": 1234
+  },
+  "electronics_shop": {
+   "kind": "oneshot",
+   "seconds": 4.0,
+   "prompt": "field recording, electronics shop, soft digital beeps from a barcode scanner and devices, quiet indoors",
+   "seed": 1234
+  },
+  "kiosk": {
+   "kind": "oneshot",
+   "seconds": 3.85,
+   "prompt": "field recording, a street kiosk, coins placed on a counter, newspaper rustling, outdoors",
+   "seed": 1234
+  },
+  "pet_shop": {
+   "kind": "oneshot",
+   "seconds": 5.9,
+   "prompt": "field recording, pet shop, small birds chirping and a puppy yapping, indoors",
    "seed": 1234
   }
  }
