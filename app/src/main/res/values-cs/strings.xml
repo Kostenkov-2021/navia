@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Nastavení</string>
     <string name="talkback_required_title">Vyžaduje se TalkBack</string>
     <string name="talkback_required_message">Tato aplikace je navržena pro práci se službou TalkBack a aby fungovala správně, musí být TalkBack zapnutý. Po stažení mapy pro vaši oblast se dotkněte obrazovky a pohybujte po ní prstem, abyste prozkoumali okolní ulice a body.</string>
@@ -91,6 +90,8 @@
     <string name="download_size_label_multi">Velikost stahování: %1$d souborů, celkem %2$s</string>
     <string name="download_size_unknown">Velikost stahování: neznámá</string>
     <string name="download_already_downloaded_prefix">Již staženo.</string>
+    <string name="download_update_available">Je k dispozici novější verze této mapy.</string>
+    <string name="update_map_action">Aktualizovat mapu</string>
     <string name="download_larger_map_checkbox">Větší mapa</string>
     <string name="download_larger_map_hint">Stáhne také sousední oblasti (může jít o několik dalších souborů).</string>
     <string name="download_looking_up">Vyhledávání dat mapy pro tuto oblast…</string>

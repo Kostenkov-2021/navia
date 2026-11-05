@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Ayarlar</string>
     <string name="talkback_required_title">TalkBack gerekli</string>
     <string name="talkback_required_message">Bu uygulama TalkBack ile çalışacak şekilde tasarlanmıştır ve uygulamanın doğru çalışması için TalkBack\'in açık olması gerekir. Bölgenizin haritasını indirdikten sonra çevrenizdeki sokakları ve noktaları keşfetmek için ekrana dokunup parmağınızı gezdirin.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">İndirme boyutu: %1$d dosya, toplam %2$s</string>
     <string name="download_size_unknown">İndirme boyutu: bilinmiyor</string>
     <string name="download_already_downloaded_prefix">Zaten indirildi.</string>
+    <string name="download_update_available">Bu haritanın daha yeni bir sürümü var.</string>
+    <string name="update_map_action">Haritayı güncelle</string>
     <string name="download_larger_map_checkbox">Daha büyük harita</string>
     <string name="download_larger_map_hint">Komşu alanları da indirir (birkaç dosya daha olabilir).</string>
     <string name="download_looking_up">Bu alan için harita verileri aranıyor…</string>

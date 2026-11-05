@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Settings</string>
     <string name="safety_warning_title">Important safety warning</string>
     <string name="safety_warning_message">Never base your movement on what this app says. For technical reasons – limits of GPS and other measuring tools, map data errors and software faults – its information may be wrong. Always use safe methods such as a white cane or a guide dog, and treat this app only as an extra aid.</string>
@@ -103,6 +102,8 @@
     <string name="download_size_label_multi">Download size: %1$d files, %2$s total</string>
     <string name="download_size_unknown">Download size: unknown</string>
     <string name="download_already_downloaded_prefix">Already downloaded.</string>
+    <string name="download_update_available">A newer version of this map is available.</string>
+    <string name="update_map_action">Update map</string>
     <string name="download_larger_map_checkbox">Larger map</string>
     <string name="download_larger_map_hint">Also downloads the neighboring areas (may be several more files).</string>
     <string name="download_looking_up">Looking up map data for this area…</string>
@@ -206,7 +207,7 @@
     <string name="about_address" translatable="false">Schütenhofstr. 21\n47800 Krefeld\nGermany</string>
     <string name="about_email" translatable="false">amiri.moalla@wikiponder.com</string>
     <string name="about_website" translatable="false">wikiponder.com</string>
-    <string name="about_source_code" translatable="false">github.com/appricodes/TouchMap</string>
+    <string name="about_source_code" translatable="false">github.com/appricodes/navia</string>
     <string name="about_privacy_url" translatable="false">https://wikiponder.com/navia/privacy-policy.html</string>
 
     <!-- Background service notification (BackgroundService) -->

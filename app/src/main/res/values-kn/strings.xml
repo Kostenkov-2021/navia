@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="talkback_required_title">ಟಾಕ್‌ಬ್ಯಾಕ್ ಅಗತ್ಯವಿದೆ</string>
     <string name="talkback_required_message">ಈ ಆ್ಯಪ್ ಟಾಕ್‌ಬ್ಯಾಕ್‌ನೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುವಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ, ಮತ್ತು ಆ್ಯಪ್ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡಲು ಟಾಕ್‌ಬ್ಯಾಕ್ ಆನ್ ಆಗಿರಬೇಕು. ನಿಮ್ಮ ಪ್ರದೇಶದ ನಕ್ಷೆಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ನಂತರ, ನಿಮ್ಮ ಸುತ್ತಮುತ್ತಲಿನ ರಸ್ತೆಗಳು ಮತ್ತು ಸ್ಥಳಗಳನ್ನು ಅನ್ವೇಷಿಸಲು ಪರದೆಯ ಮೇಲೆ ನಿಮ್ಮ ಬೆರಳನ್ನು ಸ್ಪರ್ಶಿಸಿ ಚಲಿಸಿ.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">ಡೌನ್‌ಲೋಡ್ ಗಾತ್ರ: %1$d ಫೈಲ್‌ಗಳು, ಒಟ್ಟು %2$s</string>
     <string name="download_size_unknown">ಡೌನ್‌ಲೋಡ್ ಗಾತ್ರ: ಅಜ್ಞಾತ</string>
     <string name="download_already_downloaded_prefix">ಈಗಾಗಲೇ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ.</string>
+    <string name="download_update_available">ಈ ನಕ್ಷೆಯ ಹೊಸ ಆವೃತ್ತಿ ಲಭ್ಯವಿದೆ.</string>
+    <string name="update_map_action">ನಕ್ಷೆಯನ್ನು ನವೀಕರಿಸಿ</string>
     <string name="download_larger_map_checkbox">ದೊಡ್ಡ ನಕ್ಷೆ</string>
     <string name="download_larger_map_hint">ಪಕ್ಕದ ಪ್ರದೇಶಗಳನ್ನೂ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತದೆ (ಹಲವಾರು ಹೆಚ್ಚುವರಿ ಫೈಲ್‌ಗಳಿರಬಹುದು).</string>
     <string name="download_looking_up">ಈ ಪ್ರದೇಶದ ನಕ್ಷೆ ಡೇಟಾವನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…</string>

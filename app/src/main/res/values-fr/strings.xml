@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Paramètres</string>
     <string name="talkback_required_title">TalkBack requis</string>
     <string name="talkback_required_message">Cette application est conçue pour fonctionner avec TalkBack, qui doit être activé pour qu\'elle fonctionne correctement. Après avoir téléchargé la carte de votre zone, touchez l\'écran et déplacez votre doigt pour explorer les rues et les points autour de vous.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">Taille du téléchargement : %1$d fichiers, %2$s au total</string>
     <string name="download_size_unknown">Taille du téléchargement : inconnue</string>
     <string name="download_already_downloaded_prefix">Déjà téléchargée.</string>
+    <string name="download_update_available">Une version plus récente de cette carte est disponible.</string>
+    <string name="update_map_action">Mettre à jour la carte</string>
     <string name="download_larger_map_checkbox">Carte plus grande</string>
     <string name="download_larger_map_hint">Télécharge aussi les zones voisines (peut représenter plusieurs fichiers supplémentaires).</string>
     <string name="download_looking_up">Recherche des données cartographiques pour cette zone…</string>

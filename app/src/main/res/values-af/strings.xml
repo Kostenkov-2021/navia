@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Instellings</string>
     <string name="talkback_required_title">TalkBack vereis</string>
     <string name="talkback_required_message">Hierdie toepassing is ontwerp om saam met TalkBack te werk, en TalkBack moet aangeskakel wees sodat die toepassing korrek werk. Nadat jy die kaart vir jou area afgelaai het, raak en beweeg jou vinger oor die skerm om die strate en punte om jou te verken.</string>
@@ -91,6 +90,8 @@
     <string name="download_size_label_multi">Aflaaigrootte: %1$d lêers, %2$s in totaal</string>
     <string name="download_size_unknown">Aflaaigrootte: onbekend</string>
     <string name="download_already_downloaded_prefix">Reeds afgelaai.</string>
+    <string name="download_update_available">’n Nuwer weergawe van hierdie kaart is beskikbaar.</string>
+    <string name="update_map_action">Dateer kaart op</string>
     <string name="download_larger_map_checkbox">Groter kaart</string>
     <string name="download_larger_map_hint">Laai ook die aangrensende areas af (kan verskeie ekstra lêers wees).</string>
     <string name="download_looking_up">Soek kaartdata vir hierdie area op…</string>

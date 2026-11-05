@@ -24,7 +24,9 @@ import java.util.Set;
  *       signals, crossings, stops) plus platform ways, by fitting a straight line through the
  *       cluster nearest the listener — right locally, but straight, not the real curve;</li>
  *   <li>greenery comes from the density of {@code natural=tree} nodes and leisure points, not from
- *       a park's outline.</li>
+ *       a park's outline;</li>
+ *   <li>a wide river is inferred from a long bridge, and airports aren't in the data at all
+ *       ({@link Airports}).</li>
  * </ul>
  */
 public final class SceneBuilder {
@@ -40,16 +42,45 @@ public final class SceneBuilder {
 			"waterfall", "rapids", "weir", "dam", "lock_gate", "river", "stream", "canal", "spring", "hot_spring",
 			"water", "wetland", "beach", "bay", "cape", "cliff", "reef", "islet", "ferry_terminal", "marina",
 			"slipway", "lighthouse", "pier", "peak", "saddle", "viewpoint", "volcano", "cave_entrance", "wood",
-			"camp_site", "place_of_worship", "station", "bus_station",
+			"camp_site", "station", "bus_station",
 			"cattle_grid", "farm", "dairy", "animal_breeding", "horse_riding", "animal_shelter", "dog_park"));
+	/** Bells and gulls carry further still, and are rare enough not to crowd anything out. */
+	public static final float VERY_FAR_RADIUS_M = 2000f;
+	public static final Set<String> VERY_FAR_TYPES = new HashSet<>(Arrays.asList(
+			"place_of_worship", "beach", "bay", "reef", "islet", "marina", "slipway", "ferry_terminal", "lighthouse", "pier"));
+	private static final float BELL_RADIUS_M = 1500f;
+	/** Airliners are heard this far from an airport. */
+	public static final float AIRPORT_RADIUS_M = 4000f;
+
+	/** What the map around the point can't say. */
+	public static final class Surroundings {
+		static final Surroundings UNKNOWN = new Surroundings(1f, null);
+
+		/** See {@link HornCulture}: 1 is average, more honks more. */
+		final float hornFactor;
+		/** {east, north} of an airport within {@link #AIRPORT_RADIUS_M}, or null. */
+		final float[] airport;
+
+		Surroundings(float hornFactor, float[] airport) {
+			this.hornFactor = hornFactor;
+			this.airport = airport;
+		}
+	}
 
 	/** A point feature in listener-relative metres. */
 	public static final class Node {
+		/** Stable between visits, for choices that shouldn't change every time; 0 if unknown. */
+		public final long id;
 		public final String type;
 		public final Map<String, String> tags;
 		public final float east, north;
 
 		public Node(String type, Map<String, String> tags, float east, float north) {
+			this(0, type, tags, east, north);
+		}
+
+		public Node(long id, String type, Map<String, String> tags, float east, float north) {
+			this.id = id;
 			this.type = type == null ? "" : type;
 			this.tags = tags == null ? Collections.emptyMap() : tags;
 			this.east = east;
@@ -124,11 +155,38 @@ public final class SceneBuilder {
 	 * junction can't crowd out the bicycles that define a place like Amsterdam. */
 	private static final int MAX_LANES = 5;
 	private static final int MAX_POINT_SPOTS_PER_CLIP = 2;
+	private static final int MAX_PLACE_SPOTS = 10;
+	/** Road classes a 30 km/h limit makes a quiet street (not a service road or a cycleway). */
+	private static final Set<String> CALM_CLASSES = new HashSet<>(Arrays.asList(
+			"residential", "living_street", "unclassified", "tertiary", "road"));
+	private static final Set<String> ROADS_AND_PATHS = new HashSet<>(Arrays.asList(
+			"motorway", "trunk", "primary", "secondary", "tertiary", "unclassified", "road", "residential",
+			"living_street", "service", "cycleway", "footway", "path", "pedestrian",
+			"motorway_link", "trunk_link", "primary_link", "secondary_link", "tertiary_link"));
+	private static final float CALM_LIMIT_KMH = 32f; // includes 20 mph
+	private static final float CALM_GAP_MIN_S = 10f, CALM_GAP_MAX_S = 20f;
+	private static final float FAR_CALM_GAP_MIN_S = 40f, FAR_CALM_GAP_MAX_S = 80f;
+	private static final float QUIET_STREET_REACH_M = 45f;
+	private static final float WIDE_ROAD_M = 8f;
+	private static final float SLOW_CAR_MS = 9f, FAST_CAR_MS = 20f;
+	private static final float BICYCLE_BELL_CHANCE = 0.3f;
+	private static final int SIGNALS_PER_BEEPING = 5;
+	private static final float BELL_REF_M = 120f, BELL_MIN_S = 120f, BELL_MAX_S = 180f;
+	private static final float GULL_REF_M = 150f;
+	private static final float LONG_BRIDGE_M = 60f, LONG_BRIDGE_REACH_M = 150f;
+	private static final float UNPAVED_PATH_REACH_M = 40f;
+	private static final float AIRCRAFT_PATH_M = 5000f, AIRCRAFT_GAP_MIN_S = 120f, AIRCRAFT_GAP_MAX_S = 180f;
+	private static final float MIN_LOAD_FOR_HORNS = 4f;
+	private static final float HORN_INTERVAL_S = 45f, MIN_HORN_INTERVAL_S = 8f, MIN_HORN_FACTOR = 0.2f;
 
 	private SceneBuilder() {
 	}
 
 	public static Scene build(List<Node> nodes, List<Way> ways) {
+		return build(nodes, ways, Surroundings.UNKNOWN);
+	}
+
+	public static Scene build(List<Node> nodes, List<Way> ways, Surroundings around) {
 		Scene scene = new Scene();
 		// No map data at all: say so rather than invent a countryside (isRural is true of nothing).
 		if (nodes.isEmpty() && ways.isEmpty()) return scene;
@@ -140,10 +198,14 @@ public final class SceneBuilder {
 		addRail(scene, sorted, ways);
 		addGreenery(scene, sorted, ways);
 		addPointsOfInterest(scene, sorted);
+		addBells(scene, sorted);
 		addWater(scene, sorted, ways);
 		addLandscape(scene, sorted, trafficLoad);
 		addAnimals(scene, sorted);
-		addCasualEvents(scene, ways, trafficLoad);
+		addCasualEvents(scene, ways, trafficLoad, around.hornFactor);
+		addQuietStreetLife(scene, ways);
+		addUnpavedSteps(scene, ways);
+		addAircraft(scene, around.airport);
 
 		// Always some air: never digitally silent, or the gaps between cars sound like the audio
 		// dropped out. Rural places (little traffic, few shops, unpaved roads) get countryside air
@@ -158,6 +220,7 @@ public final class SceneBuilder {
 		if (trafficLoad > 4) {
 			scene.beds.add(new Scene.Bed("traffic_far", Math.min(0.45f, 0.08f + trafficLoad * 0.006f)));
 		}
+		scene.beds.add(new Scene.Bed("air_noise", 0.1f));
 		return scene;
 	}
 
@@ -185,29 +248,40 @@ public final class SceneBuilder {
 
 			float perMinute = rc.perMinute * (link ? 0.3f : 1f) * laneFactor(w);
 			float speed = speedOf(w, rc.speed);
-			boolean oneway = "yes".equals(w.tag("oneway")) || "1".equals(w.tag("oneway"))
-					|| hw.startsWith("motorway") || "roundabout".equals(w.tag("junction"));
-			float buses = rc.buses;
-			if (busStopNear && d < 60 && buses < 0.08f) buses = 0.08f;
-			if ("designated".equals(w.tag("bus")) || "yes".equals(w.tag("psv"))) buses = Math.max(buses, 0.3f);
+			int direction = drivingDirection(w);
+			boolean heavyAllowed = isWide(w) && !"no".equals(w.tag("hgv"));
+			float trucks = heavyAllowed ? rc.trucks : 0f;
+			boolean busRoute = "designated".equals(w.tag("bus")) || "yes".equals(w.tag("psv"));
+			boolean stopHere = busStopNear && d < 60;
+			// A bus only turns into a narrow street that has a stop or a bus route of its own.
+			float buses = heavyAllowed || stopHere || busRoute || "busway".equals(hw) ? rc.buses : 0f;
+			if (stopHere && buses < 0.08f) buses = 0.08f;
+			if (busRoute) buses = Math.max(buses, 0.3f);
 
 			List<Scene.Vehicle> vehicles = new ArrayList<>();
-			float cars = 1f - rc.trucks - buses - rc.motorcycles;
+			float cars = 1f - trucks - buses - rc.motorcycles;
 			if (isUnpaved(w)) {
 				// Tyres on gravel/dirt are the dominant sound there, whatever the vehicle.
-				vehicles.add(new Scene.Vehicle("car_gravel", cars + rc.trucks + buses, 0.9f));
-				vehicles.add(new Scene.Vehicle("motorcycle", Math.max(0.05f, rc.motorcycles), 0.8f));
+				vehicles.add(new Scene.Vehicle("car_gravel", cars + trucks + buses, 0.9f));
+				vehicles.add(new Scene.Vehicle("motorcycle", Math.max(0.05f, rc.motorcycles), 0.8f, 1.1f));
 				speed = Math.min(speed, 12f);
 			} else {
-				if (cars > 0) vehicles.add(new Scene.Vehicle("car", cars, 0.9f));
-				if (rc.trucks > 0) vehicles.add(new Scene.Vehicle("truck", rc.trucks, 1.0f));
-				if (buses > 0) vehicles.add(new Scene.Vehicle("bus", buses, 1.0f));
-				if (rc.motorcycles > 0) vehicles.add(new Scene.Vehicle("motorcycle", rc.motorcycles, 0.8f));
+				if (cars > 0) addCars(vehicles, cars, speed);
+				if (trucks > 0) vehicles.add(new Scene.Vehicle("truck", trucks, 1.0f, 0.9f));
+				if (buses > 0) vehicles.add(new Scene.Vehicle("bus", buses, 1.0f, 0.85f));
+				if (rc.motorcycles > 0) vehicles.add(new Scene.Vehicle("motorcycle", rc.motorcycles, 0.8f, 1.1f));
 			}
 
 			float[][] clipped = clipToRadius(w.east, w.north, RADIUS_M + 60);
 			if (clipped == null) continue;
-			candidates.add(new Scene.Lane(hw, clipped[0], clipped[1], speed, perMinute, oneway, vehicles, null, null));
+			if (direction < 0) {
+				reverse(clipped[0]);
+				reverse(clipped[1]);
+			}
+			Scene.Lane lane = new Scene.Lane(hw, clipped[0], clipped[1], speed, perMinute, direction != 0, vehicles, null, null);
+			lane.engine = true;
+			lane.calm = isCalm(w);
+			candidates.add(lane);
 			dists.add(d);
 			load += perMinute / (1f + d / 40f);
 		}
@@ -215,12 +289,30 @@ public final class SceneBuilder {
 		Integer[] order = new Integer[candidates.size()];
 		for (int i = 0; i < order.length; i++) order[i] = i;
 		Arrays.sort(order, Comparator.comparingDouble(i -> -candidates.get(i).perMinute / (1f + dists.get(i) / 25f)));
-		for (int i = 0; i < Math.min(MAX_LANES, order.length); i++) scene.lanes.add(candidates.get(order[i]));
+		Scene.Lane nearestCalm = null;
+		float nearestCalmDist = Float.MAX_VALUE;
+		for (int i = 0; i < Math.min(MAX_LANES, order.length); i++) {
+			Scene.Lane lane = candidates.get(order[i]);
+			scene.lanes.add(lane);
+			if (lane.calm) {
+				// The other quiet streets around are heard only now and then.
+				lane.gapMin = FAR_CALM_GAP_MIN_S;
+				lane.gapMax = FAR_CALM_GAP_MAX_S;
+				if (dists.get(order[i]) < nearestCalmDist) {
+					nearestCalmDist = dists.get(order[i]);
+					nearestCalm = lane;
+				}
+			}
+		}
+		if (nearestCalm != null) {
+			nearestCalm.gapMin = CALM_GAP_MIN_S;
+			nearestCalm.gapMax = CALM_GAP_MAX_S;
+		}
 
 		Way nearestCycleway = null;
 		float cyclewayDist = 60;
 		for (Way w : ways) {
-			if (!"cycleway".equals(w.type)) continue;
+			if (!isCyclePath(w)) continue;
 			float d = minDistance(w.east, w.north);
 			if (d < cyclewayDist) {
 				cyclewayDist = d;
@@ -230,11 +322,100 @@ public final class SceneBuilder {
 		if (nearestCycleway != null) {
 			float[][] clipped = clipToRadius(nearestCycleway.east, nearestCycleway.north, 120);
 			if (clipped != null) {
-				scene.lanes.add(new Scene.Lane("cycleway", clipped[0], clipped[1], 5f, 4f, false,
-						Collections.singletonList(new Scene.Vehicle("bicycle", 1f, 0.7f)), null, null));
+				int direction = drivingDirection(nearestCycleway);
+				if (direction < 0) {
+					reverse(clipped[0]);
+					reverse(clipped[1]);
+				}
+				// Bicycles only, each one on its own speed, and now and then one rings as it passes.
+				Scene.Lane lane = new Scene.Lane("cycleway", clipped[0], clipped[1], 5f, 4f, direction != 0,
+						Arrays.asList(new Scene.Vehicle("bicycle", 0.5f, 0.7f, 0.85f), new Scene.Vehicle("bicycle_b", 0.5f, 0.7f, 1.2f)),
+						"bicycle_bell", null);
+				lane.passChance = BICYCLE_BELL_CHANCE;
+				scene.lanes.add(lane);
 			}
 		}
 		return load;
+	}
+
+	/** Two recordings of a car, chosen so a slow street and a motorway don't sound alike. */
+	private static void addCars(List<Scene.Vehicle> vehicles, float share, float speed) {
+		String main = speed <= SLOW_CAR_MS ? "car_slow" : (speed >= FAST_CAR_MS ? "car_fast" : "car");
+		vehicles.add(new Scene.Vehicle(main, share * 0.65f, 0.9f));
+		vehicles.add(new Scene.Vehicle("car_b", share * 0.35f, 0.85f));
+	}
+
+	private static boolean isCyclePath(Way w) {
+		return "cycleway".equals(w.type)
+				|| (("path".equals(w.type) || "footway".equals(w.type)) && "designated".equals(w.tag("bicycle")));
+	}
+
+	/** 1 along the way's own direction, -1 against it, 0 both ways. */
+	static int drivingDirection(Way w) {
+		String oneway = w.tag("oneway");
+		if (oneway.equals("yes") || oneway.equals("1") || oneway.equals("true")) return 1;
+		if (oneway.equals("-1") || oneway.equals("reverse")) return -1;
+		if (oneway.equals("no") || oneway.equals("false")) return 0;
+		String junction = w.tag("junction");
+		return w.type.startsWith("motorway") || junction.equals("roundabout") || junction.equals("circular") ? 1 : 0;
+	}
+
+	private static void reverse(float[] a) {
+		for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+			float t = a[i];
+			a[i] = a[j];
+			a[j] = t;
+		}
+	}
+
+	/** Wide enough for lorries: tagged so, or a main road if nothing says otherwise. */
+	static boolean isWide(Way w) {
+		float width = parseFloat(w.tag("width"), 0);
+		if (width > 0) return width >= WIDE_ROAD_M;
+		float lanes = parseFloat(w.tag("lanes"), 0);
+		if (lanes > 0) return lanes >= 3 || (lanes >= 2 && drivingDirection(w) != 0);
+		return w.type.startsWith("motorway") || w.type.startsWith("trunk") || w.type.startsWith("primary")
+				|| w.type.startsWith("secondary");
+	}
+
+	/** A 30 km/h (or slower) street or a living street; the same streets where children play. */
+	static boolean isCalm(Way w) {
+		if ("living_street".equals(w.type)) return true;
+		if (!CALM_CLASSES.contains(w.type)) return false;
+		float kmh = speedLimitKmh(w);
+		return kmh > 0 && kmh <= CALM_LIMIT_KMH;
+	}
+
+	/** The way's speed limit in km/h, 0 if it says nothing usable. */
+	static float speedLimitKmh(Way w) {
+		float kmh = parseLimit(w.tag("maxspeed"));
+		if (kmh <= 0) kmh = parseLimit(w.tag("zone:maxspeed"));
+		if (kmh <= 0) kmh = parseLimit(w.tag("maxspeed:type"));
+		if (kmh <= 0) kmh = parseLimit(w.tag("source:maxspeed"));
+		return kmh;
+	}
+
+	/** "30", "20 mph", "30;50", "walk", "none", and country-coded "DE:urban", "DE:zone30", "FR:zone:30". */
+	private static float parseLimit(String value) {
+		String s = value.trim().toLowerCase(java.util.Locale.ROOT);
+		if (s.isEmpty()) return 0;
+		if (s.equals("walk")) return 7;
+		if (s.equals("none")) return 130;
+		int colon = s.indexOf(':');
+		if (colon > 0 && colon <= 3) {
+			String kind = s.substring(colon + 1);
+			if (kind.contains("urban")) return 50;
+			if (kind.contains("rural")) return 90;
+			if (kind.contains("motorway")) return 120;
+			if (kind.contains("living_street")) return 10;
+			if (kind.contains("zone") || kind.contains("30")) {
+				String digits = kind.replaceAll("[^0-9]", "");
+				return parseFloat(digits, 0);
+			}
+			return 0;
+		}
+		float n = parseFloat(s, 0);
+		return s.contains("mph") ? n * 1.609f : n;
 	}
 
 	private static final Set<String> UNPAVED = new HashSet<>(Arrays.asList(
@@ -270,13 +451,15 @@ public final class SceneBuilder {
 		return 1f;
 	}
 
-	private static float speedOf(Way w, float fallback) {
-		String max = w.tag("maxspeed");
-		float kmh = parseFloat(max.replace("km/h", "").trim(), 0);
-		if (max.endsWith("mph")) kmh = parseFloat(max.replace("mph", "").trim(), 0) * 1.609f;
-		if (kmh <= 0) return fallback;
+	/** By the speed limit; failing that, wider streets of a class are driven faster. */
+	static float speedOf(Way w, float classSpeed) {
+		float kmh = speedLimitKmh(w);
 		// Traffic in a city mostly drives below the limit.
-		return clamp(kmh / 3.6f * 0.85f, 3f, 36f);
+		if (kmh > 0) return clamp(kmh / 3.6f * 0.85f, 3f, 36f);
+		float width = parseFloat(w.tag("width"), 0);
+		if (width <= 0) width = parseFloat(w.tag("lanes"), 0) * 3.2f;
+		if (width <= 0) return classSpeed;
+		return clamp(classSpeed * clamp(width / 7f, 0.7f, 1.3f), 3f, 36f);
 	}
 
 	// ------------------------------------------------------------------ people
@@ -456,6 +639,7 @@ public final class SceneBuilder {
 
 	private static void addPointsOfInterest(Scene scene, List<Node> nodes) {
 		Map<String, Integer> used = new HashMap<>();
+		int places = 0;
 		for (Node n : nodes) {
 			float d = n.dist();
 			if (d > FAR_RADIUS_M) break;
@@ -464,6 +648,7 @@ public final class SceneBuilder {
 			String shop = n.tag("shop");
 			String clip = null;
 			float gain = 0.6f, ref = 6f, maxD = 70f, minI = 0, maxI = 0;
+			String craft = n.tag("craft"), tourism = n.tag("tourism");
 			if (amenity.equals("cafe") || amenity.equals("ice_cream")) {
 				clip = "cafe";
 			} else if (amenity.equals("restaurant") || amenity.equals("fast_food") || amenity.equals("food_court")) {
@@ -503,6 +688,77 @@ public final class SceneBuilder {
 				gain = 0.5f;
 				ref = 3f;
 				maxD = 50f;
+			} else if (shop.equals("hairdresser") || shop.equals("beauty")) {
+				clip = "hairdresser";
+				gain = 0.45f;
+				ref = 4f;
+				maxD = 40f;
+			} else if (shop.equals("bakery") || shop.equals("pastry") || shop.equals("confectionery")) {
+				clip = "bakery";
+				gain = 0.45f;
+				ref = 4f;
+				maxD = 40f;
+			} else if (shop.equals("butcher") || shop.equals("seafood")) {
+				clip = "butcher";
+				gain = 0.5f;
+				ref = 4f;
+				maxD = 45f;
+				minI = 20;
+				maxI = 50;
+			} else if (shop.equals("greengrocer")) {
+				clip = "greengrocer";
+				gain = 0.5f;
+				maxD = 50f;
+			} else if (shop.equals("laundry") || shop.equals("dry_cleaning")) {
+				clip = "laundry";
+				gain = 0.4f;
+				ref = 4f;
+				maxD = 35f;
+			} else if (shop.equals("tailor") || craft.equals("tailor") || craft.equals("dressmaker")) {
+				clip = "sewing";
+				gain = 0.4f;
+				ref = 3f;
+				maxD = 30f;
+			} else if (!craft.isEmpty() || shop.equals("hardware") || shop.equals("doityourself")) {
+				clip = "workshop";
+				gain = 0.45f;
+				maxD = 50f;
+			} else if (shop.equals("bicycle") || amenity.equals("bicycle_repair_station")) {
+				clip = "bicycle_repair";
+				gain = 0.5f;
+				ref = 4f;
+				maxD = 40f;
+				minI = 25;
+				maxI = 60;
+			} else if (shop.equals("clothes") || shop.equals("shoes") || shop.equals("bag") || shop.equals("fashion")) {
+				clip = "clothes_shop";
+				gain = 0.4f;
+				ref = 3f;
+				maxD = 30f;
+				minI = 20;
+				maxI = 50;
+			} else if (shop.equals("electronics") || shop.equals("mobile_phone") || shop.equals("computer")
+					|| shop.equals("appliance")) {
+				clip = "electronics_shop";
+				gain = 0.4f;
+				ref = 3f;
+				maxD = 30f;
+				minI = 20;
+				maxI = 50;
+			} else if (shop.equals("kiosk") || shop.equals("tobacco") || shop.equals("newsagent")) {
+				clip = "kiosk";
+				gain = 0.45f;
+				ref = 3f;
+				maxD = 30f;
+				minI = 25;
+				maxI = 60;
+			} else if (shop.equals("pet")) {
+				clip = "pet_shop";
+				gain = 0.45f;
+				ref = 3f;
+				maxD = 35f;
+				minI = 25;
+				maxI = 60;
 			} else if (!shop.isEmpty() && d < 40) {
 				// Small shops: a door bell now and then, from whichever shops are closest.
 				clip = "shop_bell";
@@ -520,7 +776,82 @@ public final class SceneBuilder {
 				clip = "playground";
 				ref = 10f;
 				maxD = 110f;
-			} else if (leisure.equals("pitch") || leisure.equals("sports_centre") || leisure.equals("stadium")) {
+			} else if (leisure.equals("stadium")) {
+				clip = "stadium";
+				ref = 50f;
+				maxD = RADIUS_M;
+			} else if (amenity.equals("atm") || amenity.equals("bank")) {
+				clip = "atm";
+				gain = 0.45f;
+				ref = 3f;
+				maxD = 30f;
+				minI = 30;
+				maxI = 70;
+			} else if (amenity.equals("recycling")) {
+				clip = "recycling_glass";
+				gain = 0.5f;
+				ref = 8f;
+				maxD = 60f;
+				minI = 50;
+				maxI = 130;
+			} else if (amenity.equals("vending_machine")) {
+				clip = "vending";
+				gain = 0.45f;
+				ref = 3f;
+				maxD = 25f;
+				minI = 45;
+				maxI = 110;
+			} else if (amenity.equals("parking") || amenity.equals("parking_entrance") || amenity.equals("taxi")
+					|| amenity.equals("car_rental") || amenity.equals("car_sharing")) {
+				clip = "car_door";
+				gain = 0.5f;
+				maxD = 60f;
+				minI = 30;
+				maxI = 80;
+			} else if (leisure.equals("fitness_centre") || leisure.equals("sports_hall")) {
+				clip = "gym";
+				gain = 0.4f;
+				ref = 5f;
+				maxD = 40f;
+			} else if ((leisure.equals("swimming_pool") && !n.tag("access").equals("private")) || leisure.equals("water_park")) {
+				// Garden pools are private and silent.
+				clip = "swimming";
+				gain = 0.5f;
+				ref = 10f;
+				maxD = 90f;
+			} else if (amenity.equals("cinema") || amenity.equals("theatre") || amenity.equals("arts_centre")
+					|| amenity.equals("events_venue")) {
+				clip = "cinema_lobby";
+				gain = 0.4f;
+				maxD = 50f;
+			} else if (tourism.equals("hotel") || tourism.equals("hostel") || tourism.equals("guest_house")) {
+				clip = "hotel";
+				gain = 0.45f;
+				ref = 4f;
+				maxD = 40f;
+				minI = 30;
+				maxI = 75;
+			} else if (amenity.equals("university") || amenity.equals("college")) {
+				clip = "university";
+				gain = 0.5f;
+				ref = 15f;
+				maxD = 120f;
+			} else if (tourism.equals("theme_park")) {
+				clip = "theme_park";
+				ref = 40f;
+				maxD = RADIUS_M;
+			} else if (tourism.equals("zoo")) {
+				clip = "zoo";
+				ref = 30f;
+				maxD = RADIUS_M;
+				minI = 30;
+				maxI = 70;
+			} else if (leisure.equals("amusement_arcade") || leisure.equals("adult_gaming_centre")) {
+				clip = "arcade";
+				gain = 0.4f;
+				ref = 4f;
+				maxD = 35f;
+			} else if (leisure.equals("pitch") || leisure.equals("sports_centre")) {
 				clip = "sports";
 				ref = 15f;
 				maxD = 140f;
@@ -529,23 +860,6 @@ public final class SceneBuilder {
 				gain = 0.7f;
 				ref = 4f;
 				maxD = 60f;
-			} else if (amenity.equals("place_of_worship") && (n.tag("religion").equals("buddhist")
-					|| n.tag("religion").equals("shinto") || n.tag("religion").equals("hindu"))) {
-				clip = "temple_bell";
-				gain = 0.6f;
-				ref = 30f;
-				maxD = 300f;
-				minI = 45;
-				maxI = 120;
-			} else if (amenity.equals("place_of_worship")
-					&& (n.tag("religion").isEmpty() || n.tag("religion").equals("christian"))) {
-				// Other religions' places stay silent rather than get a sound that isn't theirs.
-				clip = "church_bells";
-				gain = 0.6f;
-				ref = 40f;
-				maxD = 350f;
-				minI = 50;
-				maxI = 110;
 			} else if (amenity.equals("hospital") || amenity.equals("fire_station") || n.tag("emergency").equals("ambulance_station")) {
 				clip = "siren";
 				gain = 0.45f;
@@ -558,9 +872,9 @@ public final class SceneBuilder {
 				gain = 0.6f;
 				minI = 35;
 				maxI = 70;
-			} else if (("traffic_signals".equals(n.type) || "crossing".equals(n.type))
-					&& "yes".equals(n.tag("traffic_signals:sound"))) {
-				clip = "ped_signal";
+			} else if (beepsForPedestrians(n)) {
+				// Some ticks, some beeps; the same light always sounds the same.
+				clip = Math.floorMod(n.id, 2L) == 0 ? "ped_beep" : "ped_signal";
 				gain = 0.4f;
 				ref = 2f;
 				maxD = 40f;
@@ -574,6 +888,37 @@ public final class SceneBuilder {
 			if (count >= MAX_POINT_SPOTS_PER_CLIP) continue;
 			used.put(clip, count + 1);
 			scene.spots.add(new Scene.Spot(clip, n.east, n.north, gain, ref, minI, maxI));
+			// A dense shopping street has dozens of kinds of place; the nearest few are plenty.
+			if (++places >= MAX_PLACE_SPOTS) return;
+		}
+	}
+
+	/** Tagged lights say so themselves; of the many without a tag, one in {@value #SIGNALS_PER_BEEPING}. */
+	static boolean beepsForPedestrians(Node n) {
+		if (!"traffic_signals".equals(n.type) && !"traffic_signals".equals(n.tag("crossing"))) return false;
+		String sound = n.tag("traffic_signals:sound");
+		if (sound.equals("no")) return false;
+		if (!sound.isEmpty()) return true;
+		return n.id != 0 && Math.floorMod(n.id * 31, (long) SIGNALS_PER_BEEPING) == 0;
+	}
+
+	/**
+	 * One bell tower at most, however many are around, so bells stay rare. Places of other religions,
+	 * and places that don't say, stay silent rather than get a sound that isn't theirs.
+	 */
+	private static void addBells(Scene scene, List<Node> nodes) {
+		boolean church = false, temple = false;
+		for (Node n : nodes) {
+			if (n.dist() > BELL_RADIUS_M) break;
+			if (!n.tag("amenity").equals("place_of_worship")) continue;
+			String religion = n.tag("religion");
+			if (!church && religion.equals("christian")) {
+				church = true;
+				scene.spots.add(new Scene.Spot("church_bells", n.east, n.north, 0.7f, BELL_REF_M, BELL_MIN_S, BELL_MAX_S));
+			} else if (!temple && (religion.equals("buddhist") || religion.equals("shinto") || religion.equals("hindu"))) {
+				temple = true;
+				scene.spots.add(new Scene.Spot("temple_bell", n.east, n.north, 0.7f, BELL_REF_M, BELL_MIN_S, BELL_MAX_S));
+			}
 		}
 	}
 
@@ -587,7 +932,14 @@ public final class SceneBuilder {
 	private static void addWater(Scene scene, List<Node> nodes, List<Way> ways) {
 		Map<String, Integer> used = new HashMap<>();
 		boolean coast = false;
-		Node beach = null, rocks = null, harbour = null, ferry = null;
+		Node beach = null, rocks = null, harbour = null, ferry = null, seaSide = null;
+		for (Node n : nodes) {
+			if (n.dist() > VERY_FAR_RADIUS_M) break;
+			if (isSeaSide(n)) {
+				seaSide = n;
+				break;
+			}
+		}
 		for (Node n : nodes) {
 			float d = n.dist();
 			if (d > FAR_RADIUS_M) break;
@@ -642,20 +994,37 @@ public final class SceneBuilder {
 			scene.spots.add(new Scene.Spot("rocky_shore", rocks.east, rocks.north, 0.7f, 40f, 0, 0));
 		}
 		Node port = harbour != null ? harbour : ferry;
-		Node gulls = port != null ? port : (beach != null ? beach : (coast ? rocks : null));
+		Node gulls = port != null ? port : (beach != null ? beach : (coast ? rocks : seaSide));
 		if (port != null) {
 			scene.spots.add(new Scene.Spot("harbor", port.east, port.north, 0.6f, 15f, 0, 0));
 		}
 		if (gulls != null) {
-			scene.spots.add(new Scene.Spot("seagulls", gulls.east + 20, gulls.north + 10, 0.55f, 20f, 15, 50));
+			// Gulls fly about far from the shore itself, so they carry a long way.
+			scene.spots.add(new Scene.Spot("seagulls", gulls.east + 20, gulls.north + 10, 0.6f, GULL_REF_M, 20, 60));
 		}
 		if (ferry != null) {
 			scene.spots.add(new Scene.Spot("ship_horn", ferry.east, ferry.north, 0.6f, 60f, 60, 160));
 		}
 
+		// Rivers aren't in the map data, but a long bridge is very likely over a wide one.
+		Way longBridge = null;
+		float longest = LONG_BRIDGE_M;
+		for (Way w : ways) {
+			if (!isBridge(w) || minDistance(w.east, w.north) > LONG_BRIDGE_REACH_M) continue;
+			float len = pathLength(w);
+			if (len >= longest) {
+				longest = len;
+				longBridge = w;
+			}
+		}
+		if (longBridge != null) {
+			float[] p = nearestPoint(longBridge.east, longBridge.north);
+			scene.spots.add(new Scene.Spot("river_roar", p[0], p[1], clamp(longest / 150f, 0.5f, 0.9f), 25f, 0, 0));
+		}
+
 		// A small bridge (not a motorway viaduct) is usually over water: a stream in the country, a
 		// canal's lapping in town. Only a guess, so kept quiet and used only without better evidence.
-		if (used.isEmpty() && port == null && beach == null) {
+		if (longBridge == null && used.isEmpty() && port == null && beach == null) {
 			Way bridge = null;
 			float best = 70;
 			for (Way w : ways) {
@@ -679,6 +1048,19 @@ public final class SceneBuilder {
 				scene.spots.add(new Scene.Spot(town ? "harbor" : "stream", p[0], p[1], 0.35f, 6f, 0, 0));
 			}
 		}
+	}
+
+	private static boolean isSeaSide(Node n) {
+		String natural = n.tag("natural"), leisure = n.tag("leisure"), manMade = n.tag("man_made");
+		return natural.equals("beach") || natural.equals("bay") || natural.equals("reef") || natural.equals("islet")
+				|| leisure.equals("marina") || leisure.equals("slipway") || n.tag("amenity").equals("ferry_terminal")
+				|| manMade.equals("lighthouse") || manMade.equals("pier");
+	}
+
+	/** Viaducts cross valleys and roads rather than rivers. */
+	private static boolean isBridge(Way w) {
+		String bridge = w.tag("bridge");
+		return !bridge.isEmpty() && !bridge.equals("no") && !bridge.equals("viaduct") && ROADS_AND_PATHS.contains(w.type);
 	}
 
 	private static void addOnce(Scene scene, Map<String, Integer> used, Scene.Spot spot) {
@@ -746,7 +1128,7 @@ public final class SceneBuilder {
 	}
 
 	/** Occasional sounds that belong to a kind of street rather than to one mapped point. */
-	private static void addCasualEvents(Scene scene, List<Way> ways, float trafficLoad) {
+	private static void addCasualEvents(Scene scene, List<Way> ways, float trafficLoad, float hornFactor) {
 		int residential = 0;
 		for (Way w : ways) {
 			if (("residential".equals(w.type) || "living_street".equals(w.type)) && minDistance(w.east, w.north) < 80) residential++;
@@ -754,22 +1136,103 @@ public final class SceneBuilder {
 		if (residential >= 2) {
 			scene.spots.add(new Scene.Spot("dog_bark", -35, 45, 0.45f, 8f, 45, 120));
 		}
-		if (trafficLoad > 6) {
-			// Placed on the busiest lane's nearest point: horns come from the traffic, not the sky.
+		float interval = hornInterval(hornFactor);
+		if (trafficLoad > MIN_LOAD_FOR_HORNS && interval > 0) {
+			// Horns come from the traffic, not the sky: placed on the busiest lanes where people do honk.
+			// With two lanes each honks half as often, and the total stays the same.
+			List<Scene.Lane> honking = new ArrayList<>();
+			Scene.Lane heavy = null;
 			for (Scene.Lane l : scene.lanes) {
-				if (l.label.equals("rail") || l.label.equals("tram") || l.label.equals("cycleway")) continue;
-				float[] p = nearestPoint(l.east, l.north);
-				scene.spots.add(new Scene.Spot("car_horn", p[0] + 15, p[1], 0.5f, 10f, 20, 55));
-				break;
+				if (!l.engine || l.calm) continue;
+				if (honking.size() < 2) honking.add(l);
+				if (heavy == null) {
+					for (Scene.Vehicle v : l.vehicles) if (v.clip.equals("truck")) heavy = l;
+				}
+			}
+			for (int i = 0; i < honking.size(); i++) {
+				float[] p = nearestPoint(honking.get(i).east, honking.get(i).north);
+				float every = interval * honking.size();
+				scene.spots.add(new Scene.Spot(i == 0 ? "car_horn" : "car_horn_double", p[0] + 15, p[1], 0.5f, 10f,
+						every * 0.6f, every * 1.4f));
+			}
+			if (heavy != null) {
+				float[] p = nearestPoint(heavy.east, heavy.north);
+				scene.spots.add(new Scene.Spot("truck_horn", p[0] - 15, p[1], 0.5f, 15f, interval * 2f, interval * 4f));
 			}
 		}
-		for (Scene.Lane l : scene.lanes) {
-			if (l.label.equals("cycleway")) {
-				float[] p = nearestPoint(l.east, l.north);
-				scene.spots.add(new Scene.Spot("bicycle_bell", p[0], p[1], 0.5f, 4f, 30, 80));
-				break;
+	}
+
+	/** Seconds between horns at a place, 0 for a place where nobody honks. */
+	static float hornInterval(float hornFactor) {
+		return hornFactor < MIN_HORN_FACTOR ? 0f : Math.max(MIN_HORN_INTERVAL_S, HORN_INTERVAL_S / hornFactor);
+	}
+
+	/** Louder birds in a quiet street, and in a narrow one children playing now and then. */
+	private static void addQuietStreetLife(Scene scene, List<Way> ways) {
+		Way nearest = null;
+		float best = QUIET_STREET_REACH_M;
+		for (Way w : ways) {
+			if (!ROADS.containsKey(w.type) || "service".equals(w.type)) continue;
+			float d = minDistance(w.east, w.north);
+			if (d < best) {
+				best = d;
+				nearest = w;
 			}
 		}
+		if (nearest == null || !isCalm(nearest)) return;
+		float birdGain = 0.45f;
+		float birdEast = 12, birdNorth = 8;
+		for (java.util.Iterator<Scene.Spot> it = scene.spots.iterator(); it.hasNext(); ) {
+			Scene.Spot s = it.next();
+			if (s.clip.equals("birds")) {
+				birdGain = s.gain;
+				birdEast = s.east;
+				birdNorth = s.north;
+				it.remove();
+			}
+		}
+		scene.spots.add(new Scene.Spot("birds", birdEast, birdNorth, Math.min(0.9f, birdGain + 0.3f), 15f, 0, 0));
+		if (!isWide(nearest) && parseFloat(nearest.tag("lanes"), 0) <= 2) {
+			float[] p = nearestPoint(nearest.east, nearest.north);
+			scene.spots.add(new Scene.Spot("children", p[0] + 14, p[1] - 9, 0.5f, 8f, 40, 100));
+		}
+	}
+
+	/** Someone walking by now and then on an unpaved path nearby. */
+	private static void addUnpavedSteps(Scene scene, List<Way> ways) {
+		float best = UNPAVED_PATH_REACH_M;
+		float[] at = null;
+		for (Way w : ways) {
+			if (!"path".equals(w.type) && !"footway".equals(w.type)) continue;
+			// A path with no surface tag is more often earth than not; a footway more often paved.
+			if (!isUnpaved(w) && !("path".equals(w.type) && w.tag("surface").isEmpty())) continue;
+			float[] p = nearestPoint(w.east, w.north);
+			float d = (float) Math.hypot(p[0], p[1]);
+			if (d < best) {
+				best = d;
+				at = p;
+			}
+		}
+		if (at != null) scene.spots.add(new Scene.Spot("footsteps_dirt", at[0], at[1], 0.6f, 4f, 20, 55));
+	}
+
+	/** The runway's direction isn't known; the airliner just flies past on a line through the airport. */
+	private static void addAircraft(Scene scene, float[] airport) {
+		if (airport == null) return;
+		// Roughly across the line of sight, so it passes rather than flies straight at the listener.
+		double angle = Math.atan2(airport[1], airport[0]) + Math.toRadians(60);
+		float ux = (float) Math.cos(angle), uy = (float) Math.sin(angle);
+		float[] east = {airport[0] - ux * AIRCRAFT_PATH_M, airport[0] + ux * AIRCRAFT_PATH_M};
+		float[] north = {airport[1] - uy * AIRCRAFT_PATH_M, airport[1] + uy * AIRCRAFT_PATH_M};
+		Scene.Lane lane = new Scene.Lane("aircraft", east, north, 75f, 0.4f, false,
+				Collections.singletonList(new Scene.Vehicle("airplane", 1f, 1f)), null, null);
+		lane.gapMin = AIRCRAFT_GAP_MIN_S;
+		lane.gapMax = AIRCRAFT_GAP_MAX_S;
+		lane.height = 300f;
+		lane.refDistance = 400f;
+		lane.maxDistance = 30000f;
+		lane.edgeFade = 1500f;
+		scene.lanes.add(lane);
 	}
 
 	// ------------------------------------------------------------------ geometry

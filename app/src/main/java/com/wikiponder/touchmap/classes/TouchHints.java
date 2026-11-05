@@ -12,7 +12,7 @@ import androidx.preference.PreferenceManager;
 public final class TouchHints {
 	private static final String KEY_POINTS_READ = "hint_points_read";
 	private static final String KEY_MENU_OPENS = "hint_point_menu_opens";
-	private static final int POINTS_TO_LEARN = 20;
+	private static final int POINTS_TO_LEARN = 500;
 	private static final int MENU_OPENS_TO_LEARN = 3;
 
 	private TouchHints() {}

@@ -17,7 +17,7 @@ import java.util.List;
 public class OSMDatabaseHelper extends SQLiteOpenHelper {
 	public static final int CATEGORY_INTERSECTION = 62;
 	private static final String DB_NAME = "osm.db";
-	private static final int DB_VERSION = 48;
+	private static final int DB_VERSION = 49;
 
 	/** The seeded regions.id for the world-places gazetteer (see onCreate) — never a real import. */
 	public static final int REGION_WORLD = 0;
@@ -112,6 +112,8 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 			db.delete("ways", null, null);
 			db.delete("way_cells", null, null);
 			db.delete("way_regions", null, null);
+			db.delete("env_features", null, null);
+			db.delete("env_cells", null, null);
 			db.delete("imported_boxes", null, null);
 			db.setTransactionSuccessful();
 		} finally {
@@ -167,11 +169,12 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 	/** Records that {@code boxIndex} (see BoxImporter/BoxManifest) has been merged into this device's
 	 * db, so {@link com.wikiponder.touchmap.classes.MapTileManager#isTileImported} recognizes the area
 	 * it covers as already downloaded. Re-importing the same box (e.g. after the server rebuilds it)
-	 * just refreshes imported_at and the bbox. */
-	public static void markBoxImported(Context context, int boxIndex, double minLat, double maxLat,
+	 * just refreshes imported_at, the map version and the bbox. */
+	public static void markBoxImported(Context context, int boxIndex, int mapVersion, double minLat, double maxLat,
 										double minLon, double maxLon) {
 		ContentValues cv = new ContentValues();
 		cv.put("box_index", boxIndex);
+		cv.put("map_version", mapVersion);
 		cv.put("imported_at", System.currentTimeMillis());
 		cv.put("min_lat", minLat);
 		cv.put("max_lat", maxLat);
@@ -294,6 +297,42 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE INDEX IF NOT EXISTS way_regions_way ON way_regions(way_id);");
 
 		createImportedBoxesTable(db);
+		createEnvTables(db);
+	}
+
+	/**
+	 * Rivers, rail, airports, sea and lakes from the box files, kept apart from {@code ways} so they
+	 * are never drawn, announced or turned into street junctions. Same schema as
+	 * tools/build_planet_boxes_inmemory.py, which documents the columns. No screen reads them yet.
+	 */
+	private static void createEnvTables(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE IF NOT EXISTS env_features(" +
+				"  id INTEGER PRIMARY KEY, " +
+				"  kind TEXT NOT NULL, " +
+				"  type TEXT NOT NULL, " +
+				"  name TEXT, " +
+				"  role TEXT, " +
+				"  relation_id INTEGER, " +
+				"  tags BLOB, " +
+				"  min_lat REAL, max_lat REAL, " +
+				"  min_lon REAL, max_lon REAL, " +
+				"  points BLOB" +
+				");");
+		db.execSQL("CREATE TABLE IF NOT EXISTS env_cells(" +
+				"  feature_id INTEGER NOT NULL, " +
+				"  cell_x INTEGER NOT NULL, " +
+				"  cell_y INTEGER NOT NULL, " +
+				"  PRIMARY KEY(cell_x, cell_y, feature_id)" +
+				");");
+		db.execSQL("CREATE INDEX IF NOT EXISTS env_cells_feature ON env_cells(feature_id);");
+	}
+
+	/** True if this box was downloaded before, whatever its version. */
+	public static boolean isBoxImported(Context context, int boxIndex) {
+		try (Cursor c = getInstance(context).getReadableDatabase().query("imported_boxes", new String[]{"box_index"},
+				"box_index=?", new String[]{String.valueOf(boxIndex)}, null, null, null)) {
+			return c.moveToFirst();
+		}
 	}
 
 	/**
@@ -308,6 +347,7 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 	private static void createImportedBoxesTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE IF NOT EXISTS imported_boxes(" +
 				"  box_index INTEGER PRIMARY KEY, " +
+				"  map_version INTEGER NOT NULL DEFAULT 1, " +
 				"  imported_at INTEGER NOT NULL, " +
 				"  min_lat REAL, max_lat REAL, " +
 				"  min_lon REAL, max_lon REAL" +
@@ -328,6 +368,12 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 		// (MapTileManager.isTileImported), regardless of which thread triggered the upgrade.
 		if (oldV >= 47) {
 			createImportedBoxesTable(db);
+			// 48 -> 49 is additive too. Boxes already on the phone count as map version 1, so they
+			// show up as outdated (MapTileManager.isTileOutdated); nothing is downloaded or removed here.
+			if (oldV == 48) {
+				db.execSQL("ALTER TABLE imported_boxes ADD COLUMN map_version INTEGER NOT NULL DEFAULT 1;");
+			}
+			createEnvTables(db);
 			return;
 		}
 		// Older schema versions (pre-normalized/tile-blob format, etc.): no reasonable in-place path,
@@ -341,6 +387,8 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXISTS way_regions;");
 		db.execSQL("DROP TABLE IF EXISTS tiles_downloaded");
 		db.execSQL("DROP TABLE IF EXISTS imported_boxes;");
+		db.execSQL("DROP TABLE IF EXISTS env_features;");
+		db.execSQL("DROP TABLE IF EXISTS env_cells;");
 		onCreate(db);
 	}
 	

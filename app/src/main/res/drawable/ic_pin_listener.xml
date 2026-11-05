@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ambimap's listening pin (MapView sighted mode): a map pin holding a little figure wearing
+     headphones. The tip, bottom centre, sits on the pinned spot. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="54dp"
+    android:viewportWidth="44"
+    android:viewportHeight="54">
+    <!-- pin -->
+    <path
+        android:fillColor="#0B6E4F"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M22,52.5 C22,52.5 3,33 3,20 A19,19 0 1,1 41,20 C41,33 22,52.5 22,52.5 Z" />
+    <!-- shoulders -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,33 C12,26.5 16.5,24.5 22,24.5 C27.5,24.5 32,26.5 32,33 Z" />
+    <!-- head -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M16.5,17.5 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z" />
+    <!-- headphone band -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FBBF24"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M14.2,18 A7.8,7.8 0 0,1 29.8,18" />
+    <!-- ear cups -->
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M12.2,16.5 h3.6 v6 h-3.6 a1.2,1.2 0 0,1 -1.2,-1.2 v-3.6 a1.2,1.2 0 0,1 1.2,-1.2 Z" />
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M28.2,16.5 h3.6 a1.2,1.2 0 0,1 1.2,1.2 v3.6 a1.2,1.2 0 0,1 -1.2,1.2 h-3.6 Z" />
+</vector>

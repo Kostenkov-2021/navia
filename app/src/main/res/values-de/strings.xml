@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Einstellungen</string>
     <string name="talkback_required_title">TalkBack erforderlich</string>
     <string name="talkback_required_message">Diese App wurde für die Nutzung mit TalkBack entwickelt, und TalkBack muss aktiviert sein, damit die App korrekt funktioniert. Berühre und bewege deinen Finger auf dem Bildschirm, nachdem du die Karte für deine Umgebung heruntergeladen hast, um die Straßen und Punkte um dich herum zu erkunden.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">Downloadgröße: %1$d Dateien, %2$s insgesamt</string>
     <string name="download_size_unknown">Downloadgröße: unbekannt</string>
     <string name="download_already_downloaded_prefix">Bereits heruntergeladen.</string>
+    <string name="download_update_available">Eine neuere Version dieser Karte ist verfügbar.</string>
+    <string name="update_map_action">Karte aktualisieren</string>
     <string name="download_larger_map_checkbox">Größere Karte</string>
     <string name="download_larger_map_hint">Lädt auch die angrenzenden Gebiete herunter (kann mehrere zusätzliche Dateien umfassen).</string>
     <string name="download_looking_up">Kartendaten für dieses Gebiet werden gesucht…</string>

@@ -30,6 +30,7 @@ import androidx.preference.PreferenceManager;
 import com.wikiponder.touchmap.classes.AngleListener;
 import com.wikiponder.touchmap.classes.db.OSMDatabaseHelper;
 import com.wikiponder.touchmap.classes.importer.ImportService;
+import com.wikiponder.touchmap.classes.boxes.BoxManifestRepository;
 import com.wikiponder.touchmap.classes.importer.ImportState;
 import com.wikiponder.touchmap.classes.interfaces.UserLocationListener;
 import com.wikiponder.touchmap.classes.models.MapElement;
@@ -166,6 +167,9 @@ public class MapActivity extends BaseActivity
 	private float lastAzimuth;
 	private static final long VISUAL_OFFER_CHECK_MS = 10_000;
 	private long lastVisualOfferCheck;
+	private static final long MAP_UPDATE_CHECK_MS = 10_000;
+	private long lastMapUpdateCheck;
+	private Location lastMapUpdateLocation;
 	private String visualOfferPlace;
 	private final ActivityResultLauncher<String> cameraPermissionLauncher =
 			registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
@@ -582,7 +586,42 @@ public class MapActivity extends BaseActivity
 			maybeShowStartupDownloadPrompt(location);
 			visualCheck.setLocation(location);
 			updateVisualCheckOffer(location);
+			updateMapUpdateOffer(location, false);
 		}
+	}
+
+	/** Shows the update button while the map under the phone's own location is an old version.
+	 * Runs at most every MAP_UPDATE_CHECK_MS unless {@code now} is set. Announced when it appears, but
+	 * it does not take the focus, so it never interrupts someone exploring the map. */
+	private void updateMapUpdateOffer(Location location, boolean now) {
+		lastMapUpdateLocation = location;
+		long time = android.os.SystemClock.elapsedRealtime();
+		if (!now && time - lastMapUpdateCheck < MAP_UPDATE_CHECK_MS) return;
+		lastMapUpdateCheck = time;
+		new Thread(() -> {
+			boolean outdated = false;
+			try {
+				int version = BoxManifestRepository.getOrFetch(this).mapVersion;
+				outdated = !ImportState.get().isRunning()
+						&& MyApplication.getMapTileManager(this).isTileOutdated(location, version);
+			} catch (Exception e) {
+				Log.w(TAG, "Map version check failed", e);
+			}
+			final boolean show = outdated;
+			runOnUiThread(() -> {
+				if (isFinishing() || isDestroyed()) return;
+				boolean wasShown = binding.updateMapButton.getVisibility() == View.VISIBLE;
+				binding.updateMapButton.setVisibility(show ? View.VISIBLE : View.GONE);
+				if (!show) return;
+				binding.updateMapButton.setOnClickListener(v -> {
+					Intent intent = new Intent(MapActivity.this, DownloadMapActivity.class);
+					intent.putExtra(DownloadMapActivity.EXTRA_TARGET_LAT, location.getLatitude());
+					intent.putExtra(DownloadMapActivity.EXTRA_TARGET_LON, location.getLongitude());
+					startActivity(intent);
+				});
+				if (!wasShown) binding.updateMapButton.announceForAccessibility(binding.updateMapButton.getText());
+			});
+		}, "map-version-check").start();
 	}
 
 	/** Every VISUAL_OFFER_CHECK_MS: is a place saved for the visual check within its radius? If so
@@ -1024,6 +1063,7 @@ public class MapActivity extends BaseActivity
 			// download can still have left genuinely new data behind, and the map should show it
 			// rather than keep displaying stale (empty/world-place) data for whatever finished.
 			MyApplication.getMapTileManager(this).reloadCurrentArea();
+			if (lastMapUpdateLocation != null) updateMapUpdateOffer(lastMapUpdateLocation, true);
 		});
 	}
 

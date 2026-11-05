@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">설정</string>
     <string name="talkback_required_title">TalkBack 필요</string>
     <string name="talkback_required_message">이 앱은 TalkBack과 함께 작동하도록 설계되었으며, 앱이 올바르게 작동하려면 TalkBack이 켜져 있어야 합니다. 지역 지도를 다운로드한 후 화면에 손가락을 대고 움직여 주변 도로와 지점을 탐색하세요.</string>
@@ -89,6 +88,8 @@
     <string name="download_size_label_multi">다운로드 크기: 파일 %1$d개, 총 %2$s</string>
     <string name="download_size_unknown">다운로드 크기: 알 수 없음</string>
     <string name="download_already_downloaded_prefix">이미 다운로드되었습니다.</string>
+    <string name="download_update_available">이 지도의 새 버전이 있습니다.</string>
+    <string name="update_map_action">지도 업데이트</string>
     <string name="download_larger_map_checkbox">더 넓은 지도</string>
     <string name="download_larger_map_hint">인접 지역도 함께 다운로드합니다(파일 수가 늘어날 수 있음).</string>
     <string name="download_looking_up">이 지역의 지도 데이터를 조회하는 중…</string>

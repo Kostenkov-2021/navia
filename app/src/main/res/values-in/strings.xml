@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Pengaturan</string>
     <string name="talkback_required_title">TalkBack diperlukan</string>
     <string name="talkback_required_message">Aplikasi ini dirancang untuk bekerja dengan TalkBack, dan TalkBack harus diaktifkan agar aplikasi berfungsi dengan benar. Setelah mengunduh peta untuk area Anda, sentuh dan gerakkan jari di layar untuk menjelajahi jalan dan titik di sekitar Anda.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">Ukuran unduhan: %1$d file, total %2$s</string>
     <string name="download_size_unknown">Ukuran unduhan: tidak diketahui</string>
     <string name="download_already_downloaded_prefix">Sudah diunduh.</string>
+    <string name="download_update_available">Versi lebih baru dari peta ini tersedia.</string>
+    <string name="update_map_action">Perbarui peta</string>
     <string name="download_larger_map_checkbox">Peta lebih besar</string>
     <string name="download_larger_map_hint">Juga mengunduh area tetangga (bisa jadi beberapa file lagi).</string>
     <string name="download_looking_up">Mencari data peta untuk area ini…</string>

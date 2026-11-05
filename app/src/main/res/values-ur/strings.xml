@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">ترتیبات</string>
     <string name="talkback_required_title">TalkBack درکار ہے</string>
     <string name="talkback_required_message">یہ ایپ TalkBack کے ساتھ کام کرنے کے لیے بنائی گئی ہے، اور ایپ کے صحیح طریقے سے کام کرنے کے لیے TalkBack کا آن ہونا ضروری ہے۔ اپنے علاقے کا نقشہ ڈاؤن لوڈ کرنے کے بعد، اپنے ارد گرد کی سڑکوں اور مقامات کو دریافت کرنے کے لیے اسکرین کو چھوئیں اور اپنی انگلی حرکت دیں۔</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">ڈاؤن لوڈ سائز: %1$d فائلیں، کل %2$s</string>
     <string name="download_size_unknown">ڈاؤن لوڈ سائز: نامعلوم</string>
     <string name="download_already_downloaded_prefix">پہلے ہی ڈاؤن لوڈ ہو چکا ہے۔</string>
+    <string name="download_update_available">اس نقشے کا نیا ورژن دستیاب ہے۔</string>
+    <string name="update_map_action">نقشہ اپ ڈیٹ کریں</string>
     <string name="download_larger_map_checkbox">بڑا نقشہ</string>
     <string name="download_larger_map_hint">ملحقہ علاقے بھی ڈاؤن لوڈ کرتا ہے (کئی مزید فائلیں ہو سکتی ہیں)۔</string>
     <string name="download_looking_up">اس علاقے کے لیے نقشے کا ڈیٹا تلاش کیا جا رہا ہے…</string>

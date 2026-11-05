@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">ക്രമീകരണങ്ങൾ</string>
     <string name="talkback_required_title">ടോക്ക്ബാക്ക് ആവശ്യമാണ്</string>
     <string name="talkback_required_message">ഈ ആപ്പ് ടോക്ക്ബാക്കിനൊപ്പം പ്രവർത്തിക്കാൻ രൂപകൽപ്പന ചെയ്തതാണ്, ആപ്പ് ശരിയായി പ്രവർത്തിക്കാൻ ടോക്ക്ബാക്ക് ഓണായിരിക്കണം. നിങ്ങളുടെ പ്രദേശത്തിന്റെ മാപ്പ് ഡൗൺലോഡ് ചെയ്ത ശേഷം, ചുറ്റുമുള്ള തെരുവുകളും സ്ഥലങ്ങളും പര്യവേക്ഷണം ചെയ്യാൻ സ്ക്രീനിൽ വിരൽ സ്പർശിച്ച് ചലിപ്പിക്കുക.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">ഡൗൺലോഡ് വലുപ്പം: %1$d ഫയലുകൾ, ആകെ %2$s</string>
     <string name="download_size_unknown">ഡൗൺലോഡ് വലുപ്പം: അജ്ഞാതം</string>
     <string name="download_already_downloaded_prefix">ഇതിനകം ഡൗൺലോഡ് ചെയ്തു.</string>
+    <string name="download_update_available">ഈ മാപ്പിന്റെ പുതിയ പതിപ്പ് ലഭ്യമാണ്.</string>
+    <string name="update_map_action">മാപ്പ് അപ്ഡേറ്റ് ചെയ്യുക</string>
     <string name="download_larger_map_checkbox">വലിയ മാപ്പ്</string>
     <string name="download_larger_map_hint">സമീപ പ്രദേശങ്ങളും ഡൗൺലോഡ് ചെയ്യുന്നു (കൂടുതൽ ഫയലുകൾ ഉണ്ടാകാം).</string>
     <string name="download_looking_up">ഈ പ്രദേശത്തിന്റെ മാപ്പ് ഡാറ്റ തിരയുന്നു…</string>

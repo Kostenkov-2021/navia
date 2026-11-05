@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Navia-only parts, merged over src/main/AndroidManifest.xml (shared with Ambimap). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Visual place check (ManageVisualPlacesActivity / VisualCheckController): only while a
+         screen of the app is open, never from a service. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <application>
+        <activity
+            android:name="com.wikiponder.touchmap.MapActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden"
+            android:theme="@style/Theme.AICam.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
+        <activity
+            android:name="com.wikiponder.touchmap.ManageVisualPlacesActivity"
+            android:exported="false"
+            android:label="@string/visual_places_title" />
+        <activity
+            android:name="com.wikiponder.touchmap.EditVisualPlaceActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wikiponder.touchmap.RecordVisualPlaceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="@string/record_visual_place_title" />
+        <service
+            android:name=".BackgroundService"
+            android:enabled="true"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+    </application>
+
+</manifest>

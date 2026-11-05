@@ -14,9 +14,26 @@ import java.util.List;
  */
 public class BoxManifest {
 	public final List<Entry> boxes;
+	/** Raised each time the box files are rebuilt, so a downloaded box older than this can be offered
+	 * for update. Manifests from before this field count as version 1. */
+	public final int mapVersion;
 
-	public BoxManifest(List<Entry> boxes) {
+	public BoxManifest(List<Entry> boxes, int mapVersion) {
 		this.boxes = boxes;
+		this.mapVersion = mapVersion;
+	}
+
+	/** True if both list the same box indexes with exactly the same rectangles, in the same order. */
+	public boolean hasSameBoxesAs(BoxManifest other) {
+		if (boxes.size() != other.boxes.size()) return false;
+		for (int i = 0; i < boxes.size(); i++) {
+			Entry a = boxes.get(i), b = other.boxes.get(i);
+			if (a.index != b.index || a.minLat != b.minLat || a.maxLat != b.maxLat
+					|| a.minLon != b.minLon || a.maxLon != b.maxLon) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/** One box db's manifest row: its bounding box, row counts and file sizes. */
@@ -69,7 +86,7 @@ public class BoxManifest {
 					b.getDouble("lon_max")
 			));
 		}
-		return new BoxManifest(boxes);
+		return new BoxManifest(boxes, root.optInt("map_version", 1));
 	}
 
 	/** The box containing (lat, lon), or null if none does (shouldn't happen — boxes tile the planet

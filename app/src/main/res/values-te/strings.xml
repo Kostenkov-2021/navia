@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">సెట్టింగ్‌లు</string>
     <string name="talkback_required_title">టాక్‌బ్యాక్ అవసరం</string>
     <string name="talkback_required_message">ఈ యాప్ టాక్‌బ్యాక్‌తో పనిచేయడానికి రూపొందించబడింది, మరియు యాప్ సరిగ్గా పనిచేయడానికి టాక్‌బ్యాక్ ఆన్‌లో ఉండాలి. మీ ప్రాంతం కోసం మ్యాప్‌ను డౌన్‌లోడ్ చేసిన తర్వాత, మీ చుట్టుపక్కల వీధులు మరియు స్థలాలను అన్వేషించడానికి స్క్రీన్‌పై మీ వేలిని తాకి కదిలించండి.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">డౌన్‌లోడ్ పరిమాణం: %1$d ఫైళ్లు, మొత్తం %2$s</string>
     <string name="download_size_unknown">డౌన్‌లోడ్ పరిమాణం: తెలియదు</string>
     <string name="download_already_downloaded_prefix">ఇప్పటికే డౌన్‌లోడ్ చేయబడింది.</string>
+    <string name="download_update_available">ఈ మ్యాప్ యొక్క కొత్త వెర్షన్ అందుబాటులో ఉంది.</string>
+    <string name="update_map_action">మ్యాప్‌ను అప్‌డేట్ చేయండి</string>
     <string name="download_larger_map_checkbox">పెద్ద మ్యాప్</string>
     <string name="download_larger_map_hint">పక్క ప్రాంతాలను కూడా డౌన్‌లోడ్ చేస్తుంది (మరిన్ని ఫైళ్లు ఉండవచ్చు).</string>
     <string name="download_looking_up">ఈ ప్రాంతం కోసం మ్యాప్ డేటాను వెతుకుతోంది…</string>

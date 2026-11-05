@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">تنظیمات</string>
     <string name="talkback_required_title">TalkBack مورد نیاز است</string>
     <string name="talkback_required_message">این برنامه برای کار با TalkBack طراحی شده و برای عملکرد صحیح برنامه باید TalkBack روشن باشد. پس از دانلود نقشه منطقه‌تان، انگشت خود را روی صفحه لمس کرده و حرکت دهید تا خیابان‌ها و نقاط اطراف خود را کاوش کنید.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">حجم دانلود: %1$d فایل، مجموعاً %2$s</string>
     <string name="download_size_unknown">حجم دانلود: نامشخص</string>
     <string name="download_already_downloaded_prefix">قبلاً دانلود شده است.</string>
+    <string name="download_update_available">نسخه جدیدتری از این نقشه موجود است.</string>
+    <string name="update_map_action">به‌روزرسانی نقشه</string>
     <string name="download_larger_map_checkbox">نقشه بزرگ‌تر</string>
     <string name="download_larger_map_hint">مناطق مجاور نیز دانلود می‌شوند (ممکن است چند فایل دیگر باشد).</string>
     <string name="download_looking_up">در حال جستجوی داده‌های نقشه برای این منطقه…</string>

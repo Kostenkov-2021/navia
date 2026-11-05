@@ -1,11 +1,13 @@
 package com.wikiponder.touchmap.classes.importer;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.wikiponder.touchmap.R;
 import com.wikiponder.touchmap.classes.CrashReporting;
+import com.wikiponder.touchmap.classes.Utils;
 import com.wikiponder.touchmap.classes.boxes.BoxManifest;
 import com.wikiponder.touchmap.classes.boxes.BoxManifestRepository;
 import com.wikiponder.touchmap.classes.db.OSMDatabaseHelper;
@@ -153,7 +155,7 @@ public class BoxImporter implements Cancellable {
 				if (cancelled) return;
 				BoxManifest.Entry box = boxes.get(i);
 				double boxWeight = useEqualWeights ? (1.0 / boxes.size()) : (box.gzSizeMb / totalSizeMb);
-				downloadAndMergeOneBox(box, gzFile, dbFile, i + 1, boxes.size(), completedWeight, boxWeight);
+				downloadAndMergeOneBox(box, manifest.mapVersion, gzFile, dbFile, i + 1, boxes.size(), completedWeight, boxWeight);
 				completedWeight += boxWeight;
 				features += box.nodes + box.ways;
 			}
@@ -189,7 +191,7 @@ public class BoxImporter implements Cancellable {
 	/** Downloads, extracts, merges and marks-imported a single box. {@code index}/{@code total} are
 	 * for progress text ("area 2 of 5"); {@code completedWeight}/{@code boxWeight} are this box's
 	 * share of the WHOLE run's progress bar — see {@link #reportOverall}. */
-	private void downloadAndMergeOneBox(BoxManifest.Entry box, File gzFile, File dbFile, int index, int total,
+	private void downloadAndMergeOneBox(BoxManifest.Entry box, int mapVersion, File gzFile, File dbFile, int index, int total,
 										 double completedWeight, double boxWeight) throws Exception {
 		downloadBox(box, gzFile, index, total, completedWeight, boxWeight);
 		if (cancelled) return;
@@ -200,17 +202,12 @@ public class BoxImporter implements Cancellable {
 		probeOpens(dbFile);
 		if (cancelled) return;
 
-		mergeIntoAppDb(dbFile, index, total, completedWeight, boxWeight);
-		// mergeIntoAppDb can now return early (transaction rolled back, nothing merged) if cancel()
-		// landed between two of its table copies — see the cancelled checks in there. In that case
-		// there is genuinely nothing to mark imported, unlike the comment below's normal case.
-		if (cancelled) return;
-		// Mark imported unconditionally once mergeIntoAppDb returns having actually committed — its
-		// transaction has already committed by then (a single execSQL call itself still isn't
-		// interruptible mid-statement by this class' cancelled flag, only between them), so a cancel
-		// landing right here would otherwise leave real, already-merged data silently unmarked,
-		// meaning MapTileManager wouldn't recognize the area as downloaded even though it genuinely is.
-		OSMDatabaseHelper.markBoxImported(context, box.index, box.minLat, box.maxLat, box.minLon, box.maxLon);
+		boolean merged = mergeIntoAppDb(dbFile, box, index, total, completedWeight, boxWeight);
+		// False means cancel() landed between two table copies: the transaction rolled back, so the
+		// old data and its old version stay. True means it committed, so mark it even if a cancel has
+		// landed since, or the new data would still be labelled with the old version.
+		if (!merged) return;
+		OSMDatabaseHelper.markBoxImported(context, box.index, mapVersion, box.minLat, box.maxLat, box.minLon, box.maxLon);
 	}
 
 	/** Computes and reports one 0-100 percent for the WHOLE run from this box's already-completed
@@ -319,11 +316,16 @@ public class BoxImporter implements Cancellable {
 	private int mergeIndex, mergeTotal;
 	private double mergeCompletedWeight, mergeBoxWeight;
 
-	/** Bulk-copies every table from the downloaded box db into the app db. Every row is already in
-	 * the app's own schema (id conventions, region tagging, packed geometry — see class doc), so this
-	 * is a straight {@code INSERT OR IGNORE ... SELECT *} per table rather than row-by-row parsing. */
-	private void mergeIntoAppDb(File dbFile, int index, int total,
+	/** Bulk-copies every table from the downloaded box db into the app db, all in one transaction, so
+	 * a failure or cancel leaves the old map as it was. Every row is already in the app's own schema
+	 * (id conventions, region tagging, packed geometry — see class doc). The downloaded rows win over
+	 * rows already on the phone, since a box can be newer than the copy of a shared way from a
+	 * neighbour. When this box was downloaded before, rows it no longer lists are removed too.
+	 * Manual points are never touched, favorite flags survive, and renames come back through
+	 * UserEditsBackupHelper.replayInto after the import. Returns false if cancelled (nothing merged). */
+	private boolean mergeIntoAppDb(File dbFile, BoxManifest.Entry box, int index, int total,
 								 double completedWeight, double boxWeight) throws Exception {
+		boolean replacing = OSMDatabaseHelper.isBoxImported(context, box.index);
 		mergeIndex = index;
 		mergeTotal = total;
 		mergeCompletedWeight = completedWeight;
@@ -342,8 +344,11 @@ public class BoxImporter implements Cancellable {
 				// missing the `regions` table entirely though (found live: a real device hit "no such
 				// table: box.regions" here and lost an otherwise perfectly good download over it), so
 				// skip it rather than let a table with nothing worth copying anyway hard-fail the import.
-				appDb.execSQL("INSERT OR IGNORE INTO main.nodes SELECT * FROM " + ALIAS + ".nodes");
-				reportSaveProgress(0.45, "nodes");
+				List<Long> favorites = favoriteNodeIds(appDb);
+				if (replacing) deleteStaleNodes(appDb, box);
+				appDb.execSQL("INSERT OR REPLACE INTO main.nodes SELECT * FROM " + ALIAS + ".nodes");
+				restoreFavorites(appDb, favorites);
+				reportSaveProgress(0.40, "nodes");
 				// Checked between statements, not within one: a single execSQL call is a single
 				// blocking native call and can't be interrupted mid-statement by this flag — see
 				// downloadAndMergeOneBox's comment on markBoxImported. This only shortens how long a
@@ -352,21 +357,29 @@ public class BoxImporter implements Cancellable {
 				// is what's blocked (e.g. on a write-lock held by another connection) — see
 				// ImportProgressDialog/MapActivity's own timeout for what actually unblocks the user in
 				// that case.
-				if (cancelled) return;
+				if (cancelled) return false;
 
-				appDb.execSQL("INSERT OR IGNORE INTO main.ways SELECT * FROM " + ALIAS + ".ways");
-				reportSaveProgress(0.70, "ways");
-				if (cancelled) return;
+				if (replacing) deleteStaleWays(appDb, box);
+				appDb.execSQL("INSERT OR REPLACE INTO main.ways SELECT * FROM " + ALIAS + ".ways");
+				reportSaveProgress(0.60, "ways");
+				if (cancelled) return false;
 
+				// A way's geometry may have changed, so its old cells must go with it.
+				appDb.execSQL("DELETE FROM main.way_cells WHERE way_id IN (SELECT id FROM " + ALIAS + ".ways)");
 				appDb.execSQL("INSERT OR IGNORE INTO main.way_cells SELECT * FROM " + ALIAS + ".way_cells");
-				reportSaveProgress(0.90, "map index");
-				if (cancelled) return;
+				reportSaveProgress(0.80, "map index");
+				if (cancelled) return false;
 
 				appDb.execSQL("INSERT OR IGNORE INTO main.way_regions SELECT * FROM " + ALIAS + ".way_regions");
+				reportSaveProgress(0.85, "map index");
+				if (cancelled) return false;
+
+				mergeEnvTables(appDb, box, replacing);
 				reportSaveProgress(1.0, "map index");
-				if (cancelled) return;
+				if (cancelled) return false;
 
 				appDb.setTransactionSuccessful();
+				return true;
 			} finally {
 				appDb.endTransaction();
 			}
@@ -380,6 +393,87 @@ public class BoxImporter implements Cancellable {
 				Log.w(TAG, "DETACH failed: " + e.getMessage());
 			}
 		}
+	}
+
+	private static List<Long> favoriteNodeIds(SQLiteDatabase db) {
+		List<Long> ids = new ArrayList<>();
+		try (Cursor c = db.rawQuery("SELECT id FROM main.nodes WHERE favorite=1", null)) {
+			while (c.moveToNext()) ids.add(c.getLong(0));
+		}
+		return ids;
+	}
+
+	private static void restoreFavorites(SQLiteDatabase db, List<Long> ids) {
+		for (long id : ids) {
+			db.execSQL("UPDATE main.nodes SET favorite=1 WHERE id=?", new Object[]{id});
+		}
+	}
+
+	/** Nodes belong to the one box whose rectangle holds them, so anything inside this rectangle that
+	 * the new file lacks was deleted from the map. A favorite stays even then. The upper edges are
+	 * open because a point exactly on a shared edge may belong to the neighbour. */
+	private static void deleteStaleNodes(SQLiteDatabase db, BoxManifest.Entry box) {
+		db.execSQL("DELETE FROM main.nodes WHERE cat_id!=? AND favorite=0"
+						+ " AND lat>=? AND lat<? AND lon>=? AND lon<?"
+						+ " AND id NOT IN (SELECT id FROM " + ALIAS + ".nodes)",
+				new Object[]{OSMDatabaseHelper.CATEGORY_MANUAL, box.minLat, box.maxLat, box.minLon, box.maxLon});
+	}
+
+	/** A way is written to every box one of its points falls in, so a way on the phone with a point in
+	 * this rectangle that the new file lacks is gone or has moved away. A way merely passing nearby
+	 * belongs to a neighbour and must stay, which takes reading its points. */
+	private static void deleteStaleWays(SQLiteDatabase db, BoxManifest.Entry box) {
+		List<Long> candidates = new ArrayList<>();
+		try (Cursor c = db.rawQuery("SELECT id FROM main.ways"
+						+ " WHERE min_lat<=? AND max_lat>=? AND min_lon<=? AND max_lon>=?"
+						+ " AND id NOT IN (SELECT id FROM " + ALIAS + ".ways)",
+				new String[]{String.valueOf(box.maxLat), String.valueOf(box.minLat),
+						String.valueOf(box.maxLon), String.valueOf(box.minLon)})) {
+			while (c.moveToNext()) candidates.add(c.getLong(0));
+		}
+		for (long id : candidates) {
+			if (!wayHasPointInBox(db, id, box)) continue;
+			Object[] arg = {id};
+			db.execSQL("DELETE FROM main.ways WHERE id=?", arg);
+			db.execSQL("DELETE FROM main.way_cells WHERE way_id=?", arg);
+			db.execSQL("DELETE FROM main.way_regions WHERE way_id=?", arg);
+		}
+	}
+
+	private static boolean wayHasPointInBox(SQLiteDatabase db, long wayId, BoxManifest.Entry box) {
+		byte[] points;
+		try (Cursor c = db.rawQuery("SELECT points FROM main.ways WHERE id=?", new String[]{String.valueOf(wayId)})) {
+			if (!c.moveToFirst()) return false;
+			points = c.getBlob(0);
+		}
+		Utils.WayPoints way = Utils.unpackWayPoints(points);
+		for (int i = 0; i < way.lats.length; i++) {
+			if (box.contains(way.lats[i], way.lons[i])) return true;
+		}
+		return false;
+	}
+
+	/** Rivers, rail, airports, sea and lakes. Files from before these layers simply have no such tables. */
+	private static void mergeEnvTables(SQLiteDatabase db, BoxManifest.Entry box, boolean replacing) {
+		try (Cursor c = db.rawQuery("SELECT 1 FROM " + ALIAS + ".sqlite_master WHERE name='env_features'", null)) {
+			if (!c.moveToFirst()) return;
+		}
+		if (replacing) {
+			// A feature entirely inside this rectangle can only come from this box. One reaching
+			// outside may still be listed by a neighbour, so it stays until that box is updated too.
+			String staleIds = "SELECT id FROM main.env_features"
+					+ " WHERE min_lat>=? AND max_lat<=? AND min_lon>=? AND max_lon<=?"
+					+ " AND id NOT IN (SELECT id FROM " + ALIAS + ".env_features)";
+			Object[] rect = {box.minLat, box.maxLat, box.minLon, box.maxLon};
+			db.execSQL("DELETE FROM main.env_cells WHERE feature_id IN (" + staleIds + ")", rect);
+			db.execSQL("DELETE FROM main.env_features WHERE id IN (" + staleIds + ")", rect);
+		}
+		String columns = "id,kind,type,name,role,relation_id,tags,min_lat,max_lat,min_lon,max_lon,points";
+		db.execSQL("INSERT OR REPLACE INTO main.env_features (" + columns + ") SELECT " + columns
+				+ " FROM " + ALIAS + ".env_features");
+		db.execSQL("DELETE FROM main.env_cells WHERE feature_id IN (SELECT id FROM " + ALIAS + ".env_features)");
+		db.execSQL("INSERT OR IGNORE INTO main.env_cells (feature_id,cell_x,cell_y)"
+				+ " SELECT feature_id,cell_x,cell_y FROM " + ALIAS + ".env_cells");
 	}
 
 	/** {@code savePct} is 0..1 within the save phase itself; mapped into this box's own

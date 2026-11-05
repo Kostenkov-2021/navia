@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Настройки</string>
     <string name="talkback_required_title">Требуется TalkBack</string>
     <string name="talkback_required_message">Это приложение разработано для работы с TalkBack, и TalkBack должен быть включён, чтобы приложение работало корректно. После загрузки карты вашего района коснитесь экрана и двигайте пальцем, чтобы исследовать улицы и точки вокруг вас.</string>
@@ -89,6 +88,8 @@
     <string name="download_size_label_multi">Размер загрузки: %1$d файлов, всего %2$s</string>
     <string name="download_size_unknown">Размер загрузки: неизвестен</string>
     <string name="download_already_downloaded_prefix">Уже загружено.</string>
+    <string name="download_update_available">Доступна более новая версия этой карты.</string>
+    <string name="update_map_action">Обновить карту</string>
     <string name="download_larger_map_checkbox">Карта большего размера</string>
     <string name="download_larger_map_hint">Также загружает соседние области (может быть несколько дополнительных файлов).</string>
     <string name="download_looking_up">Поиск данных карты для этой области…</string>

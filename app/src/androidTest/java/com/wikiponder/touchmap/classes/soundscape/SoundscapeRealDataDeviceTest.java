@@ -1,5 +1,6 @@
 package com.wikiponder.touchmap.classes.soundscape;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -63,6 +64,16 @@ public class SoundscapeRealDataDeviceTest {
 		boolean harbour = false;
 		for (Scene.Spot sp : s.spots) harbour |= sp.clip.equals("harbor") || sp.clip.equals("ship_horn");
 		assertTrue("harbour sounds at the IJ ferries", harbour);
+	}
+
+	@Test
+	public void airportTableKnowsThePlaceAndItsCountry() {
+		Context ctx = InstrumentationRegistry.getInstrumentation().getTargetContext();
+		Airports.Airport schiphol = Airports.nearest(ctx, 52.3350, 4.7880); // Badhoevedorp
+		assertEquals("NL", schiphol.country);
+		assertEquals(52.31, schiphol.lat, 0.02);
+		assertEquals(4.76, schiphol.lon, 0.03);
+		assertEquals("IR", Airports.nearest(ctx, 35.70, 51.40).country);
 	}
 
 	@Test

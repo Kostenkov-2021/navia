@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Stillingar</string>
     <string name="talkback_required_title">TalkBack er nauðsynlegt</string>
     <string name="talkback_required_message">Þetta forrit er hannað til að vinna með TalkBack og TalkBack verður að vera virkjað svo forritið virki rétt. Eftir að þú hefur sótt kortið fyrir svæðið þitt skaltu snerta skjáinn og hreyfa fingurinn til að kanna götur og staði í kringum þig.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">Stærð niðurhals: %1$d skrár, %2$s samtals</string>
     <string name="download_size_unknown">Stærð niðurhals: óþekkt</string>
     <string name="download_already_downloaded_prefix">Þegar sótt.</string>
+    <string name="download_update_available">Nýrri útgáfa af þessu korti er í boði.</string>
+    <string name="update_map_action">Uppfæra kort</string>
     <string name="download_larger_map_checkbox">Stærra kort</string>
     <string name="download_larger_map_hint">Sækir einnig nágrannasvæðin (getur verið nokkrar skrár í viðbót).</string>
     <string name="download_looking_up">Leita að kortagögnum fyrir þetta svæði…</string>

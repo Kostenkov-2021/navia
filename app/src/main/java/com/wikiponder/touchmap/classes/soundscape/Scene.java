@@ -53,11 +53,18 @@ public final class Scene {
 		public final String clip;
 		public final float share;
 		public final float gain;
+		/** Multiplies the lane's speed: lorries a little slower, motorcycles a little faster. */
+		public final float speedFactor;
 
 		Vehicle(String clip, float share, float gain) {
+			this(clip, share, gain, 1f);
+		}
+
+		Vehicle(String clip, float share, float gain, float speedFactor) {
 			this.clip = clip;
 			this.share = share;
 			this.gain = gain;
+			this.speedFactor = speedFactor;
 		}
 	}
 
@@ -79,6 +86,17 @@ public final class Scene {
 		public final String passEvent;
 		/** Optional spot whose one-shot/loop is switched on while a vehicle is within 150 m of it (level-crossing bell). */
 		public final float[] warningAt;
+		/** Chance that a vehicle fires {@link #passEvent} at all. */
+		float passChance = 1f;
+		/** Above 0: the next vehicle comes gapMin..gapMax seconds after the last instead of at random,
+		 * which keeps a quiet street quiet (and an airliner from coming twice in a row). */
+		float gapMin, gapMax;
+		/** A 30 km/h street or the like: nobody honks here. */
+		boolean calm;
+		/** Road traffic: faster vehicles sound higher and louder. */
+		boolean engine;
+		/** Height in metres, reference and maximum distance, fade-in/out length: see SoundscapePlayer. */
+		float height = 0.8f, refDistance = 6f, maxDistance = SceneBuilder.RADIUS_M * 2.5f, edgeFade = 40f;
 
 		Lane(String label, float[] east, float[] north, float speed, float perMinute, boolean oneway,
 			 List<Vehicle> vehicles, String passEvent, float[] warningAt) {
@@ -91,6 +109,11 @@ public final class Scene {
 			this.vehicles = vehicles;
 			this.passEvent = passEvent;
 			this.warningAt = warningAt;
+		}
+
+		/** Average vehicles per minute, whichever way the arrivals are timed. */
+		float rate() {
+			return gapMax > 0 ? 120f / (gapMin + gapMax) : perMinute;
 		}
 	}
 
@@ -122,7 +145,7 @@ public final class Scene {
 		for (Spot s : spots) sb.append(String.format(java.util.Locale.US, " %s %s@(%.0f,%.0f) g%.2f;",
 				s.isLoop() ? "loop" : "shot", s.clip, s.east, s.north, s.gain));
 		for (Lane l : lanes) sb.append(String.format(java.util.Locale.US, " lane %s %.1f/min %.0fm/s %d pts;",
-				l.label, l.perMinute, l.speed, l.east.length));
+				l.label, l.rate(), l.speed, l.east.length));
 		return sb.append('}').toString();
 	}
 }

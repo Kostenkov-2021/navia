@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">การตั้งค่า</string>
     <string name="talkback_required_title">ต้องเปิดใช้ TalkBack</string>
     <string name="talkback_required_message">แอปนี้ออกแบบมาให้ทำงานร่วมกับ TalkBack และต้องเปิด TalkBack ไว้เพื่อให้แอปทำงานได้อย่างถูกต้อง หลังจากดาวน์โหลดแผนที่สำหรับพื้นที่ของคุณแล้ว ให้แตะและเลื่อนนิ้วบนหน้าจอเพื่อสำรวจถนนและจุดต่างๆ รอบตัวคุณ</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">ขนาดดาวน์โหลด: %1$d ไฟล์ รวม %2$s</string>
     <string name="download_size_unknown">ขนาดดาวน์โหลด: ไม่ทราบ</string>
     <string name="download_already_downloaded_prefix">ดาวน์โหลดแล้ว</string>
+    <string name="download_update_available">มีแผนที่นี้เวอร์ชันใหม่กว่า</string>
+    <string name="update_map_action">อัปเดตแผนที่</string>
     <string name="download_larger_map_checkbox">แผนที่ขนาดใหญ่ขึ้น</string>
     <string name="download_larger_map_hint">ดาวน์โหลดพื้นที่ใกล้เคียงด้วย (อาจมีไฟล์เพิ่มเติมอีกหลายไฟล์)</string>
     <string name="download_looking_up">กำลังค้นหาข้อมูลแผนที่สำหรับพื้นที่นี้…</string>

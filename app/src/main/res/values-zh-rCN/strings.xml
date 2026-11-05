@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">设置</string>
     <string name="talkback_required_title">需要 TalkBack</string>
     <string name="talkback_required_message">此应用程序设计为与 TalkBack 配合使用，必须开启 TalkBack 才能使应用正常运行。下载所在地区的地图后，用手指触摸并在屏幕上移动，即可探索周围的街道和地点。</string>
@@ -89,6 +88,8 @@
     <string name="download_size_label_multi">下载大小：%1$d 个文件，共 %2$s</string>
     <string name="download_size_unknown">下载大小：未知</string>
     <string name="download_already_downloaded_prefix">已下载。</string>
+    <string name="download_update_available">此地图有新版本可用。</string>
+    <string name="update_map_action">更新地图</string>
     <string name="download_larger_map_checkbox">更大范围的地图</string>
     <string name="download_larger_map_hint">同时下载相邻区域（可能会增加多个文件）。</string>
     <string name="download_looking_up">正在查找此区域的地图数据…</string>

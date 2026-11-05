@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Nustatymai</string>
     <string name="talkback_required_title">Reikalinga TalkBack</string>
     <string name="talkback_required_message">Ši programa sukurta veikti kartu su TalkBack, todėl, kad programa veiktų tinkamai, TalkBack turi būti įjungta. Atsisiuntę savo vietovės žemėlapį, palieskite ekraną ir vedžiokite pirštą, kad tyrinėtumėte aplinkines gatves ir taškus.</string>
@@ -89,6 +88,8 @@
     <string name="download_size_label_multi">Atsisiuntimo dydis: %1$d failai, iš viso %2$s</string>
     <string name="download_size_unknown">Atsisiuntimo dydis: nežinomas</string>
     <string name="download_already_downloaded_prefix">Jau atsisiųsta.</string>
+    <string name="download_update_available">Yra naujesnė šio žemėlapio versija.</string>
+    <string name="update_map_action">Atnaujinti žemėlapį</string>
     <string name="download_larger_map_checkbox">Didesnis žemėlapis</string>
     <string name="download_larger_map_hint">Taip pat atsisiunčiamos gretimos sritys (gali padaugėti failų).</string>
     <string name="download_looking_up">Ieškoma šios srities žemėlapio duomenų…</string>

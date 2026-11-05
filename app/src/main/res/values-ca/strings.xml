@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Configuració</string>
     <string name="talkback_required_title">Cal TalkBack</string>
     <string name="talkback_required_message">Aquesta aplicació està dissenyada per funcionar amb TalkBack, i cal que TalkBack estigui activat perquè l\'aplicació funcioni correctament. Després de baixar el mapa de la teva zona, toca i mou el dit per la pantalla per explorar els carrers i punts al teu voltant.</string>
@@ -91,6 +90,8 @@
     <string name="download_size_label_multi">Mida de la baixada: %1$d fitxers, %2$s en total</string>
     <string name="download_size_unknown">Mida de la baixada: desconeguda</string>
     <string name="download_already_downloaded_prefix">Ja baixat.</string>
+    <string name="download_update_available">Hi ha una versió més recent d’aquest mapa.</string>
+    <string name="update_map_action">Actualitza el mapa</string>
     <string name="download_larger_map_checkbox">Mapa més gran</string>
     <string name="download_larger_map_hint">També baixa les àrees veïnes (poden ser diversos fitxers més).</string>
     <string name="download_looking_up">Cercant dades del mapa per a aquesta àrea…</string>

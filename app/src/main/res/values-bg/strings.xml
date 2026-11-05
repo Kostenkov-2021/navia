@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Настройки</string>
     <string name="talkback_required_title">Изисква се TalkBack</string>
     <string name="talkback_required_message">Това приложение е създадено да работи с TalkBack и TalkBack трябва да бъде включен, за да работи приложението правилно. След като изтеглите картата за вашия район, докоснете и местете пръста си по екрана, за да разгледате улиците и точките около вас.</string>
@@ -91,6 +90,8 @@
     <string name="download_size_label_multi">Размер на изтеглянето: %1$d файла, общо %2$s</string>
     <string name="download_size_unknown">Размер на изтеглянето: неизвестен</string>
     <string name="download_already_downloaded_prefix">Вече е изтеглено.</string>
+    <string name="download_update_available">Налична е по-нова версия на тази карта.</string>
+    <string name="update_map_action">Обновяване на картата</string>
     <string name="download_larger_map_checkbox">По-голяма карта</string>
     <string name="download_larger_map_hint">Изтегля и съседните области (може да са няколко допълнителни файла).</string>
     <string name="download_looking_up">Търсене на данни за картата за тази област…</string>

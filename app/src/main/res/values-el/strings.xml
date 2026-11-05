@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Ρυθμίσεις</string>
     <string name="talkback_required_title">Απαιτείται το TalkBack</string>
     <string name="talkback_required_message">Αυτή η εφαρμογή έχει σχεδιαστεί για να λειτουργεί με το TalkBack, το οποίο πρέπει να είναι ενεργοποιημένο για να λειτουργεί σωστά η εφαρμογή. Αφού κατεβάσετε τον χάρτη για την περιοχή σας, αγγίξτε και μετακινήστε το δάχτυλό σας στην οθόνη για να εξερευνήσετε τους δρόμους και τα σημεία γύρω σας.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">Μέγεθος λήψης: %1$d αρχεία, %2$s συνολικά</string>
     <string name="download_size_unknown">Μέγεθος λήψης: άγνωστο</string>
     <string name="download_already_downloaded_prefix">Έχει ήδη κατέβει.</string>
+    <string name="download_update_available">Υπάρχει νεότερη έκδοση αυτού του χάρτη.</string>
+    <string name="update_map_action">Ενημέρωση χάρτη</string>
     <string name="download_larger_map_checkbox">Μεγαλύτερος χάρτης</string>
     <string name="download_larger_map_hint">Κατεβάζει επίσης τις γειτονικές περιοχές (ενδέχεται να είναι αρκετά επιπλέον αρχεία).</string>
     <string name="download_looking_up">Αναζήτηση δεδομένων χάρτη για αυτή την περιοχή…</string>

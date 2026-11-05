@@ -9,20 +9,30 @@ import android.os.Looper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 /**
  * Plays the simulated soundscape of one map point: builds the {@link Scene}, decodes the clips it
  * needs, and runs a render thread that animates the vehicles, fires the occasional one-shots, keeps
  * the listener turned to the phone's live compass heading, and pulls HRTF-rendered stereo out of
- * {@link SpatialRenderer} into an Accessibility-stream AudioTrack (the same stream as every other
- * sound in the app — see AudioClient).
+ * {@link SpatialRenderer} into an AudioTrack — on the Accessibility stream by default (the same
+ * stream as every other sound in Navia — see AudioClient).
  *
- * <p>One instance plays at most once; make a new one for the next point. Every OpenAL call happens
+ * <p>One instance plays at most once, but its point can be moved while it plays ({@link #moveTo}):
+ * the new scene is built and its missing clips decoded in the background while the old one keeps
+ * playing, then the mix dips briefly and continues from the new point. Every OpenAL call happens
  * on the render thread.
  */
 public final class SoundscapePlayer {
@@ -32,7 +42,8 @@ public final class SoundscapePlayer {
 		/** Audio is now playing. */
 		void onSoundscapeStarted();
 
-		/** Nothing mapped around the point to build a scene from; nothing was played. */
+		/** Nothing mapped around the point (the first one or a {@link #moveTo} target) to build a
+		 * scene from. The player keeps running silently, so a later move can still be heard. */
 		void onSoundscapeEmpty();
 
 		void onSoundscapeFailed();
@@ -43,30 +54,53 @@ public final class SoundscapePlayer {
 	private static final int MAX_MOVERS = 12;
 	private static final float FADE_IN_S = 1.5f;
 	private static final float FADE_OUT_S = 0.4f;
+	private static final float MOVE_FADE_OUT_S = 0.35f;
+	private static final float MOVE_FADE_IN_S = 0.6f;
+	/** Time constant of the listener-heading smoothing: compass updates arrive in steps, and turning
+	 * the HRTF listener by a whole step within one 20 ms block is audible as a jump. */
+	private static final float HEADING_SMOOTHING_S = 0.1f;
 	private static final float MASTER_GAIN = 0.8f;
+	/** Past this OpenAL stops attenuating; beyond any spot, so a far church bell keeps fading with distance. */
+	private static final float MAX_SPOT_DISTANCE_M = 8000f;
+	/** The speed (m/s, about 50 km/h) at which a road vehicle plays its clip unchanged. */
+	private static final float REFERENCE_SPEED = 14f;
 	/** The native renderer is a single static device: a player that starts while the previous one
 	 * is still fading out waits here for it to release, instead of sharing (and freeing) its device. */
 	private static final Object ENGINE_LOCK = new Object();
 
 	private final Context context;
 	private final double lat, lon;
+	private final int usage;
 	private final Listener listener;
 	private final Handler main = new Handler(Looper.getMainLooper());
 	private final Random random = new Random();
 	private volatile float heading;
 	private volatile boolean stopRequested;
+	/** {lat, lon} of the latest {@link #moveTo}, until the render thread picks it up. */
+	private volatile double[] moveRequest;
 	private Thread thread;
+	// render thread only
+	private float listenerHeading = Float.NaN;
+	private boolean announced;
 	/** Set only by the device test, which plays a synthetic scene instead of reading the db. */
 	private Scene presetScene;
 	/** For the device test: clips decoded, and the loudest rendered sample so far. */
 	volatile int decodedClips;
 	volatile float peak;
 
+	/** Plays on the Accessibility stream, like every other sound in Navia (see AudioClient). */
 	public SoundscapePlayer(Context context, double lat, double lon, float initialHeading, Listener listener) {
+		this(context, lat, lon, initialHeading, AudioAttributes.USAGE_ASSISTANCE_ACCESSIBILITY, listener);
+	}
+
+	/** @param usage an AudioAttributes.USAGE_* — USAGE_MEDIA where no screen reader is assumed: the
+	 *               Accessibility stream's volume can't be set with the volume keys without one. */
+	public SoundscapePlayer(Context context, double lat, double lon, float initialHeading, int usage, Listener listener) {
 		this.context = context.getApplicationContext();
 		this.lat = lat;
 		this.lon = lon;
 		this.heading = initialHeading;
+		this.usage = usage;
 		this.listener = listener;
 	}
 
@@ -94,22 +128,29 @@ public final class SoundscapePlayer {
 		heading = headingDeg;
 	}
 
+	/** Continues the soundscape from another point. Any thread; only the latest request counts. */
+	public void moveTo(double lat, double lon) {
+		moveRequest = new double[]{lat, lon};
+	}
+
 	// ------------------------------------------------------------------ render thread
 
 	private static final class Mover {
 		final LanePath path;
 		final int dir;
 		final int source;
-		final float gain;
+		final float gain, speed, pitch;
 		float s;
 		float closest = Float.MAX_VALUE;
 		boolean passFired;
 
-		Mover(LanePath path, int dir, int source, float gain, float s) {
+		Mover(LanePath path, int dir, int source, float gain, float speed, float pitch, float s) {
 			this.path = path;
 			this.dir = dir;
 			this.source = source;
 			this.gain = gain;
+			this.speed = speed;
+			this.pitch = pitch;
 			this.s = s;
 		}
 	}
@@ -157,6 +198,17 @@ public final class SoundscapePlayer {
 		}
 	}
 
+	/** A scene built for a {@link #moveTo} target, with the clips it needs that weren't loaded yet. */
+	private static final class Relocation {
+		final Scene scene;
+		final Map<String, SoundBank.Clip> clips;
+
+		Relocation(Scene scene, Map<String, SoundBank.Clip> clips) {
+			this.scene = scene;
+			this.clips = clips;
+		}
+	}
+
 	private void run() {
 		Scene scene;
 		try {
@@ -167,10 +219,7 @@ public final class SoundscapePlayer {
 			return;
 		}
 		Log.i(TAG, scene.toString());
-		if (scene.isEmpty()) {
-			post(listener::onSoundscapeEmpty);
-			return;
-		}
+		if (scene.isEmpty()) post(listener::onSoundscapeEmpty);
 		synchronized (ENGINE_LOCK) {
 			if (!stopRequested) render(scene);
 		}
@@ -184,39 +233,39 @@ public final class SoundscapePlayer {
 		Log.i(TAG, "HRTF enabled: " + SpatialRenderer.hrtfEnabled());
 
 		Map<String, Integer> buffers = new HashMap<>();
-		List<Integer> sources = new ArrayList<>();
 		AudioTrack track = null;
 		try {
-			// Decoding is independent per clip, so it runs in parallel; the OpenAL buffers are still
-			// created here on the render thread, which owns every OpenAL call.
-			long t0 = android.os.SystemClock.elapsedRealtime();
-			List<String> ids = new ArrayList<>(scene.clips());
-			java.util.concurrent.ExecutorService pool = java.util.concurrent.Executors.newFixedThreadPool(
-					Math.max(2, Math.min(4, Runtime.getRuntime().availableProcessors() - 1)));
-			List<java.util.concurrent.Future<SoundBank.Clip>> decoded = new ArrayList<>();
-			for (String id : ids) decoded.add(pool.submit(() -> SoundBank.load(context, id)));
-			pool.shutdown();
-			for (int i = 0; i < ids.size(); i++) {
-				SoundBank.Clip clip;
-				try {
-					clip = decoded.get(i).get();
-				} catch (InterruptedException | java.util.concurrent.ExecutionException e) {
-					clip = null;
-				}
-				if (clip == null) continue;
-				int b = SpatialRenderer.createBuffer(clip.samples, clip.sampleRate);
-				if (b != 0) buffers.put(ids.get(i), b);
-				decodedClips = buffers.size();
-			}
-			Log.i(TAG, "decoded " + buffers.size() + " clips in " + (android.os.SystemClock.elapsedRealtime() - t0) + " ms");
+			Map<String, SoundBank.Clip> decoded = decode(scene.clips(), buffers.keySet());
 			if (stopRequested) return;
 			track = buildTrack();
-			loop(scene, buffers, sources, track);
+			track.play();
+			float fadeIn = FADE_IN_S;
+			while (true) {
+				// Buffers are created here on the render thread, which owns every OpenAL call; those the
+				// previous scene used but this one doesn't are freed (no source plays them any more).
+				for (Map.Entry<String, SoundBank.Clip> e : decoded.entrySet()) {
+					int b = SpatialRenderer.createBuffer(e.getValue().samples, e.getValue().sampleRate);
+					if (b != 0) buffers.put(e.getKey(), b);
+				}
+				for (Iterator<Map.Entry<String, Integer>> it = buffers.entrySet().iterator(); it.hasNext(); ) {
+					Map.Entry<String, Integer> e = it.next();
+					if (!scene.clips().contains(e.getKey())) {
+						SpatialRenderer.deleteBuffer(e.getValue());
+						it.remove();
+					}
+				}
+				decodedClips = buffers.size();
+				if (stopRequested) break;
+				Relocation next = loop(scene, buffers, track, fadeIn);
+				if (next == null) break;
+				scene = next.scene;
+				decoded = next.clips;
+				fadeIn = MOVE_FADE_IN_S;
+			}
 		} catch (RuntimeException e) {
 			Log.e(TAG, "soundscape failed", e);
 			post(listener::onSoundscapeFailed);
 		} finally {
-			for (int s : sources) SpatialRenderer.deleteSource(s);
 			for (int b : buffers.values()) SpatialRenderer.deleteBuffer(b);
 			SpatialRenderer.release();
 			if (track != null) {
@@ -224,6 +273,47 @@ public final class SoundscapePlayer {
 				track.release();
 			}
 		}
+	}
+
+	/** Decodes the clips in {@code ids} not in {@code have} yet, in parallel (decoding is independent
+	 * per clip and touches no OpenAL state). Missing or broken clips are left out. Any thread. */
+	private Map<String, SoundBank.Clip> decode(Collection<String> ids, Set<String> have) {
+		long t0 = android.os.SystemClock.elapsedRealtime();
+		List<String> todo = new ArrayList<>();
+		for (String id : ids) if (!have.contains(id)) todo.add(id);
+		Map<String, SoundBank.Clip> out = new HashMap<>();
+		if (todo.isEmpty()) return out;
+		ExecutorService pool = Executors.newFixedThreadPool(
+				Math.max(2, Math.min(4, Runtime.getRuntime().availableProcessors() - 1)));
+		List<Future<SoundBank.Clip>> futures = new ArrayList<>();
+		for (String id : todo) futures.add(pool.submit(() -> SoundBank.load(context, id)));
+		pool.shutdown();
+		for (int i = 0; i < todo.size(); i++) {
+			try {
+				SoundBank.Clip clip = futures.get(i).get();
+				if (clip != null) out.put(todo.get(i), clip);
+			} catch (InterruptedException | ExecutionException ignored) {
+			}
+		}
+		Log.i(TAG, "decoded " + out.size() + " clips in " + (android.os.SystemClock.elapsedRealtime() - t0) + " ms");
+		return out;
+	}
+
+	/** Builds the scene of a {@link #moveTo} target off the render thread. Yields null if that
+	 * failed — the current scene then simply keeps playing. */
+	private FutureTask<Relocation> startRelocation(double[] to, Set<String> loaded) {
+		FutureTask<Relocation> task = new FutureTask<>(() -> {
+			try {
+				Scene scene = SoundscapeData.buildScene(context, to[0], to[1]);
+				Log.i(TAG, "moved: " + scene);
+				return new Relocation(scene, decode(scene.clips(), loaded));
+			} catch (RuntimeException e) {
+				Log.e(TAG, "scene build failed after move", e);
+				return null;
+			}
+		});
+		new Thread(task, "soundscape-move").start();
+		return task;
 	}
 
 	private AudioTrack buildTrack() {
@@ -235,8 +325,9 @@ public final class SoundscapePlayer {
 		int min = AudioTrack.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_FLOAT);
 		return new AudioTrack.Builder()
 				.setAudioAttributes(new AudioAttributes.Builder()
-						.setUsage(AudioAttributes.USAGE_ASSISTANCE_ACCESSIBILITY)
-						.setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+						.setUsage(usage)
+						.setContentType(usage == AudioAttributes.USAGE_MEDIA
+								? AudioAttributes.CONTENT_TYPE_MUSIC : AudioAttributes.CONTENT_TYPE_SONIFICATION)
 						.build())
 				.setAudioFormat(format)
 				.setBufferSizeInBytes(Math.max(min, BLOCK_FRAMES * 2 * 4 * 4))
@@ -244,9 +335,15 @@ public final class SoundscapePlayer {
 				.build();
 	}
 
-	private void loop(Scene scene, Map<String, Integer> buffers, List<Integer> sources, AudioTrack track) {
+	/** Plays one scene until a stop (returns null) or until a {@link #moveTo} scene is ready and the
+	 * mix has faded out for it (returns that scene). Deletes every source it made before returning. */
+	private Relocation loop(Scene scene, Map<String, Integer> buffers, AudioTrack track, float fadeInS) {
 		final float dt = BLOCK_FRAMES / (float) SAMPLE_RATE;
+		final float headingAlpha = 1f - (float) Math.exp(-dt / HEADING_SMOOTHING_S);
 		double time = 0;
+		List<Integer> sources = new ArrayList<>();
+		FutureTask<Relocation> relocating = null;
+		Relocation pending = null;
 
 		for (Scene.Bed bed : scene.beds) {
 			Integer b = buffers.get(bed.clip);
@@ -261,7 +358,7 @@ public final class SoundscapePlayer {
 			Integer b = buffers.get(spot.clip);
 			if (b == null) continue;
 			if (spot.isLoop()) {
-				int s = SpatialRenderer.createSource(b, true, spot.refDistance, SceneBuilder.RADIUS_M * 2, 1f, false);
+				int s = SpatialRenderer.createSource(b, true, spot.refDistance, MAX_SPOT_DISTANCE_M, 1f, false);
 				SpatialRenderer.updateSource(s, spot.east, spot.north, 1.5f, 0, 0, spot.gain, 1f);
 				startLooped(s);
 				sources.add(s);
@@ -281,6 +378,11 @@ public final class SoundscapePlayer {
 		List<Integer> oneShots = new ArrayList<>();
 		// Seed traffic already under way, as if the user had been standing there a while.
 		for (LanePath p : lanes) {
+			if (p.lane.gapMax > 0) {
+				// Timed arrivals start empty; the first one comes soon-ish, so a short listen still hears it.
+				p.nextSpawn = p.lane.gapMin * (0.1 + 0.4 * random.nextDouble());
+				continue;
+			}
 			float expected = p.lane.perMinute / 60f * p.length / p.lane.speed;
 			int n = Math.min(3, poisson(expected));
 			for (int i = 0; i < n && movers.size() < MAX_MOVERS; i++) {
@@ -291,53 +393,82 @@ public final class SoundscapePlayer {
 
 		float[] out = new float[BLOCK_FRAMES * 2];
 		float[] at = new float[4];
-		track.play();
-		boolean announced = false;
 		float master = 0;
+		float fadeOutS = FADE_OUT_S;
 		float fadeOutLeft = -1;
 		while (true) {
-			if (stopRequested && fadeOutLeft < 0) fadeOutLeft = FADE_OUT_S;
+			// --- moving to another point: built in the background while this scene plays on
+			if (relocating == null && pending == null) {
+				double[] to = moveRequest;
+				if (to != null) {
+					moveRequest = null;
+					relocating = startRelocation(to, new HashSet<>(buffers.keySet()));
+				}
+			} else if (relocating != null && relocating.isDone()) {
+				Relocation r;
+				try {
+					r = relocating.get();
+				} catch (InterruptedException | ExecutionException e) {
+					r = null;
+				}
+				relocating = null;
+				// a newer move made while this one was building wins; this result is dropped
+				if (r != null && moveRequest == null) {
+					pending = r;
+					if (r.scene.isEmpty()) post(listener::onSoundscapeEmpty);
+				}
+			}
+			if (fadeOutLeft < 0 && (stopRequested || pending != null)) {
+				fadeOutS = stopRequested ? FADE_OUT_S : MOVE_FADE_OUT_S;
+				fadeOutLeft = fadeOutS;
+			}
 			if (fadeOutLeft >= 0) {
 				fadeOutLeft -= dt;
 				if (fadeOutLeft <= 0) break;
-				master = MASTER_GAIN * fadeOutLeft / FADE_OUT_S;
+				master = Math.min(master, MASTER_GAIN * fadeOutLeft / fadeOutS);
 			} else {
-				master = (float) Math.min(MASTER_GAIN, MASTER_GAIN * time / FADE_IN_S);
+				master = (float) Math.min(MASTER_GAIN, MASTER_GAIN * time / fadeInS);
 			}
 			SpatialRenderer.setMasterGain(master);
-			SpatialRenderer.setListenerHeading(heading);
+			float target = heading;
+			if (Float.isNaN(listenerHeading)) listenerHeading = target;
+			float turn = ((target - listenerHeading) % 360f + 540f) % 360f - 180f; // shortest way round
+			listenerHeading = ((listenerHeading + turn * headingAlpha) % 360f + 360f) % 360f;
+			SpatialRenderer.setListenerHeading(listenerHeading);
 
 			// --- vehicles
 			for (LanePath p : lanes) {
 				if (time >= p.nextSpawn) {
 					if (movers.size() < MAX_MOVERS) spawn(p, buffers, movers, -1);
-					p.nextSpawn = time + expNext(p.lane.perMinute);
+					p.nextSpawn = time + (p.lane.gapMax > 0
+							? p.lane.gapMin + random.nextDouble() * (p.lane.gapMax - p.lane.gapMin)
+							: expNext(p.lane.perMinute));
 				}
 			}
 			boolean[] warn = new boolean[lanes.size()];
 			for (Iterator<Mover> it = movers.iterator(); it.hasNext(); ) {
 				Mover m = it.next();
-				m.s += m.dir * m.path.lane.speed * dt;
+				m.s += m.dir * m.speed * dt;
 				if (m.s < 0 || m.s > m.path.length) {
 					SpatialRenderer.deleteSource(m.source);
 					it.remove();
 					continue;
 				}
 				m.path.at(m.s, at);
-				// Fade in/out over the first/last 40 m, in case a lane starts or ends within earshot.
+				// Fade in/out at both ends, in case a lane starts or ends within earshot.
 				float edge = Math.min(m.s, m.path.length - m.s);
-				float env = Math.min(1f, edge / 40f);
-				float vE = at[2] * m.dir * m.path.lane.speed, vN = at[3] * m.dir * m.path.lane.speed;
-				SpatialRenderer.updateSource(m.source, at[0], at[1], 0.8f, vE, vN, m.gain * env, 1f);
+				float env = Math.min(1f, edge / m.path.lane.edgeFade);
+				float vE = at[2] * m.dir * m.speed, vN = at[3] * m.dir * m.speed;
+				SpatialRenderer.updateSource(m.source, at[0], at[1], m.path.lane.height, vE, vN, m.gain * env, m.pitch);
 
 				float d = (float) Math.hypot(at[0], at[1]);
 				if (d < m.closest) {
 					m.closest = d;
 				} else if (!m.passFired && m.path.lane.passEvent != null && m.closest < 70) {
 					m.passFired = true;
-					Integer b = buffers.get(m.path.lane.passEvent);
+					Integer b = random.nextFloat() < m.path.lane.passChance ? buffers.get(m.path.lane.passEvent) : null;
 					if (b != null) {
-						int s = SpatialRenderer.createSource(b, false, 8f, SceneBuilder.RADIUS_M * 2, 1f, false);
+						int s = SpatialRenderer.createSource(b, false, 8f, MAX_SPOT_DISTANCE_M, 1f, false);
 						SpatialRenderer.updateSource(s, at[0], at[1], 2f, 0, 0, 0.8f, 1f);
 						SpatialRenderer.play(s);
 						oneShots.add(s);
@@ -354,7 +485,7 @@ public final class SoundscapePlayer {
 				shot.next = time + shot.spot.minInterval + random.nextDouble() * (shot.spot.maxInterval - shot.spot.minInterval);
 				Integer b = buffers.get(shot.spot.clip);
 				if (b == null) continue;
-				int s = SpatialRenderer.createSource(b, false, shot.spot.refDistance, SceneBuilder.RADIUS_M * 2, 1f, false);
+				int s = SpatialRenderer.createSource(b, false, shot.spot.refDistance, MAX_SPOT_DISTANCE_M, 1f, false);
 				SpatialRenderer.updateSource(s, shot.spot.east, shot.spot.north, 2f, 0, 0,
 						shot.spot.gain * (0.75f + 0.25f * random.nextFloat()), 0.95f + 0.1f * random.nextFloat());
 				SpatialRenderer.play(s);
@@ -380,6 +511,9 @@ public final class SoundscapePlayer {
 		}
 		for (Mover m : movers) SpatialRenderer.deleteSource(m.source);
 		for (int s : oneShots) SpatialRenderer.deleteSource(s);
+		for (int s : sources) SpatialRenderer.deleteSource(s);
+		if (relocating != null) relocating.cancel(false); // its thread just finishes on its own
+		return stopRequested ? null : pending;
 	}
 
 	private void updateWarning(LanePath p, boolean on, Map<String, Integer> buffers, List<Integer> sources, float dt) {
@@ -387,7 +521,7 @@ public final class SoundscapePlayer {
 		if (p.warningSource == 0) {
 			Integer b = buffers.get(SceneBuilder.CLIP_CROSSING_BELL);
 			if (b == null) return;
-			p.warningSource = SpatialRenderer.createSource(b, true, 6f, SceneBuilder.RADIUS_M * 2, 1f, false);
+			p.warningSource = SpatialRenderer.createSource(b, true, 6f, MAX_SPOT_DISTANCE_M, 1f, false);
 			sources.add(p.warningSource);
 			SpatialRenderer.play(p.warningSource);
 		}
@@ -402,10 +536,19 @@ public final class SoundscapePlayer {
 		if (b == null) return;
 		int dir = p.lane.oneway || random.nextBoolean() ? 1 : -1;
 		if (s < 0) s = dir > 0 ? 0 : p.length;
-		int src = SpatialRenderer.createSource(b, true, 6f, SceneBuilder.RADIUS_M * 2.5f, 1f, false);
-		SpatialRenderer.updateSource(src, 0, 0, 0, 0, 0, 0f, 0.92f + 0.16f * random.nextFloat());
+		Scene.Lane lane = p.lane;
+		int src = SpatialRenderer.createSource(b, true, lane.refDistance, lane.maxDistance, 1f, false);
+		float speed = lane.speed * v.speedFactor * (lane.engine ? 0.8f + 0.4f * random.nextFloat() : 1f);
+		float pitch = 0.96f + 0.08f * random.nextFloat();
+		float gain = v.gain;
+		if (lane.engine) {
+			float relative = speed / REFERENCE_SPEED;
+			pitch *= SceneBuilder.clamp((float) Math.pow(relative, 0.2), 0.88f, 1.12f);
+			gain *= SceneBuilder.clamp((float) Math.pow(relative, 0.4), 0.7f, 1.25f);
+		}
+		SpatialRenderer.updateSource(src, 0, 0, 0, 0, 0, 0f, pitch);
 		startLooped(src);
-		movers.add(new Mover(p, dir, src, v.gain, s));
+		movers.add(new Mover(p, dir, src, gain, speed, pitch, s));
 	}
 
 	private Scene.Vehicle pick(List<Scene.Vehicle> vehicles) {

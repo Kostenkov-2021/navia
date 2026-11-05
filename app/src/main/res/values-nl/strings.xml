@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Instellingen</string>
     <string name="talkback_required_title">TalkBack vereist</string>
     <string name="talkback_required_message">Deze app is ontworpen om te werken met TalkBack, en TalkBack moet zijn ingeschakeld om de app correct te laten werken. Raak na het downloaden van de kaart voor jouw gebied het scherm aan en beweeg je vinger erover om de straten en punten om je heen te verkennen.</string>
@@ -91,6 +90,8 @@
     <string name="download_size_label_multi">Downloadgrootte: %1$d bestanden, %2$s totaal</string>
     <string name="download_size_unknown">Downloadgrootte: onbekend</string>
     <string name="download_already_downloaded_prefix">Al gedownload.</string>
+    <string name="download_update_available">Er is een nieuwere versie van deze kaart beschikbaar.</string>
+    <string name="update_map_action">Kaart bijwerken</string>
     <string name="download_larger_map_checkbox">Grotere kaart</string>
     <string name="download_larger_map_hint">Downloadt ook de aangrenzende gebieden (kan meerdere extra bestanden zijn).</string>
     <string name="download_looking_up">Kaartgegevens voor dit gebied opzoeken…</string>

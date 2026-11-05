@@ -285,6 +285,37 @@ public class MapView extends View {
 	private boolean renderEnabled = false;
 	private boolean labelsEnabled = true;
 
+	// --- Sighted mode (Ambimap): an ordinary visual map. One finger drags it, pinching zooms, and a
+	// long press moves the listening pin; the map never rotates or follows the GPS, and points that
+	// only matter to someone exploring by touch (addresses, barriers, trees, street furniture...) are
+	// not drawn. Navia's touch-exploration gestures are off in this mode.
+	private boolean sightedMode = false;
+	private Location pinLocation = null;
+	private PinListener pinListener;
+	private android.graphics.drawable.Drawable pinDrawable;
+	private android.view.GestureDetector gestureDetector;
+	private android.view.ScaleGestureDetector scaleDetector;
+	private float pinchScale = 1f;
+	private float dragLastX, dragLastY;
+	private boolean dragging;
+	private long lastDragLoadMs;
+	/** Node types left out of the sighted-mode drawing (see sightedMode). Only the drawing: the
+	 * soundscape reads the db directly, where e.g. trees and benches still shape the scene. */
+	private static final Set<String> MINOR_NODE_TYPES = new HashSet<>(Arrays.asList(
+			"tree", "street_lamp", "bench", "waste_basket", "waste_disposal", "recycling", "post_box",
+			"letter_box", "mailbox", "fire_hydrant", "kerb", "crossing", "give_way", "stop", "traffic_signals",
+			"turning_circle", "turning_loop", "mini_roundabout", "milestone", "grit_bin", "parking_space",
+			"parking_entrance", "bicycle_parking", "motorcycle_parking", "vending_machine", "clock",
+			"telephone", "phone", "hunting_stand", "traffic_mirror", "speed_camera", "emergency_access_point",
+			"fire_extinguisher", "defibrillator", "switch", "signal", "buffer_stop", "derail", "stop_position",
+			"entrance", "level_crossing", "railway_crossing", "tram_level_crossing", "tram_crossing",
+			"boundary_stone", "water_tank", "loading_dock", "suction_point", "siren", "access_point"));
+
+	public interface PinListener {
+		/** The user long-pressed the map: the pin is already at {@code location}. */
+		void onPinMoved(Location location);
+	}
+
 
 	public interface UpdateListener {
 		void onElementSelected(MapElement element, Location userLocation, double mapRotation, double distance);
@@ -550,12 +581,119 @@ public class MapView extends View {
 		invalidate();
 	}
 
+	/** Switches to the sighted-mode map (see sightedMode); for the lifetime of the view. */
+	public void setSightedMode(PinListener listener) {
+		sightedMode = true;
+		pinListener = listener;
+		setCompassLock(false);
+		isCenteredOnUser = false;
+		pinDrawable = androidx.core.content.ContextCompat.getDrawable(context, R.drawable.ic_pin_listener);
+		MyApplication.getMapTileManager(context).setExploreLoadedListener(this::postInvalidate);
+		gestureDetector = new android.view.GestureDetector(context, new android.view.GestureDetector.SimpleOnGestureListener() {
+			@Override
+			public void onLongPress(@NonNull MotionEvent e) {
+				if (scaleDetector.isInProgress()) return;
+				dragging = false;
+				Location at = screenToLocation(e.getX(), e.getY());
+				setPinLocation(at);
+				performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS);
+				if (pinListener != null) pinListener.onPinMoved(at);
+			}
+
+			@Override
+			public boolean onDoubleTap(@NonNull MotionEvent e) {
+				zoomIn();
+				return true;
+			}
+		});
+		scaleDetector = new android.view.ScaleGestureDetector(context, new android.view.ScaleGestureDetector.SimpleOnScaleGestureListener() {
+			@Override
+			public boolean onScale(@NonNull android.view.ScaleGestureDetector d) {
+				// Zoom moves in the same powers of two as the buttons: every level has its own
+				// pre-built cache and bitmap, so a continuous zoom would rebuild them every frame.
+				pinchScale *= d.getScaleFactor();
+				if (pinchScale > 1.6f) {
+					pinchScale = 1f;
+					zoomIn();
+				} else if (pinchScale < 1 / 1.6f) {
+					pinchScale = 1f;
+					zoomOut();
+				}
+				return true;
+			}
+		});
+		invalidate();
+	}
+
+	/** Sighted mode: where the listening pin is drawn (null = not shown). Doesn't move the map. */
+	public void setPinLocation(Location location) {
+		pinLocation = location;
+		invalidate();
+	}
+
+	public Location getPinLocation() {
+		return pinLocation;
+	}
+
+	private Location screenToLocation(float x, float y) {
+		MyPoint m = new MyPoint(x, -y).add(new MyPoint(-getWidth() / 2f, getHeight() / 2f))
+				.rotate(-mapRotation).multiply(metersPerPixel);
+		Location l = new Location("");
+		l.setLatitude(centerLocation.getLatitude() + Math.toDegrees(m.y / Contract.EARTH_RADIUS));
+		l.setLongitude(centerLocation.getLongitude() + Math.toDegrees(m.x / Contract.EARTH_RADIUS
+				/ Math.cos(Math.toRadians(centerLocation.getLatitude()))));
+		return l;
+	}
+
+	/** Sighted mode: one finger drags the map live (Navia commits a pan only when the fingers lift). */
+	private boolean onSightedTouch(MotionEvent event) {
+		scaleDetector.onTouchEvent(event);
+		gestureDetector.onTouchEvent(event);
+		switch (event.getActionMasked()) {
+			case MotionEvent.ACTION_DOWN:
+				dragLastX = event.getX();
+				dragLastY = event.getY();
+				dragging = true;
+				break;
+			case MotionEvent.ACTION_POINTER_DOWN:
+				dragging = false; // pinching
+				break;
+			case MotionEvent.ACTION_MOVE:
+				if (dragging && event.getPointerCount() == 1 && !scaleDetector.isInProgress()) {
+					float dx = event.getX() - dragLastX, dy = event.getY() - dragLastY;
+					dragLastX = event.getX();
+					dragLastY = event.getY();
+					// screen down = map content moves down = centre moves north
+					Location c = new Location(centerLocation);
+					c.setLatitude(c.getLatitude() + Math.toDegrees(dy * metersPerPixel / Contract.EARTH_RADIUS));
+					c.setLongitude(c.getLongitude() - Math.toDegrees(dx * metersPerPixel / Contract.EARTH_RADIUS
+							/ Math.cos(Math.toRadians(c.getLatitude()))));
+					centerLocation = c;
+					centerLocationBuffer = c;
+					long now = android.os.SystemClock.uptimeMillis();
+					if (now - lastDragLoadMs > 250) {
+						lastDragLoadMs = now;
+						updateMapView();
+					}
+					invalidate();
+				}
+				break;
+			case MotionEvent.ACTION_UP:
+			case MotionEvent.ACTION_CANCEL:
+				if (dragging) updateMapView();
+				dragging = false;
+				pinchScale = 1f;
+				break;
+		}
+		return true;
+	}
+
 	public void setUserLocation(Location location) {
 		if (location == null) return;
 
 		this.userLocation = location;
 
-		if (isCenteredOnUser) {
+		if (isCenteredOnUser && !sightedMode) {
 			setCenterLocation(this.userLocation, true);
 		}
 	}
@@ -617,7 +755,7 @@ public class MapView extends View {
 		currentZoom = Math.min(currentZoom * 2, MAX_ZOOM);
 		updateScale();
 		invalidate();
-		updateListener.onMapMessage(String.format(
+		if (updateListener != null) updateListener.onMapMessage(String.format(
 				Locale.US,
 				"Zoomed in to %d meters",
 				(int) (metersPerPixel * getWidth())));
@@ -628,7 +766,7 @@ public class MapView extends View {
 		updateScale();
 		updateMapView();
 		invalidate();
-		updateListener.onMapMessage(String.format(
+		if (updateListener != null) updateListener.onMapMessage(String.format(
 				Locale.US,
 				"Zoomed out to %d meters",
 				(int) (metersPerPixel * getWidth())));
@@ -644,6 +782,9 @@ public class MapView extends View {
 		updateScale();
 		cacheValid = false;
 		renderedLayer = null; // sized for the old view
+		// Ambimap centres the map before the first layout, when the viewport size (and so the area
+		// to load) is still zero. Navia's map always gets a GPS-driven reload soon after anyway.
+		if (sightedMode && oldW == 0 && w > 0) updateMapView();
 	}
 
 	private void updateScale() {
@@ -704,12 +845,31 @@ public class MapView extends View {
 			drawNodeLabels(canvas, layer != null ? layer.nodePoints : cachedNodePoints);
 		}
 
+		if (sightedMode) {
+			drawPin(canvas);
+			return;
+		}
+
 		// User marker at the screen centre, pointing "up" (the map rotates around the user)
 		saved = canvas.save();
 		canvas.translate(getWidth() / 2f, getHeight() / 2f);
 		canvas.drawPath(userMarkerPath, userFillPaint);
 		canvas.drawPath(userMarkerPath, nodeBorderPaint);
 		canvas.restoreToCount(saved);
+	}
+
+	/** The listening pin, its tip on the pinned spot (the map never rotates in sighted mode). */
+	private void drawPin(Canvas canvas) {
+		if (pinLocation == null || pinDrawable == null) return;
+		double cosLat = Math.cos(Math.toRadians(centerLocation.getLatitude()));
+		float x = getWidth() / 2f + (float) (Math.toRadians(pinLocation.getLongitude() - centerLocation.getLongitude())
+				* cosLat * Contract.EARTH_RADIUS / metersPerPixel);
+		float y = getHeight() / 2f - (float) (Math.toRadians(pinLocation.getLatitude() - centerLocation.getLatitude())
+				* Contract.EARTH_RADIUS / metersPerPixel);
+		int w = (int) dp(44), h = (int) dp(54);
+		if (x < -w || y < -h || x > getWidth() + w || y > getHeight() + h) return;
+		pinDrawable.setBounds((int) (x - w / 2f), (int) (y - h), (int) (x + w / 2f), (int) y);
+		pinDrawable.draw(canvas);
 	}
 
 	/** (Re)renders the geometry bitmap when there is none for the current cache, or the view centre
@@ -979,6 +1139,7 @@ public class MapView extends View {
 			if (maxEast < -radiusM || minEast > radiusM || maxNorth < -radiusM || minNorth > radiusM) continue;
 			// only what touch exploration can find at this zoom is drawn (see isTouchable)
 			if (!tm.isTouchable(w.catId, w.type, false, currentZoom, w.name)) continue;
+			if (sightedMode && w.type != null && w.type.startsWith("barrier:")) continue;
 			int layer = layerForType(w.type);
 			if (!detail && (layer == LAYER_BUILDING || layer == LAYER_OTHER
 					|| layer == LAYER_PATH || layer == LAYER_SERVICE)) continue;
@@ -1032,6 +1193,10 @@ public class MapView extends View {
 			double east = (nd.lon - originLon) * mx, north = (nd.lat - originLat) * my;
 			if (Math.abs(east) > radiusM || Math.abs(north) > radiusM) continue;
 			if (!tm.isTouchable(nd.catId, nd.type, nd.favorite, currentZoom, nd.name)) continue;
+			if (sightedMode && (nd.catId == OSMDatabaseHelper.CATEGORY_ADDRESS
+					|| nd.catId == OSMDatabaseHelper.CATEGORY_BARRIER
+					|| nd.catId == OSMDatabaseHelper.CATEGORY_INTERSECTION
+					|| MINOR_NODE_TYPES.contains(nd.type))) continue;
 			if (!detail && (nd.catId == OSMDatabaseHelper.CATEGORY_ADDRESS
 					|| nd.catId == OSMDatabaseHelper.CATEGORY_INTERSECTION)) continue;
 			nodePoints.add(new NodePoint((float) (east / metersPerPixel), (float) (-north / metersPerPixel),
@@ -1085,6 +1250,7 @@ public class MapView extends View {
 
 	@Override
 	public boolean dispatchHoverEvent(MotionEvent event) {
+		if (sightedMode) return super.dispatchHoverEvent(event);
 		final int action = event.getAction();
 		switch (action) {
 			case MotionEvent.ACTION_HOVER_ENTER:
@@ -1124,6 +1290,7 @@ public class MapView extends View {
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		if (sightedMode) return onSightedTouch(event);
 		int action = event.getActionMasked();
 		int pointerCount = event.getPointerCount();
 		switch (action) {

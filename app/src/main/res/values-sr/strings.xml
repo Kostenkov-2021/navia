@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Подешавања</string>
     <string name="talkback_required_title">Потребан је TalkBack</string>
     <string name="talkback_required_message">Ова апликација је направљена за рад са TalkBack-ом, и TalkBack мора бити укључен да би апликација исправно радила. Након преузимања мапе за вашу област, додирните екран и померајте прст да бисте истражили улице и тачке око себе.</string>
@@ -89,6 +88,8 @@
     <string name="download_size_label_multi">Величина преузимања: %1$d фајлова, укупно %2$s</string>
     <string name="download_size_unknown">Величина преузимања: непозната</string>
     <string name="download_already_downloaded_prefix">Већ преузето.</string>
+    <string name="download_update_available">Доступна је новија верзија ове мапе.</string>
+    <string name="update_map_action">Ажурирај мапу</string>
     <string name="download_larger_map_checkbox">Већа мапа</string>
     <string name="download_larger_map_hint">Такође преузима суседне области (може бити неколико додатних фајлова).</string>
     <string name="download_looking_up">Тражење података мапе за ову област…</string>

@@ -198,6 +198,14 @@ public class MapTileManager {
 	 * around the new viewport into {@link #exploreCache}; the load itself no-ops if the area is
 	 * already cached.
 	 */
+	/** Runs (on the loader thread) after each explore-cache load. Navia's map is redrawn twice a
+	 * second by the compass anyway; Ambimap's never rotates, so it redraws on this instead. */
+	private volatile Runnable exploreLoadedListener;
+
+	public void setExploreLoadedListener(Runnable listener) {
+		exploreLoadedListener = listener;
+	}
+
 	public void requestLoadingMap(Location center, double width, double height) {
 		lastChangedMapViewCenter = center;
 		lastWidth = width;
@@ -251,7 +259,9 @@ public class MapTileManager {
 		}
 		double[] box = bboxAround(center, loadRadius);
 
-		if (isExplore) {
+		// The waiting/done sounds tell a blind user the map is loading; Ambimap's map is just drawn.
+		final boolean loadSounds = isExplore && !MyApplication.isAmbimap();
+		if (loadSounds) {
 			audioClient.stopSound(waitingStreamId);
 			waitingStreamId = audioClient.playSound(AudioClient.SOUND_WAIT, 0.1, -1, 1);
 		}
@@ -300,7 +310,9 @@ public class MapTileManager {
 			cache.nodesByCell = indexNodesByCell(nodes);
 			cache.waysByCell = indexWaysByCell(ways);
 			cache.bbox = box;
-			if (isExplore) {
+			Runnable loaded = exploreLoadedListener;
+			if (isExplore && loaded != null) loaded.run();
+			if (loadSounds) {
 				audioClient.stopSound(waitingStreamId);
 				audioClient.playSound(AudioClient.SOUND_BEEP, 0.2, 0, 1.5);
 			}
@@ -897,6 +909,20 @@ public class MapTileManager {
 		try (Cursor c = db.query("imported_boxes", new String[]{"box_index"},
 				"min_lat<=? AND max_lat>=? AND min_lon<=? AND max_lon>=?",
 				new String[]{String.valueOf(lat), String.valueOf(lat), String.valueOf(lon), String.valueOf(lon)},
+				null, null, null, "1")) {
+			return c.moveToFirst();
+		}
+	}
+
+	/** True if the downloaded box covering this location is older than {@code currentMapVersion}.
+	 * False when the area was never downloaded. */
+	public boolean isTileOutdated(Location location, int currentMapVersion) {
+		String lat = String.valueOf(location.getLatitude());
+		String lon = String.valueOf(location.getLongitude());
+		SQLiteDatabase db = OSMDatabaseHelper.getInstance(context).getReadableDatabase();
+		try (Cursor c = db.query("imported_boxes", new String[]{"box_index"},
+				"min_lat<=? AND max_lat>=? AND min_lon<=? AND max_lon>=? AND map_version<?",
+				new String[]{lat, lat, lon, lon, String.valueOf(currentMapVersion)},
 				null, null, null, "1")) {
 			return c.moveToFirst();
 		}

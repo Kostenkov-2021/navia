@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">સેટિંગ્સ</string>
     <string name="talkback_required_title">TalkBack જરૂરી છે</string>
     <string name="talkback_required_message">આ ઍપ TalkBack સાથે કામ કરવા માટે ડિઝાઇન કરવામાં આવી છે, અને ઍપ યોગ્ય રીતે કામ કરે તે માટે TalkBack ચાલુ હોવું જરૂરી છે. તમારા વિસ્તારનો નકશો ડાઉનલોડ કર્યા પછી, તમારી આસપાસના રસ્તાઓ અને સ્થળોને શોધવા માટે સ્ક્રીનને સ્પર્શ કરો અને તમારી આંગળી ફેરવો.</string>
@@ -92,6 +91,8 @@
     <string name="download_size_label_multi">ડાઉનલોડનું કદ: %1$d ફાઇલો, કુલ %2$s</string>
     <string name="download_size_unknown">ડાઉનલોડનું કદ: અજ્ઞાત</string>
     <string name="download_already_downloaded_prefix">પહેલેથી જ ડાઉનલોડ થયેલું છે.</string>
+    <string name="download_update_available">આ નકશાનું નવું સંસ્કરણ ઉપલબ્ધ છે.</string>
+    <string name="update_map_action">નકશો અપડેટ કરો</string>
     <string name="download_larger_map_checkbox">મોટો નકશો</string>
     <string name="download_larger_map_hint">પડોશના વિસ્તારો પણ ડાઉનલોડ કરે છે (કદાચ વધુ ફાઇલો હોઈ શકે).</string>
     <string name="download_looking_up">આ વિસ્તાર માટે નકશાનો ડેટા શોધવામાં આવી રહ્યો છે…</string>
