@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Explorar. Mantén y mueve el dedo para leer el mapa.</string>
     <string name="hint_double_tap_options">Levanta el dedo y toca dos veces para ver opciones.</string>
     <string name="whats_new_title">Novedades</string>
-    <string name="whats_new_message">Reconocimiento de lugares con IA: graba los lugares que visitas a menudo, como la puerta de tu casa. Cuando vuelvas, la cámara te dirá cuándo ve el lugar y hacia dónde girar. Ábrelo desde Más, Reconocimiento de lugares con IA.\n\nSimulación del sonido: toca dos veces un punto del mapa y elige Simular el sonido de aquí para oír cómo suena el lugar a tu alrededor. Usa auriculares.</string>
+    <string name="whats_new_message">Datos de mapa nuevos: los mapas se han reconstruido con datos más recientes. Cuando el mapa del lugar donde estás está desactualizado, aparece el botón Actualizar mapa en la pantalla del mapa. Tus puntos, favoritos y lugares renombrados se conservan.\n\nSimulación del sonido: sonidos más variados, incluidos aviones cerca de los aeropuertos.</string>
 </resources>

@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Felfedezés. Tartsa és mozgassa az ujját a térkép olvasásához.</string>
     <string name="hint_double_tap_options">Emelje fel az ujját, és koppintson duplán a lehetőségekért.</string>
     <string name="whats_new_title">Újdonságok</string>
-    <string name="whats_new_message">MI-alapú helyfelismerés: vegye fel videóra a gyakran látogatott helyeket, például a bejárati ajtaját. Amikor visszatér, a kamera megmondja, mikor látja a helyet, és merre forduljon. A Több, MI-alapú helyfelismerés menüben nyitható meg.\n\nHangszimuláció: koppintson duplán egy pontra a térképen, és válassza Az itteni hang szimulálása lehetőséget, hogy meghallja, milyen hangja van a környéknek. Használjon fejhallgatót.</string>
+    <string name="whats_new_message">Új térképadatok: a térképek újabb adatokból készültek el újra. Ha a tartózkodási helyed térképe elavult, a térképképernyőn megjelenik a(z) Térkép frissítése gomb. A saját pontjaid, kedvenceid és átnevezett helyeid megmaradnak.\n\nHangszimuláció: változatosabb hangok, köztük repülőgépek a repülőterek közelében.</string>
 </resources>

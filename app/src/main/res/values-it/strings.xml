@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Esplora. Tieni premuto e muovi il dito per leggere la mappa.</string>
     <string name="hint_double_tap_options">Solleva il dito e tocca due volte per le opzioni.</string>
     <string name="whats_new_title">Novità</string>
-    <string name="whats_new_message">Riconoscimento dei luoghi con IA: riprendi i luoghi che frequenti spesso, come la porta di casa. Quando torni, la fotocamera ti dice quando vede il luogo e da che parte girarti. Aprilo da Altro, Riconoscimento dei luoghi con IA.\n\nSimulazione del suono: tocca due volte un punto della mappa e scegli Simula il suono di qui per sentire come suona il luogo intorno a te. Usa le cuffie.</string>
+    <string name="whats_new_message">Nuovi dati delle mappe: le mappe sono state ricostruite con dati più recenti. Quando la mappa del luogo in cui ti trovi è obsoleta, nella schermata della mappa compare il pulsante Aggiorna mappa. I tuoi punti, i preferiti e i luoghi rinominati vengono conservati.\n\nSimulazione del suono: suoni più vari, tra cui aerei vicino agli aeroporti.</string>
 </resources>

@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">Preskúmať. Podržte a posúvajte prst na čítanie mapy.</string>
     <string name="hint_double_tap_options">Zdvihnite prst a dvakrát ťuknite pre možnosti.</string>
     <string name="whats_new_title">Čo je nové</string>
-    <string name="whats_new_message">Rozpoznávanie miest pomocou AI: natočte miesta, kam často chodíte, napríklad vchodové dvere. Keď sa vrátite, kamera vám povie, kedy miesto vidí a ktorým smerom sa otočiť. Otvoríte ho cez Viac, Rozpoznávanie miest pomocou AI.\n\nSimulácia zvuku: dvakrát ťuknite na bod na mape a vyberte Simulovať zvuk tu, aby ste počuli, ako znie okolie okolo vás. Použite slúchadlá.</string>
+    <string name="whats_new_message">Nové mapové údaje: mapy boli znovu vytvorené z novších údajov. Keď je mapa miesta, kde sa nachádzate, zastaraná, na obrazovke mapy sa zobrazí tlačidlo Aktualizovať mapu. Vaše vlastné body, obľúbené a premenované miesta zostanú zachované.\n\nSimulácia zvuku: rozmanitejšie zvuky vrátane lietadiel v blízkosti letísk.</string>
 </resources>

@@ -55,7 +55,7 @@
     <string name="content_description_explore_map">Explore</string>
     <!-- Shown once to users who update to the version that added these features -->
     <string name="whats_new_title">What\'s new</string>
-    <string name="whats_new_message">AI place recognition: film places you visit often, such as your front door. When you come back, the camera tells you when it sees the place and which way to turn. Open it from More, AI place recognition.\n\nSound simulation: double-tap a point on the map and choose Simulate the sound here to hear what the area sounds like around you. Use headphones.</string>
+    <string name="whats_new_message">New map data: the maps have been rebuilt from newer data. When the map where you are is out of date, the Update map button appears on the map screen. Your own points, favorites and renamed places are kept.\n\nSound simulation: more varied sounds, including aircraft near airports.</string>
     <!-- TalkBack label of the map until the user has read 20 points by touch -->
     <string name="content_description_explore_map_hint">Explore. Hold and move your finger to read the map.</string>
     <!-- Appended to each point read by touch until the point menu was opened 3 times -->

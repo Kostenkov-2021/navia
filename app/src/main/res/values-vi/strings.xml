@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Khám phá. Giữ và di chuyển ngón tay để đọc bản đồ.</string>
     <string name="hint_double_tap_options">Nhấc ngón tay và nhấn đúp để xem tùy chọn.</string>
     <string name="whats_new_title">Có gì mới</string>
-    <string name="whats_new_message">Nhận dạng địa điểm bằng AI: quay video những nơi bạn hay đến, như cửa nhà bạn. Khi bạn quay lại, camera sẽ báo khi nó thấy nơi đó và bạn nên quay về hướng nào. Mở từ Thêm, Nhận dạng địa điểm bằng AI.\n\nMô phỏng âm thanh: nhấn đúp vào một điểm trên bản đồ và chọn Mô phỏng âm thanh ở đây để nghe khu vực xung quanh bạn có âm thanh như thế nào. Hãy dùng tai nghe.</string>
+    <string name="whats_new_message">Dữ liệu bản đồ mới: các bản đồ đã được tạo lại từ dữ liệu mới hơn. Khi bản đồ nơi bạn đang ở đã cũ, nút Cập nhật bản đồ sẽ xuất hiện trên màn hình bản đồ. Các điểm của riêng bạn, mục yêu thích và địa điểm đã đổi tên vẫn được giữ lại.\n\nMô phỏng âm thanh: âm thanh đa dạng hơn, gồm cả máy bay gần sân bay.</string>
 </resources>

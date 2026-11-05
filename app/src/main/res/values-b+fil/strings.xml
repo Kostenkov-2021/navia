@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Tuklasin. Idiin at igalaw ang daliri para basahin ang mapa.</string>
     <string name="hint_double_tap_options">Iangat at i-double tap para sa mga opsyon.</string>
     <string name="whats_new_title">Ano\'ng bago</string>
-    <string name="whats_new_message">Pagkilala ng lugar gamit ang AI: i-film ang mga lugar na madalas mong puntahan, gaya ng pinto ng bahay mo. Pagbalik mo, sasabihin ng camera kapag nakita nito ang lugar at kung saan ka liliko. Buksan ito sa Higit pa, Pagkilala ng lugar gamit ang AI.\n\nSimulasyon ng tunog: i-double tap ang isang punto sa mapa at piliin ang I-simulate ang tunog dito para marinig ang tunog ng lugar sa paligid mo. Gumamit ng headphones.</string>
+    <string name="whats_new_message">Bagong datos ng mapa: muling binuo ang mga mapa mula sa mas bagong datos. Kapag luma na ang mapa ng kinaroroonan mo, lalabas ang button na I-update ang mapa sa screen ng mapa. Mananatili ang sarili mong mga punto, mga paborito, at mga lugar na pinalitan mo ng pangalan.\n\nSimulasyon ng tunog: mas iba-ibang tunog, kasama ang mga eroplano malapit sa mga paliparan.</string>
 </resources>

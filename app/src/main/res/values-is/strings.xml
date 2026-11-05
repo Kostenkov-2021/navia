@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Kanna. Haltu fingrinum niðri og hreyfðu hann til að lesa kortið.</string>
     <string name="hint_double_tap_options">Lyftu fingrinum og tvísmelltu fyrir valkosti.</string>
     <string name="whats_new_title">Hvað er nýtt</string>
-    <string name="whats_new_message">Staðgreining með gervigreind: taktu upp myndskeið af stöðum sem þú heimsækir oft, eins og útidyrunum þínum. Þegar þú kemur aftur segir myndavélin þér hvenær hún sér staðinn og í hvaða átt þú átt að snúa. Opnaðu hana undir Meira, Staðgreining með gervigreind.\n\nHljóðhermun: tvísmelltu á punkt á kortinu og veldu Herma eftir hljóðinu hér til að heyra hvernig umhverfið í kringum þig hljómar. Notaðu heyrnartól.</string>
+    <string name="whats_new_message">Ný kortagögn: kortin hafa verið endurbyggð úr nýrri gögnum. Þegar kortið af staðnum þar sem þú ert er úrelt birtist hnappurinn Uppfæra kort á kortaskjánum. Þínir eigin punktar, eftirlæti og endurnefndir staðir haldast.\n\nHljóðhermun: fjölbreyttari hljóð, þar á meðal flugvélar nálægt flugvöllum.</string>
 </resources>

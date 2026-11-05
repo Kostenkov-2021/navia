@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Eksploruj. Przytrzymaj i przesuwaj palec, aby czytać mapę.</string>
     <string name="hint_double_tap_options">Unieś palec i stuknij dwukrotnie, aby zobaczyć opcje.</string>
     <string name="whats_new_title">Co nowego</string>
-    <string name="whats_new_message">Rozpoznawanie miejsc z AI: nagraj miejsca, które często odwiedzasz, na przykład drzwi wejściowe. Gdy wrócisz, kamera powie, kiedy widzi to miejsce i w którą stronę się obrócić. Otwórz je z menu Więcej, Rozpoznawanie miejsc z AI.\n\nSymulacja dźwięku: dwukrotnie stuknij punkt na mapie i wybierz Symuluj dźwięk w tym miejscu, aby usłyszeć, jak brzmi okolica wokół ciebie. Użyj słuchawek.</string>
+    <string name="whats_new_message">Nowe dane map: mapy zostały zbudowane od nowa z nowszych danych. Gdy mapa miejsca, w którym jesteś, jest nieaktualna, na ekranie mapy pojawia się przycisk Zaktualizuj mapę. Twoje własne punkty, ulubione i miejsca o zmienionych nazwach zostają zachowane.\n\nSymulacja dźwięku: bardziej różnorodne dźwięki, w tym samoloty w pobliżu lotnisk.</string>
 </resources>

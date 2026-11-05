@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Keşfet. Haritayı okumak için parmağınızı basılı tutup kaydırın.</string>
     <string name="hint_double_tap_options">Seçenekler için parmağınızı kaldırıp iki kez dokunun.</string>
     <string name="whats_new_title">Yenilikler</string>
-    <string name="whats_new_message">Yapay zekâ ile yer tanıma: ön kapınız gibi sık gittiğiniz yerleri videoya çekin. Geri döndüğünüzde kamera, yeri ne zaman gördüğünü ve hangi yöne dönmeniz gerektiğini söyler. Diğer, Yapay zekâ ile yer tanıma bölümünden açın.\n\nSes canlandırma: haritada bir noktaya iki kez dokunun ve Buradaki sesi canlandır seçeneğini seçerek çevrenizdeki yerin nasıl duyulduğunu dinleyin. Kulaklık kullanın.</string>
+    <string name="whats_new_message">Yeni harita verileri: haritalar daha yeni verilerle yeniden oluşturuldu. Bulunduğunuz yerin haritası eskiyse harita ekranında Haritayı güncelle düğmesi görünür. Kendi noktalarınız, favorileriniz ve yeniden adlandırdığınız yerler korunur.\n\nSes canlandırma: havalimanlarının yakınındaki uçaklar dahil daha çeşitli sesler.</string>
 </resources>

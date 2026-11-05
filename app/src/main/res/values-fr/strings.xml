@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Explorer. Maintenez et déplacez le doigt pour lire la carte.</string>
     <string name="hint_double_tap_options">Levez le doigt et touchez deux fois pour les options.</string>
     <string name="whats_new_title">Nouveautés</string>
-    <string name="whats_new_message">Reconnaissance de lieux par IA : filmez les lieux où vous allez souvent, comme votre porte d\'entrée. À votre retour, la caméra vous dit quand elle voit le lieu et de quel côté tourner. Ouvrez-la depuis Plus, Reconnaissance de lieux par IA.\n\nSimulation du son : touchez deux fois un point de la carte et choisissez Simuler le son d\'ici pour entendre l\'ambiance sonore autour de vous. Utilisez un casque.</string>
+    <string name="whats_new_message">Nouvelles données cartographiques : les cartes ont été reconstruites à partir de données plus récentes. Lorsque la carte de l’endroit où vous êtes est obsolète, le bouton Mettre à jour la carte apparaît sur l’écran de la carte. Vos points, favoris et lieux renommés sont conservés.\n\nSimulation du son : des sons plus variés, dont les avions près des aéroports.</string>
 </resources>

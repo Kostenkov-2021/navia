@@ -565,5 +565,5 @@
     <string name="content_description_explore_map_hint">Verkennen. Houd je vinger op de kaart en beweeg hem om de kaart te lezen.</string>
     <string name="hint_double_tap_options">Til op en tik twee keer voor opties.</string>
     <string name="whats_new_title">Wat is er nieuw</string>
-    <string name="whats_new_message">AI-plaatsherkenning: film plaatsen waar je vaak komt, zoals je voordeur. Als je terugkomt, zegt de camera wanneer hij de plaats ziet en welke kant je op moet draaien. Open het via Meer, AI-plaatsherkenning.\n\nGeluidssimulatie: tik twee keer op een punt op de kaart en kies Simuleer het geluid hier om te horen hoe de omgeving om je heen klinkt. Gebruik een koptelefoon.</string>
+    <string name="whats_new_message">Nieuwe kaartgegevens: de kaarten zijn opnieuw opgebouwd uit nieuwere gegevens. Als de kaart van de plek waar je bent verouderd is, verschijnt op het kaartscherm de knop Kaart bijwerken. Je eigen punten, favorieten en hernoemde plaatsen blijven behouden.\n\nGeluidssimulatie: meer gevarieerde geluiden, waaronder vliegtuigen bij luchthavens.</string>
 </resources>

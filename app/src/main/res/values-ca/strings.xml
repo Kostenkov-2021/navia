@@ -565,5 +565,5 @@
     <string name="content_description_explore_map_hint">Explora. Mantén i mou el dit per llegir el mapa.</string>
     <string name="hint_double_tap_options">Aixeca el dit i fes doble toc per a opcions.</string>
     <string name="whats_new_title">Novetats</string>
-    <string name="whats_new_message">Reconeixement de llocs amb IA: filma els llocs que visites sovint, com la porta de casa. Quan hi tornis, la càmera et dirà quan veu el lloc i cap a on girar. Obre\'l des de Més, Reconeixement de llocs amb IA.\n\nSimulació del so: fes doble toc en un punt del mapa i tria Simula el so d\'aquí per sentir com sona el lloc al teu voltant. Fes servir auriculars.</string>
+    <string name="whats_new_message">Dades de mapa noves: els mapes s’han refet amb dades més recents. Quan el mapa del lloc on ets està desactualitzat, apareix el botó Actualitza el mapa a la pantalla del mapa. Els teus punts, preferits i llocs reanomenats es conserven.\n\nSimulació del so: sons més variats, inclosos avions a prop dels aeroports.</string>
 </resources>

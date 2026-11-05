@@ -565,5 +565,5 @@
     <string name="content_description_explore_map_hint">Tutki. Pidä ja liikuta sormea lukeaksesi karttaa.</string>
     <string name="hint_double_tap_options">Nosta sormi ja kaksoisnapauta nähdäksesi vaihtoehdot.</string>
     <string name="whats_new_title">Uutta</string>
-    <string name="whats_new_message">Tekoälypaikantunnistus: kuvaa paikkoja, joissa käyt usein, kuten kotiovesi. Kun palaat, kamera kertoo, milloin se näkee paikan ja mihin suuntaan kääntyä. Avaa se kohdasta Lisää, Tekoälypaikantunnistus.\n\nÄänisimulaatio: kaksoisnapauta kartan pistettä ja valitse Simuloi täällä kuuluva ääni kuullaksesi, miltä ympäristö ympärilläsi kuulostaa. Käytä kuulokkeita.</string>
+    <string name="whats_new_message">Uudet karttatiedot: kartat on rakennettu uudelleen uudemmista tiedoista. Kun sijaintisi kartta on vanhentunut, karttanäkymään ilmestyy painike Päivitä kartta. Omat pisteesi, suosikkisi ja uudelleen nimeämäsi paikat säilyvät.\n\nÄänisimulaatio: monipuolisempia ääniä, muun muassa lentokoneita lentoasemien lähellä.</string>
 </resources>

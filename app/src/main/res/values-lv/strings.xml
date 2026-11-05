@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">Izpētīt. Turiet un kustiniet pirkstu, lai lasītu karti.</string>
     <string name="hint_double_tap_options">Paceliet pirkstu un divreiz pieskarieties, lai skatītu opcijas.</string>
     <string name="whats_new_title">Jaunumi</string>
-    <string name="whats_new_message">Vietu atpazīšana ar MI: nofilmējiet vietas, kur bieži esat, piemēram, savas ārdurvis. Kad atgriezīsieties, kamera pateiks, kad redz vietu un uz kuru pusi pagriezties. Atveriet to no Vairāk, Vietu atpazīšana ar MI.\n\nSkaņas simulācija: divreiz pieskarieties kartes punktam un izvēlieties Simulēt šeit dzirdamo skaņu, lai dzirdētu, kā skan apkārtne ap jums. Izmantojiet austiņas.</string>
+    <string name="whats_new_message">Jauni kartes dati: kartes ir izveidotas no jauna, izmantojot jaunākus datus. Kad jūsu atrašanās vietas karte ir novecojusi, kartes ekrānā parādās poga Atjaunināt karti. Jūsu pašu punkti, izlase un pārdēvētās vietas tiek saglabātas.\n\nSkaņas simulācija: daudzveidīgākas skaņas, tostarp lidmašīnas lidostu tuvumā.</string>
 </resources>

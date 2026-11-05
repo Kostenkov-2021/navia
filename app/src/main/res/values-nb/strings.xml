@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">Utforsk. Hold og beveg fingeren for å lese kartet.</string>
     <string name="hint_double_tap_options">Løft og dobbelttrykk for valg.</string>
     <string name="whats_new_title">Nyheter</string>
-    <string name="whats_new_message">AI-stedsgjenkjenning: film steder du ofte besøker, som inngangsdøra di. Når du kommer tilbake, sier kameraet fra når det ser stedet og hvilken vei du skal snu deg. Åpne den fra Mer, AI-stedsgjenkjenning.\n\nLydsimulering: dobbelttrykk på et punkt på kartet og velg Simuler lyden her for å høre hvordan stedet rundt deg høres ut. Bruk hodetelefoner.</string>
+    <string name="whats_new_message">Nye kartdata: kartene er bygget på nytt fra nyere data. Når kartet over stedet der du er er utdatert, vises knappen Oppdater kart på kartskjermen. Dine egne punkter, favoritter og omdøpte steder beholdes.\n\nLydsimulering: mer varierte lyder, blant annet fly nær flyplasser.</string>
 </resources>

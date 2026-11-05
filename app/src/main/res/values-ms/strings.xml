@@ -566,5 +566,5 @@
     <string name="content_description_explore_map_hint">Terokai. Tahan dan gerakkan jari untuk membaca peta.</string>
     <string name="hint_double_tap_options">Angkat jari dan ketik dua kali untuk pilihan.</string>
     <string name="whats_new_title">Apa yang baharu</string>
-    <string name="whats_new_message">Pengecaman tempat dengan AI: rakam tempat yang kerap anda kunjungi, seperti pintu depan rumah. Apabila anda kembali, kamera memberitahu bila ia nampak tempat itu dan ke arah mana perlu berpusing. Buka dari Lagi, Pengecaman tempat dengan AI.\n\nSimulasi bunyi: ketik dua kali satu titik pada peta dan pilih Simulasikan bunyi di sini untuk mendengar bunyi kawasan di sekeliling anda. Gunakan fon kepala.</string>
+    <string name="whats_new_message">Data peta baharu: peta telah dibina semula daripada data yang lebih baharu. Apabila peta di lokasi anda sudah lapuk, butang Kemas kini peta muncul pada skrin peta. Titik anda sendiri, kegemaran dan tempat yang dinamakan semula dikekalkan.\n\nSimulasi bunyi: bunyi yang lebih pelbagai, termasuk pesawat berhampiran lapangan terbang.</string>
 </resources>

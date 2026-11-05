@@ -266,7 +266,7 @@ public class MapActivity extends BaseActivity
 	}
 
 	/** Raise when whats_new_message describes a new release's features, so updaters see it once more. */
-	private static final int WHATS_NEW_EDITION = 1;
+	private static final int WHATS_NEW_EDITION = 2;
 
 	/** Once per edition, for users updating from an older version (see showTalkBackRequiredNoticeIfFirstRun). */
 	private void showWhatsNewIfUpdated() {

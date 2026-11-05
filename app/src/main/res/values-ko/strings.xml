@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">탐색. 손가락을 댄 채 움직이면 지도를 읽어 줍니다.</string>
     <string name="hint_double_tap_options">손가락을 떼고 두 번 탭하면 옵션이 열립니다.</string>
     <string name="whats_new_title">새로운 기능</string>
-    <string name="whats_new_message">AI 장소 인식: 현관문처럼 자주 가는 장소를 촬영해 두세요. 다시 오면 카메라가 그 장소가 보일 때와 어느 쪽으로 돌아야 하는지 알려 줍니다. 더보기, AI 장소 인식에서 열 수 있습니다.\n\n소리 시뮬레이션: 지도에서 지점을 두 번 탭하고 이곳의 소리 시뮬레이션을 선택하면 주변이 어떤 소리로 들리는지 들을 수 있습니다. 헤드폰을 사용하세요.</string>
+    <string name="whats_new_message">새 지도 데이터: 더 새로운 데이터로 지도를 다시 만들었습니다. 현재 위치의 지도가 오래되면 지도 화면에 지도 업데이트 버튼이 나타납니다. 직접 추가한 지점, 즐겨찾기, 이름을 바꾼 장소는 그대로 유지됩니다.\n\n소리 시뮬레이션: 공항 근처의 항공기를 포함해 소리가 더 다양해졌습니다.</string>
 </resources>

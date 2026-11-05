@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">Tyrinėti. Laikykite ir judinkite pirštą, kad skaitytumėte žemėlapį.</string>
     <string name="hint_double_tap_options">Atitraukite pirštą ir bakstelėkite dukart, kad matytumėte parinktis.</string>
     <string name="whats_new_title">Kas naujo</string>
-    <string name="whats_new_message">Vietų atpažinimas su DI: nufilmuokite vietas, kuriose dažnai lankotės, pavyzdžiui, savo lauko duris. Kai sugrįšite, kamera pasakys, kada mato vietą ir į kurią pusę pasisukti. Atidarykite per Daugiau, Vietų atpažinimas su DI.\n\nGarso imitacija: dukart bakstelėkite žemėlapio tašką ir pasirinkite Imituoti čia esantį garsą, kad išgirstumėte, kaip skamba aplinka aplink jus. Naudokite ausines.</string>
+    <string name="whats_new_message">Nauji žemėlapių duomenys: žemėlapiai sukurti iš naujo pagal naujesnius duomenis. Kai vietos, kurioje esate, žemėlapis pasenęs, žemėlapio ekrane atsiranda mygtukas Atnaujinti žemėlapį. Jūsų pačių taškai, mėgstamiausi ir pervadintos vietos išlieka.\n\nGarso imitacija: įvairesni garsai, įskaitant lėktuvus netoli oro uostų.</string>
 </resources>

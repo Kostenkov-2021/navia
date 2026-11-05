@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">探索。按住并移动手指来朗读地图。</string>
     <string name="hint_double_tap_options">抬起手指并点按两次查看选项。</string>
     <string name="whats_new_title">新功能</string>
-    <string name="whats_new_message">AI 地点识别：拍摄你常去的地方，比如家门口。你回来时，相机会告诉你何时看到该地点，以及该往哪边转。从“更多”中的“AI 地点识别”打开。\n\n声音模拟：双击地图上的一个点，选择“模拟此处的声音”，即可听到你周围这个地方的声音。请使用耳机。</string>
+    <string name="whats_new_message">新地图数据：地图已用更新的数据重新生成。当你所在位置的地图过旧时，地图屏幕上会出现 更新地图 按钮。你自己的点、收藏和改过名称的地点都会保留。\n\n声音模拟：声音更加丰富，包括机场附近的飞机。</string>
 </resources>

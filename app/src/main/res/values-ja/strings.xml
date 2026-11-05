@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">探索。指を置いたまま動かすと地図を読み上げます。</string>
     <string name="hint_double_tap_options">指を離してダブルタップでオプション。</string>
     <string name="whats_new_title">新機能</string>
-    <string name="whats_new_message">AI場所認識：玄関など、よく行く場所を撮影しておくと、戻ってきたときにカメラがその場所を見つけたことと、どちらを向けばよいかを知らせます。「その他」の「AI場所認識」から開けます。\n\n音のシミュレーション：地図上の地点をダブルタップして「ここの音をシミュレート」を選ぶと、周りがどんな音に包まれているかを聞けます。ヘッドホンを使ってください。</string>
+    <string name="whats_new_message">新しい地図データ：地図を新しいデータで作り直しました。現在地の地図が古い場合は、地図画面に 地図を更新 ボタンが表示されます。自分で追加した地点、お気に入り、名前を変更した場所はそのまま残ります。\n\n音のシミュレーション：空港近くの航空機など、より多彩な音になりました。</string>
 </resources>

@@ -554,5 +554,5 @@
     <string name="content_description_explore_map_hint">Explorează. Ține și mișcă degetul pentru a citi harta.</string>
     <string name="hint_double_tap_options">Ridică degetul și atinge de două ori pentru opțiuni.</string>
     <string name="whats_new_title">Ce este nou</string>
-    <string name="whats_new_message">Recunoașterea locurilor cu IA: filmează locurile pe care le vizitezi des, cum ar fi ușa de la intrare. Când revii, camera îți spune când vede locul și încotro să te întorci. Deschide-o din Mai multe, Recunoașterea locurilor cu IA.\n\nSimularea sunetului: atinge de două ori un punct de pe hartă și alege Simulează sunetul de aici ca să auzi cum sună locul din jurul tău. Folosește căști.</string>
+    <string name="whats_new_message">Date noi pentru hărți: hărțile au fost refăcute din date mai recente. Când harta locului în care te afli este învechită, pe ecranul hărții apare butonul Actualizează harta. Punctele tale, favoritele și locurile redenumite se păstrează.\n\nSimularea sunetului: sunete mai variate, inclusiv avioane în apropierea aeroporturilor.</string>
 </resources>
