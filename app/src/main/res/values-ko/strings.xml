@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">설정</string>
     <string name="talkback_required_title">TalkBack 필요</string>
     <string name="talkback_required_message">이 앱은 TalkBack과 함께 작동하도록 설계되었으며, 앱이 올바르게 작동하려면 TalkBack이 켜져 있어야 합니다. 지역 지도를 다운로드한 후 화면에 손가락을 대고 움직여 주변 도로와 지점을 탐색하세요.</string>

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">సెట్టింగ్‌లు</string>
     <string name="talkback_required_title">టాక్‌బ్యాక్ అవసరం</string>
     <string name="talkback_required_message">ఈ యాప్ టాక్‌బ్యాక్‌తో పనిచేయడానికి రూపొందించబడింది, మరియు యాప్ సరిగ్గా పనిచేయడానికి టాక్‌బ్యాక్ ఆన్‌లో ఉండాలి. మీ ప్రాంతం కోసం మ్యాప్‌ను డౌన్‌లోడ్ చేసిన తర్వాత, మీ చుట్టుపక్కల వీధులు మరియు స్థలాలను అన్వేషించడానికి స్క్రీన్‌పై మీ వేలిని తాకి కదిలించండి.</string>

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Настройки</string>
     <string name="talkback_required_title">Изисква се TalkBack</string>
     <string name="talkback_required_message">Това приложение е създадено да работи с TalkBack и TalkBack трябва да бъде включен, за да работи приложението правилно. След като изтеглите картата за вашия район, докоснете и местете пръста си по екрана, за да разгледате улиците и точките около вас.</string>

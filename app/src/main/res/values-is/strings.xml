@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Stillingar</string>
     <string name="talkback_required_title">TalkBack er nauðsynlegt</string>
     <string name="talkback_required_message">Þetta forrit er hannað til að vinna með TalkBack og TalkBack verður að vera virkjað svo forritið virki rétt. Eftir að þú hefur sótt kortið fyrir svæðið þitt skaltu snerta skjáinn og hreyfa fingurinn til að kanna götur og staði í kringum þig.</string>

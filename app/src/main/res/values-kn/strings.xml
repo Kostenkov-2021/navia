@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="talkback_required_title">ಟಾಕ್‌ಬ್ಯಾಕ್ ಅಗತ್ಯವಿದೆ</string>
     <string name="talkback_required_message">ಈ ಆ್ಯಪ್ ಟಾಕ್‌ಬ್ಯಾಕ್‌ನೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುವಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ, ಮತ್ತು ಆ್ಯಪ್ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡಲು ಟಾಕ್‌ಬ್ಯಾಕ್ ಆನ್ ಆಗಿರಬೇಕು. ನಿಮ್ಮ ಪ್ರದೇಶದ ನಕ್ಷೆಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ನಂತರ, ನಿಮ್ಮ ಸುತ್ತಮುತ್ತಲಿನ ರಸ್ತೆಗಳು ಮತ್ತು ಸ್ಥಳಗಳನ್ನು ಅನ್ವೇಷಿಸಲು ಪರದೆಯ ಮೇಲೆ ನಿಮ್ಮ ಬೆರಳನ್ನು ಸ್ಪರ್ಶಿಸಿ ಚಲಿಸಿ.</string>

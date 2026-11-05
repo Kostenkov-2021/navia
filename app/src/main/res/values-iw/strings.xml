@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">הגדרות</string>
     <string name="talkback_required_title">נדרש TalkBack</string>
     <string name="talkback_required_message">אפליקציה זו מיועדת לעבוד עם TalkBack, ויש להפעיל את TalkBack כדי שהאפליקציה תפעל כראוי. לאחר הורדת המפה לאזור שלך, גע והזז את האצבע על המסך כדי לחקור את הרחובות והנקודות סביבך.</string>

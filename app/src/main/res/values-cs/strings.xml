@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Nastavení</string>
     <string name="talkback_required_title">Vyžaduje se TalkBack</string>
     <string name="talkback_required_message">Tato aplikace je navržena pro práci se službou TalkBack a aby fungovala správně, musí být TalkBack zapnutý. Po stažení mapy pro vaši oblast se dotkněte obrazovky a pohybujte po ní prstem, abyste prozkoumali okolní ulice a body.</string>

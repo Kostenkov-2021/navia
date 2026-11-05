@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Asetukset</string>
     <string name="talkback_required_title">TalkBack vaaditaan</string>
     <string name="talkback_required_message">Tämä sovellus on suunniteltu toimimaan TalkBackin kanssa, ja TalkBackin täytyy olla käytössä, jotta sovellus toimii oikein. Kun olet ladannut kartan alueellesi, kosketa näyttöä ja liikuta sormeasi tutkiaksesi ympärilläsi olevia katuja ja kohteita.</string>

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Cài đặt</string>
     <string name="talkback_required_title">Yêu cầu TalkBack</string>
     <string name="talkback_required_message">Ứng dụng này được thiết kế để hoạt động cùng TalkBack, và TalkBack phải được bật thì ứng dụng mới hoạt động đúng. Sau khi tải bản đồ khu vực của bạn, hãy chạm và di chuyển ngón tay trên màn hình để khám phá các con đường và địa điểm xung quanh bạn.</string>

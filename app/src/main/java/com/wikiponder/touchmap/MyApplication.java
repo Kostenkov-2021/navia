@@ -86,7 +86,8 @@ public class MyApplication extends Application {
 		ProcessLifecycleOwner.get().getLifecycle().addObserver(new DefaultLifecycleObserver() {
 			@Override
 			public void onStart(LifecycleOwner owner) {
-				audioClient.playWelcome();
+				// Navia's audio identity; Ambimap is a silent visual map until its sound is switched on.
+				if (!isAmbimap()) audioClient.playWelcome();
 			}
 		});
 		// Constructed before MapTileManager (which looks this up in its own constructor) and kicked
@@ -108,6 +109,11 @@ public class MyApplication extends Application {
 		
 	}
 	
+	/** True in the Ambimap flavor (sighted users, soundscape only — see app/build.gradle.kts). */
+	public static boolean isAmbimap() {
+		return "ambimap".equals(BuildConfig.FLAVOR);
+	}
+
 	public static AudioClient getAudioClient(Context context) {
 		return getMyApplication(context).audioClient;
 	}

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Innstillinger</string>
     <string name="talkback_required_title">TalkBack kreves</string>
     <string name="talkback_required_message">Denne appen er laget for å brukes med TalkBack, og TalkBack må være slått på for at appen skal fungere riktig. Etter at du har lastet ned kartet for området ditt, kan du berøre og bevege fingeren på skjermen for å utforske gatene og punktene rundt deg.</string>

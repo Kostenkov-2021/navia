@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Ayarlar</string>
     <string name="talkback_required_title">TalkBack gerekli</string>
     <string name="talkback_required_message">Bu uygulama TalkBack ile çalışacak şekilde tasarlanmıştır ve uygulamanın doğru çalışması için TalkBack\'in açık olması gerekir. Bölgenizin haritasını indirdikten sonra çevrenizdeki sokakları ve noktaları keşfetmek için ekrana dokunup parmağınızı gezdirin.</string>

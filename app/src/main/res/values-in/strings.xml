@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Pengaturan</string>
     <string name="talkback_required_title">TalkBack diperlukan</string>
     <string name="talkback_required_message">Aplikasi ini dirancang untuk bekerja dengan TalkBack, dan TalkBack harus diaktifkan agar aplikasi berfungsi dengan benar. Setelah mengunduh peta untuk area Anda, sentuh dan gerakkan jari di layar untuk menjelajahi jalan dan titik di sekitar Anda.</string>

@@ -70,6 +70,29 @@ android {
         }
     }
 
+    // Two apps from one codebase, sharing the map data, downloads, map drawing and the soundscape
+    // engine (classes/soundscape + src/main/cpp) in src/main:
+    //   navia   — the original touch-and-hear map for blind users (Play: com.wikiponder.touchmap).
+    //   ambimap — a plain visual map for sighted users whose only job is the 3D soundscape of a
+    //             pinned spot (src/ambimap). Not on Play yet, so its applicationId is still free to
+    //             change; it is permanent from the first upload on.
+    flavorDimensions += "app"
+    productFlavors {
+        create("navia") {
+            dimension = "app"
+        }
+        create("ambimap") {
+            dimension = "app"
+            applicationId = "com.wikiponder.ambimap"
+            versionCode = 1
+            versionName = "0.1"
+            // no Firebase app for this package yet (see googleServices below), so nothing to upload to
+            (this as ExtensionAware).extensions.configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+                mappingFileUploadEnabled = false
+            }
+        }
+    }
+
     signingConfigs {
         if (keystorePropertiesFile.exists()) {
             create("release") {
@@ -142,6 +165,15 @@ android {
     }
 }
 
+// google-services.json (git-ignored, app/) only has a client for Navia's package. Ambimap has no
+// Firebase app registered yet, so its google-services step is skipped: no FirebaseApp gets
+// initialized there, and CrashReporting stays a no-op (it checks for one).
+tasks.configureEach {
+    if (name.startsWith("process") && name.contains("Ambimap") && name.endsWith("GoogleServices")) {
+        enabled = false
+    }
+}
+
 dependencies {
     // Crash reporting (see classes/CrashReporting) — reports land in the Firebase console for the
     // touchmap-testlab project, automatically, without any action from the crashing user.
@@ -199,10 +231,11 @@ dependencies {
 
     // Visual place recognition (experimental, classes/vpr): MegaLoc place descriptors run with ONNX
     // Runtime (model exported by tools/vpr/export_megaloc.py), camera frames from CameraX.
-    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.30.0")
-    implementation("androidx.camera:camera-camera2:1.5.3")
-    implementation("androidx.camera:camera-lifecycle:1.5.3")
-    implementation("androidx.camera:camera-view:1.5.3")
+    // Navia only (src/navia): ONNX Runtime alone is several MB of native code per ABI.
+    "naviaImplementation"("com.microsoft.onnxruntime:onnxruntime-android:1.30.0")
+    "naviaImplementation"("androidx.camera:camera-camera2:1.5.3")
+    "naviaImplementation"("androidx.camera:camera-lifecycle:1.5.3")
+    "naviaImplementation"("androidx.camera:camera-view:1.5.3")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

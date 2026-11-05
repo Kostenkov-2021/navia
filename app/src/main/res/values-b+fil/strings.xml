@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Mga Setting</string>
     <string name="talkback_required_title">Kailangan ang TalkBack</string>
     <string name="talkback_required_message">Ang app na ito ay ginawa para gumana kasama ang TalkBack, at dapat naka-on ang TalkBack para gumana nang tama ang app. Pagkatapos i-download ang mapa ng lugar mo, hipuin at igalaw ang daliri mo sa screen para tuklasin ang mga kalye at punto sa paligid mo.</string>

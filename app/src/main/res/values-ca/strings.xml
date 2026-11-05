@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Configuració</string>
     <string name="talkback_required_title">Cal TalkBack</string>
     <string name="talkback_required_message">Aquesta aplicació està dissenyada per funcionar amb TalkBack, i cal que TalkBack estigui activat perquè l\'aplicació funcioni correctament. Després de baixar el mapa de la teva zona, toca i mou el dit per la pantalla per explorar els carrers i punts al teu voltant.</string>

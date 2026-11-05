@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">设置</string>
     <string name="talkback_required_title">需要 TalkBack</string>
     <string name="talkback_required_message">此应用程序设计为与 TalkBack 配合使用，必须开启 TalkBack 才能使应用正常运行。下载所在地区的地图后，用手指触摸并在屏幕上移动，即可探索周围的街道和地点。</string>

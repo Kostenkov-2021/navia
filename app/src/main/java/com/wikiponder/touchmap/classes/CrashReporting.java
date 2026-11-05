@@ -33,8 +33,18 @@ public final class CrashReporting {
 	/** SharedPreferences key of the Settings "Send crash reports" switch (opt-in, default off). */
 	public static final String PREF_KEY = "crash_reports";
 
+	/** Null when no FirebaseApp exists — Ambimap has no google-services.json yet (see
+	 * app/build.gradle.kts), and getInstance() would throw there. Every entry point goes through this. */
+	private static FirebaseCrashlytics crashlytics() {
+		return appContext == null || com.google.firebase.FirebaseApp.getApps(appContext).isEmpty() ? null : FirebaseCrashlytics.getInstance();
+	}
+
+	private static Context appContext;
+
 	public static void init(Context context) {
-		FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+		appContext = context.getApplicationContext();
+		FirebaseCrashlytics crashlytics = crashlytics();
+		if (crashlytics == null) return;
 		// Opt-in (GDPR/ePrivacy): the manifest turns automatic collection off
 		// (firebase_crashlytics_collection_enabled) and nothing is sent until the user switches it on.
 		crashlytics.setCrashlyticsCollectionEnabled(PreferenceManager
@@ -48,7 +58,8 @@ public final class CrashReporting {
 	/** Applies the Settings switch immediately. Turning it off also discards any report already
 	 * queued on the device, so nothing recorded before the opt-out is uploaded afterwards. */
 	public static void setCollectionEnabled(boolean enabled) {
-		FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+		FirebaseCrashlytics crashlytics = crashlytics();
+		if (crashlytics == null) return;
 		crashlytics.setCrashlyticsCollectionEnabled(enabled);
 		if (!enabled) {
 			crashlytics.deleteUnsentReports();
@@ -81,7 +92,8 @@ public final class CrashReporting {
 	 * without crashing the app outright. {@code context} is a short human label (e.g. "box import"),
 	 * not an Android Context. */
 	public static void reportNonFatal(String context, Throwable t) {
-		FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+		FirebaseCrashlytics crashlytics = crashlytics();
+		if (crashlytics == null) return;
 		crashlytics.log(context);
 		crashlytics.recordException(t);
 	}

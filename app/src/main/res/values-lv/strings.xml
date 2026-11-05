@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Iestatījumi</string>
     <string name="talkback_required_title">Nepieciešams TalkBack</string>
     <string name="talkback_required_message">Šī lietotne ir paredzēta darbam kopā ar TalkBack, un, lai lietotne darbotos pareizi, TalkBack ir jābūt ieslēgtam. Pēc jūsu apkārtnes kartes lejupielādes pieskarieties ekrānam un virziet pirkstu pa to, lai izpētītu apkārtējās ielas un punktus.</string>

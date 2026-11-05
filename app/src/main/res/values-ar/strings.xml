@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">الإعدادات</string>
     <string name="talkback_required_title">تفعيل TalkBack مطلوب</string>
     <string name="talkback_required_message">تم تصميم هذا التطبيق للعمل مع TalkBack، ويجب تفعيل TalkBack ليعمل التطبيق بشكل صحيح. بعد تنزيل الخريطة لمنطقتك، المس الشاشة وحرّك إصبعك عليها لاستكشاف الشوارع والنقاط من حولك.</string>

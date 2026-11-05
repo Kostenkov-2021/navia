@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Navia</string>
     <string name="action_settings">Beállítások</string>
     <string name="talkback_required_title">TalkBack szükséges</string>
     <string name="talkback_required_message">Ez az alkalmazás a TalkBackkel való használatra készült, és a megfelelő működéshez be kell kapcsolni a TalkBacket. Miután letöltötted a térképet a saját területedre, érintsd meg és mozgasd az ujjadat a képernyőn, hogy felfedezd a környéken lévő utcákat és pontokat.</string>
