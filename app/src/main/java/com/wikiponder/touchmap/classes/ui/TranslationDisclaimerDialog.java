@@ -15,12 +15,6 @@ import com.wikiponder.touchmap.R;
  * One-time notice shown the first time the app's displayed UI language becomes non-English,
  * warning that the translation was AI-generated and may not be fully accurate.
  *
- * <p>Deliberately NOT built from string resources — every string in
- * {@code dialog_translation_disclaimer.xml} and below is a hardcoded English literal, on purpose:
- * this dialog exists to warn about the very translation pipeline that would otherwise localize
- * its own text too, so it must always read in English regardless of the currently-active app
- * locale.
- *
  * <p>Two-step show: {@link #markPendingIfNeeded} is called right after the language preference
  * changes, but AppCompatDelegate.setApplicationLocales() (see MyApplication.applyUiLocale)
  * recreates the hosting Activity almost immediately afterward, which would tear down a dialog
@@ -55,7 +49,7 @@ public final class TranslationDisclaimerDialog {
 
 		new AlertDialog.Builder(context)
 				.setView(view)
-				.setPositiveButton("OK", (dialog, which) -> {
+				.setPositiveButton(R.string.translation_disclaimer_ok, (dialog, which) -> {
 					if (dontShowAgain.isChecked()) {
 						PreferenceManager.getDefaultSharedPreferences(context)
 								.edit()

@@ -4,7 +4,7 @@
     <!-- Sound effects volume -->
     <ListPreference
         android:key="pref_sound_effects_volume"
-        android:title="Sound Effects Volume"
+        android:title="@string/sound_effects_volume_title"
         app:useSimpleSummaryProvider="true"
         android:entries="@array/pref_sound_volume_entries"
         android:entryValues="@array/pref_sound_volume_values"
@@ -13,7 +13,7 @@
     <!-- Vibration intensity -->
     <ListPreference
         android:key="pref_vibration_intensity"
-        android:title="Vibration Intensity"
+        android:title="@string/vibration_intensity_title"
         app:useSimpleSummaryProvider="true"
         android:entries="@array/pref_vibration_entries"
         android:entryValues="@array/pref_vibration_values"

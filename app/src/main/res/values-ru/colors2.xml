@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="red">Красный</string>
+    <string name="light_red">Светло-красный</string>
+    <string name="dark_red">Тёмно-красный</string>
+    <string name="light_orange">Светло-оранжевый</string>
+    <string name="dark_orange">Тёмно-оранжевый</string>
+    <string name="orange">Оранжевый</string>
+    <string name="light_yellow">Светло-жёлтый</string>
+    <string name="dark_yellow">Тёмно-жёлтый</string>
+    <string name="yellow">Жёлтый</string>
+    <string name="light_green">Светло-зелёный</string>
+    <string name="dark_green">Тёмно-зелёный</string>
+    <string name="green">Зелёный</string>
+    <string name="light_cyan">Светло-бирюзовый</string>
+    <string name="dark_cyan">Тёмно-бирюзовый</string>
+    <string name="cyan">Бирюзовый</string>
+    <string name="light_blue">Светло-синий</string>
+    <string name="dark_blue">Тёмно-синий</string>
+    <string name="blue">Синий</string>
+    <string name="light_purple">Светло-фиолетовый</string>
+    <string name="dark_purple">Тёмно-фиолетовый</string>
+    <string name="purple">Фиолетовый</string>
+    <string name="light_pink">Светло-розовый</string>
+    <string name="dark_pink">Тёмно-розовый</string>
+    <string name="pink">Розовый</string>
+    <string name="light_brown">Светло-коричневый</string>
+    <string name="dark_brown">Тёмно-коричневый</string>
+    <string name="brown">Коричневый</string>
+    <string name="light_gray">Светло-серый</string>
+    <string name="dark_gray">Тёмно-серый</string>
+    <string name="gray">Серый</string>
+    <string name="black">Чёрный</string>
+    <string name="white">Белый</string>
+    <string name="magenta">Пурпурный</string>
+    <string name="grayish_blue">Серовато-синий</string>
+    <string name="grayish_green">Серовато-зелёный</string>
+    <string name="grayish_purple">Серовато-фиолетовый</string>
+    <string name="unknown_color">Неизвестный цвет</string>
+</resources>

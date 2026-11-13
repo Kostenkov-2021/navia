@@ -83,17 +83,21 @@ public class MapElement {
 			return Utils.formatAddress(name, sharedPreferences.getString("address_format", "auto"));
 		}
 		else if(catId == OSMDatabaseHelper.CATEGORY_INTERSECTION) {
-			return type + ": " + name;
+			return getTypeLabel(context) + ": " + name;
 		}
 		else if (OSMDatabaseHelper.isWorldPlaceCategory(catId) && !name.isBlank()) {
 			// A world-places gazetteer stand-in (no imported map here yet): say the kind too, since
 			// the name alone ("Paris") is ambiguous as a substitute for real, detailed map data.
-			return name + ", " + type;
+			return name + ", " + getTypeLabel(context);
 		}
 		else if (!name.isBlank())
 			return name;
 		else
-			return TypeLabels.label(context, catId, type);
+			return getTypeLabel(context);
+	}
+
+	public String getTypeLabel(Context context) {
+		return TypeLabels.label(context, catId, type);
 	}
 	
 	@Override

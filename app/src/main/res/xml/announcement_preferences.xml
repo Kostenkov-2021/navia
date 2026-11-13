@@ -1,43 +1,43 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        app:title="Directional and Proximity Announcements"
+        app:title="@string/announcement_direction_proximity_header"
         app:iconSpaceReserved="false">
 
         <!-- 1. Announce element in pointing direction -->
         <SwitchPreferenceCompat
             app:key="announcement_poi_direction"
-            app:title="Announce element in pointing direction"
-            app:summaryOn="Hold phone horizontally and point to announce the nearest map element"
-            app:summaryOff="Directional announcements are disabled"
+            app:title="@string/announcement_direction_title"
+            app:summaryOn="@string/announcement_direction_on"
+            app:summaryOff="@string/announcement_direction_off"
             app:defaultValue="true" />
 
         <!-- 2. Include ways (roads/paths) in the announcement -->
         <SwitchPreferenceCompat
             app:key="announcement_include_ways"
-            app:title="Include ways (roads, paths)"
-            app:summaryOn="Roads and paths in the pointing direction will also be announced"
-            app:summaryOff="Only points of interest will be announced, not roads or paths"
+            app:title="@string/announcement_include_ways_title"
+            app:summaryOn="@string/announcement_include_ways_on"
+            app:summaryOff="@string/announcement_include_ways_off"
             app:dependency="announcement_poi_direction"
             app:defaultValue="false" />
 
         <!-- 3. Announce nearest points based on location and movement -->
         <SwitchPreferenceCompat
             app:key="announcement_proximity_movement"
-            app:title="Proximity and movement announcements"
-            app:summaryOn="Announces the nearest point to your location and in your direction of travel"
-            app:summaryOff="Proximity and movement-based announcements are disabled"
+            app:title="@string/announcement_movement_title"
+            app:summaryOn="@string/announcement_movement_on"
+            app:summaryOff="@string/announcement_movement_off"
             app:defaultValue="true" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="Address &amp; Location Announcements"
+        app:title="@string/announcement_address_location_header"
         app:iconSpaceReserved="false">
 
         <ListPreference
             app:key="address_format"
-            app:title="Address announcement format"
+            app:title="@string/announcement_address_format_title"
             app:entries="@array/address_format_entries"
             app:entryValues="@array/address_format_values"
             app:defaultValue="auto"
