@@ -15,7 +15,6 @@ import com.wikiponder.touchmap.classes.models.NearestElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.NodeViewHolder> {
 	
@@ -90,8 +89,8 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.NodeViewHolder
 			
 			// Set the name, type, and formatted distance
 			nameTextView.setText(element.getFormattedName(context, false));
-			categoryTextView.setText(element.type);
-			String distanceText = String.format(Locale.getDefault(), "%.0fm away", nearestElement.distance);
+			categoryTextView.setText(element.getTypeLabel(context));
+			String distanceText = context.getString(R.string.node_distance_meters, nearestElement.distance);
 			distanceTextView.setText(distanceText);
 			
 			// Set the click listener on the entire item view

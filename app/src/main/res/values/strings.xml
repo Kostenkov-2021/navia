@@ -76,6 +76,7 @@
     <string name="tooltip_node_name">Central Park</string>
     <string name="tooltip_node_category">Leisure</string>
     <string name="tooltip_node_distance">150m away</string>
+    <string name="node_distance_meters">%1$.0fm away</string>
 
     <string name="announce_location_meters">%1$s, %2$.0f meters away</string>
     <string name="announce_location_kilometers">%1$s, %2$.1f kilometers away</string>
@@ -606,4 +607,30 @@
     <string name="credits_stable_audio_heading" translatable="false">Stable Audio Open</string>
     <string name="credits_openal_body">The 3D sound of the sound simulation is rendered by OpenAL Soft, by Chris Robinson and contributors, under the GNU LGPL version 2.1, used unmodified as a separate library. Its source code is at github.com/kcat/openal-soft (release 1.24.3), and the license text at gnu.org/licenses/old-licenses/lgpl-2.1.html.</string>
     <string name="credits_stable_audio_body">The ambient recordings of the sound simulation were generated with Stable Audio Open 1.0 by Stability AI, under the Stability AI Community License. Powered by Stability AI.</string>
+    <string name="announcement_direction_proximity_header">Directional and Proximity Announcements</string>
+    <string name="announcement_direction_title">Announce element in pointing direction</string>
+    <string name="announcement_direction_on">Hold phone horizontally and point to announce the nearest map element</string>
+    <string name="announcement_direction_off">Directional announcements are disabled</string>
+    <string name="announcement_include_ways_title">Include ways (roads, paths)</string>
+    <string name="announcement_include_ways_on">Roads and paths in the pointing direction will also be announced</string>
+    <string name="announcement_include_ways_off">Only points of interest will be announced, not roads or paths</string>
+    <string name="announcement_movement_title">Proximity and movement announcements</string>
+    <string name="announcement_movement_on">Announces the nearest point to your location and in your direction of travel</string>
+    <string name="announcement_movement_off">Proximity and movement-based announcements are disabled</string>
+    <string name="announcement_address_location_header">Address &amp; Location Announcements</string>
+    <string name="announcement_address_format_title">Address announcement format</string>
+    <string name="sound_effects_volume_title">Sound Effects Volume</string>
+    <string name="vibration_intensity_title">Vibration Intensity</string>
+    <string name="translation_disclaimer_message">This translation was generated using AI and may not be fully accurate.</string>
+    <string name="translation_disclaimer_hide">Don\'t show this again</string>
+    <string name="translation_disclaimer_ok">OK</string>
+    <string name="tl_address">address</string>
+    <string name="tl_intersection">intersection</string>
+    <string name="tl_city">city</string>
+    <string name="tl_town">town</string>
+    <string name="tl_village">village</string>
+    <string name="tl_district">district</string>
+    <string name="tl_landmark">landmark</string>
+    <string name="tl_airport">airport</string>
+    <string name="tl_place">place</string>
 </resources>

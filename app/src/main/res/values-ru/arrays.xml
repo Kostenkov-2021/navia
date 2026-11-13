@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="address_format_entries">
+        <item>Автоматически (по региону)</item>
+        <item>Номер дома, название улицы (например, 12 Лесная улица)</item>
+        <item>Название улицы, номер дома (например, Лесная улица 12)</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Очень медленно</item>
+        <item>Медленно</item>
+        <item>Обычная скорость</item>
+        <item>Быстро</item>
+        <item>Очень быстро</item>
+    </string-array>
+    <string-array name="pref_sound_volume_entries">
+        <item>Выключены</item>
+        <item>25% от громкости речи</item>
+        <item>50% от громкости речи</item>
+        <item>75% от громкости речи</item>
+        <item>100% от громкости речи</item>
+    </string-array>
+    <string-array name="pref_vibration_entries">
+        <item>Выключена</item>
+        <item>Очень слабая</item>
+        <item>Слабая</item>
+        <item>Средняя</item>
+        <item>Сильная</item>
+        <item>Очень сильная</item>
+    </string-array>
+</resources>

@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This translation was generated using AI and may not be fully accurate."
+        android:text="@string/translation_disclaimer_message"
         android:textSize="16sp" />
 
     <CheckBox
@@ -24,6 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Don't show this again" />
+        android:text="@string/translation_disclaimer_hide" />
 
 </LinearLayout>

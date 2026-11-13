@@ -64,6 +64,7 @@
     <string name="tooltip_node_name">Центральный парк</string>
     <string name="tooltip_node_category">Досуг</string>
     <string name="tooltip_node_distance">в 150 м</string>
+    <string name="node_distance_meters">в %1$.0f м</string>
 
     <string name="announce_location_meters">%1$s, в %2$.0f метрах</string>
     <string name="announce_location_kilometers">%1$s, в %2$.1f километрах</string>
@@ -555,4 +556,30 @@
     <string name="hint_double_tap_options">Поднимите палец и коснитесь дважды для вариантов.</string>
     <string name="whats_new_title">Что нового</string>
     <string name="whats_new_message">Новые картографические данные: карты заново построены из более свежих данных. Когда карта места, где вы находитесь, устарела, на экране карты появляется кнопка Обновить карту. Ваши собственные точки, избранное и переименованные места сохраняются.\n\nМоделирование звука: более разнообразные звуки, в том числе самолёты рядом с аэропортами.</string>
+    <string name="announcement_direction_proximity_header">Оповещения об объектах поблизости и по направлению</string>
+    <string name="announcement_direction_title">Озвучивать объект в направлении телефона</string>
+    <string name="announcement_direction_on">Держите телефон горизонтально и направьте его в нужную сторону, чтобы услышать название ближайшего объекта на карте</string>
+    <string name="announcement_direction_off">Озвучивание объектов в направлении телефона отключено</string>
+    <string name="announcement_include_ways_title">Озвучивать дороги и тропы</string>
+    <string name="announcement_include_ways_on">Дороги и тропы в направлении телефона тоже озвучиваются</string>
+    <string name="announcement_include_ways_off">Озвучиваются только точки интереса</string>
+    <string name="announcement_movement_title">Оповещения о ближайших точках и движении</string>
+    <string name="announcement_movement_on">Озвучивает ближайшую точку по направлению движения</string>
+    <string name="announcement_movement_off">Оповещения о ближайших точках и движении отключены</string>
+    <string name="announcement_address_location_header">Оповещения об адресе и местоположении</string>
+    <string name="announcement_address_format_title">Формат озвучивания адреса</string>
+    <string name="sound_effects_volume_title">Громкость звуковых эффектов</string>
+    <string name="vibration_intensity_title">Интенсивность вибрации</string>
+    <string name="translation_disclaimer_message">Перевод выполнен с помощью ИИ и может содержать неточности.</string>
+    <string name="translation_disclaimer_hide">Больше не показывать</string>
+    <string name="translation_disclaimer_ok">ОК</string>
+    <string name="tl_address">адрес</string>
+    <string name="tl_intersection">перекрёсток</string>
+    <string name="tl_city">город</string>
+    <string name="tl_town">небольшой город</string>
+    <string name="tl_village">деревня</string>
+    <string name="tl_district">район</string>
+    <string name="tl_landmark">достопримечательность</string>
+    <string name="tl_airport">аэропорт</string>
+    <string name="tl_place">место</string>
 </resources>
