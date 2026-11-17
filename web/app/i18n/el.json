@@ -148,5 +148,11 @@
 "walk_ask_title": "Ανακοίνωση τοποθεσιών κατά το περπάτημα;",
 "walk_ask_msg": "Το Navia μπορεί να σας λέει τα μέρη από τα οποία περνάτε καθώς περπατάτε, όσο αυτή η σελίδα μένει ανοιχτή. Όταν δεν κινείστε, μένει σιωπηλό. Μπορείτε να το αλλάξετε αργότερα στις Ρυθμίσεις.",
 "yes": "Ναι",
-"no": "Όχι"
+"no": "Όχι",
+"credits": "Ευχαριστίες",
+"credits_intro": "Το Navia Web βασίζεται στα παρακάτω ανοιχτά δεδομένα και έργα.",
+"credits_osm": "Δεδομένα χάρτη © συντελεστές του OpenStreetMap, διαθέσιμα με την άδεια Open Database License (ODbL).",
+"credits_geonames": "Η αναζήτηση τοποθεσιών χρησιμοποιεί τη γεωγραφική βάση δεδομένων GeoNames, με άδεια Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Τα δεδομένα του χάρτη δημιουργούνται από περιφερειακά αποσπάσματα του OpenStreetMap από τη Geofabrik.",
+"credits_stable_audio": "Οι ήχοι της ηχητικής προσομοίωσης δημιουργήθηκαν με το Stable Audio Open 1.0 της Stability AI, με την άδεια Stability AI Community License. Powered by Stability AI."
 }

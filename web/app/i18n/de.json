@@ -148,5 +148,11 @@
 "walk_ask_title": "Orte beim Gehen ansagen?",
 "walk_ask_msg": "Navia kann dir beim Gehen die Orte ansagen, an denen du vorbeikommst, solange diese Seite geöffnet bleibt. Wenn du dich nicht bewegst, bleibt Navia still. Du kannst das später in den Einstellungen ändern.",
 "yes": "Ja",
-"no": "Nein"
+"no": "Nein",
+"credits": "Credits",
+"credits_intro": "Navia Web baut auf den folgenden offenen Daten und Projekten auf.",
+"credits_osm": "Kartendaten © OpenStreetMap-Mitwirkende, verfügbar unter der Open Database License (ODbL).",
+"credits_geonames": "Die Ortssuche nutzt die geografische Datenbank GeoNames, lizenziert unter Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Für die Kartendaten werden regionale OpenStreetMap-Auszüge von Geofabrik verwendet.",
+"credits_stable_audio": "Die Klänge der Geräuschsimulation wurden mit Stable Audio Open 1.0 von Stability AI erzeugt, unter der Stability AI Community License. Powered by Stability AI."
 }

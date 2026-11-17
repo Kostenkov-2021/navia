@@ -148,5 +148,11 @@
 "walk_ask_title": "Annoncer les lieux pendant la marche ?",
 "walk_ask_msg": "Navia peut vous annoncer les lieux devant lesquels vous passez pendant que vous marchez, tant que cette page reste ouverte. Elle reste silencieuse quand vous ne bougez pas. Vous pourrez changer cela plus tard dans les Réglages.",
 "yes": "Oui",
-"no": "Non"
+"no": "Non",
+"credits": "Crédits",
+"credits_intro": "Navia Web repose sur les données et projets ouverts suivants.",
+"credits_osm": "Données cartographiques © contributeurs d'OpenStreetMap, disponibles sous licence Open Database License (ODbL).",
+"credits_geonames": "La recherche de lieux utilise la base de données géographique GeoNames, sous licence Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Les données cartographiques sont construites à partir d'extraits régionaux d'OpenStreetMap fournis par Geofabrik.",
+"credits_stable_audio": "Les sons de la simulation sonore ont été générés avec Stable Audio Open 1.0 de Stability AI, sous la Stability AI Community License. Powered by Stability AI."
 }

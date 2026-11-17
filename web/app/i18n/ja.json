@@ -148,5 +148,11 @@
 "walk_ask_title": "歩きながら場所を読み上げますか？",
 "walk_ask_msg": "このページを開いている間、Navia は歩いているときに通り過ぎる場所をお知らせします。動いていないときは静かにしています。後から設定で変更できます。",
 "yes": "はい",
-"no": "いいえ"
+"no": "いいえ",
+"credits": "クレジット",
+"credits_intro": "Navia Web は以下のオープンデータとプロジェクトを基に作られています。",
+"credits_osm": "地図データ © OpenStreetMap 貢献者、Open Database License（ODbL）のもとで提供。",
+"credits_geonames": "場所の検索には GeoNames 地理データベース（Creative Commons Attribution 4.0 ライセンス）を使用しています。",
+"credits_geofabrik": "地図データは Geofabrik による OpenStreetMap の地域別データから作成しています。",
+"credits_stable_audio": "サウンドシミュレーションの音は、Stability AI の Stable Audio Open 1.0 で Stability AI Community License のもとに生成されました。 Powered by Stability AI."
 }

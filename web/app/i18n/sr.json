@@ -148,5 +148,11 @@
 "walk_ask_title": "Најављивати места док ходате?",
 "walk_ask_msg": "Navia може да вам најављује места поред којих пролазите док ходате, све док је ова страница отворена. Када се не крећете, ћути. Ово можете касније променити у подешавањима.",
 "yes": "Да",
-"no": "Не"
+"no": "Не",
+"credits": "Заслуге",
+"credits_intro": "Navia Web је изграђена на следећим отвореним подацима и пројектима.",
+"credits_osm": "Подаци мапе © сарадници OpenStreetMap-а, доступни под лиценцом Open Database License (ODbL).",
+"credits_geonames": "Претрага места користи географску базу података GeoNames, под лиценцом Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Подаци мапе се праве од регионалних OpenStreetMap извода које обезбеђује Geofabrik.",
+"credits_stable_audio": "Звукови звучне симулације направљени су помоћу Stable Audio Open 1.0 компаније Stability AI, под лиценцом Stability AI Community License. Powered by Stability AI."
 }

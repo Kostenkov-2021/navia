@@ -148,5 +148,11 @@
 "walk_ask_title": "Kutangaza maeneo unapotembea?",
 "walk_ask_msg": "Navia inaweza kukuambia maeneo unayopita unapotembea, maadamu ukurasa huu uko wazi. Hukaa kimya usipokuwa unasonga. Unaweza kubadilisha hili baadaye katika Mipangilio.",
 "yes": "Ndiyo",
-"no": "Hapana"
+"no": "Hapana",
+"credits": "Shukrani",
+"credits_intro": "Navia Web imejengwa juu ya data na miradi huria ifuatayo.",
+"credits_osm": "Data ya ramani © wachangiaji wa OpenStreetMap, inapatikana chini ya leseni ya Open Database License (ODbL).",
+"credits_geonames": "Utafutaji wa maeneo hutumia hifadhidata ya kijiografia ya GeoNames, chini ya leseni ya Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Data ya ramani hutengenezwa kutokana na sehemu za kikanda za OpenStreetMap kutoka Geofabrik.",
+"credits_stable_audio": "Sauti za uigaji wa sauti zilitengenezwa kwa Stable Audio Open 1.0 ya Stability AI, chini ya leseni ya Stability AI Community License. Powered by Stability AI."
 }

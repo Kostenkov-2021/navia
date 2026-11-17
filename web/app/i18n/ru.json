@@ -148,5 +148,11 @@
 "walk_ask_title": "Объявлять места во время ходьбы?",
 "walk_ask_msg": "Navia может сообщать о местах, мимо которых вы проходите, пока эта страница открыта. Когда вы не двигаетесь, она молчит. Это можно изменить позже в настройках.",
 "yes": "Да",
-"no": "Нет"
+"no": "Нет",
+"credits": "Благодарности",
+"credits_intro": "Navia Web построена на следующих открытых данных и проектах.",
+"credits_osm": "Картографические данные © участники OpenStreetMap, доступны по лицензии Open Database License (ODbL).",
+"credits_geonames": "Поиск мест использует географическую базу данных GeoNames по лицензии Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Картографические данные строятся из региональных выгрузок OpenStreetMap от Geofabrik.",
+"credits_stable_audio": "Звуки звуковой симуляции созданы с помощью Stable Audio Open 1.0 от Stability AI по лицензии Stability AI Community License. Powered by Stability AI."
 }

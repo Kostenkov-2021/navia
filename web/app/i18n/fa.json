@@ -148,5 +148,11 @@
 "walk_ask_title": "مکان‌ها هنگام راه رفتن اعلام شوند؟",
 "walk_ask_msg": "ناویا می‌تواند هنگام راه رفتن، مکان‌هایی را که از کنارشان می‌گذرید اعلام کند، تا وقتی این صفحه باز است. وقتی حرکت نمی‌کنید ساکت می‌ماند. بعداً می‌توانید این را در تنظیمات تغییر دهید.",
 "yes": "بله",
-"no": "نه"
+"no": "نه",
+"credits": "منابع و قدردانی",
+"credits_intro": "Navia Web بر پایهٔ داده‌ها و پروژه‌های باز زیر ساخته شده است.",
+"credits_osm": "داده‌های نقشه © مشارکت‌کنندگان OpenStreetMap، تحت مجوز Open Database License (ODbL).",
+"credits_geonames": "جستجوی مکان‌ها از پایگاه دادهٔ جغرافیایی GeoNames استفاده می‌کند، تحت مجوز Creative Commons Attribution 4.0.",
+"credits_geofabrik": "برای ساخت داده‌های نقشه از برش‌های منطقه‌ای OpenStreetMap از Geofabrik استفاده شده است.",
+"credits_stable_audio": "صداهای شبیه‌سازی صوتی با Stable Audio Open 1.0 از Stability AI و تحت مجوز Stability AI Community License ساخته شده‌اند. Powered by Stability AI."
 }

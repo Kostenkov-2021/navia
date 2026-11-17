@@ -148,5 +148,11 @@
 "walk_ask_title": "A sanar da wurare yayin da kake tafiya?",
 "walk_ask_msg": "Navia za ta iya gaya maka wuraren da kake wucewa yayin tafiya, muddin wannan shafi a buɗe yake. Tana yin shiru idan ba ka motsi. Za ka iya canza wannan daga baya a Saituna.",
 "yes": "Eh",
-"no": "A'a"
+"no": "A'a",
+"credits": "Godiya",
+"credits_intro": "An gina Navia Web bisa ga waɗannan bayanai da ayyuka na buɗe.",
+"credits_osm": "Bayanan taswira © masu ba da gudummawa na OpenStreetMap, ana samun su ƙarƙashin lasisin Open Database License (ODbL).",
+"credits_geonames": "Binciken wurare yana amfani da rumbun bayanan ƙasa na GeoNames, ƙarƙashin lasisin Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Ana gina bayanan taswira daga ɓangarorin yankuna na OpenStreetMap daga Geofabrik.",
+"credits_stable_audio": "An samar da sautukan kwaikwayon sauti da Stable Audio Open 1.0 na Stability AI, ƙarƙashin lasisin Stability AI Community License. Powered by Stability AI."
 }

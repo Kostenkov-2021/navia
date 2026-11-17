@@ -148,5 +148,11 @@
 "walk_ask_title": "Oznamovat místa při chůzi?",
 "walk_ask_msg": "Navia vám může při chůzi oznamovat místa, kolem kterých procházíte, dokud bude tato stránka otevřená. Když se nepohybujete, mlčí. Později to můžete změnit v Nastavení.",
 "yes": "Ano",
-"no": "Ne"
+"no": "Ne",
+"credits": "Poděkování",
+"credits_intro": "Navia Web je postavena na následujících otevřených datech a projektech.",
+"credits_osm": "Mapová data © přispěvatelé OpenStreetMap, dostupná pod licencí Open Database License (ODbL).",
+"credits_geonames": "Vyhledávání míst používá geografickou databázi GeoNames pod licencí Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Mapová data se vytvářejí z regionálních výřezů OpenStreetMap od Geofabrik.",
+"credits_stable_audio": "Zvuky zvukové simulace byly vytvořeny pomocí Stable Audio Open 1.0 od Stability AI pod licencí Stability AI Community License. Powered by Stability AI."
 }

@@ -148,5 +148,11 @@
 "walk_ask_title": "Оголошувати місця під час ходьби?",
 "walk_ask_msg": "Navia може повідомляти про місця, повз які ви проходите, поки ця сторінка відкрита. Коли ви не рухаєтеся, вона мовчить. Це можна змінити пізніше в налаштуваннях.",
 "yes": "Так",
-"no": "Ні"
+"no": "Ні",
+"credits": "Подяки",
+"credits_intro": "Navia Web побудовано на таких відкритих даних і проєктах.",
+"credits_osm": "Картографічні дані © учасники OpenStreetMap, доступні за ліцензією Open Database License (ODbL).",
+"credits_geonames": "Пошук місць використовує географічну базу даних GeoNames за ліцензією Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Картографічні дані створюються з регіональних вибірок OpenStreetMap від Geofabrik.",
+"credits_stable_audio": "Звуки звукової симуляції створено за допомогою Stable Audio Open 1.0 від Stability AI за ліцензією Stability AI Community License. Powered by Stability AI."
 }

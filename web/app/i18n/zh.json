@@ -148,5 +148,11 @@
 "walk_ask_title": "步行时播报地点？",
 "walk_ask_msg": "只要此页面保持打开，Navia 就能在您步行时播报经过的地点。您不移动时它会保持安静。之后可以在设置中更改。",
 "yes": "是",
-"no": "否"
+"no": "否",
+"credits": "致谢",
+"credits_intro": "Navia Web 基于以下开放数据和项目构建。",
+"credits_osm": "地图数据 © OpenStreetMap 贡献者，依据开放数据库许可协议（ODbL）提供。",
+"credits_geonames": "地点搜索使用 GeoNames 地理数据库，采用 Creative Commons Attribution 4.0 许可。",
+"credits_geofabrik": "地图数据由 Geofabrik 提供的 OpenStreetMap 区域数据生成。",
+"credits_stable_audio": "声音模拟中的声音由 Stability AI 的 Stable Audio Open 1.0 生成，依据 Stability AI Community License。 Powered by Stability AI."
 }

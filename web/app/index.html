@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Navia Web</title>
 <meta name="description" content="A touchable map for blind and low-vision people. Slide a finger over the map to hear streets and places.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Navia">
+<meta property="og:title" content="Navia Web – a map you can touch">
+<meta property="og:description" content="For blind and low-vision people: slide a finger over the map and hear the streets and places around you. Free in any browser on iPhone and Android, or as an Android app.">
+<meta property="og:url" content="https://wikiponder.com/navia/app/">
+<meta property="og:image" content="https://wikiponder.com/navia/og-image.png">
+<meta property="og:image:secure_url" content="https://wikiponder.com/navia/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Navia logo, a map pin sending out sound waves, with the words: A map you can touch.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0d2b45">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -118,6 +130,7 @@
 		<button id="btn-walk" type="button" aria-pressed="false" data-i18n="walk_btn"></button>
 		<button id="btn-offline" type="button" data-i18n="offline_btn"></button>
 		<button id="btn-help" type="button" data-i18n="help"></button>
+		<button id="btn-credits" type="button" data-i18n="credits"></button>
 	</div>
 	<h3 class="settings-sub" data-i18n="share_apps"></h3>
 	<div class="actions stack">
@@ -176,6 +189,24 @@
 		<button id="share-prompt-yes" type="button" data-i18n="share"></button>
 		<button class="close" type="button" data-i18n="not_now"></button>
 	</div>
+</dialog>
+
+<dialog id="dlg-credits" aria-labelledby="credits-title">
+	<h2 id="credits-title" data-i18n="credits"></h2>
+	<p data-i18n="credits_intro"></p>
+	<h3 class="settings-sub">OpenStreetMap</h3>
+	<p data-i18n="credits_osm"></p>
+	<p><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">openstreetmap.org/copyright</a></p>
+	<h3 class="settings-sub">GeoNames</h3>
+	<p data-i18n="credits_geonames"></p>
+	<p><a href="https://www.geonames.org/" target="_blank" rel="noopener">geonames.org</a></p>
+	<h3 class="settings-sub">Geofabrik</h3>
+	<p data-i18n="credits_geofabrik"></p>
+	<p><a href="https://www.geofabrik.de/" target="_blank" rel="noopener">geofabrik.de</a></p>
+	<h3 class="settings-sub">Stable Audio Open</h3>
+	<p data-i18n="credits_stable_audio"></p>
+	<p><a href="https://stability.ai/license" target="_blank" rel="noopener">stability.ai/license</a></p>
+	<div class="actions"><button class="close" data-i18n="close"></button></div>
 </dialog>
 
 <dialog id="dlg-help" aria-labelledby="help-title">

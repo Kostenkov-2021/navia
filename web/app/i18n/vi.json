@@ -148,5 +148,11 @@
 "walk_ask_title": "Thông báo địa điểm khi đi bộ?",
 "walk_ask_msg": "Navia có thể cho bạn biết các địa điểm bạn đi qua khi đi bộ, miễn là trang này còn mở. Navia sẽ im lặng khi bạn không di chuyển. Bạn có thể thay đổi điều này sau trong Cài đặt.",
 "yes": "Có",
-"no": "Không"
+"no": "Không",
+"credits": "Ghi công",
+"credits_intro": "Navia Web được xây dựng dựa trên các dữ liệu và dự án mở sau đây.",
+"credits_osm": "Dữ liệu bản đồ © những người đóng góp OpenStreetMap, được cung cấp theo Giấy phép Open Database License (ODbL).",
+"credits_geonames": "Tính năng tìm địa điểm dùng cơ sở dữ liệu địa lý GeoNames, cấp phép theo Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Dữ liệu bản đồ được tạo từ các bản trích xuất OpenStreetMap theo vùng của Geofabrik.",
+"credits_stable_audio": "Âm thanh của phần mô phỏng âm thanh được tạo bằng Stable Audio Open 1.0 của Stability AI, theo Giấy phép Stability AI Community License. Powered by Stability AI."
 }

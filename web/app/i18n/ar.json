@@ -148,5 +148,11 @@
 "walk_ask_title": "الإعلان عن الأماكن أثناء المشي؟",
 "walk_ask_msg": "يمكن لنافيا أن تخبرك بالأماكن التي تمر بها أثناء المشي، ما دامت هذه الصفحة مفتوحة. وتبقى صامتة عندما لا تتحرك. يمكنك تغيير ذلك لاحقًا من الإعدادات.",
 "yes": "نعم",
-"no": "لا"
+"no": "لا",
+"credits": "الشكر والمصادر",
+"credits_intro": "بُني Navia Web على البيانات والمشاريع المفتوحة التالية.",
+"credits_osm": "بيانات الخريطة © المساهمون في OpenStreetMap، ومتاحة بموجب ترخيص Open Database License (ODbL).",
+"credits_geonames": "يستخدم البحث عن الأماكن قاعدة البيانات الجغرافية GeoNames، المرخّصة بموجب Creative Commons Attribution 4.0.",
+"credits_geofabrik": "تُبنى بيانات الخريطة من مقتطفات إقليمية من OpenStreetMap مقدّمة من Geofabrik.",
+"credits_stable_audio": "أُنشئت أصوات المحاكاة الصوتية باستخدام Stable Audio Open 1.0 من Stability AI، بموجب ترخيص Stability AI Community License. Powered by Stability AI."
 }

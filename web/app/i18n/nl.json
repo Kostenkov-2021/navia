@@ -148,5 +148,11 @@
 "walk_ask_title": "Plekken aankondigen tijdens het lopen?",
 "walk_ask_msg": "Navia kan je tijdens het lopen vertellen langs welke plekken je komt, zolang deze pagina open blijft. Als je niet beweegt, blijft Navia stil. Je kunt dit later wijzigen in Instellingen.",
 "yes": "Ja",
-"no": "Nee"
+"no": "Nee",
+"credits": "Credits",
+"credits_intro": "Navia Web is gebouwd op de volgende open data en projecten.",
+"credits_osm": "Kaartgegevens © OpenStreetMap-bijdragers, beschikbaar onder de Open Database License (ODbL).",
+"credits_geonames": "Het zoeken naar plaatsen gebruikt de geografische database GeoNames, gelicentieerd onder Creative Commons Attribution 4.0.",
+"credits_geofabrik": "De kaartgegevens worden gemaakt uit regionale OpenStreetMap-extracten van Geofabrik.",
+"credits_stable_audio": "De geluiden van de geluidssimulatie zijn gemaakt met Stable Audio Open 1.0 van Stability AI, onder de Stability AI Community License. Powered by Stability AI."
 }

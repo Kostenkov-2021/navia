@@ -148,5 +148,11 @@
 "walk_ask_title": "Announce places while you walk?",
 "walk_ask_msg": "Navia can tell you about places you pass while you walk, as long as this page stays open. It stays quiet when you are not moving. You can change this later in Settings.",
 "yes": "Yes",
-"no": "No"
+"no": "No",
+"credits": "Credits",
+"credits_intro": "Navia Web is built on the following open data and projects.",
+"credits_osm": "Map data © OpenStreetMap contributors, available under the Open Database License (ODbL).",
+"credits_geonames": "Place search uses the GeoNames geographical database, licensed under Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Regional OpenStreetMap extracts from Geofabrik are used to build the map data.",
+"credits_stable_audio": "The sounds of the sound simulation were generated with Stable Audio Open 1.0 by Stability AI, under the Stability AI Community License. Powered by Stability AI."
 }

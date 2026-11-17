@@ -909,6 +909,7 @@ $('set-rate').onchange = (e) => { state.rate = +e.target.value; store.set('rate'
 $('set-labels').onchange = (e) => { state.showLabels = e.target.checked; store.set('labels', state.showLabels); scheduleRender(); };
 $('set-detail').onchange = (e) => { state.detail = e.target.checked; store.set('detail', state.detail); scheduleRender(true); };
 $('btn-help').onclick = () => showDialog('dlg-help');
+$('btn-credits').onclick = () => showDialog('dlg-credits');
 
 // ------------------------------------------------------------------ sharing
 // Same texts as the Android app's share prompt (SharePromptDialog).

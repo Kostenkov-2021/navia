@@ -148,5 +148,11 @@
 "walk_ask_title": "چلتے ہوئے جگہوں کا اعلان کیا جائے؟",
 "walk_ask_msg": "جب تک یہ صفحہ کھلا ہے، ناویا چلتے ہوئے ان جگہوں کا اعلان کر سکتی ہے جن کے پاس سے آپ گزرتے ہیں۔ جب آپ حرکت نہیں کر رہے ہوں تو یہ خاموش رہتی ہے۔ آپ اسے بعد میں ترتیبات میں بدل سکتے ہیں۔",
 "yes": "جی ہاں",
-"no": "نہیں"
+"no": "نہیں",
+"credits": "اعترافات",
+"credits_intro": "Navia Web درج ذیل اوپن ڈیٹا اور منصوبوں پر بنایا گیا ہے۔",
+"credits_osm": "نقشے کا ڈیٹا © OpenStreetMap کے معاونین، Open Database License (ODbL) کے تحت دستیاب۔",
+"credits_geonames": "جگہوں کی تلاش GeoNames جغرافیائی ڈیٹا بیس استعمال کرتی ہے، جو Creative Commons Attribution 4.0 کے تحت لائسنس یافتہ ہے۔",
+"credits_geofabrik": "نقشے کا ڈیٹا Geofabrik کے OpenStreetMap علاقائی اقتباسات سے بنایا جاتا ہے۔",
+"credits_stable_audio": "صوتی نقالی کی آوازیں Stability AI کے Stable Audio Open 1.0 سے، Stability AI Community License کے تحت بنائی گئی ہیں۔ Powered by Stability AI."
 }

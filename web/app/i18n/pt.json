@@ -148,5 +148,11 @@
 "walk_ask_title": "Anunciar lugares enquanto você caminha?",
 "walk_ask_msg": "O Navia pode avisar sobre os lugares pelos quais você passa enquanto caminha, enquanto esta página estiver aberta. Ele fica em silêncio quando você não está se movendo. Você pode mudar isso depois nas Configurações.",
 "yes": "Sim",
-"no": "Não"
+"no": "Não",
+"credits": "Créditos",
+"credits_intro": "O Navia Web é construído com os seguintes dados e projetos abertos.",
+"credits_osm": "Dados do mapa © colaboradores do OpenStreetMap, disponíveis sob a Open Database License (ODbL).",
+"credits_geonames": "A busca de lugares usa o banco de dados geográfico GeoNames, licenciado sob Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Os dados do mapa são criados a partir de extratos regionais do OpenStreetMap fornecidos pela Geofabrik.",
+"credits_stable_audio": "Os sons da simulação sonora foram gerados com o Stable Audio Open 1.0 da Stability AI, sob a Stability AI Community License. Powered by Stability AI."
 }

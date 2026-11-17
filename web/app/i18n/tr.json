@@ -148,5 +148,11 @@
 "walk_ask_title": "Yürürken yerler duyurulsun mu?",
 "walk_ask_msg": "Navia, bu sayfa açık kaldığı sürece yürürken yanından geçtiğiniz yerleri size söyleyebilir. Hareket etmediğinizde sessiz kalır. Bunu daha sonra Ayarlar'dan değiştirebilirsiniz.",
 "yes": "Evet",
-"no": "Hayır"
+"no": "Hayır",
+"credits": "Katkıda Bulunanlar",
+"credits_intro": "Navia Web aşağıdaki açık veriler ve projeler üzerine kuruludur.",
+"credits_osm": "Harita verileri © OpenStreetMap katkıcıları, Open Database License (ODbL) altında sunulur.",
+"credits_geonames": "Yer arama, Creative Commons Attribution 4.0 lisanslı GeoNames coğrafi veritabanını kullanır.",
+"credits_geofabrik": "Harita verileri, Geofabrik'in bölgesel OpenStreetMap kesitlerinden oluşturulur.",
+"credits_stable_audio": "Ses simülasyonunun sesleri, Stability AI'nin Stable Audio Open 1.0 modeliyle, Stability AI Community License kapsamında üretilmiştir. Powered by Stability AI."
 }

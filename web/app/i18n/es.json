@@ -148,5 +148,11 @@
 "walk_ask_title": "¿Anunciar lugares mientras caminas?",
 "walk_ask_msg": "Navia puede avisarte de los lugares por los que pasas mientras caminas, mientras esta página siga abierta. Se queda en silencio cuando no te mueves. Puedes cambiarlo más tarde en Ajustes.",
 "yes": "Sí",
-"no": "No"
+"no": "No",
+"credits": "Créditos",
+"credits_intro": "Navia Web se basa en los siguientes datos y proyectos abiertos.",
+"credits_osm": "Datos del mapa © colaboradores de OpenStreetMap, disponibles bajo la Open Database License (ODbL).",
+"credits_geonames": "La búsqueda de lugares usa la base de datos geográfica GeoNames, con licencia Creative Commons Attribution 4.0.",
+"credits_geofabrik": "Los datos del mapa se crean a partir de extractos regionales de OpenStreetMap de Geofabrik.",
+"credits_stable_audio": "Los sonidos de la simulación sonora se generaron con Stable Audio Open 1.0 de Stability AI, bajo la Stability AI Community License. Powered by Stability AI."
 }
