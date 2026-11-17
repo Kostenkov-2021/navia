@@ -144,5 +144,9 @@
 "landing_web": "Usar o Navia Web neste navegador",
 "install_prompt_title": "Instalar o Navia Web no seu telefone?",
 "install_prompt_msg": "Adicione o Navia Web à tela inicial. Ele abrirá como um aplicativo, com um toque e sem as barras do navegador.",
-"install": "Instalar"
+"install": "Instalar",
+"walk_ask_title": "Anunciar lugares enquanto você caminha?",
+"walk_ask_msg": "O Navia pode avisar sobre os lugares pelos quais você passa enquanto caminha, enquanto esta página estiver aberta. Ele fica em silêncio quando você não está se movendo. Você pode mudar isso depois nas Configurações.",
+"yes": "Sim",
+"no": "Não"
 }

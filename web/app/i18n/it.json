@@ -144,5 +144,9 @@
 "landing_web": "Usa Navia Web in questo browser",
 "install_prompt_title": "Installare Navia Web sul telefono?",
 "install_prompt_msg": "Aggiungi Navia Web alla schermata Home. Si aprirà come un'app, con un tocco e senza le barre del browser.",
-"install": "Installa"
+"install": "Installa",
+"walk_ask_title": "Annunciare i luoghi mentre cammini?",
+"walk_ask_msg": "Navia può annunciarti i luoghi davanti a cui passi mentre cammini, finché questa pagina resta aperta. Resta in silenzio quando non ti muovi. Puoi cambiarlo più tardi nelle Impostazioni.",
+"yes": "Sì",
+"no": "No"
 }

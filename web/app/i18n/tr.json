@@ -144,5 +144,9 @@
 "landing_web": "Navia Web'i bu tarayıcıda kullan",
 "install_prompt_title": "Navia Web telefonunuza yüklensin mi?",
 "install_prompt_msg": "Navia Web'i ana ekrana ekleyin. Böylece tek dokunuşla, tarayıcı çubukları olmadan bir uygulama gibi açılır.",
-"install": "Yükle"
+"install": "Yükle",
+"walk_ask_title": "Yürürken yerler duyurulsun mu?",
+"walk_ask_msg": "Navia, bu sayfa açık kaldığı sürece yürürken yanından geçtiğiniz yerleri size söyleyebilir. Hareket etmediğinizde sessiz kalır. Bunu daha sonra Ayarlar'dan değiştirebilirsiniz.",
+"yes": "Evet",
+"no": "Hayır"
 }

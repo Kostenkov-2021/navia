@@ -144,5 +144,9 @@
 "landing_web": "Use Navia Web in this browser",
 "install_prompt_title": "Install Navia Web on your phone?",
 "install_prompt_msg": "Add Navia Web to your home screen. It then opens like an app, with one tap and without the browser bars.",
-"install": "Install"
+"install": "Install",
+"walk_ask_title": "Announce places while you walk?",
+"walk_ask_msg": "Navia can tell you about places you pass while you walk, as long as this page stays open. It stays quiet when you are not moving. You can change this later in Settings.",
+"yes": "Yes",
+"no": "No"
 }

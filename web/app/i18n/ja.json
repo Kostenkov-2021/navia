@@ -144,5 +144,9 @@
 "landing_web": "このブラウザで Navia Web を使う",
 "install_prompt_title": "Navia Web をスマートフォンにインストールしますか？",
 "install_prompt_msg": "Navia Web をホーム画面に追加すると、ブラウザのバーなしで、タップひとつでアプリのように開けます。",
-"install": "インストール"
+"install": "インストール",
+"walk_ask_title": "歩きながら場所を読み上げますか？",
+"walk_ask_msg": "このページを開いている間、Navia は歩いているときに通り過ぎる場所をお知らせします。動いていないときは静かにしています。後から設定で変更できます。",
+"yes": "はい",
+"no": "いいえ"
 }

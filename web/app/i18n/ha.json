@@ -144,5 +144,9 @@
 "landing_web": "Yi amfani da Navia Web a wannan burauza",
 "install_prompt_title": "Ka shigar da Navia Web a wayarka?",
 "install_prompt_msg": "Ƙara Navia Web zuwa allon gida. Daga nan za ta buɗe kamar manhaja, da taɓawa ɗaya kuma ba tare da sandunan burauza ba.",
-"install": "Shigar"
+"install": "Shigar",
+"walk_ask_title": "A sanar da wurare yayin da kake tafiya?",
+"walk_ask_msg": "Navia za ta iya gaya maka wuraren da kake wucewa yayin tafiya, muddin wannan shafi a buɗe yake. Tana yin shiru idan ba ka motsi. Za ka iya canza wannan daga baya a Saituna.",
+"yes": "Eh",
+"no": "A'a"
 }

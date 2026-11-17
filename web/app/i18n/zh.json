@@ -144,5 +144,9 @@
 "landing_web": "在此浏览器中使用 Navia Web",
 "install_prompt_title": "要将 Navia Web 安装到手机上吗？",
 "install_prompt_msg": "将 Navia Web 添加到主屏幕后，它会像应用一样一点即开，不显示浏览器栏。",
-"install": "安装"
+"install": "安装",
+"walk_ask_title": "步行时播报地点？",
+"walk_ask_msg": "只要此页面保持打开，Navia 就能在您步行时播报经过的地点。您不移动时它会保持安静。之后可以在设置中更改。",
+"yes": "是",
+"no": "否"
 }

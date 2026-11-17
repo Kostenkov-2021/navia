@@ -144,5 +144,9 @@
 "landing_web": "Tumia Navia Web katika kivinjari hiki",
 "install_prompt_title": "Sakinisha Navia Web kwenye simu yako?",
 "install_prompt_msg": "Ongeza Navia Web kwenye skrini ya kwanza. Kisha itafunguka kama programu, kwa mguso mmoja na bila mipau ya kivinjari.",
-"install": "Sakinisha"
+"install": "Sakinisha",
+"walk_ask_title": "Kutangaza maeneo unapotembea?",
+"walk_ask_msg": "Navia inaweza kukuambia maeneo unayopita unapotembea, maadamu ukurasa huu uko wazi. Hukaa kimya usipokuwa unasonga. Unaweza kubadilisha hili baadaye katika Mipangilio.",
+"yes": "Ndiyo",
+"no": "Hapana"
 }

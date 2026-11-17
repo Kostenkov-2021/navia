@@ -36,7 +36,7 @@ const state = {
 	heading: null,       // degrees from north, compass or GPS course
 	follow: false,
 	aim: null,           // {lat, lon, name}
-	walk: false,
+	walk: store.get('walk', false),   // announce places while walking (asked once, see askWalk)
 	mode: store.get('mode', null),
 	rate: store.get('rate', 1),
 	showLabels: store.get('labels', true),
@@ -683,10 +683,24 @@ function updateAim() {
 }
 
 // Places announced while walking (like the app's background announcements, but only while the page is open).
+// Only while really walking (more than WALK_MIN_M in the last minute), so it stays quiet at home, and
+// never while the user is exploring the map or has a dialog open.
 const walkAnnounced = new Map();
+const walkTrack = [];            // [time, {lat, lon}] of the last minute
+const WALK_MIN_M = 20;
 let lastWalkTime = 0;
+function isWalking() {
+	const now = Date.now();
+	walkTrack.push([now, state.user]);
+	while (walkTrack.length && now - walkTrack[0][0] > 60000) walkTrack.shift();
+	return walkTrack.length > 1 && distM(walkTrack[0][1], state.user) > WALK_MIN_M;
+}
+function userBusy() {
+	return pointers.size > 0 || gridFocused || !!document.querySelector('dialog[open]');
+}
 function updateWalk() {
-	if (!state.walk || !state.user || Date.now() - lastWalkTime < 5000) return;
+	if (!state.walk || !state.user) return;
+	if (!isWalking() || userBusy() || Date.now() - lastWalkTime < 5000) return;
 	let best = null, bd = 30;
 	for (const t of tiles.values()) for (const n of t.nodes) {
 		if (!n.name || n.cat === CAT.ADDRESS || n.cat === CAT.INTERSECTION) continue;
@@ -790,11 +804,27 @@ $('btn-locate').onclick = async () => {
 		state.center = { lat: state.user.lat, lon: state.user.lon };
 		viewChanged();
 		setTimeout(() => speak(t('centered_you', { center: centerDescription() }), { force: true }), 400);
+		setTimeout(askWalk, 4000);
 	});
 };
+// Asked once, the first time the user has shared their location on purpose (My location).
+function askWalk() {
+	if (store.get('walkAsked', false) || state.walk) return;
+	if (document.querySelector('dialog[open]')) { setTimeout(askWalk, 10000); return; }
+	store.set('walkAsked', true);
+	showDialog('dlg-walk-ask');
+}
+function setWalk(on) {
+	state.walk = on;
+	store.set('walk', on);
+	$('btn-walk').setAttribute('aria-pressed', String(on));
+}
+$('walk-ask-yes').onclick = async () => { $('dlg-walk-ask').close(); setWalk(true); await askCompass(); startGps(); speak(t('walk_on'), { force: true }); };
+$('btn-walk').setAttribute('aria-pressed', String(state.walk));
+// Turned on in an earlier visit: resume without a prompt if location permission is already granted.
+if (state.walk) navigator.permissions?.query({ name: 'geolocation' }).then((p) => { if (p.state === 'granted') startGps(); }).catch(() => { });
 $('btn-walk').onclick = async () => {
-	state.walk = !state.walk;
-	$('btn-walk').setAttribute('aria-pressed', String(state.walk));
+	setWalk(!state.walk);
 	if (state.walk) { await askCompass(); startGps(); }
 	speak(state.walk ? t('walk_on') : t('walk_off'), { force: true });
 };

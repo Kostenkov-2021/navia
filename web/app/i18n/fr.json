@@ -144,5 +144,9 @@
 "landing_web": "Utiliser Navia Web dans ce navigateur",
 "install_prompt_title": "Installer Navia Web sur votre téléphone ?",
 "install_prompt_msg": "Ajoutez Navia Web à l'écran d'accueil. Elle s'ouvrira alors comme une application, d'un seul geste et sans les barres du navigateur.",
-"install": "Installer"
+"install": "Installer",
+"walk_ask_title": "Annoncer les lieux pendant la marche ?",
+"walk_ask_msg": "Navia peut vous annoncer les lieux devant lesquels vous passez pendant que vous marchez, tant que cette page reste ouverte. Elle reste silencieuse quand vous ne bougez pas. Vous pourrez changer cela plus tard dans les Réglages.",
+"yes": "Oui",
+"no": "Non"
 }

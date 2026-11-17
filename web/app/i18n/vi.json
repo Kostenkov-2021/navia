@@ -144,5 +144,9 @@
 "landing_web": "Dùng Navia Web trong trình duyệt này",
 "install_prompt_title": "Cài Navia Web vào điện thoại?",
 "install_prompt_msg": "Thêm Navia Web vào màn hình chính để mở như một ứng dụng, chỉ với một lần chạm và không có các thanh của trình duyệt.",
-"install": "Cài đặt"
+"install": "Cài đặt",
+"walk_ask_title": "Thông báo địa điểm khi đi bộ?",
+"walk_ask_msg": "Navia có thể cho bạn biết các địa điểm bạn đi qua khi đi bộ, miễn là trang này còn mở. Navia sẽ im lặng khi bạn không di chuyển. Bạn có thể thay đổi điều này sau trong Cài đặt.",
+"yes": "Có",
+"no": "Không"
 }

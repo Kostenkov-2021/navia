@@ -144,5 +144,9 @@
 "landing_web": "Navia Web in deze browser gebruiken",
 "install_prompt_title": "Navia Web op je telefoon installeren?",
 "install_prompt_msg": "Zet Navia Web op je beginscherm. Het opent dan als een app, met één tik en zonder de balken van de browser.",
-"install": "Installeren"
+"install": "Installeren",
+"walk_ask_title": "Plekken aankondigen tijdens het lopen?",
+"walk_ask_msg": "Navia kan je tijdens het lopen vertellen langs welke plekken je komt, zolang deze pagina open blijft. Als je niet beweegt, blijft Navia stil. Je kunt dit later wijzigen in Instellingen.",
+"yes": "Ja",
+"no": "Nee"
 }

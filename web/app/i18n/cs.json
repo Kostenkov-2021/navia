@@ -144,5 +144,9 @@
 "landing_web": "Používat Navia Web v tomto prohlížeči",
 "install_prompt_title": "Nainstalovat Navia Web do telefonu?",
 "install_prompt_msg": "Přidejte Navia Web na plochu. Pak se otevře jako aplikace, jedním klepnutím a bez lišt prohlížeče.",
-"install": "Instalovat"
+"install": "Instalovat",
+"walk_ask_title": "Oznamovat místa při chůzi?",
+"walk_ask_msg": "Navia vám může při chůzi oznamovat místa, kolem kterých procházíte, dokud bude tato stránka otevřená. Když se nepohybujete, mlčí. Později to můžete změnit v Nastavení.",
+"yes": "Ano",
+"no": "Ne"
 }

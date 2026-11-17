@@ -144,5 +144,9 @@
 "landing_web": "Navia Web in diesem Browser verwenden",
 "install_prompt_title": "Navia Web auf dem Handy installieren?",
 "install_prompt_msg": "Füge Navia Web zum Startbildschirm hinzu. Es öffnet sich dann wie eine App, mit einem Tippen und ohne die Leisten des Browsers.",
-"install": "Installieren"
+"install": "Installieren",
+"walk_ask_title": "Orte beim Gehen ansagen?",
+"walk_ask_msg": "Navia kann dir beim Gehen die Orte ansagen, an denen du vorbeikommst, solange diese Seite geöffnet bleibt. Wenn du dich nicht bewegst, bleibt Navia still. Du kannst das später in den Einstellungen ändern.",
+"yes": "Ja",
+"no": "Nein"
 }
