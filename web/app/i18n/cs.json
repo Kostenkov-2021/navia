@@ -41,6 +41,7 @@
 "speech": "Řeč",
 "mode_sr_opt": "Mluví moje čtečka obrazovky (TalkBack nebo VoiceOver)",
 "mode_voice_opt": "Navia mluví sama",
+"mode_voice_hint": "Pokud Navia mluví sama, vypněte při používání mapy odečítač obrazovky (TalkBack nebo VoiceOver).",
 "rate": "Rychlost řeči aplikace Navia",
 "labels_opt": "Zobrazovat názvy na nakreslené mapě",
 "detail_opt": "Zahrnout čísla domů a adresy budov",
@@ -73,7 +74,7 @@
 "help_2": "Dvakrát klepněte na místo (čtečka obrazovky) nebo na něm podržte prst (bez čtečky), abyste na něj navedli, slyšeli jeho zvuky nebo na něj vycentrovali mapu.",
 "help_3": "Tlačítky Sever, Jih, Západ a Východ posouváte mapu, přiblížením a oddálením vidíte více či méně.",
 "help_4": "Bez čtečky obrazovky můžete mapu posouvat také dvěma prsty a přibližovat sevřením prstů.",
-"help_5": "Směry se udávají jako na ciferníku: 12 hodin je přímo vpředu, nebo sever, pokud není k dispozici kompas.",
+"help_5": "Směry se udávají jako na ciferníku: 12 hodin je přímo vpředu, nebo sever, pokud není k dispozici kompas. To platí jen při zaměřování místa; jinak se uvádí jen vzdálenost. Sever je na mapě vždy nahoře.",
 "help_6": "Mapová data © přispěvatelé OpenStreetMap. Navia je jen doplňková pomůcka.",
 "intersection": "Křižovatka: {names}",
 "and": " a ",
@@ -82,6 +83,8 @@
 "rel_here": ", zde",
 "rel": ", {d} metrů na {h} hodinách",
 "place_dist": "{d} metrů od vás na {h} hodinách",
+"rel_dist": ", {d} metrů",
+"place_dist_only": "{d} metrů od vás",
 "load_failed": "Část mapy se nepodařilo načíst. Zkuste to později.",
 "offline_missing": "Offline: tato oblast není uložena.",
 "map_loaded": "Mapa načtena",
@@ -154,5 +157,11 @@
 "credits_osm": "Mapová data © přispěvatelé OpenStreetMap, dostupná pod licencí Open Database License (ODbL).",
 "credits_geonames": "Vyhledávání míst používá geografickou databázi GeoNames pod licencí Creative Commons Attribution 4.0.",
 "credits_geofabrik": "Mapová data se vytvářejí z regionálních výřezů OpenStreetMap od Geofabrik.",
-"credits_stable_audio": "Zvuky zvukové simulace byly vytvořeny pomocí Stable Audio Open 1.0 od Stability AI pod licencí Stability AI Community License. Powered by Stability AI."
+"credits_stable_audio": "Zvuky zvukové simulace byly vytvořeny pomocí Stable Audio Open 1.0 od Stability AI pod licencí Stability AI Community License. Powered by Stability AI.",
+"terms_safety_title": "Důležité bezpečnostní upozornění",
+"terms_safety": "Nikdy se nespoléhejte na to, co tato aplikace říká, při svém pohybu. Z technických důvodů – kvůli omezením GPS a dalších měřicích nástrojů, chybám v mapových datech a chybám softwaru – mohou být její informace nesprávné. Vždy používejte bezpečné metody, například bílou hůl nebo vodicího psa, a berte tuto aplikaci jen jako doplňkovou pomůcku.",
+"terms_accept": "Rozumím a souhlasím",
+"terms_privacy_title": "Soukromí",
+"terms_link": "Přečíst zásady ochrany soukromí",
+"terms_privacy": "Navia Web nevyžaduje účet. Aby zobrazil mapu, načítá váš prohlížeč data oblasti, kterou si prohlížíte, z našeho serveru (wikiponder.com), který jako každý web dostává vaši IP adresu. Vaše poloha se používá v prohlížeči a my ji neukládáme. Když hledáte místo, text hledání a přibližná poloha (asi 100 metrů) se odešlou na náš server, aby se našly výsledky ve vašem okolí."
 }

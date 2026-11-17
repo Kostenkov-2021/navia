@@ -41,6 +41,7 @@
 "speech": "语音",
 "mode_sr_opt": "由我的读屏软件朗读（TalkBack 或 VoiceOver）",
 "mode_voice_opt": "由 Navia 自己朗读",
+"mode_voice_hint": "如果由 Navia 自己朗读,使用地图时请关闭屏幕阅读器(TalkBack 或 VoiceOver)。",
 "rate": "Navia 语速",
 "labels_opt": "在绘制的地图上显示名称",
 "detail_opt": "包括门牌号和建筑地址",
@@ -73,7 +74,7 @@
 "help_2": "双击某个地点（读屏软件）或长按它（无读屏软件），即可导向该地点、收听它的声音或将地图居中于此。",
 "help_3": "使用“北”“南”“西”“东”移动地图，使用缩放查看更大或更小的范围。",
 "help_4": "不使用读屏软件时，还可以用两根手指移动地图，并用双指捏合来缩放。",
-"help_5": "方向用钟点表示：12 点钟是正前方；没有指南针时，12 点钟是正北。",
+"help_5": "方向用钟点表示：12 点钟是正前方；没有指南针时，12 点钟是正北。 这仅在瞄准某个地点时；其他时候只说距离。地图上方始终是正北。",
 "help_6": "地图数据 © OpenStreetMap 贡献者。Navia 只是辅助工具。",
 "intersection": "路口：{names}",
 "and": "与",
@@ -82,6 +83,8 @@
 "rel_here": "，就在这里",
 "rel": "，{d} 米，{h} 点钟方向",
 "place_dist": "距您 {d} 米，{h} 点钟方向",
+"rel_dist": "，{d} 米",
+"place_dist_only": "距您 {d} 米",
 "load_failed": "部分地图无法加载。请稍后再试。",
 "offline_missing": "离线：此区域未保存。",
 "map_loaded": "地图已加载",
@@ -154,5 +157,11 @@
 "credits_osm": "地图数据 © OpenStreetMap 贡献者，依据开放数据库许可协议（ODbL）提供。",
 "credits_geonames": "地点搜索使用 GeoNames 地理数据库，采用 Creative Commons Attribution 4.0 许可。",
 "credits_geofabrik": "地图数据由 Geofabrik 提供的 OpenStreetMap 区域数据生成。",
-"credits_stable_audio": "声音模拟中的声音由 Stability AI 的 Stable Audio Open 1.0 生成，依据 Stability AI Community License。 Powered by Stability AI."
+"credits_stable_audio": "声音模拟中的声音由 Stability AI 的 Stable Audio Open 1.0 生成，依据 Stability AI Community License。 Powered by Stability AI.",
+"terms_safety_title": "重要安全警告",
+"terms_safety": "切勿仅凭本应用的提示来行动。由于技术原因，例如 GPS 和其他测量工具的局限、地图数据错误以及软件故障，其信息可能有误。请始终使用白手杖或导盲犬等安全方式，并仅将本应用作为辅助工具。",
+"terms_accept": "我已了解并同意",
+"terms_privacy_title": "隐私",
+"terms_link": "阅读隐私政策",
+"terms_privacy": "Navia Web 无需账户。为显示地图，浏览器会从我们的服务器（wikiponder.com）加载您正在查看区域的地图数据，与任何网站一样，服务器会收到您的 IP 地址。您的位置只在浏览器中使用，我们不会保存。搜索地点时，搜索文字和大致位置（约 100 米）会发送到我们的服务器，以查找您附近的结果。"
 }

@@ -41,6 +41,7 @@
 "speech": "Voz",
 "mode_sr_opt": "Habla mi lector de pantalla (TalkBack o VoiceOver)",
 "mode_voice_opt": "Navia habla por sí misma",
+"mode_voice_hint": "Si Navia habla por sí misma, desactiva tu lector de pantalla (TalkBack o VoiceOver) mientras usas el mapa.",
 "rate": "Velocidad de voz de Navia",
 "labels_opt": "Mostrar nombres en el mapa dibujado",
 "detail_opt": "Incluir números de portal y direcciones de edificios",
@@ -73,7 +74,7 @@
 "help_2": "Toca dos veces un lugar (lector de pantalla) o mantenlo pulsado (sin lector de pantalla) para apuntar a él, oír sus sonidos o centrar el mapa allí.",
 "help_3": "Usa Norte, Sur, Oeste y Este para mover el mapa, y el zoom para ver más o menos.",
 "help_4": "Sin lector de pantalla también puedes mover el mapa con dos dedos y pellizcar para hacer zoom.",
-"help_5": "Las direcciones se dan como las horas del reloj: las 12 es justo delante, o el norte si no hay brújula.",
+"help_5": "Las direcciones se dan como las horas del reloj: las 12 es justo delante, o el norte si no hay brújula. Esto solo ocurre al apuntar a un lugar; si no, solo se dice la distancia. El norte siempre está arriba en el mapa.",
 "help_6": "Datos del mapa © colaboradores de OpenStreetMap. Navia es solo una ayuda adicional.",
 "intersection": "Cruce: {names}",
 "and": " y ",
@@ -82,6 +83,8 @@
 "rel_here": ", aquí",
 "rel": ", a {d} metros a las {h}",
 "place_dist": "A {d} metros de ti, a las {h}",
+"rel_dist": ", a {d} metros",
+"place_dist_only": "A {d} metros de ti",
 "load_failed": "No se pudo cargar parte del mapa. Inténtalo más tarde.",
 "offline_missing": "Sin conexión: esta zona no está guardada.",
 "map_loaded": "Mapa cargado",
@@ -154,5 +157,11 @@
 "credits_osm": "Datos del mapa © colaboradores de OpenStreetMap, disponibles bajo la Open Database License (ODbL).",
 "credits_geonames": "La búsqueda de lugares usa la base de datos geográfica GeoNames, con licencia Creative Commons Attribution 4.0.",
 "credits_geofabrik": "Los datos del mapa se crean a partir de extractos regionales de OpenStreetMap de Geofabrik.",
-"credits_stable_audio": "Los sonidos de la simulación sonora se generaron con Stable Audio Open 1.0 de Stability AI, bajo la Stability AI Community License. Powered by Stability AI."
+"credits_stable_audio": "Los sonidos de la simulación sonora se generaron con Stable Audio Open 1.0 de Stability AI, bajo la Stability AI Community License. Powered by Stability AI.",
+"terms_safety_title": "Aviso de seguridad importante",
+"terms_safety": "Nunca bases tus desplazamientos en lo que dice esta aplicación. Por razones técnicas – los límites del GPS y de otros instrumentos de medición, errores en los datos del mapa y fallos del software – su información puede ser incorrecta. Usa siempre métodos seguros, como el bastón blanco o un perro guía, y considera esta aplicación solo como una ayuda adicional.",
+"terms_accept": "Lo entiendo y lo acepto",
+"terms_privacy_title": "Privacidad",
+"terms_link": "Leer la política de privacidad",
+"terms_privacy": "Navia Web no necesita cuenta. Para mostrar el mapa, tu navegador carga los datos del área que miras desde nuestro servidor (wikiponder.com), que, como cualquier sitio web, recibe tu dirección IP. Tu ubicación se usa en tu navegador y no la guardamos. Cuando buscas un lugar, el texto de búsqueda y una posición aproximada (unos 100 metros) se envían a nuestro servidor para encontrar resultados cerca de ti."
 }

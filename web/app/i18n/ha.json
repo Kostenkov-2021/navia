@@ -41,6 +41,7 @@
 "speech": "Magana",
 "mode_sr_opt": "Mai karanta allo na yana magana (TalkBack ko VoiceOver)",
 "mode_voice_opt": "Navia tana magana da kanta",
+"mode_voice_hint": "Idan Navia ita ke magana, kashe na'urar karanta allo (TalkBack ko VoiceOver) yayin da kake amfani da taswira.",
 "rate": "Saurin maganar Navia",
 "labels_opt": "Nuna sunaye a kan taswirar da aka zana",
 "detail_opt": "Haɗa lambobin gidaje da adiresoshin gine-gine",
@@ -73,7 +74,7 @@
 "help_2": "Taɓa wuri sau biyu (mai karanta allo) ko ka taɓa ka riƙe (ba tare da mai karanta allo ba) don a jagorance ka zuwa can, ka ji sautukansa ko ka sa tsakiyar taswira a can.",
 "help_3": "Yi amfani da Arewa, Kudu, Yamma da Gabas don matsar da taswira, da ƙara ko rage girma don ganin ƙari ko ƙasa.",
 "help_4": "Ba tare da mai karanta allo ba za ka iya matsar da taswira da yatsu biyu ka matse su don canza girma.",
-"help_5": "Ana bayar da hanyoyi kamar matsayin agogo: ƙarfe 12 shi ne kai tsaye gaba, ko arewa idan babu kamfas.",
+"help_5": "Ana bayar da hanyoyi kamar matsayin agogo: ƙarfe 12 shi ne kai tsaye gaba, ko arewa idan babu kamfas. Wannan yana faruwa ne kawai lokacin da kake nufar wuri; in ba haka ba ana faɗin nisa kawai. Arewa koyaushe tana saman taswira.",
 "help_6": "Bayanan taswira © masu ba da gudummawa ga OpenStreetMap. Navia ƙarin taimako ne kawai.",
 "intersection": "Mahaɗar hanya: {names}",
 "and": " da ",
@@ -82,6 +83,8 @@
 "rel_here": ", a nan",
 "rel": ", mita {d} a hanyar ƙarfe {h}",
 "place_dist": "Mita {d} daga gare ka a hanyar ƙarfe {h}",
+"rel_dist": ", mita {d}",
+"place_dist_only": "Mita {d} daga gare ka",
 "load_failed": "Ba a iya loda wani ɓangare na taswira ba. Sake gwadawa daga baya.",
 "offline_missing": "Babu intanet: ba a ajiye wannan yanki ba.",
 "map_loaded": "An loda taswira",
@@ -154,5 +157,11 @@
 "credits_osm": "Bayanan taswira © masu ba da gudummawa na OpenStreetMap, ana samun su ƙarƙashin lasisin Open Database License (ODbL).",
 "credits_geonames": "Binciken wurare yana amfani da rumbun bayanan ƙasa na GeoNames, ƙarƙashin lasisin Creative Commons Attribution 4.0.",
 "credits_geofabrik": "Ana gina bayanan taswira daga ɓangarorin yankuna na OpenStreetMap daga Geofabrik.",
-"credits_stable_audio": "An samar da sautukan kwaikwayon sauti da Stable Audio Open 1.0 na Stability AI, ƙarƙashin lasisin Stability AI Community License. Powered by Stability AI."
+"credits_stable_audio": "An samar da sautukan kwaikwayon sauti da Stable Audio Open 1.0 na Stability AI, ƙarƙashin lasisin Stability AI Community License. Powered by Stability AI.",
+"terms_safety_title": "Muhimmin gargaɗin tsaro",
+"terms_safety": "Kada ka taɓa dogara da abin da wannan manhaja ta faɗa wajen tafiyarka. Saboda dalilai na fasaha – iyakokin GPS da sauran kayan aunawa, kurakuran bayanan taswira da matsalolin manhaja – bayanansa na iya zama ba daidai ba. Kullum ka yi amfani da hanyoyi masu aminci kamar farar sanda ko karen jagora, kuma ka ɗauki wannan manhaja a matsayin ƙarin taimako kawai.",
+"terms_accept": "Na fahimta kuma na yarda",
+"terms_privacy_title": "Sirri",
+"terms_link": "Karanta manufar sirri",
+"terms_privacy": "Navia Web ba ta buƙatar asusu. Don nuna taswira, burauzarka tana sauke bayanan yankin da kake kallo daga sabar mu (wikiponder.com), wadda, kamar kowane gidan yanar gizo, take karɓar adireshin IP ɗinka. Ana amfani da wurinka a cikin burauza kuma ba mu adana shi. Idan ka nemi wuri, ana aika rubutun bincikenka da kusan wurinka (kimanin mita 100) zuwa sabar mu don a sami sakamako kusa da kai."
 }

@@ -41,6 +41,7 @@
 "speech": "Konuşma",
 "mode_sr_opt": "Ekran okuyucum konuşuyor (TalkBack veya VoiceOver)",
 "mode_voice_opt": "Navia kendisi konuşuyor",
+"mode_voice_hint": "Navia kendisi konuşuyorsa, haritayı kullanırken ekran okuyucunuzu (TalkBack veya VoiceOver) kapatın.",
 "rate": "Navia konuşma hızı",
 "labels_opt": "Çizilen haritada adları göster",
 "detail_opt": "Kapı numaralarını ve bina adreslerini dahil et",
@@ -73,7 +74,7 @@
 "help_2": "Bir yeri hedeflemek, seslerini dinlemek veya haritayı orada ortalamak için ona iki kez dokunun (ekran okuyucu) ya da basılı tutun (ekran okuyucu olmadan).",
 "help_3": "Haritayı taşımak için Kuzey, Güney, Batı ve Doğu'yu, daha fazla veya daha az görmek için yakınlaştırmayı kullanın.",
 "help_4": "Ekran okuyucu olmadan haritayı iki parmakla da kaydırabilir ve iki parmakla yakınlaştırabilirsiniz.",
-"help_5": "Yönler saat konumu olarak verilir: saat 12 tam karşıdır, pusula yoksa kuzeydir.",
+"help_5": "Yönler saat konumu olarak verilir: saat 12 tam karşıdır, pusula yoksa kuzeydir. Bu yalnızca bir yeri hedeflerken geçerlidir; aksi halde sadece mesafe söylenir. Kuzey haritada her zaman yukarıdadır.",
 "help_6": "Harita verileri © OpenStreetMap katkıcıları. Navia yalnızca ek bir yardımcıdır.",
 "intersection": "Kavşak: {names}",
 "and": " ve ",
@@ -82,6 +83,8 @@
 "rel_here": ", burada",
 "rel": ", {d} metre, saat {h} yönünde",
 "place_dist": "Size {d} metre, saat {h} yönünde",
+"rel_dist": ", {d} metre",
+"place_dist_only": "Size {d} metre",
 "load_failed": "Haritanın bir kısmı yüklenemedi. Daha sonra tekrar deneyin.",
 "offline_missing": "Çevrimdışı: bu bölge kaydedilmemiş.",
 "map_loaded": "Harita yüklendi",
@@ -154,5 +157,11 @@
 "credits_osm": "Harita verileri © OpenStreetMap katkıcıları, Open Database License (ODbL) altında sunulur.",
 "credits_geonames": "Yer arama, Creative Commons Attribution 4.0 lisanslı GeoNames coğrafi veritabanını kullanır.",
 "credits_geofabrik": "Harita verileri, Geofabrik'in bölgesel OpenStreetMap kesitlerinden oluşturulur.",
-"credits_stable_audio": "Ses simülasyonunun sesleri, Stability AI'nin Stable Audio Open 1.0 modeliyle, Stability AI Community License kapsamında üretilmiştir. Powered by Stability AI."
+"credits_stable_audio": "Ses simülasyonunun sesleri, Stability AI'nin Stable Audio Open 1.0 modeliyle, Stability AI Community License kapsamında üretilmiştir. Powered by Stability AI.",
+"terms_safety_title": "Önemli güvenlik uyarısı",
+"terms_safety": "Hareketlerinizi asla bu uygulamanın söylediklerine dayandırmayın. GPS ve diğer ölçüm araçlarının sınırlamaları, harita verisi hataları ve yazılım arızaları gibi teknik nedenlerle bilgiler yanlış olabilir. Her zaman beyaz baston veya rehber köpek gibi güvenli yöntemleri kullanın ve bu uygulamayı yalnızca ek bir yardımcı olarak görün.",
+"terms_accept": "Anladım ve kabul ediyorum",
+"terms_privacy_title": "Gizlilik",
+"terms_link": "Gizlilik politikasını oku",
+"terms_privacy": "Navia Web hesap gerektirmez. Haritayı göstermek için tarayıcınız baktığınız bölgenin harita verilerini sunucumuzdan (wikiponder.com) yükler; bu sunucu her web sitesi gibi IP adresinizi alır. Konumunuz tarayıcınızda kullanılır ve tarafımızca saklanmaz. Bir yer aradığınızda, arama metniniz ve yaklaşık konumunuz (yaklaşık 100 metre) size yakın sonuçları bulmak için sunucumuza gönderilir."
 }

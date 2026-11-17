@@ -41,6 +41,7 @@
 "speech": "Sauti",
 "mode_sr_opt": "Kisoma skrini changu kinaongea (TalkBack au VoiceOver)",
 "mode_voice_opt": "Navia inaongea yenyewe",
+"mode_voice_hint": "Ikiwa Navia inazungumza yenyewe, zima kisomaji cha skrini (TalkBack au VoiceOver) unapotumia ramani.",
 "rate": "Kasi ya sauti ya Navia",
 "labels_opt": "Onyesha majina kwenye ramani iliyochorwa",
 "detail_opt": "Jumuisha namba za nyumba na anwani za majengo",
@@ -73,7 +74,7 @@
 "help_2": "Gusa mara mbili mahali (kisoma skrini) au gusa na ushikilie (bila kisoma skrini) ili kuelekezwa huko, kusikia sauti zake au kuweka katikati ya ramani hapo.",
 "help_3": "Tumia Kaskazini, Kusini, Magharibi na Mashariki kusogeza ramani, na kuza au punguza ili kuona zaidi au kidogo.",
 "help_4": "Bila kisoma skrini unaweza pia kusogeza ramani kwa vidole viwili na kubana ili kukuza.",
-"help_5": "Mielekeo hutolewa kama nafasi za saa: saa 12 ni moja kwa moja mbele, au kaskazini ikiwa hakuna dira.",
+"help_5": "Mielekeo hutolewa kama nafasi za saa: saa 12 ni moja kwa moja mbele, au kaskazini ikiwa hakuna dira. Hii ni unapolenga mahali tu; vinginevyo umbali pekee hutajwa. Kaskazini iko juu ya ramani kila wakati.",
 "help_6": "Data ya ramani © wachangiaji wa OpenStreetMap. Navia ni msaada wa ziada tu.",
 "intersection": "Makutano: {names}",
 "and": " na ",
@@ -82,6 +83,8 @@
 "rel_here": ", hapa",
 "rel": ", mita {d} upande wa saa {h}",
 "place_dist": "Mita {d} kutoka kwako upande wa saa {h}",
+"rel_dist": ", mita {d}",
+"place_dist_only": "Mita {d} kutoka kwako",
 "load_failed": "Sehemu ya ramani haikupakia. Jaribu tena baadaye.",
 "offline_missing": "Bila mtandao: eneo hili halijahifadhiwa.",
 "map_loaded": "Ramani imepakiwa",
@@ -154,5 +157,11 @@
 "credits_osm": "Data ya ramani © wachangiaji wa OpenStreetMap, inapatikana chini ya leseni ya Open Database License (ODbL).",
 "credits_geonames": "Utafutaji wa maeneo hutumia hifadhidata ya kijiografia ya GeoNames, chini ya leseni ya Creative Commons Attribution 4.0.",
 "credits_geofabrik": "Data ya ramani hutengenezwa kutokana na sehemu za kikanda za OpenStreetMap kutoka Geofabrik.",
-"credits_stable_audio": "Sauti za uigaji wa sauti zilitengenezwa kwa Stable Audio Open 1.0 ya Stability AI, chini ya leseni ya Stability AI Community License. Powered by Stability AI."
+"credits_stable_audio": "Sauti za uigaji wa sauti zilitengenezwa kwa Stable Audio Open 1.0 ya Stability AI, chini ya leseni ya Stability AI Community License. Powered by Stability AI.",
+"terms_safety_title": "Onyo muhimu la usalama",
+"terms_safety": "Usitegemee kamwe programu hii kuamua jinsi unavyotembea. Kwa sababu za kiufundi – mipaka ya GPS na vifaa vingine vya kupima, makosa ya data ya ramani na hitilafu za programu – taarifa zake zinaweza kuwa si sahihi. Tumia daima njia salama kama fimbo nyeupe au mbwa mwongozaji, na uichukulie programu hii kama msaada wa ziada tu.",
+"terms_accept": "Ninaelewa na ninakubali",
+"terms_privacy_title": "Faragha",
+"terms_link": "Soma sera ya faragha",
+"terms_privacy": "Navia Web haihitaji akaunti. Ili kuonyesha ramani, kivinjari chako hupakua data ya eneo unaloangalia kutoka kwenye seva yetu (wikiponder.com), ambayo, kama tovuti yoyote, hupokea anwani yako ya IP. Mahali ulipo hutumika kwenye kivinjari chako na hatukihifadhi. Unapotafuta mahali, maandishi ya utafutaji na mahali ulipo kwa takriban (kama mita 100) hutumwa kwenye seva yetu ili kupata matokeo karibu nawe."
 }

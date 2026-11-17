@@ -109,10 +109,12 @@ function displayName(el) {
 	}
 	return typeLabel(el.cat, el.type) || t('unnamed');
 }
-function relText(lat, lon) {
+// Distance only; the direction (clock position) is given just when aiming.
+function relText(lat, lon, withDir = false) {
 	if (!state.user) return '';
 	const d = Math.round(distM(state.user, { lat, lon }));
 	if (d < 5) return t('rel_here');
+	if (!withDir) return t('rel_dist', { d });
 	return t('rel', { d, h: clock(bearing(state.user, { lat, lon })) });
 }
 
@@ -193,12 +195,12 @@ function loadTiles() {
 	let pending = 0;
 	for (const [x, y] of want) {
 		const k = tileKey(x, y);
-		const t = tiles.get(k);
-		if (t) { t.used = Date.now(); continue; }
+		const have = tiles.get(k);   // not "t": the callbacks below call the translate function t()
+		if (have) { have.used = Date.now(); continue; }
 		if (loading.has(k)) { pending++; continue; }
 		loading.add(k); pending++;
-		fetchTile(x, y).then((t) => {
-			tiles.set(k, t);
+		fetchTile(x, y).then((tile) => {
+			tiles.set(k, tile);
 			evictTiles();
 			scheduleRender(true);
 		}).catch((e) => {
@@ -473,25 +475,36 @@ function queueGrid() {
 }
 gridEl.addEventListener('focusin', () => { gridFocused = true; });
 gridEl.addEventListener('focusout', () => { gridFocused = false; if (gridDirty) queueGrid(); });
+// Rebuilding reuses the existing button for the same place (same element, same n-th run), only
+// moving or relabelling it. TalkBack and VoiceOver do not move keyboard focus while exploring by
+// touch, so gridFocused cannot protect the button under the screen reader's cursor; replacing that
+// node made the next double-tap hit nothing. A reused node keeps the screen reader's focus.
 function buildGrid() {
 	if (!view) return;
 	const { w, h } = view;
 	const cols = Math.ceil(w / CELL), rows = Math.ceil(h / CELL);
-	const frag = document.createDocumentFragment();
+	const old = new Map();
+	for (const b of gridEl.children) old.set(b._key, b);
+	const seen = new Map(), want = [];
 	for (let r = 0; r < rows; r++) {
 		let run = null;
 		const flush = () => {
 			if (!run) return;
-			const b = document.createElement('button');
-			b.className = 'cell';
-			b.type = 'button';
-			b.textContent = run.text;
-			b.style.left = run.c0 * CELL + 'px';
-			b.style.top = r * CELL + 'px';
-			b.style.width = (run.c1 - run.c0 + 1) * CELL + 'px';
+			const el = run.hit.el, id = el.name ? el.kind + ':' + el.name : el.id;
+			const n = (seen.get(id) || 0) + 1;
+			seen.set(id, n);
+			const key = id + '#' + n;
+			let b = old.get(key);
+			if (b) old.delete(key);
+			else { b = document.createElement('button'); b.className = 'cell'; b.type = 'button'; b._key = key; }
+			if (b.textContent !== run.text) b.textContent = run.text;
+			const left = run.c0 * CELL + 'px', top = r * CELL + 'px', width = (run.c1 - run.c0 + 1) * CELL + 'px';
+			if (b.style.left !== left) b.style.left = left;
+			if (b.style.top !== top) b.style.top = top;
+			if (b.style.width !== width) b.style.width = width;
 			b.style.height = CELL + 'px';
 			b._hit = run.hit;
-			frag.appendChild(b);
+			want.push(b);
 			run = null;
 		};
 		for (let c = 0; c < cols; c++) {
@@ -503,7 +516,13 @@ function buildGrid() {
 		}
 		flush();
 	}
-	gridEl.replaceChildren(frag);
+	for (const b of old.values()) b.remove();
+	// Put the buttons in reading order, moving only those out of place.
+	let cur = gridEl.firstChild;
+	for (const b of want) {
+		if (b === cur) { cur = cur.nextSibling; continue; }
+		gridEl.insertBefore(b, cur);
+	}
 }
 gridEl.addEventListener('click', (e) => {
 	const b = e.target.closest('.cell');
@@ -620,11 +639,11 @@ function openPlace(hit) {
 	const at = placeLatLon(hit);
 	$('place-title').textContent = displayName(hit.el);
 	const parts = [];
-	const t = typeLabel(hit.el.cat, hit.el.type);
-	if (t && hit.el.name) parts.push(t);
+	const kind = typeLabel(hit.el.cat, hit.el.type);
+	if (kind && hit.el.name) parts.push(kind);
 	if (state.user) {
 		const d = Math.round(distM(state.user, at));
-		parts.push(t('place_dist', { d, h: clock(bearing(state.user, at)) }));
+		parts.push(t('place_dist_only', { d }));
 	}
 	$('place-info').textContent = parts.join('. ');
 	showDialog('dlg-place');
@@ -640,7 +659,7 @@ $('place-aim').onclick = async () => {
 	startGps();
 	lastAimText = '';
 	lastAimTime = 0;
-	speak(t('aiming_at', { name: state.aim.name }) + (state.user ? relText(at.lat, at.lon) : t('waiting_location')), { force: true });
+	speak(t('aiming_at', { name: state.aim.name }) + (state.user ? relText(at.lat, at.lon, true) : t('waiting_location')), { force: true });
 	scheduleRender();
 };
 $('place-center').onclick = () => {
@@ -828,26 +847,43 @@ $('btn-walk').onclick = async () => {
 	if (state.walk) { await askCompass(); startGps(); }
 	speak(state.walk ? t('walk_on') : t('walk_off'), { force: true });
 };
+// Saving an area for offline use. It keeps running when Settings is closed. Progress goes to the
+// status line, to a live region inside Settings while that is open (a screen reader ignores live
+// regions outside an open modal dialog), and is spoken every few seconds otherwise.
+let offlineJob = null;
+function offlineReport(text, { final = false } = {}) {
+	status(text);
+	$('offline-status').textContent = text;
+	const inSettings = $('dlg-settings').open;
+	// Voice mode speaks with speechSynthesis, which works with any dialog open.
+	if (state.mode === 'voice' || !inSettings) speak(text, { force: true, interrupt: final || state.mode !== 'voice' });
+}
 $('btn-offline').onclick = async () => {
+	if (offlineJob) { offlineReport(offlineJob.text); return; }   // already running: say how far it is
 	if (!state.center) return;
 	try { await navigator.storage?.persist?.(); } catch { }
-	const r = 3;   // tiles in each direction: about 5 by 5 km
+	const r = 3;   // tiles in each direction: 7 by 7 tiles, about 10 by 10 km
 	const cx = Math.floor(state.center.lon / TILE_LON), cy = Math.floor(state.center.lat / TILE_LAT);
 	const list = [];
 	for (let y = cy - r; y <= cy + r; y++) for (let x = cx - r; x <= cx + r; x++) list.push([x, y]);
-	let done = 0, failed = 0;
-	speak(t('offline_start'), { force: true });
+	const total = list.length;
+	let done = 0, failed = 0, lastSaid = Date.now();
+	offlineJob = { text: t('offline_start') };
+	offlineReport(offlineJob.text);
 	const worker = async () => {
 		while (list.length) {
 			const [x, y] = list.shift();
 			try { await fetchTile(x, y); } catch { failed++; }
 			done++;
-			status(t('offline_progress', { done, total: (2 * r + 1) ** 2 }));
+			offlineJob.text = t('offline_progress', { done, total });
+			// Reported every 5 seconds or so, not for each of the 49 parts (the status line is a live
+			// region too, so updating it per part would make a screen reader read every one).
+			if (done < total && Date.now() - lastSaid > 5000) { lastSaid = Date.now(); offlineReport(offlineJob.text); }
 		}
 	};
 	await Promise.all([worker(), worker(), worker()]);
-	const msg = failed ? t('offline_partial', { n: failed }) : t('offline_done');
-	status(msg); speak(msg, { force: true });
+	offlineJob = null;
+	offlineReport(failed ? t('offline_partial', { n: failed }) : t('offline_done'), { final: true });
 };
 
 // Search: names in the loaded map first, then cities and places worldwide.
@@ -1154,7 +1190,24 @@ await loadLang(store.get('lang', 'en'));
 $('set-lang').value = $('welcome-lang').value = lang;
 fillWelcomeSmall();
 
-if (state.mode) start(); else $('welcome').hidden = false;
+// First run: accept the safety warning and privacy notice (like the app), then pick the speech mode.
+// Raise ACCEPT_VERSION when that text changes in a way people must accept again.
+const ACCEPT_VERSION = 1;
+function showWelcome(step) {
+	$('main').hidden = true;
+	$('welcome').hidden = false;
+	$('welcome-terms').hidden = step !== 'terms';
+	$('welcome-mode').hidden = step !== 'mode';
+	setTimeout(() => $(step === 'terms' ? 'terms-safety-title' : 'welcome-q').focus(), 50);
+}
+$('terms-accept').onclick = () => {
+	store.set('accepted', ACCEPT_VERSION);
+	store.set('acceptedAt', new Date().toISOString());
+	if (state.mode) start(); else showWelcome('mode');
+};
+if (store.get('accepted', 0) < ACCEPT_VERSION) showWelcome('terms');
+else if (state.mode) start();
+else showWelcome('mode');
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => { });
 matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => scheduleRender());
 window.navia = { state, tiles, nearest, describeHit, toScreen, get view() { return view; } };   // for debugging

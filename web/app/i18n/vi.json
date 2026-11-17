@@ -41,6 +41,7 @@
 "speech": "Giọng nói",
 "mode_sr_opt": "Trình đọc màn hình của tôi đọc (TalkBack hoặc VoiceOver)",
 "mode_voice_opt": "Navia tự đọc",
+"mode_voice_hint": "Nếu Navia tự nói, hãy tắt trình đọc màn hình (TalkBack hoặc VoiceOver) khi bạn dùng bản đồ.",
 "rate": "Tốc độ đọc của Navia",
 "labels_opt": "Hiển thị tên trên bản đồ vẽ",
 "detail_opt": "Bao gồm số nhà và địa chỉ tòa nhà",
@@ -73,7 +74,7 @@
 "help_2": "Chạm hai lần vào một địa điểm (trình đọc màn hình) hoặc chạm và giữ (không có trình đọc màn hình) để dẫn hướng đến đó, nghe âm thanh của nó hoặc đặt tâm bản đồ tại đó.",
 "help_3": "Dùng Bắc, Nam, Tây và Đông để di chuyển bản đồ, và phóng to hoặc thu nhỏ để xem nhiều hơn hay ít hơn.",
 "help_4": "Khi không dùng trình đọc màn hình, bạn cũng có thể kéo bản đồ bằng hai ngón tay và chụm để thu phóng.",
-"help_5": "Hướng được nói theo vị trí kim đồng hồ: 12 giờ là ngay phía trước, hoặc hướng bắc khi không có la bàn.",
+"help_5": "Hướng được nói theo vị trí kim đồng hồ: 12 giờ là ngay phía trước, hoặc hướng bắc khi không có la bàn. Điều này chỉ khi bạn nhắm vào một địa điểm; còn lại chỉ nói khoảng cách. Hướng bắc luôn ở phía trên bản đồ.",
 "help_6": "Dữ liệu bản đồ © những người đóng góp OpenStreetMap. Navia chỉ là công cụ hỗ trợ thêm.",
 "intersection": "Ngã tư: {names}",
 "and": " và ",
@@ -82,6 +83,8 @@
 "rel_here": ", tại đây",
 "rel": ", {d} mét về hướng {h} giờ",
 "place_dist": "Cách bạn {d} mét về hướng {h} giờ",
+"rel_dist": ", {d} mét",
+"place_dist_only": "Cách bạn {d} mét",
 "load_failed": "Không tải được một phần bản đồ. Hãy thử lại sau.",
 "offline_missing": "Ngoại tuyến: khu vực này chưa được lưu.",
 "map_loaded": "Đã tải bản đồ",
@@ -154,5 +157,11 @@
 "credits_osm": "Dữ liệu bản đồ © những người đóng góp OpenStreetMap, được cung cấp theo Giấy phép Open Database License (ODbL).",
 "credits_geonames": "Tính năng tìm địa điểm dùng cơ sở dữ liệu địa lý GeoNames, cấp phép theo Creative Commons Attribution 4.0.",
 "credits_geofabrik": "Dữ liệu bản đồ được tạo từ các bản trích xuất OpenStreetMap theo vùng của Geofabrik.",
-"credits_stable_audio": "Âm thanh của phần mô phỏng âm thanh được tạo bằng Stable Audio Open 1.0 của Stability AI, theo Giấy phép Stability AI Community License. Powered by Stability AI."
+"credits_stable_audio": "Âm thanh của phần mô phỏng âm thanh được tạo bằng Stable Audio Open 1.0 của Stability AI, theo Giấy phép Stability AI Community License. Powered by Stability AI.",
+"terms_safety_title": "Cảnh báo an toàn quan trọng",
+"terms_safety": "Không bao giờ dựa vào những gì ứng dụng này nói để di chuyển. Vì các lý do kỹ thuật – giới hạn của GPS và các dụng cụ đo khác, lỗi dữ liệu bản đồ và lỗi phần mềm – thông tin có thể sai. Luôn dùng các phương pháp an toàn như gậy trắng hoặc chó dẫn đường, và chỉ xem ứng dụng này là công cụ hỗ trợ thêm.",
+"terms_accept": "Tôi hiểu và chấp nhận",
+"terms_privacy_title": "Quyền riêng tư",
+"terms_link": "Đọc chính sách quyền riêng tư",
+"terms_privacy": "Navia Web không cần tài khoản. Để hiển thị bản đồ, trình duyệt tải dữ liệu của khu vực bạn đang xem từ máy chủ của chúng tôi (wikiponder.com); như mọi trang web, máy chủ nhận địa chỉ IP của bạn. Vị trí của bạn được dùng trong trình duyệt và chúng tôi không lưu lại. Khi bạn tìm một địa điểm, nội dung tìm kiếm và vị trí gần đúng (khoảng 100 mét) được gửi đến máy chủ của chúng tôi để tìm kết quả gần bạn."
 }

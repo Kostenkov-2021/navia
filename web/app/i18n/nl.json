@@ -41,6 +41,7 @@
 "speech": "Spraak",
 "mode_sr_opt": "Mijn schermlezer spreekt (TalkBack of VoiceOver)",
 "mode_voice_opt": "Navia spreekt zelf",
+"mode_voice_hint": "Als Navia zelf spreekt, schakel dan je schermlezer (TalkBack of VoiceOver) uit terwijl je de kaart gebruikt.",
 "rate": "Spreeksnelheid van Navia",
 "labels_opt": "Namen op de getekende kaart tonen",
 "detail_opt": "Huisnummers en gebouwadressen meenemen",
@@ -73,7 +74,7 @@
 "help_2": "Tik twee keer op een plek (schermlezer) of houd hem ingedrukt (zonder schermlezer) om erop te richten, de geluiden te horen of de kaart daar te centreren.",
 "help_3": "Gebruik Noord, Zuid, West en Oost om de kaart te verschuiven, en zoom om meer of minder te zien.",
 "help_4": "Zonder schermlezer kun je de kaart ook met twee vingers verschuiven en knijpen om te zoomen.",
-"help_5": "Richtingen worden als klokposities gegeven: 12 uur is recht vooruit, of het noorden als er geen kompas is.",
+"help_5": "Richtingen worden als klokposities gegeven: 12 uur is recht vooruit, of het noorden als er geen kompas is. Dit geldt alleen als je op een plek richt; anders wordt alleen de afstand genoemd. Het noorden is op de kaart altijd boven.",
 "help_6": "Kaartgegevens © OpenStreetMap-bijdragers. Navia is alleen een extra hulpmiddel.",
 "intersection": "Kruispunt: {names}",
 "and": " en ",
@@ -82,6 +83,8 @@
 "rel_here": ", hier",
 "rel": ", {d} meter op {h} uur",
 "place_dist": "{d} meter van je, op {h} uur",
+"rel_dist": ", {d} meter",
+"place_dist_only": "{d} meter van je",
 "load_failed": "Een deel van de kaart kon niet worden geladen. Probeer het later opnieuw.",
 "offline_missing": "Offline: dit gebied is niet opgeslagen.",
 "map_loaded": "Kaart geladen",
@@ -154,5 +157,11 @@
 "credits_osm": "Kaartgegevens © OpenStreetMap-bijdragers, beschikbaar onder de Open Database License (ODbL).",
 "credits_geonames": "Het zoeken naar plaatsen gebruikt de geografische database GeoNames, gelicentieerd onder Creative Commons Attribution 4.0.",
 "credits_geofabrik": "De kaartgegevens worden gemaakt uit regionale OpenStreetMap-extracten van Geofabrik.",
-"credits_stable_audio": "De geluiden van de geluidssimulatie zijn gemaakt met Stable Audio Open 1.0 van Stability AI, onder de Stability AI Community License. Powered by Stability AI."
+"credits_stable_audio": "De geluiden van de geluidssimulatie zijn gemaakt met Stable Audio Open 1.0 van Stability AI, onder de Stability AI Community License. Powered by Stability AI.",
+"terms_safety_title": "Belangrijke veiligheidswaarschuwing",
+"terms_safety": "Baseer je bewegingen nooit op wat deze app zegt. Om technische redenen – beperkingen van gps en andere meetinstrumenten, fouten in de kaartgegevens en softwarefouten – kan de informatie onjuist zijn. Gebruik altijd veilige methoden zoals een witte stok of een geleidehond en beschouw deze app alleen als extra hulpmiddel.",
+"terms_accept": "Ik begrijp het en ga akkoord",
+"terms_privacy_title": "Privacy",
+"terms_link": "Lees het privacybeleid",
+"terms_privacy": "Navia Web heeft geen account nodig. Om de kaart te tonen, laadt je browser de kaartgegevens van het gebied dat je bekijkt van onze server (wikiponder.com), die zoals elke website je IP-adres ontvangt. Je locatie wordt in je browser gebruikt en niet door ons bewaard. Als je naar een plaats zoekt, worden je zoektekst en een globale positie (ongeveer 100 meter) naar onze server gestuurd om resultaten bij jou in de buurt te vinden."
 }

@@ -105,3 +105,6 @@ a.button { display: flex; align-items: center; justify-content: center; min-heig
 .lang-select { font: inherit; min-height: 44px; width: 100%; margin: 4px 0 12px; padding: 4px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--panel); color: var(--fg); }
 a.button[hidden] { display: none; }
 .controls button[hidden] { display: none; }
+.offline-status { margin: 6px 0 0; font-size: .9rem; min-height: 1.2em; }
+.welcome h3 { font-size: 1.05rem; margin: 18px 0 4px; }
+.welcome [tabindex="-1"]:focus { outline: none; }

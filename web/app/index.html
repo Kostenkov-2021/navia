@@ -39,11 +39,25 @@
 <section id="welcome" class="welcome" hidden aria-labelledby="welcome-title">
 	<h2 id="welcome-title" data-i18n="welcome_title">Welcome to Navia</h2>
 	<p data-i18n="welcome_p1"></p>
-	<p data-i18n="welcome_p2"></p>
-	<p><strong data-i18n="welcome_q"></strong></p>
-	<div class="choice">
-		<button id="mode-sr" class="big" data-i18n="mode_sr_btn"></button>
-		<button id="mode-voice" class="big" data-i18n="mode_voice_btn"></button>
+	<!-- Step 1, once per browser (and again if ACCEPT_VERSION is raised): safety warning and privacy,
+	     accepted like the Android app's first-run warning. -->
+	<div id="welcome-terms" hidden>
+		<h3 id="terms-safety-title" tabindex="-1" data-i18n="terms_safety_title"></h3>
+		<p data-i18n="terms_safety"></p>
+		<h3 data-i18n="terms_privacy_title"></h3>
+		<p data-i18n="terms_privacy"></p>
+		<p><a href="https://wikiponder.com/navia/privacy-policy.html" target="_blank" rel="noopener" data-i18n="terms_link"></a></p>
+		<div class="choice"><button id="terms-accept" class="big" data-i18n="terms_accept"></button></div>
+	</div>
+	<!-- Step 2: how speech should work. -->
+	<div id="welcome-mode" hidden>
+		<p data-i18n="welcome_p2"></p>
+		<p><strong id="welcome-q" tabindex="-1" data-i18n="welcome_q"></strong></p>
+		<div class="choice">
+			<button id="mode-sr" class="big" data-i18n="mode_sr_btn"></button>
+			<button id="mode-voice" class="big" data-i18n="mode_voice_btn"></button>
+		</div>
+		<p class="small" data-i18n="mode_voice_hint"></p>
 	</div>
 	<p class="small" id="welcome-small"></p>
 	<label class="small" for="welcome-lang" data-i18n="language">Language</label>
@@ -121,6 +135,7 @@
 		<label><input type="radio" name="mode" value="sr"> <span data-i18n="mode_sr_opt"></span></label>
 		<label><input type="radio" name="mode" value="voice"> <span data-i18n="mode_voice_opt"></span></label>
 	</fieldset>
+	<p class="small" data-i18n="mode_voice_hint"></p>
 	<label for="set-rate" data-i18n="rate"></label>
 	<input id="set-rate" type="range" min="0.6" max="2" step="0.1">
 	<label><input id="set-labels" type="checkbox"> <span data-i18n="labels_opt"></span></label>
@@ -132,6 +147,9 @@
 		<button id="btn-help" type="button" data-i18n="help"></button>
 		<button id="btn-credits" type="button" data-i18n="credits"></button>
 	</div>
+	<!-- Offline download progress: inside the dialog, because a screen reader ignores live regions
+	     outside an open modal dialog. -->
+	<p id="offline-status" class="offline-status" role="status" aria-live="polite"></p>
 	<h3 class="settings-sub" data-i18n="share_apps"></h3>
 	<div class="actions stack">
 		<button id="btn-install" type="button" hidden data-i18n="install_btn"></button>

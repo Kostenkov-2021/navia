@@ -41,6 +41,7 @@
 "speech": "読み上げ",
 "mode_sr_opt": "スクリーンリーダーが読み上げる（TalkBack または VoiceOver）",
 "mode_voice_opt": "Navia が読み上げる",
+"mode_voice_hint": "Naviaが自分で読み上げる場合は、地図を使っている間、スクリーンリーダー(TalkBackまたはVoiceOver)をオフにしてください。",
 "rate": "Navia の読み上げ速度",
 "labels_opt": "描画された地図に名前を表示",
 "detail_opt": "番地と建物の住所を含める",
@@ -73,7 +74,7 @@
 "help_2": "場所をダブルタップ（スクリーンリーダー使用時）または長押し（未使用時）すると、そこへ誘導したり、音を聞いたり、地図の中心にしたりできます。",
 "help_3": "北・南・西・東で地図を動かし、拡大・縮小で表示範囲を変えます。",
 "help_4": "スクリーンリーダーを使わない場合は、2 本指で地図を動かし、ピンチで拡大・縮小もできます。",
-"help_5": "方向は時計の位置で示します。12 時が正面、コンパスが使えないときは北です。",
+"help_5": "方向は時計の位置で示します。12 時が正面、コンパスが使えないときは北です。 これは場所を狙っているときだけで、それ以外は距離だけを伝えます。地図の上は常に北です。",
 "help_6": "地図データ © OpenStreetMap 貢献者。Navia は補助ツールにすぎません。",
 "intersection": "交差点：{names}",
 "and": "と",
@@ -82,6 +83,8 @@
 "rel_here": "、ここ",
 "rel": "、{h} 時の方向 {d} メートル",
 "place_dist": "あなたから {h} 時の方向 {d} メートル",
+"rel_dist": "、{d} メートル",
+"place_dist_only": "あなたから {d} メートル",
 "load_failed": "地図の一部を読み込めませんでした。後でもう一度お試しください。",
 "offline_missing": "オフライン：このエリアは保存されていません。",
 "map_loaded": "地図を読み込みました",
@@ -154,5 +157,11 @@
 "credits_osm": "地図データ © OpenStreetMap 貢献者、Open Database License（ODbL）のもとで提供。",
 "credits_geonames": "場所の検索には GeoNames 地理データベース（Creative Commons Attribution 4.0 ライセンス）を使用しています。",
 "credits_geofabrik": "地図データは Geofabrik による OpenStreetMap の地域別データから作成しています。",
-"credits_stable_audio": "サウンドシミュレーションの音は、Stability AI の Stable Audio Open 1.0 で Stability AI Community License のもとに生成されました。 Powered by Stability AI."
+"credits_stable_audio": "サウンドシミュレーションの音は、Stability AI の Stable Audio Open 1.0 で Stability AI Community License のもとに生成されました。 Powered by Stability AI.",
+"terms_safety_title": "安全に関する重要な警告",
+"terms_safety": "このアプリの案内だけを頼りに移動しないでください。GPSやその他の測定機器の限界、地図データの誤り、ソフトウェアの不具合など技術的な理由により、情報が正しくない場合があります。必ず白杖や盲導犬など安全な方法を使い、このアプリはあくまで補助的な手段としてご利用ください。",
+"terms_accept": "理解し、同意します",
+"terms_privacy_title": "プライバシー",
+"terms_link": "プライバシーポリシーを読む",
+"terms_privacy": "Navia Web にアカウントは不要です。地図を表示するため、ブラウザは表示中の地域の地図データを当社のサーバー（wikiponder.com）から読み込みます。一般的なウェブサイトと同様に、サーバーはあなたの IP アドレスを受け取ります。位置情報はブラウザ内で使われ、当社が保存することはありません。場所を検索すると、検索語とおおよその位置（約 100 メートル）が近くの結果を探すために当社のサーバーへ送信されます。"
 }
