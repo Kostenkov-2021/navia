@@ -45,3 +45,6 @@ tools/soundscape_raw/
 
 # Ambimap, the second app: kept out of git until decided
 app/src/ambimap/
+
+# Navia admin page (usage reports); deployed with web/deploy.sh --admin, kept out of the public repo
+/web/admin/
