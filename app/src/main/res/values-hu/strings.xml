@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Navia megosztása</string>
     <string name="share_subject">Navia – egy térkép, amit megérinthetsz</string>
     <string name="share_text">Ismerd meg a Naviát, egy térképet, amit megérinthetsz! Húzd végig az ujjadat a képernyőn, és hallgasd meg az alatta lévő utcákat, üzleteket és helyeket. Teljesen akadálymentes, vak és gyengénlátó emberek számára készült, és mindenkinek hasznos. Ingyenes a Google Playen: %1$s</string>
+    <string name="share_text_web">Ismerd meg a Naviát, egy térképet, amit megérinthetsz! Húzd végig az ujjadat a képernyőn, és hallgasd meg az alatta lévő utcákat, üzleteket és helyeket. Teljesen akadálymentes, vak és gyengénlátó emberek számára készült, és mindenkinek hasznos. Ingyenes Androidra és iPhone-ra: %1$s</string>
     <string name="safety_warning_title">Fontos biztonsági figyelmeztetés</string>
     <string name="safety_warning_message">Soha ne erre az alkalmazásra alapozd a közlekedésedet. Technikai okokból – a GPS és más mérőeszközök korlátai, térképadat-hibák és szoftverhibák miatt – az információi pontatlanok lehetnek. Mindig használj biztonságos módszereket, például fehér botot vagy vakvezető kutyát, az alkalmazást pedig csak kiegészítő segítségnek tekintsd.</string>
     <string name="safety_warning_accept">Megértettem és elfogadom</string>

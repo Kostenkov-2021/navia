@@ -212,6 +212,7 @@
     <string name="share_chooser_title">分享 Navia</string>
     <string name="share_subject">Navia – 可以触摸的地图</string>
     <string name="share_text">来认识 Navia，一张可以触摸的地图！用手指在屏幕上滑动，就能听到指尖下方的街道、商店和地点。完全无障碍，专为盲人和低视力人士打造，对所有人都很有趣。Google Play 免费下载：%1$s</string>
+    <string name="share_text_web">来认识 Navia，一张可以触摸的地图！用手指在屏幕上滑动，就能听到指尖下方的街道、商店和地点。完全无障碍，专为盲人和低视力人士打造，对所有人都很有趣。Android 和 iPhone 均可免费使用：%1$s</string>
     <string name="safety_warning_title">重要安全警告</string>
     <string name="safety_warning_message">切勿仅凭本应用的提示来行动。由于技术原因，例如 GPS 和其他测量工具的局限、地图数据错误以及软件故障，其信息可能有误。请始终使用白手杖或导盲犬等安全方式，并仅将本应用作为辅助工具。</string>
     <string name="safety_warning_accept">我已了解并同意</string>

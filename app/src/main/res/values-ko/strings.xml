@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Navia 공유</string>
     <string name="share_subject">Navia – 만져서 보는 지도</string>
     <string name="share_text">만질 수 있는 지도 Navia를 만나 보세요! 화면 위에서 손가락을 움직이면 바로 아래에 있는 거리, 상점, 장소를 소리로 들을 수 있습니다. 완전한 접근성을 갖췄고, 시각장애인과 저시력자를 위해 만들어졌으며, 누구에게나 유용합니다. Google Play에서 무료: %1$s</string>
+    <string name="share_text_web">만질 수 있는 지도 Navia를 만나 보세요! 화면 위에서 손가락을 움직이면 바로 아래에 있는 거리, 상점, 장소를 소리로 들을 수 있습니다. 완전한 접근성을 갖췄고, 시각장애인과 저시력자를 위해 만들어졌으며, 누구에게나 유용합니다. Android와 iPhone에서 무료: %1$s</string>
     <string name="safety_warning_title">중요한 안전 경고</string>
     <string name="safety_warning_message">이 앱이 알려 주는 내용을 이동의 근거로 삼지 마세요. GPS와 기타 측정 장비의 한계, 지도 데이터 오류, 소프트웨어 결함 등 기술적인 이유로 정보가 틀릴 수 있습니다. 항상 흰 지팡이나 안내견 같은 안전한 방법을 사용하고, 이 앱은 보조 수단으로만 활용하세요.</string>
     <string name="safety_warning_accept">이해했으며 동의합니다</string>

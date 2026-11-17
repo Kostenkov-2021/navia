@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Deila Navia</string>
     <string name="share_subject">Navia – kort sem þú getur snert</string>
     <string name="share_text">Kynntu þér Navia, kort sem þú getur snert! Renndu fingrinum yfir skjáinn og heyrðu göturnar, verslanirnar og staðina rétt undir honum. Fullkomlega aðgengilegt, gert fyrir blint og sjónskert fólk og skemmtilegt fyrir alla. Ókeypis á Google Play: %1$s</string>
+    <string name="share_text_web">Kynntu þér Navia, kort sem þú getur snert! Renndu fingrinum yfir skjáinn og heyrðu göturnar, verslanirnar og staðina rétt undir honum. Fullkomlega aðgengilegt, gert fyrir blint og sjónskert fólk og skemmtilegt fyrir alla. Ókeypis fyrir Android og iPhone: %1$s</string>
     <string name="safety_warning_title">Mikilvæg öryggisviðvörun</string>
     <string name="safety_warning_message">Byggðu aldrei hreyfingar þínar á því sem þetta forrit segir. Af tæknilegum ástæðum – takmörkum GPS og annarra mælitækja, villum í kortagögnum og hugbúnaðarvillum – geta upplýsingarnar verið rangar. Notaðu alltaf örugga aðferðir eins og hvítan staf eða leiðsöguhund og líttu á forritið aðeins sem aukahjálp.</string>
     <string name="safety_warning_accept">Ég skil og samþykki</string>

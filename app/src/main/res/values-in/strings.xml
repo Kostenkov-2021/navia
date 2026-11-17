@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Bagikan Navia</string>
     <string name="share_subject">Navia – peta yang bisa Anda sentuh</string>
     <string name="share_text">Temukan Navia, peta yang bisa Anda sentuh! Geser jari di layar dan dengarkan jalan, toko, dan tempat tepat di bawahnya. Sepenuhnya aksesibel, dibuat untuk tunanetra dan penyandang low vision, dan menyenangkan bagi semua orang. Gratis di Google Play: %1$s</string>
+    <string name="share_text_web">Temukan Navia, peta yang bisa Anda sentuh! Geser jari di layar dan dengarkan jalan, toko, dan tempat tepat di bawahnya. Sepenuhnya aksesibel, dibuat untuk tunanetra dan penyandang low vision, dan menyenangkan bagi semua orang. Gratis untuk Android dan iPhone: %1$s</string>
     <string name="safety_warning_title">Peringatan keselamatan penting</string>
     <string name="safety_warning_message">Jangan pernah mendasarkan pergerakan Anda pada apa yang dikatakan aplikasi ini. Karena alasan teknis – keterbatasan GPS dan alat ukur lainnya, kesalahan data peta, dan gangguan perangkat lunak – informasinya bisa saja salah. Selalu gunakan cara yang aman seperti tongkat putih atau anjing penuntun, dan anggap aplikasi ini hanya sebagai bantuan tambahan.</string>
     <string name="safety_warning_accept">Saya mengerti dan menerima</string>

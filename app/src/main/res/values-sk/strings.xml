@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Zdieľať Navia</string>
     <string name="share_subject">Navia – mapa, ktorej sa môžete dotknúť</string>
     <string name="share_text">Objavte Navia, mapu, ktorej sa môžete dotknúť! Prechádzajte prstom po obrazovke a počúvajte ulice, obchody a miesta priamo pod ním. Plne prístupná, vytvorená pre nevidiacich a slabozrakých a užitočná pre všetkých. Zadarmo v Google Play: %1$s</string>
+    <string name="share_text_web">Objavte Navia, mapu, ktorej sa môžete dotknúť! Prechádzajte prstom po obrazovke a počúvajte ulice, obchody a miesta priamo pod ním. Plne prístupná, vytvorená pre nevidiacich a slabozrakých a užitočná pre všetkých. Zadarmo pre Android aj iPhone: %1$s</string>
     <string name="safety_warning_title">Dôležité bezpečnostné upozornenie</string>
     <string name="safety_warning_message">Nikdy sa pri pohybe nespoliehajte na to, čo hovorí táto aplikácia. Z technických dôvodov – kvôli obmedzeniam GPS a ďalších meracích nástrojov, chybám v mapových údajoch a chybám softvéru – môžu byť jej informácie nesprávne. Vždy používajte bezpečné metódy, napríklad bielu palicu alebo vodiaceho psa, a túto aplikáciu berte len ako doplnkovú pomôcku.</string>
     <string name="safety_warning_accept">Rozumiem a súhlasím</string>

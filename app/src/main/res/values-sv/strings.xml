@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Dela Navia</string>
     <string name="share_subject">Navia – en karta du kan röra vid</string>
     <string name="share_text">Upptäck Navia, en karta du kan röra vid! Dra fingret över skärmen och hör gatorna, butikerna och platserna precis under det. Helt tillgänglig, gjord för blinda och synskadade och rolig för alla. Gratis på Google Play: %1$s</string>
+    <string name="share_text_web">Upptäck Navia, en karta du kan röra vid! Dra fingret över skärmen och hör gatorna, butikerna och platserna precis under det. Helt tillgänglig, gjord för blinda och synskadade och rolig för alla. Gratis för Android och iPhone: %1$s</string>
     <string name="safety_warning_title">Viktig säkerhetsvarning</string>
     <string name="safety_warning_message">Basera aldrig dina rörelser på vad den här appen säger. Av tekniska skäl – begränsningar i GPS och andra mätinstrument, fel i kartdata och programvarufel – kan informationen vara felaktig. Använd alltid säkra metoder som vit käpp eller ledarhund, och se bara appen som ett extra hjälpmedel.</string>
     <string name="safety_warning_accept">Jag förstår och godkänner</string>

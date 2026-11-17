@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Udostępnij Navia</string>
     <string name="share_subject">Navia – mapa, której możesz dotknąć</string>
     <string name="share_text">Poznaj Navia, mapę, której możesz dotknąć! Przesuwaj palcem po ekranie i słuchaj ulic, sklepów i miejsc tuż pod nim. W pełni dostępna, stworzona dla osób niewidomych i słabowidzących, a przy tym przydatna dla wszystkich. Za darmo w Google Play: %1$s</string>
+    <string name="share_text_web">Poznaj Navia, mapę, której możesz dotknąć! Przesuwaj palcem po ekranie i słuchaj ulic, sklepów i miejsc tuż pod nim. W pełni dostępna, stworzona dla osób niewidomych i słabowidzących, a przy tym przydatna dla wszystkich. Za darmo na Androida i iPhone’a: %1$s</string>
     <string name="safety_warning_title">Ważne ostrzeżenie dotyczące bezpieczeństwa</string>
     <string name="safety_warning_message">Nigdy nie opieraj swojego poruszania się na tym, co mówi ta aplikacja. Z przyczyn technicznych – ograniczeń GPS i innych narzędzi pomiarowych, błędów w danych mapy i usterek oprogramowania – jej informacje mogą być błędne. Zawsze korzystaj z bezpiecznych metod, takich jak biała laska lub pies przewodnik, a tę aplikację traktuj wyłącznie jako dodatkową pomoc.</string>
     <string name="safety_warning_accept">Rozumiem i akceptuję</string>

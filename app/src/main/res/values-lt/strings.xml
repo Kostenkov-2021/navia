@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Bendrinti „Navia“</string>
     <string name="share_subject">„Navia“ – žemėlapis, kurį galite paliesti</string>
     <string name="share_text">Atraskite „Navia“ – žemėlapį, kurį galite paliesti! Braukite pirštu per ekraną ir išgirskite gatves, parduotuves ir vietas tiesiai po juo. Visiškai prieinama, sukurta akliesiems ir silpnaregiams, o kartu naudinga visiems. Nemokamai „Google Play“: %1$s</string>
+    <string name="share_text_web">Atraskite „Navia“ – žemėlapį, kurį galite paliesti! Braukite pirštu per ekraną ir išgirskite gatves, parduotuves ir vietas tiesiai po juo. Visiškai prieinama, sukurta akliesiems ir silpnaregiams, o kartu naudinga visiems. Nemokamai „Android“ ir „iPhone“: %1$s</string>
     <string name="safety_warning_title">Svarbus saugos įspėjimas</string>
     <string name="safety_warning_message">Niekada nesiremkite šios programos pateikiama informacija judėdami. Dėl techninių priežasčių – GPS ir kitų matavimo priemonių apribojimų, žemėlapio duomenų klaidų ir programinės įrangos riktų – ji gali būti neteisinga. Visada naudokite saugius metodus, pavyzdžiui, baltąją lazdelę ar šunį vedlį, o šią programą laikykite tik papildoma pagalbos priemone.</string>
     <string name="safety_warning_accept">Supratau ir sutinku</string>

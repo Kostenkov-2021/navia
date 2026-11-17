@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Navia\'yı paylaş</string>
     <string name="share_subject">Navia – dokunabileceğiniz bir harita</string>
     <string name="share_text">Dokunabileceğiniz bir harita olan Navia\'yı keşfedin! Parmağınızı ekranda gezdirin ve hemen altındaki sokakları, dükkânları ve yerleri dinleyin. Tamamen erişilebilir, görme engelliler ve az görenler için tasarlandı, herkes için eğlenceli. Google Play\'de ücretsiz: %1$s</string>
+    <string name="share_text_web">Dokunabileceğiniz bir harita olan Navia\'yı keşfedin! Parmağınızı ekranda gezdirin ve hemen altındaki sokakları, dükkânları ve yerleri dinleyin. Tamamen erişilebilir, görme engelliler ve az görenler için tasarlandı, herkes için eğlenceli. Android ve iPhone için ücretsiz: %1$s</string>
     <string name="safety_warning_title">Önemli güvenlik uyarısı</string>
     <string name="safety_warning_message">Hareketlerinizi asla bu uygulamanın söylediklerine dayandırmayın. GPS ve diğer ölçüm araçlarının sınırlamaları, harita verisi hataları ve yazılım arızaları gibi teknik nedenlerle bilgiler yanlış olabilir. Her zaman beyaz baston veya rehber köpek gibi güvenli yöntemleri kullanın ve bu uygulamayı yalnızca ek bir yardımcı olarak görün.</string>
     <string name="safety_warning_accept">Anladım ve kabul ediyorum</string>

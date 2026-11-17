@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Distribuie Navia</string>
     <string name="share_subject">Navia – o hartă pe care o poți atinge</string>
     <string name="share_text">Descoperă Navia, o hartă pe care o poți atinge! Glisează degetul pe ecran și ascultă străzile, magazinele și locurile de chiar dedesubt. Complet accesibilă, creată pentru persoane nevăzătoare și cu vedere slabă, și utilă tuturor. Gratuită în Google Play: %1$s</string>
+    <string name="share_text_web">Descoperă Navia, o hartă pe care o poți atinge! Glisează degetul pe ecran și ascultă străzile, magazinele și locurile de chiar dedesubt. Complet accesibilă, creată pentru persoane nevăzătoare și cu vedere slabă, și utilă tuturor. Gratuită pentru Android și iPhone: %1$s</string>
     <string name="safety_warning_title">Avertisment important de siguranță</string>
     <string name="safety_warning_message">Nu-ți baza niciodată deplasările pe ceea ce spune această aplicație. Din motive tehnice – limitele GPS-ului și ale altor instrumente de măsurare, erori în datele hărții și defecțiuni ale software-ului – informațiile ei pot fi greșite. Folosește întotdeauna metode sigure, precum bastonul alb sau câinele-ghid, și consideră această aplicație doar un ajutor suplimentar.</string>
     <string name="safety_warning_accept">Am înțeles și accept</string>

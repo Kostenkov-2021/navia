@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Del Navia</string>
     <string name="share_subject">Navia – et kart du kan ta på</string>
     <string name="share_text">Oppdag Navia, et kart du kan ta på! Før fingeren over skjermen og hør gatene, butikkene og stedene rett under den. Fullt tilgjengelig, laget for blinde og svaksynte, og morsomt for alle. Gratis på Google Play: %1$s</string>
+    <string name="share_text_web">Oppdag Navia, et kart du kan ta på! Før fingeren over skjermen og hør gatene, butikkene og stedene rett under den. Fullt tilgjengelig, laget for blinde og svaksynte, og morsomt for alle. Gratis for Android og iPhone: %1$s</string>
     <string name="safety_warning_title">Viktig sikkerhetsadvarsel</string>
     <string name="safety_warning_message">Ikke la bevegelsene dine bygge på det denne appen sier. Av tekniske årsaker – begrensninger i GPS og andre måleinstrumenter, feil i kartdata og programvarefeil – kan informasjonen være feil. Bruk alltid trygge metoder som hvit stokk eller førerhund, og se på denne appen bare som en ekstra hjelp.</string>
     <string name="safety_warning_accept">Jeg forstår og godtar</string>

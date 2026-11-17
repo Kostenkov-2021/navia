@@ -152,6 +152,7 @@
     <string name="share_chooser_title">Share Navia</string>
     <string name="share_subject">Navia – a map you can touch</string>
     <string name="share_text">Discover Navia, a map you can touch! Slide your finger across the screen and hear the streets, shops and places right under it. Fully accessible and built for blind and low-vision people, and fun for everyone. Free on Google Play: %1$s</string>
+    <string name="share_text_web">Discover Navia, a map you can touch! Slide your finger across the screen and hear the streets, shops and places right under it. Fully accessible and built for blind and low-vision people, and fun for everyone. Free for Android and iPhone: %1$s</string>
     <string name="theme_title">Theme</string>
     <string name="theme_system">Same as device</string>
     <string name="theme_light">Light</string>

@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Compartir Navia</string>
     <string name="share_subject">Navia – un mapa que puedes tocar</string>
     <string name="share_text">¡Descubre Navia, un mapa que puedes tocar! Desliza el dedo por la pantalla y escucha las calles, tiendas y lugares justo debajo. Totalmente accesible y creado para personas ciegas y con baja visión, y útil para todos. Gratis en Google Play: %1$s</string>
+    <string name="share_text_web">¡Descubre Navia, un mapa que puedes tocar! Desliza el dedo por la pantalla y escucha las calles, tiendas y lugares justo debajo. Totalmente accesible y creado para personas ciegas y con baja visión, y útil para todos. Gratis para Android y iPhone: %1$s</string>
     <string name="safety_warning_title">Aviso de seguridad importante</string>
     <string name="safety_warning_message">Nunca bases tus desplazamientos en lo que dice esta aplicación. Por razones técnicas – los límites del GPS y de otros instrumentos de medición, errores en los datos del mapa y fallos del software – su información puede ser incorrecta. Usa siempre métodos seguros, como el bastón blanco o un perro guía, y considera esta aplicación solo como una ayuda adicional.</string>
     <string name="safety_warning_accept">Lo entiendo y lo acepto</string>

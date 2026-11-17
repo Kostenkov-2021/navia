@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Navia teilen</string>
     <string name="share_subject">Navia – eine Karte zum Anfassen</string>
     <string name="share_text">Entdecke Navia, eine Karte zum Anfassen! Streiche mit dem Finger über den Bildschirm und höre die Straßen, Geschäfte und Orte direkt darunter. Vollständig barrierefrei, für blinde und sehbehinderte Menschen gemacht und für alle ein Gewinn. Kostenlos bei Google Play: %1$s</string>
+    <string name="share_text_web">Entdecke Navia, eine Karte zum Anfassen! Streiche mit dem Finger über den Bildschirm und höre die Straßen, Geschäfte und Orte direkt darunter. Vollständig barrierefrei, für blinde und sehbehinderte Menschen gemacht und für alle ein Gewinn. Kostenlos für Android und iPhone: %1$s</string>
     <string name="safety_warning_title">Wichtiger Sicherheitshinweis</string>
     <string name="safety_warning_message">Richte deine Fortbewegung niemals nach dem, was diese App sagt. Aus technischen Gründen – Grenzen von GPS und anderen Messgeräten, Fehler in den Kartendaten und Softwarefehler – können ihre Angaben falsch sein. Nutze immer sichere Methoden wie den Blindenstock oder einen Blindenführhund und betrachte diese App nur als zusätzliche Hilfe.</string>
     <string name="safety_warning_accept">Verstanden und akzeptiert</string>

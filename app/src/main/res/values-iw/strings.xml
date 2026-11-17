@@ -224,6 +224,7 @@
     <string name="share_chooser_title">שיתוף Navia</string>
     <string name="share_subject">Navia – מפה שאפשר לגעת בה</string>
     <string name="share_text">גלו את Navia, מפה שאפשר לגעת בה! החליקו את האצבע על המסך ושמעו את הרחובות, החנויות והמקומות שמתחתיה. נגישה לחלוטין, נבנתה לעיוורים ולכבדי ראייה, ומהנה לכולם. בחינם ב-Google Play: %1$s</string>
+    <string name="share_text_web">גלו את Navia, מפה שאפשר לגעת בה! החליקו את האצבע על המסך ושמעו את הרחובות, החנויות והמקומות שמתחתיה. נגישה לחלוטין, נבנתה לעיוורים ולכבדי ראייה, ומהנה לכולם. בחינם ל-Android ול-iPhone: %1$s</string>
     <string name="safety_warning_title">אזהרת בטיחות חשובה</string>
     <string name="safety_warning_message">לעולם אל תבססו את תנועתכם על מה שהאפליקציה הזו אומרת. מסיבות טכניות – מגבלות של GPS ושל כלי מדידה אחרים, שגיאות בנתוני המפה ותקלות בתוכנה – המידע שלה עלול להיות שגוי. השתמשו תמיד בשיטות בטוחות כמו מקל לבן או כלב נחיה, והתייחסו לאפליקציה רק כעזר נוסף.</string>
     <string name="safety_warning_accept">הבנתי ואני מסכים/ה</string>

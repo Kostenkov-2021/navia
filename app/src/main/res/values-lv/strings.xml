@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Kopīgot Navia</string>
     <string name="share_subject">Navia – karte, ko var aizskart</string>
     <string name="share_text">Atklājiet Navia – karti, ko var aizskart! Velciet pirkstu pa ekrānu un dzirdiet ielas, veikalus un vietas tieši zem tā. Pilnībā pieejama, veidota neredzīgiem un vājredzīgiem cilvēkiem, un noderīga visiem. Bez maksas pakalpojumā Google Play: %1$s</string>
+    <string name="share_text_web">Atklājiet Navia – karti, ko var aizskart! Velciet pirkstu pa ekrānu un dzirdiet ielas, veikalus un vietas tieši zem tā. Pilnībā pieejama, veidota neredzīgiem un vājredzīgiem cilvēkiem, un noderīga visiem. Bez maksas Android un iPhone: %1$s</string>
     <string name="safety_warning_title">Svarīgs drošības brīdinājums</string>
     <string name="safety_warning_message">Nekad nebalstiet savu pārvietošanos uz to, ko saka šī lietotne. Tehnisku iemeslu dēļ – GPS un citu mērīšanas rīku ierobežojumu, kartes datu kļūdu un programmatūras kļūmju dēļ – tās sniegtā informācija var būt nepareiza. Vienmēr izmantojiet drošas metodes, piemēram, balto spieķi vai suni pavadoni, un uzskatiet šo lietotni tikai par papildu palīglīdzekli.</string>
     <string name="safety_warning_accept">Sapratu un piekrītu</string>

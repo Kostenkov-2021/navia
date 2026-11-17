@@ -223,6 +223,7 @@
     <string name="share_chooser_title">Navia delen</string>
     <string name="share_subject">Navia – een kaart die je kunt aanraken</string>
     <string name="share_text">Ontdek Navia, een kaart die je kunt aanraken! Beweeg je vinger over het scherm en hoor de straten, winkels en plaatsen er direct onder. Volledig toegankelijk, gemaakt voor blinden en slechtzienden en leuk voor iedereen. Gratis in Google Play: %1$s</string>
+    <string name="share_text_web">Ontdek Navia, een kaart die je kunt aanraken! Beweeg je vinger over het scherm en hoor de straten, winkels en plaatsen er direct onder. Volledig toegankelijk, gemaakt voor blinden en slechtzienden en leuk voor iedereen. Gratis voor Android en iPhone: %1$s</string>
     <string name="safety_warning_title">Belangrijke veiligheidswaarschuwing</string>
     <string name="safety_warning_message">Baseer je bewegingen nooit op wat deze app zegt. Om technische redenen – beperkingen van gps en andere meetinstrumenten, fouten in de kaartgegevens en softwarefouten – kan de informatie onjuist zijn. Gebruik altijd veilige methoden zoals een witte stok of een geleidehond en beschouw deze app alleen als extra hulpmiddel.</string>
     <string name="safety_warning_accept">Ik begrijp het en ga akkoord</string>

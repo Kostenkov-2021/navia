@@ -223,6 +223,7 @@
     <string name="share_chooser_title">Del Navia</string>
     <string name="share_subject">Navia – et kort, du kan røre ved</string>
     <string name="share_text">Opdag Navia, et kort du kan røre ved! Før fingeren hen over skærmen, og hør gaderne, butikkerne og stederne lige under den. Fuldt tilgængeligt og lavet til blinde og svagsynede, og sjovt for alle. Gratis på Google Play: %1$s</string>
+    <string name="share_text_web">Opdag Navia, et kort du kan røre ved! Før fingeren hen over skærmen, og hør gaderne, butikkerne og stederne lige under den. Fuldt tilgængeligt og lavet til blinde og svagsynede, og sjovt for alle. Gratis til Android og iPhone: %1$s</string>
     <string name="safety_warning_title">Vigtig sikkerhedsadvarsel</string>
     <string name="safety_warning_message">Lad aldrig dine bevægelser bero på, hvad denne app siger. Af tekniske årsager – begrænsninger i GPS og andre måleinstrumenter, fejl i kortdata og softwarefejl – kan oplysningerne være forkerte. Brug altid sikre metoder som en hvid stok eller en førerhund, og betragt kun denne app som en ekstra hjælp.</string>
     <string name="safety_warning_accept">Jeg forstår og accepterer</string>

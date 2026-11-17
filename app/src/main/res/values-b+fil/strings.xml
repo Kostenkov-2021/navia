@@ -224,6 +224,7 @@
     <string name="share_chooser_title">I-share ang Navia</string>
     <string name="share_subject">Navia – mapang mahahawakan mo</string>
     <string name="share_text">Tuklasin ang Navia, isang mapang mahahawakan mo! I-slide ang daliri mo sa screen at pakinggan ang mga kalye, tindahan at lugar na nasa ilalim nito. Ganap na accessible at ginawa para sa mga bulag at mahina ang paningin, at masaya para sa lahat. Libre sa Google Play: %1$s</string>
+    <string name="share_text_web">Tuklasin ang Navia, isang mapang mahahawakan mo! I-slide ang daliri mo sa screen at pakinggan ang mga kalye, tindahan at lugar na nasa ilalim nito. Ganap na accessible at ginawa para sa mga bulag at mahina ang paningin, at masaya para sa lahat. Libre para sa Android at iPhone: %1$s</string>
     <string name="safety_warning_title">Mahalagang babala sa kaligtasan</string>
     <string name="safety_warning_message">Huwag kailanman ibatay ang iyong paggalaw sa sinasabi ng app na ito. Dahil sa mga teknikal na dahilan – limitasyon ng GPS at iba pang panukat, mga mali sa datos ng mapa, at mga sira sa software – maaaring mali ang impormasyon nito. Palaging gumamit ng mga ligtas na paraan tulad ng puting tungkod o gabay na aso, at ituring ang app na ito bilang karagdagang tulong lamang.</string>
     <string name="safety_warning_accept">Naiintindihan ko at sumasang-ayon ako</string>

@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Kongsi Navia</string>
     <string name="share_subject">Navia – peta yang boleh anda sentuh</string>
     <string name="share_text">Temui Navia, peta yang boleh anda sentuh! Luncurkan jari di skrin dan dengar jalan, kedai dan tempat tepat di bawahnya. Boleh diakses sepenuhnya, dibina untuk orang buta dan cacat penglihatan, dan menyeronokkan untuk semua orang. Percuma di Google Play: %1$s</string>
+    <string name="share_text_web">Temui Navia, peta yang boleh anda sentuh! Luncurkan jari di skrin dan dengar jalan, kedai dan tempat tepat di bawahnya. Boleh diakses sepenuhnya, dibina untuk orang buta dan cacat penglihatan, dan menyeronokkan untuk semua orang. Percuma untuk Android dan iPhone: %1$s</string>
     <string name="safety_warning_title">Amaran keselamatan penting</string>
     <string name="safety_warning_message">Jangan sekali-kali menjadikan apa yang dikatakan aplikasi ini sebagai asas pergerakan anda. Atas sebab teknikal – had GPS dan alat pengukur lain, ralat data peta dan kerosakan perisian – maklumatnya mungkin salah. Sentiasa gunakan kaedah selamat seperti tongkat putih atau anjing pemandu, dan anggap aplikasi ini sebagai bantuan tambahan sahaja.</string>
     <string name="safety_warning_accept">Saya faham dan terima</string>

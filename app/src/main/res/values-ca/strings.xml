@@ -223,6 +223,7 @@
     <string name="share_chooser_title">Comparteix Navia</string>
     <string name="share_subject">Navia – un mapa que pots tocar</string>
     <string name="share_text">Descobreix Navia, un mapa que pots tocar! Llisca el dit per la pantalla i escolta els carrers, les botigues i els llocs que tens just a sota. Totalment accessible i pensat per a persones cegues i amb baixa visió, i divertit per a tothom. Gratis a Google Play: %1$s</string>
+    <string name="share_text_web">Descobreix Navia, un mapa que pots tocar! Llisca el dit per la pantalla i escolta els carrers, les botigues i els llocs que tens just a sota. Totalment accessible i pensat per a persones cegues i amb baixa visió, i divertit per a tothom. Gratis per a Android i iPhone: %1$s</string>
     <string name="safety_warning_title">Avís de seguretat important</string>
     <string name="safety_warning_message">No basis mai els teus desplaçaments en el que diu aquesta aplicació. Per motius tècnics – els límits del GPS i d\'altres instruments de mesura, errors en les dades del mapa i errors del programari – la informació pot ser incorrecta. Utilitza sempre mètodes segurs, com el bastó blanc o el gos pigall, i considera aquesta aplicació només una ajuda addicional.</string>
     <string name="safety_warning_accept">Ho entenc i ho accepto</string>

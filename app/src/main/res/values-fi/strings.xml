@@ -223,6 +223,7 @@
     <string name="share_chooser_title">Jaa Navia</string>
     <string name="share_subject">Navia – kartta, jota voi koskettaa</string>
     <string name="share_text">Tutustu Naviaan, karttaan jota voi koskettaa! Liu\'uta sormeasi näytöllä ja kuuntele sen alla olevat kadut, kaupat ja paikat. Täysin saavutettava, tehty sokeille ja heikkonäköisille, ja hauska kaikille. Ilmainen Google Playssa: %1$s</string>
+    <string name="share_text_web">Tutustu Naviaan, karttaan jota voi koskettaa! Liu\'uta sormeasi näytöllä ja kuuntele sen alla olevat kadut, kaupat ja paikat. Täysin saavutettava, tehty sokeille ja heikkonäköisille, ja hauska kaikille. Ilmainen Androidille ja iPhonelle: %1$s</string>
     <string name="safety_warning_title">Tärkeä turvallisuusvaroitus</string>
     <string name="safety_warning_message">Älä koskaan perusta liikkumistasi siihen, mitä tämä sovellus kertoo. Teknisistä syistä – GPS:n ja muiden mittausvälineiden rajoitukset, karttatietojen virheet ja ohjelmistovirheet – sen tiedot voivat olla virheellisiä. Käytä aina turvallisia menetelmiä, kuten valkoista keppiä tai opaskoiraa, ja pidä sovellusta vain lisäapuna.</string>
     <string name="safety_warning_accept">Ymmärrän ja hyväksyn</string>

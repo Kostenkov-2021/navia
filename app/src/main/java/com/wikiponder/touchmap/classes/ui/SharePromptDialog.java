@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
 
+import com.wikiponder.touchmap.MyApplication;
 import com.wikiponder.touchmap.R;
 
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ import java.time.LocalDate;
 /**
  * "Would you like to share the app?" prompt, shown when the user exits the app — at most once a
  * day, and never again once they tick "Don't ask again". "Share" opens the system share sheet with
- * the Google Play link and a short pitch that stresses the touchable, accessible map.
+ * the share link (navia/ landing page, or Play for Ambimap) and a short pitch about the touchable map.
  */
 public final class SharePromptDialog {
 	private static final String PREF_NEVER_ASK = "share_prompt_never_ask";
@@ -71,13 +72,19 @@ public final class SharePromptDialog {
 				.show();
 	}
 
-	/** Opens the system share sheet with the Play Store link and the pitch. */
+	/** Navia's one shared link: on Android it offers the Play app or the web version, elsewhere it
+	 * opens the web version (see web/index.html), so the link also works for iPhone users. */
+	private static final String NAVIA_SHARE_URL = "https://wikiponder.com/navia/";
+
+	/** Opens the system share sheet with the share link and the pitch. Ambimap has no web version,
+	 * so it keeps sharing its Play Store page. */
 	public static void share(Activity activity) {
-		String url = "https://play.google.com/store/apps/details?id=" + activity.getPackageName();
+		boolean ambimap = MyApplication.isAmbimap();
+		String url = ambimap ? "https://play.google.com/store/apps/details?id=" + activity.getPackageName() : NAVIA_SHARE_URL;
 		Intent send = new Intent(Intent.ACTION_SEND);
 		send.setType("text/plain");
 		send.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.share_subject));
-		send.putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.share_text, url));
+		send.putExtra(Intent.EXTRA_TEXT, activity.getString(ambimap ? R.string.share_text : R.string.share_text_web, url));
 		activity.startActivity(Intent.createChooser(send, activity.getString(R.string.share_chooser_title)));
 	}
 }

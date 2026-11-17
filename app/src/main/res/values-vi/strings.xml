@@ -224,6 +224,7 @@
     <string name="share_chooser_title">Chia sẻ Navia</string>
     <string name="share_subject">Navia – bản đồ bạn có thể chạm vào</string>
     <string name="share_text">Khám phá Navia, bản đồ bạn có thể chạm vào! Lướt ngón tay trên màn hình và nghe các con đường, cửa hàng và địa điểm ngay bên dưới. Hoàn toàn dễ tiếp cận, được tạo ra cho người khiếm thị và người nhìn kém, và thú vị với mọi người. Miễn phí trên Google Play: %1$s</string>
+    <string name="share_text_web">Khám phá Navia, bản đồ bạn có thể chạm vào! Lướt ngón tay trên màn hình và nghe các con đường, cửa hàng và địa điểm ngay bên dưới. Hoàn toàn dễ tiếp cận, được tạo ra cho người khiếm thị và người nhìn kém, và thú vị với mọi người. Miễn phí cho Android và iPhone: %1$s</string>
     <string name="safety_warning_title">Cảnh báo an toàn quan trọng</string>
     <string name="safety_warning_message">Không bao giờ dựa vào những gì ứng dụng này nói để di chuyển. Vì các lý do kỹ thuật – giới hạn của GPS và các dụng cụ đo khác, lỗi dữ liệu bản đồ và lỗi phần mềm – thông tin có thể sai. Luôn dùng các phương pháp an toàn như gậy trắng hoặc chó dẫn đường, và chỉ xem ứng dụng này là công cụ hỗ trợ thêm.</string>
     <string name="safety_warning_accept">Tôi hiểu và chấp nhận</string>

@@ -223,6 +223,7 @@
     <string name="share_chooser_title">Deel Navia</string>
     <string name="share_subject">Navia – \'n kaart wat jy kan aanraak</string>
     <string name="share_text">Ontdek Navia, \'n kaart wat jy kan aanraak! Gly jou vinger oor die skerm en hoor die strate, winkels en plekke net onder dit. Heeltemal toeganklik en gebou vir blinde en swaksiende mense, en pret vir almal. Gratis op Google Play: %1$s</string>
+    <string name="share_text_web">Ontdek Navia, \'n kaart wat jy kan aanraak! Gly jou vinger oor die skerm en hoor die strate, winkels en plekke net onder dit. Heeltemal toeganklik en gebou vir blinde en swaksiende mense, en pret vir almal. Gratis vir Android en iPhone: %1$s</string>
     <string name="safety_warning_title">Belangrike veiligheidswaarskuwing</string>
     <string name="safety_warning_message">Moet nooit jou beweging baseer op wat hierdie toepassing sê nie. Weens tegniese redes – die beperkings van GPS en ander meetinstrumente, kaartdatafoute en sagtewarefoute – kan die inligting verkeerd wees. Gebruik altyd veilige metodes soos \'n wit stok of \'n gidshond, en beskou hierdie toepassing slegs as \'n ekstra hulpmiddel.</string>
     <string name="safety_warning_accept">Ek verstaan en aanvaar</string>

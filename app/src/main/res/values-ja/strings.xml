@@ -212,6 +212,7 @@
     <string name="share_chooser_title">Naviaを共有</string>
     <string name="share_subject">Navia – 触れる地図</string>
     <string name="share_text">触れる地図「Navia」をご紹介します！画面の上で指をすべらせると、そのすぐ下にある道路、お店、場所が音声でわかります。完全にアクセシブルで、視覚障害・ロービジョンの方のために作られ、誰にとっても楽しいアプリです。Google Playで無料：%1$s</string>
+    <string name="share_text_web">触れる地図「Navia」をご紹介します！画面の上で指をすべらせると、そのすぐ下にある道路、お店、場所が音声でわかります。完全にアクセシブルで、視覚障害・ロービジョンの方のために作られ、誰にとっても楽しいアプリです。AndroidとiPhoneで無料：%1$s</string>
     <string name="safety_warning_title">安全に関する重要な警告</string>
     <string name="safety_warning_message">このアプリの案内だけを頼りに移動しないでください。GPSやその他の測定機器の限界、地図データの誤り、ソフトウェアの不具合など技術的な理由により、情報が正しくない場合があります。必ず白杖や盲導犬など安全な方法を使い、このアプリはあくまで補助的な手段としてご利用ください。</string>
     <string name="safety_warning_accept">理解し、同意します</string>
