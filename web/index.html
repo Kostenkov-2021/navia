@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navia – a map you can touch</title>
+<meta name="description" content="A touchable map for blind and low-vision people. Slide a finger over the map to hear streets and places. In the browser on iPhone and Android, or as an Android app.">
+<link rel="icon" href="app/icon-192.png">
+<link rel="apple-touch-icon" href="app/apple-touch-icon.png">
+<style>
+:root { --bg: #f4f6f8; --fg: #0f1720; --panel: #fff; --border: #b9c3cd; --accent: #0d5ea8; --accent-fg: #fff; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0b1016; --fg: #eef2f6; --panel: #151d26; --border: #3a4757; --accent: #4ea3f5; --accent-fg: #0b1016; } }
+body { font: 18px/1.5 system-ui, sans-serif; margin: 0; padding: 24px 16px; background: var(--bg); color: var(--fg); }
+main { max-width: 560px; margin: 0 auto; }
+a { color: var(--accent); }
+.choice { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+.choice a { display: flex; align-items: center; justify-content: center; min-height: 56px; padding: 10px 16px; border-radius: 12px;
+	text-align: center; text-decoration: none; font-weight: 600; border: 1px solid var(--border); background: var(--panel); color: var(--fg); }
+.choice a.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.small { font-size: .9rem; }
+</style>
+</head>
+<body>
+<!-- The one link people share. Android visitors choose between the app and the web version (the
+     web choice is remembered); everyone else goes straight to the web version. -->
+<main id="choose" hidden>
+	<h1 id="title">Navia – a map you can touch</h1>
+	<p id="q">How would you like to use Navia?</p>
+	<div class="choice">
+		<a id="app" class="primary" href="https://play.google.com/store/apps/details?id=com.wikiponder.touchmap">Install the Android app from Google Play</a>
+		<p id="note" class="small">The app has more features, such as announcements while the screen is off.</p>
+		<a id="web" href="app/">Use Navia Web in this browser</a>
+	</div>
+</main>
+<noscript><p><a href="app/">Open Navia Web</a></p></noscript>
+<script>
+(async () => {
+	const get = (k) => { try { return JSON.parse(localStorage.getItem('navia.' + k)); } catch { return null; } };
+	const android = /Android/i.test(navigator.userAgent);
+	if (!android || get('landing') === 'web') { location.replace('app/'); return; }
+	const langs = ['ar', 'zh', 'cs', 'nl', 'en', 'fr', 'de', 'el', 'ha', 'it', 'ja', 'fa', 'pt', 'ru', 'sr', 'es', 'sw', 'tr', 'uk', 'ur', 'vi'];
+	const nav = (navigator.language || 'en').toLowerCase().split('-')[0];
+	const lang = get('lang') || (langs.includes(nav) ? nav : 'en');
+	if (lang !== 'en') {
+		try {
+			const t = await (await fetch('app/i18n/' + lang + '.json')).json();
+			document.documentElement.lang = lang;
+			if (['ar', 'fa', 'ur'].includes(lang)) document.documentElement.dir = 'rtl';
+			const set = (id, key) => { if (t[key]) document.getElementById(id).textContent = t[key]; };
+			set('title', 'share_android_title'); set('q', 'landing_q'); set('app', 'install_android');
+			set('note', 'landing_app_note'); set('web', 'landing_web');
+			document.title = document.getElementById('title').textContent;
+		} catch { }
+	}
+	document.getElementById('web').onclick = () => { try { localStorage.setItem('navia.landing', '"web"'); } catch { } };
+	document.getElementById('choose').hidden = false;
+	document.getElementById('title').focus?.();
+})();
+</script>
+</body>
+</html>

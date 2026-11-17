@@ -1,0 +1,107 @@
+:root {
+	--bg: #f4f6f8;
+	--fg: #0f1720;
+	--muted: #4a5663;
+	--panel: #ffffff;
+	--accent: #0d5ea8;
+	--accent-fg: #ffffff;
+	--border: #b9c3cd;
+	--focus: #ff8a00;
+	color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0b1016;
+		--fg: #eef2f6;
+		--muted: #a7b3bf;
+		--panel: #151d27;
+		--accent: #4ea3f5;
+		--accent-fg: #071019;
+		--border: #3a4757;
+		color-scheme: dark;
+	}
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+	background: var(--bg);
+	color: var(--fg);
+	font: 17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	display: flex;
+	flex-direction: column;
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+header { display: flex; align-items: baseline; gap: 12px; padding: 6px 16px; }
+h1 { font-size: 1.25rem; margin: 0; }
+.status { margin: 0; color: var(--muted); font-size: .9rem; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; top: -200px; inset-inline-start: 8px; }
+.skip:focus { top: 8px; background: var(--panel); padding: 8px; z-index: 10; }
+.small { font-size: .9rem; color: var(--muted); }
+a { color: var(--accent); }
+
+.welcome { padding: 16px; max-width: 640px; margin: 0 auto; }
+.choice { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+
+main { flex: 1; display: flex; flex-direction: column; }
+/* The map gets most of the screen; the controls follow below it (the page scrolls). */
+.map { position: relative; flex: none; height: 72vh; height: 72dvh; min-height: 260px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+#canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.grid { position: absolute; inset: 0; }
+.grid .cell { position: absolute; margin: 0; padding: 0; border: 0; background: transparent; color: transparent; font-size: 1px; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+.grid .cell:focus { outline: 3px solid var(--focus); outline-offset: -3px; }
+.tap-start { position: absolute; inset: 0; display: flex; flex-direction: column; }
+.tap-start[hidden] { display: none; }
+.tap-start button { border: 0; color: #fff; font-size: 1.4rem; }
+#tap-start-voice { flex: 1; background: rgba(0,0,0,.55); }
+#tap-start-sr { min-height: 64px; padding: 8px 16px; font-size: 1.05rem; background: #0d5ea8; }
+
+/* Always left-to-right, so West stays on the left and East on the right in RTL languages too. */
+.controls { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; padding: 8px; direction: ltr; }
+.controls button { min-height: 52px; padding: 4px; display: flex; align-items: center; justify-content: center;
+	border: 2px solid var(--fg); background: var(--panel); color: var(--fg); }
+.controls button svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.controls button svg .fill { fill: currentColor; stroke: none; }
+button {
+	font: inherit;
+	min-height: 48px;
+	padding: 8px 12px;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+	background: var(--panel);
+	color: var(--fg);
+	cursor: pointer;
+}
+button.big, .controls button { flex: 1 1 auto; }
+button.big { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
+button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+dialog {
+	background: var(--panel);
+	color: var(--fg);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	width: min(560px, calc(100vw - 32px));
+	max-height: calc(100vh - 48px);
+	padding: 16px;
+}
+dialog::backdrop { background: rgba(0,0,0,.5); }
+dialog h2 { margin-top: 0; font-size: 1.2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.actions button { flex: 1 1 auto; }
+.results { list-style: none; padding: 0; margin: 8px 0; max-height: 50vh; overflow: auto; }
+.results li { margin: 4px 0; }
+.results button { width: 100%; text-align: start; }
+input[type=search] { font: inherit; width: 100%; min-height: 48px; padding: 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); margin: 6px 0; }
+fieldset { border: 1px solid var(--border); border-radius: 10px; margin: 0 0 12px; }
+dialog label { display: block; margin: 8px 0; }
+input[type=range] { width: 100%; }
+
+.settings-sub { font-size: 1rem; margin: 16px 0 0; }
+.actions.stack { flex-direction: column; }
+a.button { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 12px; border-radius: 10px; background: var(--panel); color: var(--fg);
+	border: 1px solid var(--border); text-decoration: none; text-align: center; }
+.lang-select { font: inherit; min-height: 44px; width: 100%; margin: 4px 0 12px; padding: 4px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--panel); color: var(--fg); }
+a.button[hidden] { display: none; }
+.controls button[hidden] { display: none; }

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Navia Web</title>
+<meta name="description" content="A touchable map for blind and low-vision people. Slide a finger over the map to hear streets and places.">
+<meta name="theme-color" content="#0d2b45">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Navia Web">
+<meta name="application-name" content="Navia Web">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#controls" data-i18n="skip">Skip to controls</a>
+
+<header>
+	<h1>Navia</h1>
+	<p id="status" class="status" role="status" aria-live="polite"></p>
+</header>
+
+<div id="announcer" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+
+<section id="welcome" class="welcome" hidden aria-labelledby="welcome-title">
+	<h2 id="welcome-title" data-i18n="welcome_title">Welcome to Navia</h2>
+	<p data-i18n="welcome_p1"></p>
+	<p data-i18n="welcome_p2"></p>
+	<p><strong data-i18n="welcome_q"></strong></p>
+	<div class="choice">
+		<button id="mode-sr" class="big" data-i18n="mode_sr_btn"></button>
+		<button id="mode-voice" class="big" data-i18n="mode_voice_btn"></button>
+	</div>
+	<p class="small" id="welcome-small"></p>
+	<label class="small" for="welcome-lang" data-i18n="language">Language</label>
+	<select id="welcome-lang" class="lang-select"></select>
+</section>
+
+<main id="main" hidden>
+	<h2 class="sr-only" data-i18n="map">Map</h2>
+	<div id="map" class="map">
+		<canvas id="canvas" aria-hidden="true"></canvas>
+		<div id="grid" class="grid"></div>
+		<div id="tap-start" class="tap-start" hidden>
+			<button id="tap-start-voice" type="button" data-i18n="tap_voice"></button>
+			<button id="tap-start-sr" type="button" data-i18n="tap_sr"></button>
+		</div>
+	</div>
+
+	<!-- Icon buttons: the icon is drawn by app.js (ICONS) and hidden from screen readers, which read
+	     the translated aria-label instead. -->
+	<nav id="controls" class="controls" data-i18n-aria="controls">
+		<button id="btn-locate" data-icon="locate" data-i18n-aria="my_location"></button>
+		<button id="btn-search" data-icon="search" data-i18n-aria="search"></button>
+		<button id="btn-zoom-in" data-icon="plus" data-i18n-aria="zoom_in"></button>
+		<button id="btn-zoom-out" data-icon="minus" data-i18n-aria="zoom_out"></button>
+		<button id="btn-settings" data-icon="settings" data-i18n-aria="settings"></button>
+		<button id="btn-west" data-icon="west" data-i18n-aria="move_west"></button>
+		<button id="btn-north" data-icon="north" data-i18n-aria="move_north"></button>
+		<button id="btn-south" data-icon="south" data-i18n-aria="move_south"></button>
+		<button id="btn-east" data-icon="east" data-i18n-aria="move_east"></button>
+		<button id="btn-aim-stop" hidden data-icon="stop" data-i18n-aria="stop_aiming"></button>
+	</nav>
+</main>
+
+<dialog id="dlg-place" aria-labelledby="place-title">
+	<h2 id="place-title"></h2>
+	<p id="place-info"></p>
+	<div class="actions">
+		<button id="place-aim" data-i18n="aim_here"></button>
+		<button id="place-sound" data-i18n="hear_sounds"></button>
+		<button id="place-center" data-i18n="center_here"></button>
+		<button class="close" data-i18n="close"></button>
+	</div>
+</dialog>
+
+<dialog id="dlg-search" aria-labelledby="search-title">
+	<h2 id="search-title" data-i18n="search"></h2>
+	<form id="search-form" role="search">
+		<label for="search-input" data-i18n="search_label"></label>
+		<input id="search-input" type="search" autocomplete="off" enterkeyhint="search">
+		<button type="submit" data-i18n="search"></button>
+	</form>
+	<p id="search-msg" role="status"></p>
+	<ul id="search-results" class="results"></ul>
+	<div class="actions"><button class="close" data-i18n="close"></button></div>
+</dialog>
+
+<dialog id="dlg-sound" aria-labelledby="sound-title">
+	<h2 id="sound-title" data-i18n="sound_title"></h2>
+	<p class="small" id="sound-hint"></p>
+	<ul id="sound-list"></ul>
+	<div class="actions">
+		<button id="sound-left" data-i18n="turn_left"></button>
+		<button id="sound-right" data-i18n="turn_right"></button>
+		<button id="sound-forward" data-i18n="step_forward"></button>
+		<button id="sound-stop" class="close" data-i18n="stop"></button>
+	</div>
+</dialog>
+
+<dialog id="dlg-settings" aria-labelledby="settings-title">
+	<h2 id="settings-title" data-i18n="settings"></h2>
+	<label for="set-lang" data-i18n="language"></label>
+	<select id="set-lang" class="lang-select"></select>
+	<fieldset>
+		<legend data-i18n="speech"></legend>
+		<label><input type="radio" name="mode" value="sr"> <span data-i18n="mode_sr_opt"></span></label>
+		<label><input type="radio" name="mode" value="voice"> <span data-i18n="mode_voice_opt"></span></label>
+	</fieldset>
+	<label for="set-rate" data-i18n="rate"></label>
+	<input id="set-rate" type="range" min="0.6" max="2" step="0.1">
+	<label><input id="set-labels" type="checkbox"> <span data-i18n="labels_opt"></span></label>
+	<label><input id="set-detail" type="checkbox"> <span data-i18n="detail_opt"></span></label>
+	<h3 class="settings-sub" data-i18n="tools"></h3>
+	<div class="actions stack">
+		<button id="btn-walk" type="button" aria-pressed="false" data-i18n="walk_btn"></button>
+		<button id="btn-offline" type="button" data-i18n="offline_btn"></button>
+		<button id="btn-help" type="button" data-i18n="help"></button>
+	</div>
+	<h3 class="settings-sub" data-i18n="share_apps"></h3>
+	<div class="actions stack">
+		<button id="btn-install" type="button" hidden data-i18n="install_btn"></button>
+		<button id="share-web" type="button" data-i18n="share_web_btn"></button>
+		<a id="get-android" class="button" href="https://play.google.com/store/apps/details?id=com.wikiponder.touchmap" target="_blank" rel="noopener" data-i18n="install_android" hidden></a>
+	</div>
+	<div class="actions"><button class="close" data-i18n="done"></button></div>
+</dialog>
+
+<dialog id="dlg-install" aria-labelledby="install-title">
+	<h2 id="install-title" data-i18n="install_title"></h2>
+	<div id="install-ios" hidden>
+		<p data-i18n="ios_intro"></p>
+		<ol>
+			<li data-i18n="ios_1"></li>
+			<li data-i18n="ios_2"></li>
+			<li data-i18n="ios_3"></li>
+		</ol>
+		<p class="small" data-i18n="ios_note"></p>
+	</div>
+	<div id="install-android" hidden>
+		<p data-i18n="and_intro"></p>
+		<ol>
+			<li data-i18n="and_1"></li>
+			<li data-i18n="and_2"></li>
+		</ol>
+		<p class="small" data-i18n="and_note"></p>
+	</div>
+	<div class="actions"><button class="close" data-i18n="close"></button></div>
+</dialog>
+
+<dialog id="dlg-install-prompt" aria-labelledby="install-prompt-title">
+	<h2 id="install-prompt-title" data-i18n="install_prompt_title"></h2>
+	<p data-i18n="install_prompt_msg"></p>
+	<div class="actions">
+		<button id="install-prompt-yes" type="button" data-i18n="install"></button>
+		<button class="close" type="button" data-i18n="not_now"></button>
+	</div>
+</dialog>
+
+<dialog id="dlg-share" aria-labelledby="share-title">
+	<h2 id="share-title" data-i18n="share_title"></h2>
+	<p data-i18n="share_msg"></p>
+	<label><input id="share-never" type="checkbox"> <span data-i18n="dont_ask"></span></label>
+	<div class="actions">
+		<button id="share-prompt-yes" type="button" data-i18n="share"></button>
+		<button class="close" type="button" data-i18n="not_now"></button>
+	</div>
+</dialog>
+
+<dialog id="dlg-help" aria-labelledby="help-title">
+	<h2 id="help-title" data-i18n="help_title"></h2>
+	<ul>
+		<li data-i18n="help_1"></li>
+		<li data-i18n="help_2"></li>
+		<li data-i18n="help_3"></li>
+		<li data-i18n="help_4"></li>
+		<li data-i18n="help_5"></li>
+		<li data-i18n="help_6"></li>
+	</ul>
+	<div class="actions"><button class="close" data-i18n="close"></button></div>
+</dialog>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
