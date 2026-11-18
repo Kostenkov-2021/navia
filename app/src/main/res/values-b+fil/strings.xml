@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Mga Setting</string>
-    <string name="talkback_required_title">Kailangan ang TalkBack</string>
-    <string name="talkback_required_message">Ang app na ito ay ginawa para gumana kasama ang TalkBack, at dapat naka-on ang TalkBack para gumana nang tama ang app. Pagkatapos i-download ang mapa ng lugar mo, hipuin at igalaw ang daliri mo sa screen para tuklasin ang mga kalye at punto sa paligid mo.</string>
+    <string name="talkback_required_title">Dinisenyo para sa mga screen reader</string>
+    <string name="talkback_required_message">Ang app na ito ay dinisenyo para gamitin kasama ng screen reader at nasubukan na gamit ang TalkBack. Pagkatapos i-download ang mapa ng iyong lugar, pindutin at igalaw ang iyong daliri sa screen para tuklasin ang mga kalye at lugar sa paligid mo.</string>
     <string name="talkback_required_open_settings">Buksan ang Mga Setting ng Accessibility</string>
 
     <string name="menu_gallery">Gallery</string>

@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">设置</string>
-    <string name="talkback_required_title">需要 TalkBack</string>
-    <string name="talkback_required_message">此应用程序设计为与 TalkBack 配合使用，必须开启 TalkBack 才能使应用正常运行。下载所在地区的地图后，用手指触摸并在屏幕上移动，即可探索周围的街道和地点。</string>
+    <string name="talkback_required_title">专为屏幕阅读器设计</string>
+    <string name="talkback_required_message">本应用专为配合屏幕阅读器使用而设计，并已通过 TalkBack 测试。下载所在区域的地图后，触摸屏幕并移动手指，即可探索你周围的街道和地点。</string>
     <string name="talkback_required_open_settings">打开无障碍设置</string>
 
     <string name="menu_gallery">图库</string>

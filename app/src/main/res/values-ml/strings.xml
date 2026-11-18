@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">ക്രമീകരണങ്ങൾ</string>
-    <string name="talkback_required_title">ടോക്ക്ബാക്ക് ആവശ്യമാണ്</string>
-    <string name="talkback_required_message">ഈ ആപ്പ് ടോക്ക്ബാക്കിനൊപ്പം പ്രവർത്തിക്കാൻ രൂപകൽപ്പന ചെയ്തതാണ്, ആപ്പ് ശരിയായി പ്രവർത്തിക്കാൻ ടോക്ക്ബാക്ക് ഓണായിരിക്കണം. നിങ്ങളുടെ പ്രദേശത്തിന്റെ മാപ്പ് ഡൗൺലോഡ് ചെയ്ത ശേഷം, ചുറ്റുമുള്ള തെരുവുകളും സ്ഥലങ്ങളും പര്യവേക്ഷണം ചെയ്യാൻ സ്ക്രീനിൽ വിരൽ സ്പർശിച്ച് ചലിപ്പിക്കുക.</string>
+    <string name="talkback_required_title">സ്ക്രീൻ റീഡറിനായി രൂപകൽപ്പന ചെയ്തത്</string>
+    <string name="talkback_required_message">ഈ ആപ്പ് സ്ക്രീൻ റീഡറിനൊപ്പം ഉപയോഗിക്കാൻ രൂപകൽപ്പന ചെയ്തതാണ്, TalkBack ഉപയോഗിച്ച് പരീക്ഷിച്ചിട്ടുണ്ട്. നിങ്ങളുടെ പ്രദേശത്തിന്റെ മാപ്പ് ഡൗൺലോഡ് ചെയ്ത ശേഷം, ചുറ്റുമുള്ള തെരുവുകളും സ്ഥലങ്ങളും അറിയാൻ സ്ക്രീനിൽ തൊട്ട് വിരൽ നീക്കുക.</string>
     <string name="talkback_required_open_settings">ആക്സസിബിലിറ്റി ക്രമീകരണങ്ങൾ തുറക്കുക</string>
 
     <string name="menu_gallery">ഗാലറി</string>

@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">تنظیمات</string>
-    <string name="talkback_required_title">TalkBack مورد نیاز است</string>
-    <string name="talkback_required_message">این برنامه برای کار با TalkBack طراحی شده و برای عملکرد صحیح برنامه باید TalkBack روشن باشد. پس از دانلود نقشه منطقه‌تان، انگشت خود را روی صفحه لمس کرده و حرکت دهید تا خیابان‌ها و نقاط اطراف خود را کاوش کنید.</string>
+    <string name="talkback_required_title">طراحی‌شده برای صفحه‌خوان</string>
+    <string name="talkback_required_message">این اپ برای استفاده با صفحه‌خوان طراحی شده و با TalkBack آزمایش شده است. پس از دانلود نقشهٔ منطقهٔ خود، صفحه را لمس کنید و انگشت خود را روی آن حرکت دهید تا خیابان‌ها و نقاط اطرافتان را کاوش کنید.</string>
     <string name="talkback_required_open_settings">باز کردن تنظیمات دسترس‌پذیری</string>
 
     <string name="menu_gallery">گالری</string>

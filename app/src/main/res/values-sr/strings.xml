@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Подешавања</string>
-    <string name="talkback_required_title">Потребан је TalkBack</string>
-    <string name="talkback_required_message">Ова апликација је направљена за рад са TalkBack-ом, и TalkBack мора бити укључен да би апликација исправно радила. Након преузимања мапе за вашу област, додирните екран и померајте прст да бисте истражили улице и тачке око себе.</string>
+    <string name="talkback_required_title">Направљено за читаче екрана</string>
+    <string name="talkback_required_message">Ова апликација је направљена за коришћење са читачем екрана и тестирана је са TalkBack-ом. Када преузмете мапу свог подручја, додирните екран и померајте прст да бисте истражили улице и места око себе.</string>
     <string name="talkback_required_open_settings">Отвори подешавања приступачности</string>
 
     <string name="menu_gallery">Галерија</string>

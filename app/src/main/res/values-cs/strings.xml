@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Nastavení</string>
-    <string name="talkback_required_title">Vyžaduje se TalkBack</string>
-    <string name="talkback_required_message">Tato aplikace je navržena pro práci se službou TalkBack a aby fungovala správně, musí být TalkBack zapnutý. Po stažení mapy pro vaši oblast se dotkněte obrazovky a pohybujte po ní prstem, abyste prozkoumali okolní ulice a body.</string>
+    <string name="talkback_required_title">Navrženo pro čtečky obrazovky</string>
+    <string name="talkback_required_message">Tato aplikace je navržena pro používání se čtečkou obrazovky a byla otestována s TalkBack. Po stažení mapy vaší oblasti se dotkněte obrazovky a pohybujte po ní prstem, abyste prozkoumali ulice a místa kolem sebe.</string>
     <string name="talkback_required_open_settings">Otevřít nastavení přístupnosti</string>
 
     <string name="menu_gallery">Galerie</string>

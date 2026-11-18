@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Configuració</string>
-    <string name="talkback_required_title">Cal TalkBack</string>
-    <string name="talkback_required_message">Aquesta aplicació està dissenyada per funcionar amb TalkBack, i cal que TalkBack estigui activat perquè l\'aplicació funcioni correctament. Després de baixar el mapa de la teva zona, toca i mou el dit per la pantalla per explorar els carrers i punts al teu voltant.</string>
+    <string name="talkback_required_title">Dissenyada per a lectors de pantalla</string>
+    <string name="talkback_required_message">Aquesta aplicació està dissenyada per fer-se servir amb un lector de pantalla i s’ha provat amb TalkBack. Després de baixar el mapa de la teva zona, toca la pantalla i mou-hi el dit per explorar els carrers i els punts que t’envolten.</string>
     <string name="talkback_required_open_settings">Obre la configuració d\'accessibilitat</string>
 
     <string name="menu_gallery">Galeria</string>

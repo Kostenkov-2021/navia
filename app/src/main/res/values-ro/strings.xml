@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Setări</string>
-    <string name="talkback_required_title">TalkBack este necesar</string>
-    <string name="talkback_required_message">Această aplicație este concepută să funcționeze cu TalkBack, iar TalkBack trebuie să fie activat pentru ca aplicația să funcționeze corect. După ce descărcați harta pentru zona dvs., atingeți și mișcați degetul pe ecran pentru a explora străzile și punctele din jurul dvs.</string>
+    <string name="talkback_required_title">Concepută pentru cititoare de ecran</string>
+    <string name="talkback_required_message">Această aplicație este concepută pentru a fi folosită cu un cititor de ecran și a fost testată cu TalkBack. După ce descărcați harta zonei dvs., atingeți ecranul și mișcați degetul pentru a explora străzile și locurile din jurul dvs.</string>
     <string name="talkback_required_open_settings">Deschide setările de accesibilitate</string>
 
     <string name="menu_gallery">Galerie</string>

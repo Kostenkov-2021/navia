@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">सेटिंग्ज</string>
-    <string name="talkback_required_title">टॉकबॅक आवश्यक आहे</string>
-    <string name="talkback_required_message">हे अ‍ॅप टॉकबॅकसोबत काम करण्यासाठी डिझाइन केलेले आहे आणि अ‍ॅप योग्यरित्या कार्य करण्यासाठी टॉकबॅक चालू असणे आवश्यक आहे. तुमच्या परिसराचा नकाशा डाउनलोड केल्यानंतर, आजूबाजूचे रस्ते आणि ठिकाणे शोधण्यासाठी स्क्रीनवर बोट स्पर्श करून हलवा.</string>
+    <string name="talkback_required_title">स्क्रीन रीडरसाठी तयार केलेले</string>
+    <string name="talkback_required_message">हे अ‍ॅप स्क्रीन रीडरसोबत वापरण्यासाठी तयार केले आहे आणि TalkBack सोबत तपासले आहे. तुमच्या भागाचा नकाशा डाउनलोड केल्यानंतर, आजूबाजूचे रस्ते आणि ठिकाणे जाणून घेण्यासाठी स्क्रीनला स्पर्श करून बोट फिरवा.</string>
     <string name="talkback_required_open_settings">अ‍ॅक्सेसिबिलिटी सेटिंग्ज उघडा</string>
 
     <string name="menu_gallery">गॅलरी</string>

@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Paramètres</string>
-    <string name="talkback_required_title">TalkBack requis</string>
-    <string name="talkback_required_message">Cette application est conçue pour fonctionner avec TalkBack, qui doit être activé pour qu\'elle fonctionne correctement. Après avoir téléchargé la carte de votre zone, touchez l\'écran et déplacez votre doigt pour explorer les rues et les points autour de vous.</string>
+    <string name="talkback_required_title">Conçue pour les lecteurs d’écran</string>
+    <string name="talkback_required_message">Cette application est conçue pour être utilisée avec un lecteur d’écran et a été testée avec TalkBack. Après avoir téléchargé la carte de votre zone, touchez l’écran et déplacez votre doigt pour explorer les rues et les points autour de vous.</string>
     <string name="talkback_required_open_settings">Ouvrir les paramètres d\'accessibilité</string>
 
     <string name="menu_gallery">Galerie</string>

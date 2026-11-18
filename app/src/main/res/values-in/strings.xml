@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Pengaturan</string>
-    <string name="talkback_required_title">TalkBack diperlukan</string>
-    <string name="talkback_required_message">Aplikasi ini dirancang untuk bekerja dengan TalkBack, dan TalkBack harus diaktifkan agar aplikasi berfungsi dengan benar. Setelah mengunduh peta untuk area Anda, sentuh dan gerakkan jari di layar untuk menjelajahi jalan dan titik di sekitar Anda.</string>
+    <string name="talkback_required_title">Dirancang untuk pembaca layar</string>
+    <string name="talkback_required_message">Aplikasi ini dirancang untuk digunakan dengan pembaca layar dan telah diuji dengan TalkBack. Setelah mengunduh peta area Anda, sentuh dan gerakkan jari di layar untuk menjelajahi jalan dan tempat di sekitar Anda.</string>
     <string name="talkback_required_open_settings">Buka Pengaturan Aksesibilitas</string>
 
     <string name="menu_gallery">Galeri</string>

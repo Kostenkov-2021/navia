@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">સેટિંગ્સ</string>
-    <string name="talkback_required_title">TalkBack જરૂરી છે</string>
-    <string name="talkback_required_message">આ ઍપ TalkBack સાથે કામ કરવા માટે ડિઝાઇન કરવામાં આવી છે, અને ઍપ યોગ્ય રીતે કામ કરે તે માટે TalkBack ચાલુ હોવું જરૂરી છે. તમારા વિસ્તારનો નકશો ડાઉનલોડ કર્યા પછી, તમારી આસપાસના રસ્તાઓ અને સ્થળોને શોધવા માટે સ્ક્રીનને સ્પર્શ કરો અને તમારી આંગળી ફેરવો.</string>
+    <string name="talkback_required_title">સ્ક્રીન રીડર માટે બનાવેલ</string>
+    <string name="talkback_required_message">આ એપ સ્ક્રીન રીડર સાથે વાપરવા માટે બનાવવામાં આવી છે અને TalkBack સાથે ચકાસવામાં આવી છે. તમારા વિસ્તારનો નકશો ડાઉનલોડ કર્યા પછી, તમારી આસપાસની શેરીઓ અને સ્થળો જાણવા સ્ક્રીનને સ્પર્શ કરીને આંગળી ફેરવો.</string>
     <string name="talkback_required_open_settings">ઍક્સેસિબિલિટી સેટિંગ્સ ખોલો</string>
 
     <string name="menu_gallery">ગેલેરી</string>

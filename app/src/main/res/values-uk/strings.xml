@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Налаштування</string>
-    <string name="talkback_required_title">Потрібен TalkBack</string>
-    <string name="talkback_required_message">Цей додаток розроблено для роботи з TalkBack, і TalkBack має бути увімкнено, щоб додаток працював належним чином. Після завантаження карти для вашої місцевості торкніться екрана та проведіть пальцем, щоб дослідити вулиці та точки навколо вас.</string>
+    <string name="talkback_required_title">Створено для програм зчитування з екрана</string>
+    <string name="talkback_required_message">Цей застосунок створено для використання з програмою зчитування з екрана, його протестовано з TalkBack. Після завантаження мапи свого району торкніться екрана й водіть по ньому пальцем, щоб дослідити вулиці та місця навколо вас.</string>
     <string name="talkback_required_open_settings">Відкрити налаштування спеціальних можливостей</string>
 
     <string name="menu_gallery">Галерея</string>

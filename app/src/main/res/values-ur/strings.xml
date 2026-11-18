@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">ترتیبات</string>
-    <string name="talkback_required_title">TalkBack درکار ہے</string>
-    <string name="talkback_required_message">یہ ایپ TalkBack کے ساتھ کام کرنے کے لیے بنائی گئی ہے، اور ایپ کے صحیح طریقے سے کام کرنے کے لیے TalkBack کا آن ہونا ضروری ہے۔ اپنے علاقے کا نقشہ ڈاؤن لوڈ کرنے کے بعد، اپنے ارد گرد کی سڑکوں اور مقامات کو دریافت کرنے کے لیے اسکرین کو چھوئیں اور اپنی انگلی حرکت دیں۔</string>
+    <string name="talkback_required_title">اسکرین ریڈر کے لیے بنایا گیا</string>
+    <string name="talkback_required_message">یہ ایپ اسکرین ریڈر کے ساتھ استعمال کے لیے بنائی گئی ہے اور TalkBack کے ساتھ جانچی گئی ہے۔ اپنے علاقے کا نقشہ ڈاؤن لوڈ کرنے کے بعد، اپنے اردگرد کی گلیوں اور مقامات کو جاننے کے لیے اسکرین کو چھو کر انگلی حرکت دیں۔</string>
     <string name="talkback_required_open_settings">رسائی کی ترتیبات کھولیں</string>
 
     <string name="menu_gallery">گیلری</string>

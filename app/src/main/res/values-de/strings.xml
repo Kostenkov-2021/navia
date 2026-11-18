@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Einstellungen</string>
-    <string name="talkback_required_title">TalkBack erforderlich</string>
-    <string name="talkback_required_message">Diese App wurde für die Nutzung mit TalkBack entwickelt, und TalkBack muss aktiviert sein, damit die App korrekt funktioniert. Berühre und bewege deinen Finger auf dem Bildschirm, nachdem du die Karte für deine Umgebung heruntergeladen hast, um die Straßen und Punkte um dich herum zu erkunden.</string>
+    <string name="talkback_required_title">Für Screenreader entwickelt</string>
+    <string name="talkback_required_message">Diese App ist für die Nutzung mit einem Screenreader entwickelt und wurde mit TalkBack getestet. Nachdem Sie die Karte für Ihre Umgebung heruntergeladen haben, berühren Sie den Bildschirm und bewegen Sie den Finger darüber, um die Straßen und Orte um Sie herum zu erkunden.</string>
     <string name="talkback_required_open_settings">Bedienungshilfen öffnen</string>
 
     <string name="menu_gallery">Galerie</string>

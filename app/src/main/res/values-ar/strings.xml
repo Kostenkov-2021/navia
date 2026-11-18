@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">الإعدادات</string>
-    <string name="talkback_required_title">تفعيل TalkBack مطلوب</string>
-    <string name="talkback_required_message">تم تصميم هذا التطبيق للعمل مع TalkBack، ويجب تفعيل TalkBack ليعمل التطبيق بشكل صحيح. بعد تنزيل الخريطة لمنطقتك، المس الشاشة وحرّك إصبعك عليها لاستكشاف الشوارع والنقاط من حولك.</string>
+    <string name="talkback_required_title">مصمم لقارئات الشاشة</string>
+    <string name="talkback_required_message">هذا التطبيق مصمم للاستخدام مع قارئ الشاشة وتم اختباره مع TalkBack. بعد تنزيل خريطة منطقتك، المس الشاشة وحرّك إصبعك عليها لاستكشاف الشوارع والنقاط من حولك.</string>
     <string name="talkback_required_open_settings">فتح إعدادات إمكانية الوصول</string>
 
     <string name="menu_gallery">المعرض</string>

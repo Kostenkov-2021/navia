@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Ρυθμίσεις</string>
-    <string name="talkback_required_title">Απαιτείται το TalkBack</string>
-    <string name="talkback_required_message">Αυτή η εφαρμογή έχει σχεδιαστεί για να λειτουργεί με το TalkBack, το οποίο πρέπει να είναι ενεργοποιημένο για να λειτουργεί σωστά η εφαρμογή. Αφού κατεβάσετε τον χάρτη για την περιοχή σας, αγγίξτε και μετακινήστε το δάχτυλό σας στην οθόνη για να εξερευνήσετε τους δρόμους και τα σημεία γύρω σας.</string>
+    <string name="talkback_required_title">Σχεδιασμένη για αναγνώστες οθόνης</string>
+    <string name="talkback_required_message">Αυτή η εφαρμογή έχει σχεδιαστεί για χρήση με αναγνώστη οθόνης και έχει δοκιμαστεί με το TalkBack. Αφού κατεβάσετε τον χάρτη της περιοχής σας, αγγίξτε και μετακινήστε το δάχτυλό σας στην οθόνη για να εξερευνήσετε τους δρόμους και τα σημεία γύρω σας.</string>
     <string name="talkback_required_open_settings">Άνοιγμα ρυθμίσεων προσβασιμότητας</string>
 
     <string name="menu_gallery">Συλλογή</string>

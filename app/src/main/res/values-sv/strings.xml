@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Inställningar</string>
-    <string name="talkback_required_title">TalkBack krävs</string>
-    <string name="talkback_required_message">Den här appen är utformad för att fungera med TalkBack, och TalkBack måste vara aktiverat för att appen ska fungera korrekt. Efter att du har laddat ner kartan för ditt område, rör vid och för fingret över skärmen för att utforska gatorna och punkterna runt dig.</string>
+    <string name="talkback_required_title">Utformad för skärmläsare</string>
+    <string name="talkback_required_message">Den här appen är utformad för att användas med en skärmläsare och har testats med TalkBack. När du har laddat ned kartan över ditt område kan du röra vid skärmen och dra fingret för att utforska gatorna och platserna omkring dig.</string>
     <string name="talkback_required_open_settings">Öppna tillgänglighetsinställningar</string>
 
     <string name="menu_gallery">Galleri</string>

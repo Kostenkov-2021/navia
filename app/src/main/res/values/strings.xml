@@ -3,8 +3,8 @@
     <string name="safety_warning_title">Important safety warning</string>
     <string name="safety_warning_message">Never base your movement on what this app says. For technical reasons – limits of GPS and other measuring tools, map data errors and software faults – its information may be wrong. Always use safe methods such as a white cane or a guide dog, and treat this app only as an extra aid.</string>
     <string name="safety_warning_accept">I understand and accept</string>
-    <string name="talkback_required_title">TalkBack required</string>
-    <string name="talkback_required_message">This app is designed to work with TalkBack, and TalkBack must be turned on for the app to work correctly. After downloading the map for your area, touch and move your finger on the screen to explore the streets and points around you.</string>
+    <string name="talkback_required_title">Designed for screen readers</string>
+    <string name="talkback_required_message">This app is designed to be used with a screen reader and has been tested with TalkBack. After downloading the map for your area, touch and move your finger on the screen to explore the streets and points around you.</string>
     <string name="talkback_required_open_settings">Open Accessibility Settings</string>
 
     <string name="menu_gallery">Gallery</string>

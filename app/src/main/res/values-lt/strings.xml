@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Nustatymai</string>
-    <string name="talkback_required_title">Reikalinga TalkBack</string>
-    <string name="talkback_required_message">Ši programa sukurta veikti kartu su TalkBack, todėl, kad programa veiktų tinkamai, TalkBack turi būti įjungta. Atsisiuntę savo vietovės žemėlapį, palieskite ekraną ir vedžiokite pirštą, kad tyrinėtumėte aplinkines gatves ir taškus.</string>
+    <string name="talkback_required_title">Sukurta ekrano skaitytuvams</string>
+    <string name="talkback_required_message">Ši programėlė sukurta naudoti su ekrano skaitytuvu ir išbandyta su TalkBack. Atsisiuntę savo vietovės žemėlapį, palieskite ekraną ir judinkite pirštą, kad ištyrinėtumėte aplinkines gatves ir vietas.</string>
     <string name="talkback_required_open_settings">Atidaryti pritaikymo neįgaliesiems nustatymus</string>
 
     <string name="menu_gallery">Galerija</string>

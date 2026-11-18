@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">அமைப்புகள்</string>
-    <string name="talkback_required_title">டாக்பேக் தேவை</string>
-    <string name="talkback_required_message">இந்த ஆப் டாக்பேக்குடன் இயங்குவதற்காக வடிவமைக்கப்பட்டுள்ளது, மேலும் ஆப் சரியாக செயல்பட டாக்பேக் இயக்கப்பட்டிருக்க வேண்டும். உங்கள் பகுதிக்கான வரைபடத்தைப் பதிவிறக்கிய பிறகு, உங்களைச் சுற்றியுள்ள தெருக்கள் மற்றும் இடங்களை ஆராய திரையில் விரலால் தொட்டு நகர்த்தவும்.</string>
+    <string name="talkback_required_title">திரை வாசிப்பான்களுக்காக வடிவமைக்கப்பட்டது</string>
+    <string name="talkback_required_message">இந்த ஆப் திரை வாசிப்பானுடன் பயன்படுத்த வடிவமைக்கப்பட்டது, TalkBack உடன் சோதிக்கப்பட்டது. உங்கள் பகுதியின் வரைபடத்தைப் பதிவிறக்கிய பிறகு, உங்களைச் சுற்றியுள்ள தெருக்களையும் இடங்களையும் அறிய திரையைத் தொட்டு விரலை நகர்த்துங்கள்.</string>
     <string name="talkback_required_open_settings">அணுகல்தன்மை அமைப்புகளைத் திற</string>
 
     <string name="menu_gallery">கேலரி</string>

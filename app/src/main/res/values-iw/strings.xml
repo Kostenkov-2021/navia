@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">הגדרות</string>
-    <string name="talkback_required_title">נדרש TalkBack</string>
-    <string name="talkback_required_message">אפליקציה זו מיועדת לעבוד עם TalkBack, ויש להפעיל את TalkBack כדי שהאפליקציה תפעל כראוי. לאחר הורדת המפה לאזור שלך, גע והזז את האצבע על המסך כדי לחקור את הרחובות והנקודות סביבך.</string>
+    <string name="talkback_required_title">מיועדת לקוראי מסך</string>
+    <string name="talkback_required_message">האפליקציה מיועדת לשימוש עם קורא מסך ונבדקה עם TalkBack. לאחר הורדת המפה של האזור שלך, גע במסך והזז עליו את האצבע כדי לחקור את הרחובות והמקומות סביבך.</string>
     <string name="talkback_required_open_settings">פתיחת הגדרות נגישות</string>
 
     <string name="menu_gallery">גלריה</string>

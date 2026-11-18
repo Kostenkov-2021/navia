@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">Ustawienia</string>
-    <string name="talkback_required_title">Wymagany TalkBack</string>
-    <string name="talkback_required_message">Ta aplikacja została zaprojektowana do współpracy z TalkBackiem, który musi być włączony, aby aplikacja działała poprawnie. Po pobraniu mapy dla swojej okolicy dotknij ekranu i przesuwaj po nim palcem, aby poznać ulice i punkty wokół siebie.</string>
+    <string name="talkback_required_title">Zaprojektowana dla czytników ekranu</string>
+    <string name="talkback_required_message">Ta aplikacja jest zaprojektowana do używania z czytnikiem ekranu i została przetestowana z TalkBack. Po pobraniu mapy swojej okolicy dotknij ekranu i przesuwaj po nim palcem, aby poznać ulice i miejsca wokół siebie.</string>
     <string name="talkback_required_open_settings">Otwórz ustawienia ułatwień dostępu</string>
 
     <string name="menu_gallery">Galeria</string>

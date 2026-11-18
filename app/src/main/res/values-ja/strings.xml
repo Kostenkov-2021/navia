@@ -1,7 +1,7 @@
 <resources>
     <string name="action_settings">設定</string>
-    <string name="talkback_required_title">TalkBackが必要です</string>
-    <string name="talkback_required_message">このアプリはTalkBackと連携して動作するように設計されています。正しく動作させるにはTalkBackをオンにする必要があります。お住まいの地域の地図をダウンロードしたら、画面に指を触れて動かし、周囲の道路や地点を探索してください。</string>
+    <string name="talkback_required_title">スクリーンリーダー向けに設計</string>
+    <string name="talkback_required_message">このアプリはスクリーンリーダーでの使用を前提に設計されており、TalkBackでテストされています。お住まいの地域の地図をダウンロードしたら、画面に触れて指を動かし、周りの道や地点を探索してください。</string>
     <string name="talkback_required_open_settings">ユーザー補助設定を開く</string>
 
     <string name="menu_gallery">ギャラリー</string>

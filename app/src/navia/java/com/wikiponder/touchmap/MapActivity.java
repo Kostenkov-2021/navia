@@ -270,7 +270,10 @@ public class MapActivity extends BaseActivity
 
 	/** Once per edition, for users updating from an older version (see showTalkBackRequiredNoticeIfFirstRun). */
 	private void showWhatsNewIfUpdated() {
-		if (sharedPreferences.getInt("whats_new_seen", 0) >= WHATS_NEW_EDITION) return;
+		if (sharedPreferences.getInt("whats_new_seen", 0) >= WHATS_NEW_EDITION) {
+			onStartupNoticesDone();
+			return;
+		}
 		sharedPreferences.edit().putInt("whats_new_seen", WHATS_NEW_EDITION).apply();
 
 		talkBackNoticeShowing = true;
@@ -284,10 +287,24 @@ public class MapActivity extends BaseActivity
 
 	private void onStartupNoticeDismissed() {
 		talkBackNoticeShowing = false;
+		onStartupNoticesDone();
 		if (pendingStartupDownloadCheckLocation != null) {
 			Location location = pendingStartupDownloadCheckLocation;
 			pendingStartupDownloadCheckLocation = null;
 			checkAndShowStartupDownloadPrompt(location);
+		}
+	}
+
+	/** True once the startup notices (safety warning, TalkBack notice, What's New) are all closed.
+	 * Permissions are only asked after that, so a new user reads the warning before any system
+	 * permission dialog appears. */
+	private boolean startupNoticesDone;
+
+	private void onStartupNoticesDone() {
+		startupNoticesDone = true;
+		// onResume asks when the activity is resumed later (e.g. back from accessibility settings).
+		if (getLifecycle().getCurrentState().isAtLeast(androidx.lifecycle.Lifecycle.State.RESUMED)) {
+			checkRequiredPermissions();
 		}
 	}
 
@@ -519,7 +536,7 @@ public class MapActivity extends BaseActivity
 		updateRenderMapFlag();
 		// The app's language may have been changed in Android's per-app language settings.
 		MyApplication.getAudioClient(this).setSpeechLocale(MyApplication.getMyApplication(this).getSpeechLocale());
-		checkRequiredPermissions();
+		if (startupNoticesDone) checkRequiredPermissions();
 		MyApplication.getAngleManager(this).addListener(this);
 		AccessibilityManager am = (AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE);
 		if (am != null) {
