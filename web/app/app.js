@@ -44,6 +44,20 @@ const state = {
 };
 state.mpp = ZOOMS[state.zoom] ?? 1;
 
+// Position given in the link, so other apps can open Navia at a place:
+// ?lat=52.37&lon=4.89, ?ll=52.37,4.89, ?q=52.37,4.89 or #52.37,4.89
+const linkedPos = (() => {
+	try {
+		const q = new URLSearchParams(location.search);
+		let lat = parseFloat(q.get('lat')), lon = parseFloat(q.get('lon') ?? q.get('lng'));
+		if (isNaN(lat) || isNaN(lon)) {
+			const m = (q.get('ll') || q.get('q') || location.hash.slice(1)).match(/^\s*(-?\d+(?:\.\d+)?)\s*[,;]\s*(-?\d+(?:\.\d+)?)/);
+			if (m) { lat = parseFloat(m[1]); lon = parseFloat(m[2]); }
+		}
+		return Math.abs(lat) <= 90 && Math.abs(lon) <= 180 ? { lat, lon } : null;
+	} catch { return null; }
+})();
+
 const tiles = new Map();        // "y_x" -> {nodes, ways, env, used}
 const loading = new Set();
 let view = null;                // projected, filtered elements of the current view (see buildView)
@@ -1117,7 +1131,11 @@ function start() {
 		$('tap-start-voice').onclick = () => { $('tap-start').hidden = true; unlockAudio(); speak(t('ready_voice'), { force: true }); };
 		$('tap-start-sr').onclick = () => { setMode('sr'); status(t('sr_mode')); };
 	}
-	if (state.center) {
+	if (linkedPos) {
+		state.center = { ...linkedPos }; state.follow = false;
+		viewChanged();
+		startGps();
+	} else if (state.center) {
 		viewChanged();
 	} else {
 		status(t('finding_location_status'));
