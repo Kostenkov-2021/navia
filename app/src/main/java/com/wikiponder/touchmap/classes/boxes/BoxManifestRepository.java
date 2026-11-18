@@ -54,6 +54,13 @@ public class BoxManifestRepository {
 		return String.format(java.util.Locale.US, "%sbox_%06d.db.gz", BASE_URL, index);
 	}
 
+	/** Fallback for {@link #boxDbUrl} when the direct download fails (Backblaze B2, where boxDbUrl
+	 * redirects, seems blocked in some countries such as Turkey): wikiponder.com fetches the box from
+	 * B2 itself, caches it and redirects to its own copy, or answers 202 while it is still fetching. */
+	public static String boxFallbackUrl(int index) {
+		return "https://wikiponder.com/navia/app/api/box.php?i=" + index;
+	}
+
 	/** Returns the cached manifest if already parsed this process, else parses the newest local copy.
 	 * Blocking — call off the main thread. Throws only if the bundled asset is somehow missing or
 	 * corrupt, which should never happen since it ships with the APK. */

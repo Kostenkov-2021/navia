@@ -33,8 +33,9 @@ const BOX_FETCHES_PER_HOUR = 60;
 const TILE_CACHE_BYTES = 3 * 1024 * 1024 * 1024;
 
 /** Rate limit for box downloads from B2 (only cold boxes count). Exits with 429 when over. */
-function allow_box_fetch() {
-	$f = cache_dir() . '/box_fetches.json';
+function allow_box_fetch(int $perIp = BOX_FETCHES_PER_IP_HOUR, int $global = BOX_FETCHES_PER_HOUR,
+		string $file = 'box_fetches.json') {
+	$f = cache_dir() . '/' . $file;
 	$fh = fopen($f, 'c+');
 	flock($fh, LOCK_EX);
 	$list = json_decode(stream_get_contents($fh) ?: '[]', true) ?: [];
@@ -42,7 +43,7 @@ function allow_box_fetch() {
 	$list = array_values(array_filter($list, fn($e) => $e[0] > $now - 3600));
 	$ip = $_SERVER['REMOTE_ADDR'] ?? '';
 	$mine = count(array_filter($list, fn($e) => $e[1] === $ip));
-	$ok = $mine < BOX_FETCHES_PER_IP_HOUR && count($list) < BOX_FETCHES_PER_HOUR;
+	$ok = $mine < $perIp && count($list) < $global;
 	if ($ok) $list[] = [$now, $ip];
 	ftruncate($fh, 0); rewind($fh); fwrite($fh, json_encode($list));
 	flock($fh, LOCK_UN); fclose($fh);

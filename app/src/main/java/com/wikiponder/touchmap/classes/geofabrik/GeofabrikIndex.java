@@ -506,11 +506,15 @@ public class GeofabrikIndex {
 
 	/** Opens a connection following redirects, including http->https which HttpURLConnection won't do automatically. */
 	public static HttpURLConnection openWithRedirects(String urlStr) throws Exception {
+		return openWithRedirects(urlStr, 30000);
+	}
+
+	public static HttpURLConnection openWithRedirects(String urlStr, int connectTimeoutMs) throws Exception {
 		String current = urlStr;
 		for (int redirects = 0; redirects < 5; redirects++) {
 			URL url = new URL(current);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setConnectTimeout(30000);
+			conn.setConnectTimeout(connectTimeoutMs);
 			conn.setReadTimeout(60000);
 			conn.setInstanceFollowRedirects(false);
 			conn.setRequestProperty("User-Agent", "TouchMap-Android");

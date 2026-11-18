@@ -223,12 +223,64 @@ public class BoxImporter implements Cancellable {
 
 	// ------------------------------------------------------------------ download
 
-	private void downloadBox(BoxManifest.Entry box, File dest, int index, int total,
-							  double completedWeight, double boxWeight) throws Exception {
-		String url = BoxManifestRepository.boxDbUrl(box.index);
+	/** Connect timeout for the direct (Backblaze) download; a blocked host should fail over quickly. */
+	private static final int DIRECT_CONNECT_TIMEOUT_MS = 12000;
+	/** How long to keep asking the fallback while wikiponder.com fetches a box from Backblaze. */
+	private static final long FALLBACK_MAX_WAIT_MS = 10 * 60 * 1000;
+
+	/** Set once a direct download failed in this run; the remaining boxes then use the fallback
+	 * straight away instead of waiting for the same failure again. */
+	boolean directFailed = false;
+
+	/** Device tests only: replaces the direct download url, e.g. with an unreachable host. */
+	static volatile String directUrlForTest;
+
+	void downloadBox(BoxManifest.Entry box, File dest, int index, int total,
+					 double completedWeight, double boxWeight) throws Exception {
 		reportOverall(PHASE_CONNECTING, context.getString(R.string.download_progress_connecting, index, total),
 				completedWeight, boxWeight, 0.0);
-		HttpURLConnection conn = GeofabrikIndex.openWithRedirects(url);
+		if (!directFailed) {
+			try {
+				String direct = directUrlForTest != null ? directUrlForTest : BoxManifestRepository.boxDbUrl(box.index);
+				HttpURLConnection conn = GeofabrikIndex.openWithRedirects(direct, DIRECT_CONNECT_TIMEOUT_MS);
+				receive(conn, dest, index, total, completedWeight, boxWeight);
+				return;
+			} catch (Exception e) {
+				if (cancelled) return;
+				Log.w(TAG, "Direct download of box " + box.index + " failed, using the server fallback", e);
+				directFailed = true;
+			}
+		}
+		HttpURLConnection conn = openFallback(box);
+		if (conn == null) return; // cancelled while waiting
+		receive(conn, dest, index, total, completedWeight, boxWeight);
+	}
+
+	/** Asks wikiponder.com for the box until it answers with the file (it follows the redirect to its
+	 * cached copy), waiting while it answers 202 because it is still fetching the box from Backblaze.
+	 * Returns null if cancelled. */
+	private HttpURLConnection openFallback(BoxManifest.Entry box) throws Exception {
+		String url = BoxManifestRepository.boxFallbackUrl(box.index);
+		long deadline = android.os.SystemClock.elapsedRealtime() + FALLBACK_MAX_WAIT_MS;
+		while (true) {
+			if (cancelled) return null;
+			HttpURLConnection conn = GeofabrikIndex.openWithRedirects(url);
+			int code = conn.getResponseCode();
+			if (code == HttpURLConnection.HTTP_OK) return conn;
+			int retryAfterSec = conn.getHeaderFieldInt("Retry-After", 5);
+			conn.disconnect();
+			if (code != HttpURLConnection.HTTP_ACCEPTED) throw new Exception("Download HTTP " + code);
+			if (android.os.SystemClock.elapsedRealtime() > deadline) {
+				throw new Exception("The map server is still preparing this area. Please try again later.");
+			}
+			long waitMs = Math.max(2, Math.min(30, retryAfterSec)) * 1000L;
+			for (long waited = 0; waited < waitMs && !cancelled; waited += 250) Thread.sleep(250);
+		}
+	}
+
+	/** Streams an open connection's body into {@code dest}, reporting download progress. */
+	private void receive(HttpURLConnection conn, File dest, int index, int total,
+						 double completedWeight, double boxWeight) throws Exception {
 		activeConnection = conn;
 		try {
 			int code = conn.getResponseCode();
