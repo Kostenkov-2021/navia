@@ -914,6 +914,18 @@ public class MapTileManager {
 		}
 	}
 
+	/** Same answer as {@link #isTileImported}, but from the in-memory list of downloaded boxes, so it is
+	 * safe on the main thread. Null while that list is still loading: "unknown", not "not downloaded". */
+	public Boolean isTileImportedCached(Location location) {
+		double[][] boxes = OSMDatabaseHelper.importedBoxBounds(context);
+		if (boxes == null) return null;
+		double lat = location.getLatitude(), lon = location.getLongitude();
+		for (double[] b : boxes) {
+			if (b[0] <= lat && b[1] >= lat && b[2] <= lon && b[3] >= lon) return true;
+		}
+		return false;
+	}
+
 	/** True if the downloaded box covering this location is older than {@code currentMapVersion}.
 	 * False when the area was never downloaded. */
 	public boolean isTileOutdated(Location location, int currentMapVersion) {

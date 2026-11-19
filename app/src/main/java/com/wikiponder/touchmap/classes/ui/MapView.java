@@ -146,15 +146,6 @@ public class MapView extends View {
 	private boolean isTouching = false;
 	// Last tile for which "no map here" was announced, so dragging within it doesn't repeat.
 	private Point lastAnnouncedMissingTile = null;
-	// Debounce for isTileImported() (a synchronous db query): handleTab runs on every touch-move/
-	// hover-move frame, and without this it re-queries the db every single frame while exploring or
-	// dragging across empty space (water, gaps between points) — competing with MapTileManager's own
-	// cache-reload queries for the small SQLite connection pool and, since this runs on the main
-	// thread, delaying whatever else is queued on it (including BackgroundService's GPS/compass
-	// callbacks, which is why that could show up as announcements going briefly quiet right after
-	// scrolling the map). Only re-queried when the touched tile actually changes.
-	private Point lastCheckedImportedTile = null;
-	private boolean lastCheckedImportedResult = false;
 
 	private UpdateListener updateListener;
 	private boolean isCenteredOnUser = true;
@@ -1263,10 +1254,6 @@ public class MapView extends View {
 			case MotionEvent.ACTION_HOVER_EXIT:
 				isTouching = false;
 				lastAnnouncedMissingTile = null;
-				// Bounded to one touch session: a stale "not imported" result must never survive past
-				// it, since a download can finish (see MapTileManager.reloadCurrentArea) while the user
-				// isn't actively touching, and the next touch session on that same tile must re-check.
-				lastCheckedImportedTile = null;
 				copyMapRotationBuffer();
 				copycenterLocationBuffer();
 				if (updateListener != null)
@@ -1314,7 +1301,6 @@ public class MapView extends View {
 			case MotionEvent.ACTION_CANCEL:
 				isTouching = false;
 				lastAnnouncedMissingTile = null;
-				lastCheckedImportedTile = null; // see the ACTION_HOVER_EXIT case for why this resets here too
 				// Missing here (unlike the ACTION_HOVER_EXIT case below) meant AnnouncementManager.isTouching
 				// — set true by onTouchStart on ACTION_DOWN above — never got reset back to false for any
 				// gesture that goes through onTouchEvent rather than dispatchHoverEvent (a two-finger pan
@@ -1400,21 +1386,14 @@ public class MapView extends View {
 		if (minDistance > maxAllowedDistance || updateListener == null) {
 			// Nothing real (or world-place) found in range: if this specific tile has no imported
 			// map data at all, let the user know they can download it — once per tile visited, so
-			// dragging across a big empty area doesn't repeat the announcement. isTileImported() is a
-			// db query, so it's only actually re-run when the touched tile changes (see
-			// lastCheckedImportedTile) rather than on every single touch-move frame this branch is hit.
+			// dragging across a big empty area doesn't repeat the announcement.
 			if (updateListener != null) {
 				int[] idx = Utils.latLonToIndex(touchLocation.getLatitude(), touchLocation.getLongitude());
 				Point tile = new Point(idx[0], idx[1]);
-				boolean imported;
-				if (tile.equals(lastCheckedImportedTile)) {
-					imported = lastCheckedImportedResult;
-				} else {
-					imported = MyApplication.getMapTileManager(context).isTileImported(touchLocation);
-					lastCheckedImportedTile = tile;
-					lastCheckedImportedResult = imported;
-				}
-				if (!imported && !tile.equals(lastAnnouncedMissingTile)) {
+				// From the in-memory list of downloaded boxes (no db access here: this runs on the main
+				// thread). Null means that list is still loading, which is not "not downloaded".
+				Boolean imported = MyApplication.getMapTileManager(context).isTileImportedCached(touchLocation);
+				if (imported != null && !imported && !tile.equals(lastAnnouncedMissingTile)) {
 					lastAnnouncedMissingTile = tile;
 					updateListener.onUndownloadedAreaTouched(touchLocation);
 				}

@@ -119,6 +119,7 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 		} finally {
 			db.endTransaction();
 		}
+		invalidateImportedBoxes(context);
 	}
 
 	public static void insertNode(Long id, Location location, String name) {
@@ -182,6 +183,7 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 		cv.put("max_lon", maxLon);
 		getInstance(context).getWritableDatabase()
 				.insertWithOnConflict("imported_boxes", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+		invalidateImportedBoxes(context);
 	}
 
 	public static void deleteNode(Context context, long id) {
@@ -325,6 +327,56 @@ public class OSMDatabaseHelper extends SQLiteOpenHelper {
 				"  PRIMARY KEY(cell_x, cell_y, feature_id)" +
 				");");
 		db.execSQL("CREATE INDEX IF NOT EXISTS env_cells_feature ON env_cells(feature_id);");
+	}
+
+	// In-memory copy of imported_boxes' bounding boxes (min_lat, max_lat, min_lon, max_lon), so the
+	// touch handler can ask "is this area downloaded" without a db query: the db has a single
+	// connection, and a main-thread query waits for every tile load running on another thread (an ANR
+	// on a phone short of memory). Loaded in the background; reset whenever the table changes.
+	private static volatile double[][] importedBoxBounds = null;
+	private static final java.util.concurrent.atomic.AtomicInteger importedBoxesGeneration =
+			new java.util.concurrent.atomic.AtomicInteger();
+	private static final java.util.concurrent.atomic.AtomicBoolean importedBoxesLoading =
+			new java.util.concurrent.atomic.AtomicBoolean();
+
+	/** Call after imported_boxes changed. Drops the in-memory copy and reloads it in the background. */
+	public static void invalidateImportedBoxes(Context context) {
+		importedBoxesGeneration.incrementAndGet();
+		importedBoxBounds = null;
+		loadImportedBoxesAsync(context);
+	}
+
+	/** The downloaded boxes' bounds, or null while they are still being loaded (never blocks). */
+	public static double[][] importedBoxBounds(Context context) {
+		double[][] b = importedBoxBounds;
+		if (b == null) loadImportedBoxesAsync(context);
+		return b;
+	}
+
+	private static void loadImportedBoxesAsync(Context context) {
+		if (!importedBoxesLoading.compareAndSet(false, true)) return;
+		final Context app = context.getApplicationContext();
+		new Thread(() -> {
+			try {
+				int gen;
+				do {
+					gen = importedBoxesGeneration.get();
+					List<double[]> rows = new ArrayList<>();
+					try (Cursor c = getInstance(app).getReadableDatabase().query("imported_boxes",
+							new String[]{"min_lat", "max_lat", "min_lon", "max_lon"}, null, null, null, null, null)) {
+						while (c.moveToNext()) {
+							rows.add(new double[]{c.getDouble(0), c.getDouble(1), c.getDouble(2), c.getDouble(3)});
+						}
+					}
+					// Only keep the result if the table did not change while it was being read.
+					if (gen == importedBoxesGeneration.get()) importedBoxBounds = rows.toArray(new double[0][]);
+				} while (gen != importedBoxesGeneration.get());
+			} catch (RuntimeException e) {
+				Log.w("OSMDatabaseHelper", "Could not load imported boxes", e);
+			} finally {
+				importedBoxesLoading.set(false);
+			}
+		}, "imported-boxes").start();
 	}
 
 	/** True if this box was downloaded before, whatever its version. */

@@ -59,6 +59,7 @@ public class MyApplication extends Application {
 		// first touch reaches the screen, which is what an ANR trace on this device once showed.
 		new Thread(() -> {
 			OSMDatabaseHelper.getInstance(this).getWritableDatabase();
+			OSMDatabaseHelper.importedBoxBounds(this); // starts loading the downloaded-boxes list
 			// Re-applies manually-added points and any local renames/favorites that Auto Backup
 			// restored into user_edits.db but osm.db itself never carries (osm.db is excluded from
 			// backup — see backup_rules.xml). Unconditional and idempotent — see
